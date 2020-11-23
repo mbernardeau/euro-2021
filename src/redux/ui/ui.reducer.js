@@ -9,7 +9,7 @@ import { RESET_GROUP_APPLY_STATUS, RESET_GROUP_CREATE_STATUS } from './ui.action
 
 const initialState = {}
 
-export default (state = initialState, action) => {
+const uiReducer = (state = initialState, action) => {
   switch (action.type) {
     case APPLY_GROUP_FAILED:
       return {
@@ -57,3 +57,5 @@ export default (state = initialState, action) => {
       return state
   }
 }
+
+export default uiReducer

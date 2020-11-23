@@ -21,7 +21,7 @@ const DisplayPrice = ({ groups, userId }) => {
   return (
     <Fragment>
       <br />
-      <Typography gutterBottom variant="subheading">
+      <Typography gutterBottom variant="h2">
         Vous devez encore <b>{somme}€ </b> sur le site de la{' '}
         <a title="Site cagnotte" href="https://www.paypal.com/pools/c/84gsKV8QG8" target="_blank" rel="noreferrer">
           cagnotte

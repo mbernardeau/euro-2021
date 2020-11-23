@@ -20,7 +20,7 @@ const Groups = () => (
       <List dataSource={data.liste1} />
     </div>
     <div>
-      <Typography variant="display1">Exemple phase de groupe</Typography>
+      <Typography variant="body1">Exemple phase de groupe</Typography>
       <div className="table_section">
         <Table header={['France', 'Match nul', 'Allemagne']} rows={[['1.63', '3.42', '6.24']]} />
       </div>

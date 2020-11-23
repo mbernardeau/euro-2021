@@ -21,7 +21,7 @@ import './MyGroups.scss'
 const MyGroups = ({ groups, userId }) =>
   isEmpty(groups) ? null : (
     <Card className="my-groups-card">
-      <Typography gutterBottom variant="headline">
+      <Typography gutterBottom variant="h1">
         Mes tribus
       </Typography>
 

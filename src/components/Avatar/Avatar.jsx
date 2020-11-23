@@ -8,7 +8,7 @@ import './Avatar.scss'
 const InlineAvatar = ({ avatarUrl, displayName }) => (
   <div className="avatar-container">
     <Avatar src={avatarUrl} />
-    <Typography className="avatar-name" variant="subheading">
+    <Typography className="avatar-name" variant="h2">
       {displayName}
     </Typography>
   </div>

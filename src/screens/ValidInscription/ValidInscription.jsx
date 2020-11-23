@@ -16,7 +16,7 @@ import './ValidInscription.scss'
 
 const ValidInscription = ({ groups }) => (
   <Card className="valid-inscription-card">
-    <Typography gutterBottom variant="headline" component="h2">
+    <Typography gutterBottom variant="h1" component="h2">
       Validation des inscriptions
     </Typography>
     <Typography color="textSecondary">

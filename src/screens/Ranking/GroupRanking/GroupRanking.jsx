@@ -32,7 +32,7 @@ class GroupRanking extends Component {
     return (
       <Card className="group-ranking-card">
         <CardContent>
-          <Typography variant="headline" align="center">
+          <Typography variant="h1" align="center">
             {name}
           </Typography>
           <OwnRank users={users} userId={userId} {...other} />

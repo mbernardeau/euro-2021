@@ -55,15 +55,15 @@ class CreateGroup extends Component {
 
     return (
       <Card className="create-group-card">
-        <Typography gutterBottom variant="headline">
+        <Typography gutterBottom variant="h1">
           Créer une tribu
         </Typography>
         <br />
-        <Typography gutterBottom variant="subheading">
+        <Typography gutterBottom variant="h3">
           Créez une tribu pour vous confrontez à vos amis, collègues, famille...
         </Typography>
         <br />
-        <Typography variant="caption">
+        <Typography variant="body2">
           Le prix des tribus est libre. Pour une tribu gratuite, laissez le champ &quot;Prix à payer
           par personne&quot; vide.
         </Typography>
@@ -96,7 +96,7 @@ class CreateGroup extends Component {
             disabled={!this.isFormValid()}
             onClick={this.createGroup}
             color="primary"
-            variant="raised"
+            variant="contained"
           >
             Envoyer la demande
           </Button>

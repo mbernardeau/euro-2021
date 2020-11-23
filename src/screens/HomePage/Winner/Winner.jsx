@@ -42,7 +42,7 @@ class Winner extends Component {
 
     return (
       <Card className="winner-card">
-        <Typography className="winner-typo" gutterBottom variant="headline" component="h2">
+        <Typography className="winner-typo" gutterBottom variant="h1" component="h2">
           Choix du vainqueur final
         </Typography>
         <Typography className="winner-typo" color="textSecondary">

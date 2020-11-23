@@ -22,11 +22,11 @@ const getMessage = (goodScore, goodWinner, hasBet) => {
 }
 
 const getOdd = (odds, winner) =>
-  ({
-    A: odds.A,
-    B: odds.B,
-    N: odds.N,
-  }[winner])
+({
+  A: odds.A,
+  B: odds.B,
+  N: odds.N,
+}[winner])
 
 const getCalculus = (odds, winner, goodScore, goodWinner) => {
   const odd = getOdd(odds, winner)
@@ -46,13 +46,12 @@ const PointsWon = ({ pointsWon, scores, betTeamA, betTeamB, odds }) => {
 
   return (
     <div className="points-won-container">
-      <Typography variant="subheading">{getMessage(goodScore, goodWinner, hasBet)}</Typography>
+      <Typography variant="h4">{getMessage(goodScore, goodWinner, hasBet)}</Typography>
       <div className="points-won-container">
         <Typography
-          variant="display1"
-          className={`points-won ${goodScore ? 'good-score' : ''} ${
-            goodWinner ? 'good-winner' : ''
-          }`}
+          variant="body1"
+          className={`points-won ${goodScore ? 'good-score' : ''} ${goodWinner ? 'good-winner' : ''
+            }`}
         >
           {pointsWon > 0 ? '+' : ''} {pointsWon || 0} point{pointsWon > 1 ? 's' : ''}
         </Typography>

@@ -8,8 +8,8 @@ import Typography from '@material-ui/core/Typography'
 const Stadium = ({ stadium }) => (
   <Card style={styles.card}>
     <CardContent>
-      <Typography type="headline">{stadium.name}</Typography>
-      <Typography type="body1">{stadium.city}</Typography>
+      <Typography variant="h6">{stadium.name}</Typography>
+      <Typography variant="body1">{stadium.city}</Typography>
     </CardContent>
     {stadium.photo && (
       <CardMedia style={{ height: 200 }} image={stadium.photo.url} title={stadium.name} />

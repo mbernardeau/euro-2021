@@ -5,18 +5,18 @@ import Section from '../component/section'
 const Subscription = () => (
   <Section>
     <Typography variant="display2">Droits d’inscription et mode de qualification</Typography>
-    <Typography variant="display1">Mode de qualification</Typography>
+    <Typography variant="body1">Mode de qualification</Typography>
     <p>
       Il n’y pas d’élimination, tout le monde participe aux pronostics de tous les matchs. Chacun
       des participants garde son nombre de points acquis durant toute la compétition.
     </p>
-    <Typography variant="display1">Droits d’inscription</Typography>
+    <Typography variant="body1">Droits d’inscription</Typography>
     <p>
       Le prix est fixé pour chaque TRIBU déclarée. Il faut s&apos;affranchir du droit d’inscription
       pour activer son compte sur le site. 50 % du prix est reversé à l’association à but
       humanitaire PAM, et les 50 % restants pour la TRIBU choisie.
     </p>
-    <Typography variant="display1">Date de validation des pronostics</Typography>
+    <Typography variant="body1">Date de validation des pronostics</Typography>
     <p>
       <b>
         Les pronostics pour chaque match doivent être remplis sur le site avant le début de ceux-ci.

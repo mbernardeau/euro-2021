@@ -36,40 +36,40 @@ const getMessage = (goodScore, goodWinner, finalWinner, hasBet) => {
 }
 
 const getPhaseCoeff = phase =>
-  ({
-    8: {
-      bonScore: 5,
-      bonVainqueur: 2,
-      bonVainqueurFinal: 2,
-    },
-    4: {
-      bonScore: 8,
-      bonVainqueur: 3,
-      bonVainqueurFinal: 3,
-    },
-    2: {
-      bonScore: 13,
-      bonVainqueur: 5,
-      bonVainqueurFinal: 5,
-    },
-    3: {
-      bonScore: 15,
-      bonVainqueur: 6,
-      bonVainqueurFinal: 6,
-    },
-    1: {
-      bonScore: 22,
-      bonVainqueur: 8,
-      bonVainqueurFinal: 8,
-    },
-  }[phase])
+({
+  8: {
+    bonScore: 5,
+    bonVainqueur: 2,
+    bonVainqueurFinal: 2,
+  },
+  4: {
+    bonScore: 8,
+    bonVainqueur: 3,
+    bonVainqueurFinal: 3,
+  },
+  2: {
+    bonScore: 13,
+    bonVainqueur: 5,
+    bonVainqueurFinal: 5,
+  },
+  3: {
+    bonScore: 15,
+    bonVainqueur: 6,
+    bonVainqueurFinal: 6,
+  },
+  1: {
+    bonScore: 22,
+    bonVainqueur: 8,
+    bonVainqueurFinal: 8,
+  },
+}[phase])
 
 const getOdd = (odds, winner) =>
-  ({
-    A: odds.A,
-    B: odds.B,
-    N: odds.N,
-  }[winner])
+({
+  A: odds.A,
+  B: odds.B,
+  N: odds.N,
+}[winner])
 
 const getOddFinalWinner = (odds, winner) => (winner === 'A' ? odds.P1 : odds.P2)
 
@@ -80,19 +80,17 @@ const getCalculus = (phase, odds, winner, matchFinalWinner, finalWinner, goodSco
 
   if (goodScore)
     return finalWinner
-      ? `🤩 ${phaseCoeff.bonScore} × ${odd} + ${
-          phaseCoeff.bonVainqueurFinal
-        } x ${oddFinal} = ${phaseCoeff.bonScore * odd + phaseCoeff.bonVainqueurFinal * oddFinal}`
+      ? `🤩 ${phaseCoeff.bonScore} × ${odd} + ${phaseCoeff.bonVainqueurFinal
+      } x ${oddFinal} = ${phaseCoeff.bonScore * odd + phaseCoeff.bonVainqueurFinal * oddFinal}`
       : `🤩 ${phaseCoeff.bonScore} × ${odd} = ${4 * odd}`
   if (goodWinner)
     return finalWinner
-      ? `😐 ${phaseCoeff.bonVainqueur} × ${odd} + ${
-          phaseCoeff.bonVainqueurFinal
-        } x ${oddFinal} = ${2 * odd + phaseCoeff.bonVainqueurFinal * oddFinal}`
+      ? `😐 ${phaseCoeff.bonVainqueur} × ${odd} + ${phaseCoeff.bonVainqueurFinal
+      } x ${oddFinal} = ${2 * odd + phaseCoeff.bonVainqueurFinal * oddFinal}`
       : `😐 ${phaseCoeff.bonVainqueur} × ${odd} = ${2 * odd}`
   return finalWinner
     ? `😐 ${phaseCoeff.bonVainqueurFinal} x ${oddFinal} = ${phaseCoeff.bonVainqueurFinal *
-        oddFinal}`
+    oddFinal}`
     : '0 + 0 = 😶'
 }
 
@@ -109,15 +107,14 @@ const PointsWon = ({ phase, pointsWon, scores, betTeamA, betTeamB, betWinner, od
 
   return (
     <div className="points-won-container">
-      <Typography variant="subheading">
+      <Typography variant="h2">
         {getMessage(goodScore, goodWinner, finalWinner, hasBet)}
       </Typography>
       <div className="points-won-container">
         <Typography
-          variant="display1"
-          className={`points-won ${goodScore ? 'good-score' : ''} ${
-            goodWinner ? 'good-winner' : ''
-          }`}
+          variant="body1"
+          className={`points-won ${goodScore ? 'good-score' : ''} ${goodWinner ? 'good-winner' : ''
+            }`}
         >
           {pointsWon > 0 ? '+' : ''} {pointsWon || 0} point{pointsWon > 1 ? 's' : ''}
         </Typography>

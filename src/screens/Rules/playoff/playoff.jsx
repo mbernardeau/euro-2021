@@ -39,7 +39,7 @@ const Playoff = () => (
       </div>
     </div>
     <div>
-      <Typography variant="display1">Exemple phase finale</Typography>
+      <Typography variant="body1">Exemple phase finale</Typography>
       <p>
         <u>Exemple pour un match de 8ème de finale</u> :
       </p>

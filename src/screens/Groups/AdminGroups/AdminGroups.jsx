@@ -18,11 +18,11 @@ import './AdminGroups.scss'
 const AdminGroups = ({ groups }) =>
   isEmpty(groups) ? null : (
     <Card className="admin-groups-card">
-      <Typography gutterBottom variant="headline" component="h2">
+      <Typography gutterBottom variant="h1" component="h2">
         Administration des tribus
       </Typography>
       <br />
-      <Typography gutterBottom variant="subheading">
+      <Typography gutterBottom variant="h3">
         Retrouvez ici les tribus que vous avez créé.
       </Typography>
       <CardContent className="admin-groups-card-content">

@@ -51,7 +51,7 @@ const OddTest = (teams, userTeam) => {
   return (
     teamDisplayed && (
       <Tooltip title="Cote pour la victoire finale" placement="right">
-        <Typography variant="display1" className="winner-choice-odd">
+        <Typography variant="body1" className="winner-choice-odd">
           {teamDisplayed.winOdd}
         </Typography>
       </Tooltip>

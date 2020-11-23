@@ -39,15 +39,15 @@ class JoinGroup extends Component {
 
     return (
       <Card className="join-group-card">
-        <Typography gutterBottom variant="headline">
+        <Typography gutterBottom variant="h1">
           Rejoindre une tribu
         </Typography>
         <br />
-        <Typography gutterBottom variant="subheading">
+        <Typography gutterBottom variant="h3">
           Rejoignez une tribu pour vous confrontez à vos amis, collègues, famille...
         </Typography>
         <br />
-        <Typography variant="caption">
+        <Typography variant="body2">
           Entrez le code qui vous a été fourni par l&apos;administrateur de la tribu.
         </Typography>
 
@@ -68,7 +68,7 @@ class JoinGroup extends Component {
             disabled={!this.state.code}
             onClick={this.applyInGroup}
             color="primary"
-            variant="raised"
+            variant="contained"
           >
             Envoyer la demande
           </Button>

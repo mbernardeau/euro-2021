@@ -16,7 +16,7 @@ const ValidInscriptionRow = ({ user: { displayName, email }, name, price, validA
       {price.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}
     </TableCell>
     <TableCell>
-      <Button variant="raised" color="primary" onClick={validApply}>
+      <Button variant="contained" color="primary" onClick={validApply}>
         Valider
       </Button>
     </TableCell>

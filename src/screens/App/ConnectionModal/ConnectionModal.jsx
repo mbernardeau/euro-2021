@@ -30,11 +30,11 @@ class ConnectionModal extends Component {
       <Fragment>
         <DialogTitle>Connexion</DialogTitle>
         <DialogContent className="auth-btns-container">
-          <Button color="primary" onClick={this.authenticateWithGoogle} variant="raised">
+          <Button color="primary" onClick={this.authenticateWithGoogle} variant="contained">
             <FaGoogle />&nbsp; Connexion avec Google
           </Button>
 
-          <Button color="secondary" onClick={this.authenticateWithFacebook} variant="raised">
+          <Button color="secondary" onClick={this.authenticateWithFacebook} variant="contained">
             <FaFacebook />&nbsp; Connexion avec Facebook
           </Button>
           <br />
