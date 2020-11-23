@@ -34,6 +34,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -58,6 +59,8 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.2.0"
+    "babel-plugin-transform-imports": "^2.0.0",
+    "prettier": "^2.2.0",
+    "source-map-explorer": "^2.5.0"
   }
 }

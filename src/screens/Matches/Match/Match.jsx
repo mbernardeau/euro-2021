@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react'
 
 import PropTypes from 'prop-types'
 
-import { conformsTo, isNumber, isNil } from 'lodash'
+import conformsTo from 'lodash/conformsTo'
+import isNumber from 'lodash/isNumber'
+import isNil from 'lodash/isNil'
 
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
@@ -54,9 +56,9 @@ class Match extends Component {
     return this.props.match.phase === '0'
       ? true
       : this.state.bet.betTeamA !== this.state.bet.betTeamB ||
-          conformsTo(this.state.bet, {
-            betWinner: winnerValidator,
-          })
+      conformsTo(this.state.bet, {
+        betWinner: winnerValidator,
+      })
   }
 
   handleChange = team => ({ target: { value } }) => {
@@ -141,8 +143,8 @@ class Match extends Component {
                 (match.phase === '0' ? (
                   <PointsWon {...match} {...bet} />
                 ) : (
-                  <PointsWonPhase {...match} {...bet} />
-                ))}
+                    <PointsWonPhase {...match} {...bet} />
+                  ))}
               <Divider />
               <MatchInfos match={match} />
               {!past && <ValidIcon valid={this.betSaved()} />}

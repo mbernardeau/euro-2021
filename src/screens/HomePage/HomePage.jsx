@@ -41,7 +41,7 @@ export default class HomePage extends React.PureComponent {
           <br />
           Fans de foot aux grands cœurs, le site s&apos;engage à reverser 50% des gains à
           l&apos;association humanitaire{' '}
-          <a title="Site PAM" href="https://pourunailleursmeilleur.wordpress.com/" target="_blank">
+          <a title="Site PAM" href="https://pourunailleursmeilleur.wordpress.com/" target="_blank" rel="noreferrer">
             PAM - Pour un Ailleurs Meilleur
           </a>.
         </p>

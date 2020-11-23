@@ -8,7 +8,8 @@ import TableHead from '@material-ui/core/TableHead'
 import TableBody from '@material-ui/core/TableBody'
 import Table from '@material-ui/core/Table'
 import Typography from '@material-ui/core/Typography'
-import { map, isEmpty } from 'lodash'
+import map from 'lodash/map'
+import isEmpty from 'lodash/isEmpty'
 
 import AdminGroupRow from './AdminGroupRow'
 

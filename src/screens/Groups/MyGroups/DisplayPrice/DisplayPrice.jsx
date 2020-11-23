@@ -2,8 +2,9 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import { isEmpty } from 'react-redux-firebase'
-
-import { map, filter, sum } from 'lodash'
+import map from 'lodash/map'
+import filter from 'lodash/filter'
+import sum from 'lodash/sum'
 
 import Typography from '@material-ui/core/Typography'
 
@@ -22,7 +23,7 @@ const DisplayPrice = ({ groups, userId }) => {
       <br />
       <Typography gutterBottom variant="subheading">
         Vous devez encore <b>{somme}€ </b> sur le site de la{' '}
-        <a title="Site cagnotte" href="https://www.paypal.com/pools/c/84gsKV8QG8" target="_blank">
+        <a title="Site cagnotte" href="https://www.paypal.com/pools/c/84gsKV8QG8" target="_blank" rel="noreferrer">
           cagnotte
         </a>{' '}
         pour règler votre(vos) inscription(s).

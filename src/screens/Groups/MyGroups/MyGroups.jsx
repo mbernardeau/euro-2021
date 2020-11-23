@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import { map, isEmpty } from 'lodash'
+import map from 'lodash/map'
+import isEmpty from 'lodash/isEmpty'
 
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'

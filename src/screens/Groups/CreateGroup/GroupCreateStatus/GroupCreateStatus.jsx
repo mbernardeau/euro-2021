@@ -23,24 +23,24 @@ const GroupCreateStatus = ({ status, group: { name, joinKey, price }, reason, ha
         {status === 'failed' ? (
           reason
         ) : (
-          <Fragment>
-            {price !== 0 && (
-              <Fragment>
-                Payer {price}€ sur la{' '}
-                <a
-                  title="Site cagnotte"
-                  className="group-create-link"
-                  href="https://www.paypal.com/pools/c/84gsKV8QG8"
-                  target="_blank"
-                >
-                  cagnotte
+            <Fragment>
+              {price !== 0 && (
+                <Fragment>
+                  Payer {price}€ sur la{' '}
+                  <a
+                    title="Site cagnotte"
+                    className="group-create-link"
+                    href="https://www.paypal.com/pools/c/84gsKV8QG8"
+                    target="_blank" rel="noreferrer"
+                  >
+                    cagnotte
                 </a>{' '}
                 pour valider votre inscription !
-              </Fragment>
-            )}
+                </Fragment>
+              )}
             Tribu {name} créée avec la clé <b>{joinKey}</b>.
-          </Fragment>
-        )}
+            </Fragment>
+          )}
       </span>
     }
     action={[

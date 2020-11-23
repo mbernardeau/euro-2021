@@ -138,7 +138,7 @@ export default class FAQPage extends React.PureComponent {
               basées sur le site&nbsp;
               <a
                 href="https://www.unibet.fr/sport/football/coupe-du-monde-2018/tous-les-matchs-coupe-dumonde-2018"
-                target="_blank"
+                target="_blank" rel="noreferrer"
               >
                 UNIBET
               </a>, cotes que nous remettons régulièrement à jour afin que votre jeu soit le plus
@@ -165,7 +165,7 @@ export default class FAQPage extends React.PureComponent {
               Vous pouvez créer un rapport de bug (ou issue), sur le site&nbsp;
               <a
                 href="https://github.com/mbernardeau/Road-to-Russia-2018/issues/new"
-                target="_blank"
+                target="_blank" rel="noreferrer"
               >
                 GitHub du projet
               </a>. Il est aussi possible d&apos;envoyer un mail à roadtorussiaprono2018@gmail.com
@@ -184,7 +184,7 @@ export default class FAQPage extends React.PureComponent {
               Vous pouvez consulter la politique de confidentialité complète{' '}
               <a
                 href="https://github.com/mbernardeau/Road-to-Russia-2018/blob/master/confidentialite.md"
-                target="_blank"
+                target="_blank" rel="noreferrer"
               >
                 ici
               </a>.

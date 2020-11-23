@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import Tooltip from '@material-ui/core/Tooltip'
 
 import find from 'lodash/find'
-import { map } from 'lodash'
+import map from 'lodash/map'
 import moment from 'moment'
 import { COMPETITION_START_DATE } from '../../../App/constants'
 

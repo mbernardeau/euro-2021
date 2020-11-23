@@ -42,7 +42,7 @@ class ConnectionModal extends Component {
             En vous connectant, vous déclarez accepter la&nbsp;
             <a
               href="https://github.com/mbernardeau/Road-to-Russia-2018/blob/master/confidentialite.md"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               politique de confidentialité
             </a>{' '}

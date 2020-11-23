@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { isEmpty } from 'lodash'
+import isEmpty from 'lodash/isEmpty'
 import filter from 'lodash/filter'
 import keyBy from 'lodash/keyBy'
 import groupsReducer from './groups'

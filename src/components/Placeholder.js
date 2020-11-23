@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
-import { isFunction } from 'lodash'
+import isFunction from 'lodash/isFunction'
 
 export default ({ isLoaded, ...placeholderConfig }) => ComposedComponent => props => {
   const ready = isFunction(isLoaded) ? isLoaded(props) : isLoaded

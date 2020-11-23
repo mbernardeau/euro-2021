@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { map, range } from 'lodash'
+import map from 'lodash/map'
+import range from 'lodash/range'
 import Flag from '../../../../components/Flag'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'

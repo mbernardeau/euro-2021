@@ -31,7 +31,7 @@ class Ranking extends Component {
             <a
               title="Site cagnotte"
               href="https://www.paypal.com/pools/c/84gsKV8QG8"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               cagnotte
             </a>. Si cela est également fait, veuillez attendre la validation des administrateurs.
@@ -39,17 +39,17 @@ class Ranking extends Component {
         </div>
       </Fragment>
     ) : (
-      <Fragment>
-        <AppBar position="fixed" className="ranking-tab-bar">
-          <Tabs value={selectedTab} onChange={this.handleTabChange} centered>
-            {groups.map(group => <Tab key={group.id} label={group.name} />)}
-          </Tabs>
-        </AppBar>
-        <div className="ranking-container">
-          {!isEmpty(groups) && <GroupRanking {...groups[selectedTab]} />}
-        </div>
-      </Fragment>
-    )
+        <Fragment>
+          <AppBar position="fixed" className="ranking-tab-bar">
+            <Tabs value={selectedTab} onChange={this.handleTabChange} centered>
+              {groups.map(group => <Tab key={group.id} label={group.name} />)}
+            </Tabs>
+          </AppBar>
+          <div className="ranking-container">
+            {!isEmpty(groups) && <GroupRanking {...groups[selectedTab]} />}
+          </div>
+        </Fragment>
+      )
   }
 }
 

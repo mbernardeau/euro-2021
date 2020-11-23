@@ -25,24 +25,24 @@ const GroupApplyStatus = ({ status, group: { name, price }, reason, handleClose 
         {status === 'failed' ? (
           reason
         ) : (
-          <Fragment>
-            Demande envoyée pour la tribu <b>{name}</b> !{' '}
-            {price !== 0 && (
-              <Fragment>
-                Payer {price}€ sur la{' '}
-                <a
-                  title="Site cagnotte"
-                  className="group-join-link"
-                  href="https://www.paypal.com/pools/c/84gsKV8QG8"
-                  target="_blank"
-                >
-                  cagnotte
+            <Fragment>
+              Demande envoyée pour la tribu <b>{name}</b> !{' '}
+              {price !== 0 && (
+                <Fragment>
+                  Payer {price}€ sur la{' '}
+                  <a
+                    title="Site cagnotte"
+                    className="group-join-link"
+                    href="https://www.paypal.com/pools/c/84gsKV8QG8"
+                    target="_blank" rel="noreferrer"
+                  >
+                    cagnotte
                 </a>{' '}
                 pour valider votre inscription !
-              </Fragment>
-            )}
-          </Fragment>
-        )}
+                </Fragment>
+              )}
+            </Fragment>
+          )}
       </span>
     }
     action={[
