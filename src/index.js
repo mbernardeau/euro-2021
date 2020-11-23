@@ -11,6 +11,7 @@ import {
 import { createFirestoreInstance } from 'redux-firestore'
 import { createBrowserHistory } from 'history'
 import firebase from 'firebase/app'
+import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 
 // Import root app
 import App from './screens/App'
@@ -65,12 +66,10 @@ const render = () => {
   )
 }
 
-// Install ServiceWorker and AppCache in the end since
-// it's not most important operation and if main code fails,
-// we do not want it installed
-if (process.env.NODE_ENV === 'production') {
-  require('offline-plugin/runtime').install() // eslint-disable-line global-require
-}
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorkerRegistration.unregister();
 
 render()
 
