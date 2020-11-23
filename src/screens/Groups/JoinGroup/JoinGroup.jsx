@@ -21,7 +21,7 @@ class JoinGroup extends Component {
     }
   }
 
-  handleSelection = event => {
+  handleSelection = (event) => {
     this.setState({
       code: event.target.value,
     })
@@ -44,11 +44,13 @@ class JoinGroup extends Component {
         </Typography>
         <br />
         <Typography gutterBottom variant="h3">
-          Rejoignez une tribu pour vous confrontez à vos amis, collègues, famille...
+          Rejoignez une tribu pour vous confrontez à vos amis, collègues,
+          famille...
         </Typography>
         <br />
         <Typography variant="body2">
-          Entrez le code qui vous a été fourni par l&apos;administrateur de la tribu.
+          Entrez le code qui vous a été fourni par l&apos;administrateur de la
+          tribu.
         </Typography>
 
         <CardContent className="join-group-content">

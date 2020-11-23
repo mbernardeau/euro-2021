@@ -15,7 +15,7 @@ class User extends PureComponent {
     open: false,
   }
 
-  handleClick = event => {
+  handleClick = (event) => {
     this.setState({ open: true, anchorEl: event.currentTarget })
   }
 
@@ -42,7 +42,11 @@ class User extends PureComponent {
           <MoreVertIcon />
         </IconButton>
 
-        <Menu open={this.state.open} anchorEl={this.state.anchorEl} onClose={this.handleClose}>
+        <Menu
+          open={this.state.open}
+          anchorEl={this.state.anchorEl}
+          onClose={this.handleClose}
+        >
           <MenuItem onClick={logout}>Se déconnecter</MenuItem>
         </Menu>
       </div>

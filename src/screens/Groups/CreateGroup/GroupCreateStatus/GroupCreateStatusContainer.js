@@ -4,11 +4,11 @@ import { resetGroupCreateStatus } from '../../../../redux/ui'
 
 import GroupCreateStatus from './GroupCreateStatus'
 
-const mapState = state => ({
+const mapState = (state) => ({
   ...state.ui.groupcreate,
 })
 
-const mapDispatch = dispatch => ({
+const mapDispatch = (dispatch) => ({
   handleClose: () => dispatch(resetGroupCreateStatus()),
 })
 

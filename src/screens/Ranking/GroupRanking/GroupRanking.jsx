@@ -29,7 +29,10 @@ const GroupRanking = ({ name, users, userId, members, load, ...other }) => {
         <Table>
           <TableBody>
             {users.map((user, index) => (
-              <TableRow key={user.id} className={user.id === userId ? 'own-ranking-row' : ''}>
+              <TableRow
+                key={user.id}
+                className={user.id === userId ? 'own-ranking-row' : ''}
+              >
                 <TableCell padding="none">
                   <Typography variant="title">#{index + 1}</Typography>
                 </TableCell>
@@ -37,7 +40,8 @@ const GroupRanking = ({ name, users, userId, members, load, ...other }) => {
                   <InlineAvatar {...user} />
                 </TableCell>
                 <TableCell padding="none">
-                  {(user.score || 0).toLocaleString()} point{user.score > 1 && 's'}
+                  {(user.score || 0).toLocaleString()} point
+                  {user.score > 1 && 's'}
                 </TableCell>
               </TableRow>
             ))}

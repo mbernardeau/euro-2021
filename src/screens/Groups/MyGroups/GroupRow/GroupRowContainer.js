@@ -3,7 +3,7 @@ import { getUserId } from '../../../../redux/user'
 
 import GroupRow from './GroupRow'
 
-const mapState = state => ({
+const mapState = (state) => ({
   userId: getUserId(state),
 })
 

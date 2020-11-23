@@ -23,7 +23,12 @@ const Winner = ({ team, saveWinner }) => {
 
   return (
     <Card className="winner-card">
-      <Typography className="winner-typo" gutterBottom variant="h1" component="h2">
+      <Typography
+        className="winner-typo"
+        gutterBottom
+        variant="h1"
+        component="h2"
+      >
         Choix du vainqueur final
       </Typography>
       <Typography className="winner-typo" color="textSecondary">
@@ -35,7 +40,6 @@ const Winner = ({ team, saveWinner }) => {
     </Card>
   )
 }
-
 
 Winner.propTypes = {
   team: PropTypes.string,

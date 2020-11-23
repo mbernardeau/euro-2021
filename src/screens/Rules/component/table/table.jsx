@@ -11,13 +11,17 @@ const RuleTable = ({ header, rows }) => (
   <Table>
     <TableHead>
       <TableRow>
-        {map(header, (headerCol, index) => <TableCell key={index}>{headerCol}</TableCell>)}
+        {map(header, (headerCol, index) => (
+          <TableCell key={index}>{headerCol}</TableCell>
+        ))}
       </TableRow>
     </TableHead>
     <TableBody>
       {map(rows, (row, index) => (
         <TableRow key={index}>
-          {map(row, (col, id) => <TableCell key={id}>{col}</TableCell>)}
+          {map(row, (col, id) => (
+            <TableCell key={id}>{col}</TableCell>
+          ))}
         </TableRow>
       ))}
     </TableBody>

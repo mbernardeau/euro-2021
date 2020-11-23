@@ -8,16 +8,15 @@ import teamsReducer, { fetchTeams } from '../../../../redux/teams'
 
 import WinnerChoice from './WinnerChoice'
 
-const mapState = state => ({
-  teams: orderBy(
-    teamsReducer.get()(state),
-    ['winOdd'],
-    'asc',
-  ),
+const mapState = (state) => ({
+  teams: orderBy(teamsReducer.get()(state), ['winOdd'], 'asc'),
 })
 
-const mapDispatch = dispatch => ({
+const mapDispatch = (dispatch) => ({
   load: () => dispatch(fetchTeams()),
 })
 
-export default compose(connect(mapState, mapDispatch), loader({ print: ['teams'] }))(WinnerChoice)
+export default compose(
+  connect(mapState, mapDispatch),
+  loader({ print: ['teams'] }),
+)(WinnerChoice)

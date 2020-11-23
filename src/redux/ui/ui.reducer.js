@@ -5,7 +5,10 @@ import {
   CREATE_GROUP_SUCCESS,
 } from '../groups'
 
-import { RESET_GROUP_APPLY_STATUS, RESET_GROUP_CREATE_STATUS } from './ui.actions'
+import {
+  RESET_GROUP_APPLY_STATUS,
+  RESET_GROUP_CREATE_STATUS,
+} from './ui.actions'
 
 const initialState = {}
 

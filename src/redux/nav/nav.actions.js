@@ -14,6 +14,6 @@ export const toggleMenu = () => ({
   type: TOGGLE_MENU,
 })
 
-export const setMenuStatus = open => ({
+export const setMenuStatus = (open) => ({
   type: open ? OPEN_MENU : CLOSE_MENU,
 })

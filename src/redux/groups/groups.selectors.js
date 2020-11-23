@@ -5,19 +5,19 @@ import keyBy from 'lodash/keyBy'
 import groupsReducer from './groups'
 import { getUserId } from '../user'
 
-export const getGroupsForUserAdmin = state =>
+export const getGroupsForUserAdmin = (state) =>
   groupsReducer.getBy('createdBy', getUserId(state))(state)
 
 export const getGroupsForUserMember = createSelector(
   getUserId,
   groupsReducer.get(),
-  (userId, groups) => filter(groups, g => g.members && g.members[userId]),
+  (userId, groups) => filter(groups, (g) => g.members && g.members[userId]),
 )
 
 export const getGroupsForUserAwaitingMember = createSelector(
   getUserId,
   groupsReducer.get(),
-  (userId, groups) => filter(groups, g => !isEmpty(g.awaitingMembers)),
+  (userId, groups) => filter(groups, (g) => !isEmpty(g.awaitingMembers)),
 )
 
 export const getGroupsForUser = createSelector(
@@ -31,5 +31,9 @@ export const getGroupsForUser = createSelector(
 
 export const getGroupsContainingAwaitingMembers = createSelector(
   groupsReducer.get(),
-  groups => filter(groups, g => g.awaitingMembers && Object.keys(g.awaitingMembers).length),
+  (groups) =>
+    filter(
+      groups,
+      (g) => g.awaitingMembers && Object.keys(g.awaitingMembers).length,
+    ),
 )

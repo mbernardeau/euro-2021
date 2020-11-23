@@ -37,7 +37,9 @@ const AdminGroups = ({ groups }) =>
             </TableRow>
           </TableHead>
           <TableBody>
-            {map(groups, (group, key) => <AdminGroupRow key={key} {...group} />)}
+            {map(groups, (group, key) => (
+              <AdminGroupRow key={key} {...group} />
+            ))}
           </TableBody>
         </Table>
       </CardContent>

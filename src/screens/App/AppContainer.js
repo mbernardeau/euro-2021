@@ -8,7 +8,7 @@ export default connect(
     user: profile,
     location,
   }),
-  dispatch => ({
+  (dispatch) => ({
     toggleMenu: () => dispatch(toggleMenu()),
   }),
 )(App)

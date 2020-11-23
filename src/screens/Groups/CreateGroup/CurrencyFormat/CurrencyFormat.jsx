@@ -6,7 +6,7 @@ const CurrencyFormat = ({ inputRef, onChange, ...other }) => (
   <NumberFormat
     {...other}
     ref={inputRef}
-    onValueChange={values => {
+    onValueChange={(values) => {
       onChange({
         target: {
           value: values.value,

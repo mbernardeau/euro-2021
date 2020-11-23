@@ -11,10 +11,11 @@ const Groups = () => (
     <div>
       <Typography variant="body2">Règles durant la phase de groupe</Typography>
       <p>
-        Les pronostics fonctionnent avec un système de cotes basé sur celles d’UNIBET. En effet,
-        pour chaque match nous proposons une cote pour chaque résultat possible. Ces cotes
-        multiplieront les points attribués selon les trois différents cas ci-dessous. Nous nous
-        réservons le droit de changer les cotes jusqu’à la veille de chaque match.
+        Les pronostics fonctionnent avec un système de cotes basé sur celles
+        d’UNIBET. En effet, pour chaque match nous proposons une cote pour
+        chaque résultat possible. Ces cotes multiplieront les points attribués
+        selon les trois différents cas ci-dessous. Nous nous réservons le droit
+        de changer les cotes jusqu’à la veille de chaque match.
       </p>
       <p>Les points sont attribués pour les matchs de poules comme suit :</p>
       <List dataSource={data.liste1} />
@@ -22,12 +23,20 @@ const Groups = () => (
     <div>
       <Typography variant="body1">Exemple phase de groupe</Typography>
       <div className="table_section">
-        <Table header={['France', 'Match nul', 'Allemagne']} rows={[['1.63', '3.42', '6.24']]} />
+        <Table
+          header={['France', 'Match nul', 'Allemagne']}
+          rows={[['1.63', '3.42', '6.24']]}
+        />
       </div>
       <br />
       <div className="table_section">
         <Table
-          header={['Type de résultat', 'Score pronostiqués', 'Score réel', 'Points gagnés']}
+          header={[
+            'Type de résultat',
+            'Score pronostiqués',
+            'Score réel',
+            'Points gagnés',
+          ]}
           rows={[
             [
               'bon score',
@@ -64,8 +73,8 @@ const Groups = () => (
         />
       </div>
       <p>
-        <u>Remarque</u> : Des précisions sont données dans la section suivante pour les matchs nuls
-        durant la phase finale.
+        <u>Remarque</u> : Des précisions sont données dans la section suivante
+        pour les matchs nuls durant la phase finale.
       </p>
     </div>
   </Section>

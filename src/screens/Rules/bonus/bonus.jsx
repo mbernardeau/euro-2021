@@ -8,13 +8,14 @@ const Bonus = () => (
       Bonus
     </Typography>
     <p>
-      Chaque joueur pronostique également le champion de la coupe du monde avant le début de cette
-      dernière. Une cote est associée à chacun des pays et en cas de succès, les points gagnés sont
-      ajoutés aux points cumulés durant toute la compétition.
+      Chaque joueur pronostique également le champion de la coupe du monde avant
+      le début de cette dernière. Une cote est associée à chacun des pays et en
+      cas de succès, les points gagnés sont ajoutés aux points cumulés durant
+      toute la compétition.
     </p>
     <p>
-      Ainsi les points sont attribués comme suit : cote du pays vainqueur de la coupe du monde * 3
-      points
+      Ainsi les points sont attribués comme suit : cote du pays vainqueur de la
+      coupe du monde * 3 points
     </p>
   </Section>
 )

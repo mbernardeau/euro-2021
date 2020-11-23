@@ -10,7 +10,9 @@ const StadiumTooltip = ({ name, photo, city, capacity }) => (
       <div>•</div>
       <div>{city}</div>
     </div>
-    {photo && <img className="stadium-tooltip-photo" src={photo.url} alt={name} />}
+    {photo && (
+      <img className="stadium-tooltip-photo" src={photo.url} alt={name} />
+    )}
     <div className="stadium-tooltip-title">
       <div>Capacité</div>
       <div>{capacity.toLocaleString('fr')} places</div>

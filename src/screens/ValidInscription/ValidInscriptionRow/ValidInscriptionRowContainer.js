@@ -17,6 +17,7 @@ const mapDispatch = (dispatch, { userId, id }) => ({
   },
 })
 
-export default compose(connect(mapState, mapDispatch), loader({ print: ['user'] }))(
-  ValidInscriptionRow,
-)
+export default compose(
+  connect(mapState, mapDispatch),
+  loader({ print: ['user'] }),
+)(ValidInscriptionRow)

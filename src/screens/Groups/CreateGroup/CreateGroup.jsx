@@ -22,7 +22,7 @@ class CreateGroup extends Component {
     name: '',
   }
 
-  getNameErrorMessage = name => {
+  getNameErrorMessage = (name) => {
     if (name.length > 0 && name.length < 5) {
       return '5 caractères minimum'
     }
@@ -35,16 +35,17 @@ class CreateGroup extends Component {
     this.setState({ name: '', price: '' })
   }
 
-  isFormValid = () => this.state.name && !this.getNameErrorMessage(this.state.name)
+  isFormValid = () =>
+    this.state.name && !this.getNameErrorMessage(this.state.name)
 
-  handleNameChange = e => {
+  handleNameChange = (e) => {
     this.setState({
       name: e.target.value,
       errorName: this.getNameErrorMessage(e.target.value),
     })
   }
 
-  handlePriceChange = e => {
+  handlePriceChange = (e) => {
     this.setState({
       price: e.target.value,
     })
@@ -64,8 +65,8 @@ class CreateGroup extends Component {
         </Typography>
         <br />
         <Typography variant="body2">
-          Le prix des tribus est libre. Pour une tribu gratuite, laissez le champ &quot;Prix à payer
-          par personne&quot; vide.
+          Le prix des tribus est libre. Pour une tribu gratuite, laissez le
+          champ &quot;Prix à payer par personne&quot; vide.
         </Typography>
 
         <CardContent className="create-group-content">

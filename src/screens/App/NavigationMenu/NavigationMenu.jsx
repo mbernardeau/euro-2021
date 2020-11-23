@@ -15,12 +15,11 @@ import { openPAMTab } from '../../../utils'
 
 import './NavigationMenu.scss'
 
-
-const isConnected = user => !isEmpty(user)
-const isAdmin = user => isConnected(user) && user.admin
+const isConnected = (user) => !isEmpty(user)
+const isAdmin = (user) => isConnected(user) && user.admin
 
 class NavigationMenu extends Component {
-  goTo = to => () => {
+  goTo = (to) => () => {
     const { history, closeMenu } = this.props
     if (history.location.pathname !== to) {
       history.push(to)
@@ -36,7 +35,11 @@ class NavigationMenu extends Component {
         <List>
           {/* Route accessibles sans connexion */}
           <ListItem button onClick={this.goTo('/')}>
-            <img src={WorldCupImg} className="navigation-menu-image" alt="Accueil" />
+            <img
+              src={WorldCupImg}
+              className="navigation-menu-image"
+              alt="Accueil"
+            />
           </ListItem>
           <Divider />
 

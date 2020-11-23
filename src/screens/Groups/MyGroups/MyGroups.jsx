@@ -37,7 +37,11 @@ const MyGroups = ({ groups, userId }) =>
               <TableCell>Statut</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>{map(groups, (group, key) => <GroupRow {...group} key={key} />)}</TableBody>
+          <TableBody>
+            {map(groups, (group, key) => (
+              <GroupRow {...group} key={key} />
+            ))}
+          </TableBody>
         </Table>
       </CardContent>
     </Card>

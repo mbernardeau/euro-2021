@@ -9,10 +9,10 @@ import NavigationMenu from './NavigationMenu'
 
 export default compose(
   connect(
-    state => ({
+    (state) => ({
       open: getMenuOpen(state),
     }),
-    dispatch => ({
+    (dispatch) => ({
       closeMenu: () => dispatch(closeMenu()),
     }),
   ),

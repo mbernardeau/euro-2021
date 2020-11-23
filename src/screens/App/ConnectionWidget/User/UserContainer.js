@@ -7,7 +7,7 @@ import { withRouter } from 'react-router'
 
 import User from './User'
 
-const mapState = state => ({
+const mapState = (state) => ({
   user: getProfile(state),
 })
 
@@ -22,8 +22,5 @@ const mapDispatch = (dispatch, { firebase: { logout }, history }) => ({
 export default compose(
   withRouter,
   firebaseConnect(),
-  connect(
-    mapState,
-    mapDispatch,
-  ),
+  connect(mapState, mapDispatch),
 )(User)

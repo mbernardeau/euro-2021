@@ -35,66 +35,87 @@ const getMessage = (goodScore, goodWinner, finalWinner, hasBet) => {
     : 'Dommage, vous ferez mieux la prochaine fois'
 }
 
-const getPhaseCoeff = phase =>
-({
-  8: {
-    bonScore: 5,
-    bonVainqueur: 2,
-    bonVainqueurFinal: 2,
-  },
-  4: {
-    bonScore: 8,
-    bonVainqueur: 3,
-    bonVainqueurFinal: 3,
-  },
-  2: {
-    bonScore: 13,
-    bonVainqueur: 5,
-    bonVainqueurFinal: 5,
-  },
-  3: {
-    bonScore: 15,
-    bonVainqueur: 6,
-    bonVainqueurFinal: 6,
-  },
-  1: {
-    bonScore: 22,
-    bonVainqueur: 8,
-    bonVainqueurFinal: 8,
-  },
-}[phase])
+const getPhaseCoeff = (phase) =>
+  ({
+    8: {
+      bonScore: 5,
+      bonVainqueur: 2,
+      bonVainqueurFinal: 2,
+    },
+    4: {
+      bonScore: 8,
+      bonVainqueur: 3,
+      bonVainqueurFinal: 3,
+    },
+    2: {
+      bonScore: 13,
+      bonVainqueur: 5,
+      bonVainqueurFinal: 5,
+    },
+    3: {
+      bonScore: 15,
+      bonVainqueur: 6,
+      bonVainqueurFinal: 6,
+    },
+    1: {
+      bonScore: 22,
+      bonVainqueur: 8,
+      bonVainqueurFinal: 8,
+    },
+  }[phase])
 
 const getOdd = (odds, winner) =>
-({
-  A: odds.A,
-  B: odds.B,
-  N: odds.N,
-}[winner])
+  ({
+    A: odds.A,
+    B: odds.B,
+    N: odds.N,
+  }[winner])
 
 const getOddFinalWinner = (odds, winner) => (winner === 'A' ? odds.P1 : odds.P2)
 
-const getCalculus = (phase, odds, winner, matchFinalWinner, finalWinner, goodScore, goodWinner) => {
+const getCalculus = (
+  phase,
+  odds,
+  winner,
+  matchFinalWinner,
+  finalWinner,
+  goodScore,
+  goodWinner,
+) => {
   const odd = getOdd(odds, winner)
   const oddFinal = getOddFinalWinner(odds, matchFinalWinner)
   const phaseCoeff = getPhaseCoeff(phase)
 
   if (goodScore)
     return finalWinner
-      ? `🤩 ${phaseCoeff.bonScore} × ${odd} + ${phaseCoeff.bonVainqueurFinal
-      } x ${oddFinal} = ${phaseCoeff.bonScore * odd + phaseCoeff.bonVainqueurFinal * oddFinal}`
+      ? `🤩 ${phaseCoeff.bonScore} × ${odd} + ${
+          phaseCoeff.bonVainqueurFinal
+        } x ${oddFinal} = ${
+          phaseCoeff.bonScore * odd + phaseCoeff.bonVainqueurFinal * oddFinal
+        }`
       : `🤩 ${phaseCoeff.bonScore} × ${odd} = ${4 * odd}`
   if (goodWinner)
     return finalWinner
-      ? `😐 ${phaseCoeff.bonVainqueur} × ${odd} + ${phaseCoeff.bonVainqueurFinal
-      } x ${oddFinal} = ${2 * odd + phaseCoeff.bonVainqueurFinal * oddFinal}`
+      ? `😐 ${phaseCoeff.bonVainqueur} × ${odd} + ${
+          phaseCoeff.bonVainqueurFinal
+        } x ${oddFinal} = ${2 * odd + phaseCoeff.bonVainqueurFinal * oddFinal}`
       : `😐 ${phaseCoeff.bonVainqueur} × ${odd} = ${2 * odd}`
   return finalWinner
-    ? `😐 ${phaseCoeff.bonVainqueurFinal} x ${oddFinal} = ${phaseCoeff.bonVainqueurFinal *
-    oddFinal}`
+    ? `😐 ${phaseCoeff.bonVainqueurFinal} x ${oddFinal} = ${
+        phaseCoeff.bonVainqueurFinal * oddFinal
+      }`
     : '0 + 0 = 😶'
 }
 
-const PointsWon = ({ phase, pointsWon, scores, betTeamA, betTeamB, betWinner, odds }) => {
+const PointsWon = ({
+  phase,
+  pointsWon,
+  scores,
+  betTeamA,
+  betTeamB,
+  betWinner,
+  odds,
+}) => {
   if (!scores) return null
 
   const { A, B, winner } = scores
@@ -102,8 +123,11 @@ const PointsWon = ({ phase, pointsWon, scores, betTeamA, betTeamB, betWinner, od
   const matchFinalWinner = findFinalWinner(A, B, winner)
   const goodScore = A === betTeamA && B === betTeamB
   const hasBet = isNumber(pointsWon)
-  const goodWinner = !goodScore && hasBet && matchWinner === findWinner(betTeamA, betTeamB)
-  const finalWinner = hasBet && matchFinalWinner === findFinalWinner(betTeamA, betTeamB, betWinner)
+  const goodWinner =
+    !goodScore && hasBet && matchWinner === findWinner(betTeamA, betTeamB)
+  const finalWinner =
+    hasBet &&
+    matchFinalWinner === findFinalWinner(betTeamA, betTeamB, betWinner)
 
   return (
     <div className="points-won-container">
@@ -113,10 +137,12 @@ const PointsWon = ({ phase, pointsWon, scores, betTeamA, betTeamB, betWinner, od
       <div className="points-won-container">
         <Typography
           variant="body1"
-          className={`points-won ${goodScore ? 'good-score' : ''} ${goodWinner ? 'good-winner' : ''
-            }`}
+          className={`points-won ${goodScore ? 'good-score' : ''} ${
+            goodWinner ? 'good-winner' : ''
+          }`}
         >
-          {pointsWon > 0 ? '+' : ''} {pointsWon || 0} point{pointsWon > 1 ? 's' : ''}
+          {pointsWon > 0 ? '+' : ''} {pointsWon || 0} point
+          {pointsWon > 1 ? 's' : ''}
         </Typography>
         <Tooltip
           title={getCalculus(

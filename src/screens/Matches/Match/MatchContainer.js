@@ -20,7 +20,7 @@ const mapDispatch = (dispatch, { matchId, match: { teamA, teamB } }) => ({
     dispatch(fetchTeam(teamA))
     dispatch(fetchTeam(teamB))
   },
-  saveBet: bet => {
+  saveBet: (bet) => {
     dispatch(saveBet(matchId, bet))
   },
 })

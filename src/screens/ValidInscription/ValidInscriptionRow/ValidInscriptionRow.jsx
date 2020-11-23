@@ -5,7 +5,12 @@ import TableCell from '@material-ui/core/TableCell'
 import TableRow from '@material-ui/core/TableRow'
 import Button from '@material-ui/core/Button'
 
-const ValidInscriptionRow = ({ user: { displayName, email }, name, price, validApply }) => (
+const ValidInscriptionRow = ({
+  user: { displayName, email },
+  name,
+  price,
+  validApply,
+}) => (
   <TableRow>
     <TableCell>
       <b>{name}</b>

@@ -5,9 +5,10 @@ import padStart from 'lodash/padStart'
 
 import './Odds.scss'
 
-const toHex = number => padStart(Math.min(Math.round(Math.abs(number)), 255).toString(16), 2, '0')
+const toHex = (number) =>
+  padStart(Math.min(Math.round(Math.abs(number)), 255).toString(16), 2, '0')
 
-const getColor = value => {
+const getColor = (value) => {
   const r = (128 / 13) * (value + 1)
   const g = (-128 / 11) * (value - 12)
   return `#${toHex(r)}${toHex(g)}00`

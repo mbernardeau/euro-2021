@@ -7,7 +7,12 @@ import CloseIcon from '@material-ui/icons/Close'
 
 import './GroupApplyStatus.scss'
 
-const GroupApplyStatus = ({ status, group: { name, price }, reason, handleClose }) => (
+const GroupApplyStatus = ({
+  status,
+  group: { name, price },
+  reason,
+  handleClose,
+}) => (
   <Snackbar
     anchorOrigin={{
       vertical: 'bottom',
@@ -25,28 +30,34 @@ const GroupApplyStatus = ({ status, group: { name, price }, reason, handleClose 
         {status === 'failed' ? (
           reason
         ) : (
-            <Fragment>
-              Demande envoyée pour la tribu <b>{name}</b> !{' '}
-              {price !== 0 && (
-                <Fragment>
-                  Payer {price}€ sur la{' '}
-                  <a
-                    title="Site cagnotte"
-                    className="group-join-link"
-                    href="https://www.paypal.com/pools/c/84gsKV8QG8"
-                    target="_blank" rel="noreferrer"
-                  >
-                    cagnotte
+          <Fragment>
+            Demande envoyée pour la tribu <b>{name}</b> !{' '}
+            {price !== 0 && (
+              <Fragment>
+                Payer {price}€ sur la{' '}
+                <a
+                  title="Site cagnotte"
+                  className="group-join-link"
+                  href="https://www.paypal.com/pools/c/84gsKV8QG8"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  cagnotte
                 </a>{' '}
                 pour valider votre inscription !
-                </Fragment>
-              )}
-            </Fragment>
-          )}
+              </Fragment>
+            )}
+          </Fragment>
+        )}
       </span>
     }
     action={[
-      <IconButton key="close" aria-label="Close" color="inherit" onClick={handleClose}>
+      <IconButton
+        key="close"
+        aria-label="Close"
+        color="inherit"
+        onClick={handleClose}
+      >
         <CloseIcon />
       </IconButton>,
     ]}

@@ -30,19 +30,30 @@ class ConnectionModal extends Component {
       <Fragment>
         <DialogTitle disableTypography>Connexion</DialogTitle>
         <DialogContent className="auth-btns-container">
-          <Button color="primary" onClick={this.authenticateWithGoogle} variant="contained">
-            <FaGoogle />&nbsp; Connexion avec Google
+          <Button
+            color="primary"
+            onClick={this.authenticateWithGoogle}
+            variant="contained"
+          >
+            <FaGoogle />
+            &nbsp; Connexion avec Google
           </Button>
 
-          <Button color="secondary" onClick={this.authenticateWithFacebook} variant="contained">
-            <FaFacebook />&nbsp; Connexion avec Facebook
+          <Button
+            color="secondary"
+            onClick={this.authenticateWithFacebook}
+            variant="contained"
+          >
+            <FaFacebook />
+            &nbsp; Connexion avec Facebook
           </Button>
           <br />
           <Typography gutterBottom>
             En vous connectant, vous déclarez accepter la&nbsp;
             <a
               href="https://github.com/mbernardeau/Road-to-Russia-2018/blob/master/confidentialite.md"
-              target="_blank" rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               politique de confidentialité
             </a>{' '}

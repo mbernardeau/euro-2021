@@ -4,9 +4,11 @@ import map from 'lodash/map'
 import Item from './item'
 import './list.css'
 
-const List = props => (
+const List = (props) => (
   <div className="rule_list">
-    {map(props.dataSource, (donnee, id) => <Item donnee={donnee} key={id} />)}
+    {map(props.dataSource, (donnee, id) => (
+      <Item donnee={donnee} key={id} />
+    ))}
   </div>
 )
 

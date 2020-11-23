@@ -17,7 +17,10 @@ export function checkStore(store) {
     replaceReducer: isFunction,
     asyncReducers: isObject,
   }
-  invariant(conformsTo(store, shape), '(app/utils...) asyncInjectors: Expected a valid redux store')
+  invariant(
+    conformsTo(store, shape),
+    '(app/utils...) asyncInjectors: Expected a valid redux store',
+  )
 }
 
 /**

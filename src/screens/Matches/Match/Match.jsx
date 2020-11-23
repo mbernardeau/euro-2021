@@ -23,8 +23,8 @@ import PointsWonPhase from './PointsWonPhase'
 import './Match.scss'
 
 const empty = {}
-const scoreValidator = score => isNumber(score) && score >= 0
-const winnerValidator = winner => winner && (winner === 'A' || winner === 'B')
+const scoreValidator = (score) => isNumber(score) && score >= 0
+const winnerValidator = (winner) => winner && (winner === 'A' || winner === 'B')
 
 const Match = ({ bet, match, saveBet, teamA, teamB }) => {
   const [currentBet, setCurrentBet] = useState(bet)
@@ -48,15 +48,15 @@ const Match = ({ bet, match, saveBet, teamA, teamB }) => {
     return match.phase === '0'
       ? true
       : updatedBet.betTeamA !== updatedBet.betTeamB ||
-      conformsTo(updatedBet, {
-        betWinner: winnerValidator,
-      })
+          conformsTo(updatedBet, {
+            betWinner: winnerValidator,
+          })
   }
 
-  const handleChange = team => ({ target: { value } }) => {
+  const handleChange = (team) => ({ target: { value } }) => {
     const updatedBet = {
       ...currentBet,
-      [`betTeam${team}`]: value
+      [`betTeam${team}`]: value,
     }
     setCurrentBet(updatedBet)
     saveBetIfValid(updatedBet)
@@ -108,34 +108,39 @@ const Match = ({ bet, match, saveBet, teamA, teamB }) => {
                 past={past}
               />
             </div>
-            {match.phase !== '0' &&
-              displayChoiceWinner(bet) && (
-                <ChoiceWinner
-                  teamA={teamA}
-                  teamB={teamB}
-                  betValue={bet.betWinner}
-                  onBetValueUpdated={handleWinnerChoiceChange}
-                  past={past}
-                />
-              )}
-            {!past && <Odds {...match.odds} phase={match.phase} teamA={teamA} teamB={teamB} />}
+            {match.phase !== '0' && displayChoiceWinner(bet) && (
+              <ChoiceWinner
+                teamA={teamA}
+                teamB={teamB}
+                betValue={bet.betWinner}
+                onBetValueUpdated={handleWinnerChoiceChange}
+                past={past}
+              />
+            )}
+            {!past && (
+              <Odds
+                {...match.odds}
+                phase={match.phase}
+                teamA={teamA}
+                teamB={teamB}
+              />
+            )}
             {past && <Scores {...match} />}
             {past &&
               (match.phase === '0' ? (
                 <PointsWon {...match} {...bet} />
               ) : (
-                  <PointsWonPhase {...match} {...bet} />
-                ))}
+                <PointsWonPhase {...match} {...bet} />
+              ))}
             <Divider />
             <MatchInfos match={match} />
             {!past && <ValidIcon valid={betSaved()} />}
           </CardContent>
         </Card>
       </Fragment>
-    ))
+    )
+  )
 }
-
-
 
 Match.defaultProps = {
   match: {},

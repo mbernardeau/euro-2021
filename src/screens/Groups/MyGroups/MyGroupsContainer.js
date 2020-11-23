@@ -6,13 +6,16 @@ import { getUserId } from '../../../redux/user'
 
 import MyGroups from './MyGroups'
 
-const mapState = state => ({
+const mapState = (state) => ({
   groups: getGroupsForUser(state),
   userId: getUserId(state),
 })
 
-const mapDispatch = dispatch => ({
+const mapDispatch = (dispatch) => ({
   load: () => dispatch(fetchGroupsForUser()),
 })
 
-export default compose(connect(mapState, mapDispatch), loader({ print: ['groups'] }))(MyGroups)
+export default compose(
+  connect(mapState, mapDispatch),
+  loader({ print: ['groups'] }),
+)(MyGroups)

@@ -5,9 +5,7 @@ import { Provider } from 'react-redux'
 import { ConnectedRouter } from 'connected-react-router'
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
 import moment from 'moment'
-import {
-  ReactReduxFirebaseProvider
-} from 'react-redux-firebase'
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
 import { createBrowserHistory } from 'history'
 import firebase from 'firebase/app'
@@ -27,8 +25,6 @@ import reportWebVitals from './reportWebVitals'
 // Set moment locale for the whole app
 moment.locale('fr')
 
-
-
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
 // Optionally, this could be changed to leverage a created history
@@ -47,7 +43,6 @@ const rrfProps = {
   dispatch: store.dispatch,
   createFirestoreInstance,
 }
-
 
 const render = () => {
   ReactDOM.render(
@@ -69,11 +64,11 @@ const render = () => {
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://cra.link/PWA
-serviceWorkerRegistration.unregister();
+serviceWorkerRegistration.unregister()
 
 render()
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals()

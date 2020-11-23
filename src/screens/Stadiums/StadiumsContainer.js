@@ -5,12 +5,15 @@ import stadiumsFactory, { fetchStadiumsList } from 'redux/stadiums'
 
 import Stadiums from './Stadiums'
 
-const mapState = state => ({
+const mapState = (state) => ({
   stadiums: stadiumsFactory.get()(state),
 })
 
-const mapDispatch = dispatch => ({
+const mapDispatch = (dispatch) => ({
   load: () => dispatch(fetchStadiumsList()),
 })
 
-export default compose(connect(mapState, mapDispatch), loader({ print: ['stadiums'] }))(Stadiums)
+export default compose(
+  connect(mapState, mapDispatch),
+  loader({ print: ['stadiums'] }),
+)(Stadiums)

@@ -11,7 +11,11 @@ import Typography from '@material-ui/core/Typography'
 const DisplayPrice = ({ groups, userId }) => {
   const somme = sum(
     map(
-      filter(groups, ({ awaitingMembers }) => !isEmpty(awaitingMembers) && awaitingMembers[userId]),
+      filter(
+        groups,
+        ({ awaitingMembers }) =>
+          !isEmpty(awaitingMembers) && awaitingMembers[userId],
+      ),
       'price',
     ),
   )
@@ -23,7 +27,12 @@ const DisplayPrice = ({ groups, userId }) => {
       <br />
       <Typography gutterBottom variant="h2">
         Vous devez encore <b>{somme}€ </b> sur le site de la{' '}
-        <a title="Site cagnotte" href="https://www.paypal.com/pools/c/84gsKV8QG8" target="_blank" rel="noreferrer">
+        <a
+          title="Site cagnotte"
+          href="https://www.paypal.com/pools/c/84gsKV8QG8"
+          target="_blank"
+          rel="noreferrer"
+        >
           cagnotte
         </a>{' '}
         pour règler votre(vos) inscription(s).

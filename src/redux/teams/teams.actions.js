@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import teamsReducer from './teams.reducer'
 
-export const fetchTeam = teamId => (dispatch, getState) => {
+export const fetchTeam = (teamId) => (dispatch, getState) => {
   if (teamsReducer.hasKey(teamId)(getState())) {
     return
   }
@@ -10,18 +10,18 @@ export const fetchTeam = teamId => (dispatch, getState) => {
     .collection('teams')
     .doc(teamId)
     .get()
-    .then(doc => {
+    .then((doc) => {
       dispatch(teamsReducer.addOrUpdate({ id: teamId, ...doc.data() }))
     })
 }
 
-export const fetchTeams = () => dispatch => {
+export const fetchTeams = () => (dispatch) => {
   firebase
     .firestore()
     .collection('teams')
     .get()
-    .then(querySnapshot => {
-      querySnapshot.forEach(doc => {
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
         const team = doc.data()
         const { id } = doc
         dispatch(teamsReducer.addOrUpdate({ ...team, id }))

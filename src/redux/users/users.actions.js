@@ -3,7 +3,7 @@ import keys from 'lodash/keys'
 import usersReducer from './users'
 import { getUserId } from '../user'
 
-export const fetchUser = userId => (dispatch, getState) => {
+export const fetchUser = (userId) => (dispatch, getState) => {
   if (!userId || usersReducer.hasKey(userId)(getState())) {
     return
   }
@@ -12,18 +12,18 @@ export const fetchUser = userId => (dispatch, getState) => {
     .collection('users')
     .doc(userId)
     .get()
-    .then(doc => {
+    .then((doc) => {
       dispatch(usersReducer.addOrUpdate({ id: userId, ...doc.data() }))
     })
 }
 
-export const fetchUsers = userIds => dispatch => {
-  keys(userIds).forEach(userId => {
+export const fetchUsers = (userIds) => (dispatch) => {
+  keys(userIds).forEach((userId) => {
     dispatch(fetchUser(userId))
   })
 }
 
-export const saveWinner = Team => (dispatch, getState) => {
+export const saveWinner = (Team) => (dispatch, getState) => {
   const userId = getUserId(getState())
 
   firebase

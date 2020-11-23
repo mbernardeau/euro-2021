@@ -22,11 +22,11 @@ const getMessage = (goodScore, goodWinner, hasBet) => {
 }
 
 const getOdd = (odds, winner) =>
-({
-  A: odds.A,
-  B: odds.B,
-  N: odds.N,
-}[winner])
+  ({
+    A: odds.A,
+    B: odds.B,
+    N: odds.N,
+  }[winner])
 
 const getCalculus = (odds, winner, goodScore, goodWinner) => {
   const odd = getOdd(odds, winner)
@@ -42,18 +42,23 @@ const PointsWon = ({ pointsWon, scores, betTeamA, betTeamB, odds }) => {
   const matchWinner = findWinner(A, B)
   const goodScore = A === betTeamA && B === betTeamB
   const hasBet = isNumber(pointsWon)
-  const goodWinner = !goodScore && hasBet && matchWinner === findWinner(betTeamA, betTeamB)
+  const goodWinner =
+    !goodScore && hasBet && matchWinner === findWinner(betTeamA, betTeamB)
 
   return (
     <div className="points-won-container">
-      <Typography variant="h4">{getMessage(goodScore, goodWinner, hasBet)}</Typography>
+      <Typography variant="h4">
+        {getMessage(goodScore, goodWinner, hasBet)}
+      </Typography>
       <div className="points-won-container">
         <Typography
           variant="body1"
-          className={`points-won ${goodScore ? 'good-score' : ''} ${goodWinner ? 'good-winner' : ''
-            }`}
+          className={`points-won ${goodScore ? 'good-score' : ''} ${
+            goodWinner ? 'good-winner' : ''
+          }`}
         >
-          {pointsWon > 0 ? '+' : ''} {pointsWon || 0} point{pointsWon > 1 ? 's' : ''}
+          {pointsWon > 0 ? '+' : ''} {pointsWon || 0} point
+          {pointsWon > 1 ? 's' : ''}
         </Typography>
         <Tooltip
           title={getCalculus(odds, matchWinner, goodScore, goodWinner)}

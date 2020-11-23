@@ -20,7 +20,8 @@ const ValidInscription = ({ groups }) => (
       Validation des inscriptions
     </Typography>
     <Typography color="textSecondary">
-      Retrouvez ici les membres dont il reste encore à valider l&apos;inscription
+      Retrouvez ici les membres dont il reste encore à valider
+      l&apos;inscription
     </Typography>
     <CardContent className="valid-inscription-content">
       <Table>
@@ -34,9 +35,13 @@ const ValidInscription = ({ groups }) => (
           </TableRow>
         </TableHead>
         <TableBody>
-          {map(groups, group =>
+          {map(groups, (group) =>
             map(group.awaitingMembers, (member, key) => (
-              <ValidInscriptionRow key={`${group.id}${key}`} {...group} userId={key} />
+              <ValidInscriptionRow
+                key={`${group.id}${key}`}
+                {...group}
+                userId={key}
+              />
             )),
           )}
         </TableBody>

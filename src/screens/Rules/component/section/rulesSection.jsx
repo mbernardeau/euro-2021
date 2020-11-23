@@ -2,7 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './rulesSection.scss'
 
-const RulesSection = props => <div className="rules-section">{props.children}</div>
+const RulesSection = (props) => (
+  <div className="rules-section">{props.children}</div>
+)
 
 RulesSection.defaultProps = {
   children: null,

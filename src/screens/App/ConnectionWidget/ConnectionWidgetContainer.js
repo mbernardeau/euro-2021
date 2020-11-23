@@ -4,7 +4,7 @@ import { getProfile, getAuth, getAuthError } from '../../../redux/user'
 
 import ConnectionWidget from './ConnectionWidget'
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   authError: getAuthError(state),
   auth: getAuth(state),
   user: getProfile(state),

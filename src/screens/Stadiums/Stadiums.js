@@ -6,7 +6,9 @@ import Stadium from './Stadium'
 
 const Stadiums = ({ stadiums }) => (
   <div style={styles.container}>
-    {map(stadiums, (stadium, key) => <Stadium stadium={stadium} key={key} />)}
+    {map(stadiums, (stadium, key) => (
+      <Stadium stadium={stadium} key={key} />
+    ))}
   </div>
 )
 

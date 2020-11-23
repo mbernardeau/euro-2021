@@ -31,7 +31,7 @@ const Bet = ({ team, betValue, onBetValueUpdated, past }) => (
 /**
  * Render menu items once (from 0 to 10 goals)
  */
-const menuItems = map(range(11), n => (
+const menuItems = map(range(11), (n) => (
   <MenuItem value={n} key={n}>
     {n}
   </MenuItem>
@@ -43,7 +43,7 @@ const menuItems = map(range(11), n => (
  *
  * @return {React.ReactElement}
  */
-const renderValue = value => <div className="bet-select-value">{value}</div>
+const renderValue = (value) => <div className="bet-select-value">{value}</div>
 
 Bet.defaultProps = {
   team: {},

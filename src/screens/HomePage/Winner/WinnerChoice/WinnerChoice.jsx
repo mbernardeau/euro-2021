@@ -39,14 +39,18 @@ const WinnerChoice = ({ teams, userTeam, onValueChange }) => (
 
 // Affichage du drapeau du pays choisi
 const FlagTest = (teams, userTeam) => {
-  const teamDisplayed = find(teams, team => team.id === userTeam)
+  const teamDisplayed = find(teams, (team) => team.id === userTeam)
 
-  return teamDisplayed && <Flag country={teamDisplayed.code} className="winner-choice-flag" />
+  return (
+    teamDisplayed && (
+      <Flag country={teamDisplayed.code} className="winner-choice-flag" />
+    )
+  )
 }
 
 // Affichage de la cote du pays choisi
 const OddTest = (teams, userTeam) => {
-  const teamDisplayed = find(teams, team => team.id === userTeam)
+  const teamDisplayed = find(teams, (team) => team.id === userTeam)
 
   return (
     teamDisplayed && (

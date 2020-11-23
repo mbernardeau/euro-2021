@@ -74,15 +74,27 @@ class App extends React.Component {
             <Route path="/faq" component={FAQPage} />
 
             {/* Routes accessibles avec connexion */}
-            {!isEmpty(user) && <Route path="/matches" component={MatchesPage} />}
-            {!isEmpty(user) && <Route path="/ranking" component={RankingPage} />}
+            {!isEmpty(user) && (
+              <Route path="/matches" component={MatchesPage} />
+            )}
+            {!isEmpty(user) && (
+              <Route path="/ranking" component={RankingPage} />
+            )}
             {!isEmpty(user) && <Route path="/groups" component={GroupsPage} />}
 
             {/* Route accessible pour admin */}
-            {!isEmpty(user) &&
-              user.admin && <Route path="/matchesvalidation" component={MatchesValidationPage} />}
-            {!isEmpty(user) &&
-              user.admin && <Route path="/validinscription" component={ValidInscriptionPage} />}
+            {!isEmpty(user) && user.admin && (
+              <Route
+                path="/matchesvalidation"
+                component={MatchesValidationPage}
+              />
+            )}
+            {!isEmpty(user) && user.admin && (
+              <Route
+                path="/validinscription"
+                component={ValidInscriptionPage}
+              />
+            )}
 
             {/* NotFoundPage en dernier choix sinon il est active */}
             <Route component={NotFoundPage} />

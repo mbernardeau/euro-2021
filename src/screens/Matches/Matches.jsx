@@ -30,7 +30,9 @@ class Matches extends Component {
           </Tabs>
         </AppBar>
         <div className="matches-container">
-          {map(matches, match => <Match match={match} key={match.id} matchId={match.id} />)}
+          {map(matches, (match) => (
+            <Match match={match} key={match.id} matchId={match.id} />
+          ))}
         </div>
       </Fragment>
     )

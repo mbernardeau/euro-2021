@@ -8,13 +8,17 @@ const Playoff = () => (
     <div>
       <Typography variant="body2">Règles durant la phase finale</Typography>
       <p>
-        Le fonctionnement des paris à partir de ce niveau de la compétition est identique à celui de
-        la phase de groupe, à un détail près :
-        <b> le score final est celui au bout de 90 minutes. </b>
-        À ce pronostic, on ajoute le fait
-        <b>&nbsp;qu’il faut donner le vainqueur en cas de prolongation, voire tirs au but</b>. On a
-        donc pour résumer un pronostic à faire sur le score final (comme durant la phase de groupe)
-        et un pronostic à faire sur le vainqueur de la partie.
+        Le fonctionnement des paris à partir de ce niveau de la compétition est
+        identique à celui de la phase de groupe, à un détail près :
+        <b> le score final est celui au bout de 90 minutes. </b>À ce pronostic,
+        on ajoute le fait
+        <b>
+          &nbsp;qu’il faut donner le vainqueur en cas de prolongation, voire
+          tirs au but
+        </b>
+        . On a donc pour résumer un pronostic à faire sur le score final (comme
+        durant la phase de groupe) et un pronostic à faire sur le vainqueur de
+        la partie.
       </p>
       <p>
         <u>Répartition des points pour la phase finale</u> :
@@ -29,7 +33,13 @@ const Playoff = () => (
             'Bon vainqueur',
           ]}
           rows={[
-            ['8èmes de finale', '5 points', '2 points', '0 points', '+2 points'],
+            [
+              '8èmes de finale',
+              '5 points',
+              '2 points',
+              '0 points',
+              '+2 points',
+            ],
             ['4rts de finale', '8 points', '3 points', '0 points', '+3 points'],
             ['demi-finale', '13 points', '5 points', '0 points', '+5 points'],
             ['3ieme place', '15 points', '6 points', '0 points', '+6 points'],
@@ -45,7 +55,10 @@ const Playoff = () => (
       </p>
       <p className="floatdiv">Cotes du résultat au bout des 90 minutes :</p>
       <div className="table_section">
-        <Table header={['France', 'Match nul', 'Allemagne']} rows={[['1.63', '3.42', '6.24']]} />
+        <Table
+          header={['France', 'Match nul', 'Allemagne']}
+          rows={[['1.63', '3.42', '6.24']]}
+        />
       </div>
       <br />
       <p className="floatdiv">Cotes du vainqueur du match :</p>

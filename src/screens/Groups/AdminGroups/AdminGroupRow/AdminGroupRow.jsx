@@ -13,7 +13,9 @@ const AdminGroupRow = ({ name, joinKey, price, members, awaitingMembers }) => (
     <TableCell>
       {size(members)} membre{size(members) > 1 ? 's' : ''}
     </TableCell>
-    <TableCell>{size(awaitingMembers) > 0 && `${size(awaitingMembers)} en attente`}</TableCell>
+    <TableCell>
+      {size(awaitingMembers) > 0 && `${size(awaitingMembers)} en attente`}
+    </TableCell>
     <TableCell numeric>
       {price ? (
         price.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })

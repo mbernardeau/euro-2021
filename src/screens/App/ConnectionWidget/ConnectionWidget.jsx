@@ -8,7 +8,6 @@ import User from './User'
 
 import './ConnectionWidget.scss'
 
-
 const ConnectionWidget = ({ user }) => {
   const [modalOpened, setModalOpened] = useState(false)
 
@@ -20,14 +19,21 @@ const ConnectionWidget = ({ user }) => {
 
   return (
     <div className="connection-widget-container">
-      <Dialog title="Connexion" onClose={() => setModalOpened(false)} open={modalOpened}>
+      <Dialog
+        title="Connexion"
+        onClose={() => setModalOpened(false)}
+        open={modalOpened}
+      >
         <ConnectionModal />
       </Dialog>
 
       {!isEmpty(user) && <User />}
 
       {isEmpty(user) && (
-        <Button className="connection-label" onClick={() => setModalOpened(true)}>
+        <Button
+          className="connection-label"
+          onClick={() => setModalOpened(true)}
+        >
           Se connecter
         </Button>
       )}

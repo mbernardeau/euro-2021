@@ -2,7 +2,7 @@ import firebase from 'firebase/app'
 import betReducer from './bets.reducer'
 import { getUserId } from '../user'
 
-export const fetchBet = matchId => (dispatch, getState) => {
+export const fetchBet = (matchId) => (dispatch, getState) => {
   const uid = getUserId(getState())
   firebase
     .firestore()
@@ -10,11 +10,11 @@ export const fetchBet = matchId => (dispatch, getState) => {
     .where('matchId', '==', matchId)
     .where('userId', '==', uid)
     .get()
-    .then(querySnapshot => {
+    .then((querySnapshot) => {
       if (querySnapshot.empty) {
         dispatch(betReducer.addOrUpdate({ id: matchId }))
       } else {
-        querySnapshot.forEach(doc =>
+        querySnapshot.forEach((doc) =>
           dispatch(betReducer.addOrUpdate({ id: matchId, ...doc.data() })),
         )
       }

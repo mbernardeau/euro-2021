@@ -15,7 +15,11 @@ const ValidIcon = ({ valid }) => (
     enterTouchDelay={0}
   >
     <div className="tooltip-svg-container">
-      {valid ? <CheckIcon className="valid-icon" /> : <ClearIcon className="invalid-icon" />}
+      {valid ? (
+        <CheckIcon className="valid-icon" />
+      ) : (
+        <ClearIcon className="invalid-icon" />
+      )}
     </div>
   </Tooltip>
 )
