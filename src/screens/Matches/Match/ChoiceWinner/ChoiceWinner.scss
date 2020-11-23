@@ -1,0 +1,16 @@
+.bet {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .bet-select-container {
+    display: flex;
+    align-items: center;
+
+    .bet-select-value {
+      text-align: center;
+      width: 100%;
+    }
+  }
+}

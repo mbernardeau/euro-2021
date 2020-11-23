@@ -1,0 +1,10 @@
+.connection-widget-container {
+  display: flex;
+  align-items: center;
+  height: 85%;
+
+  .connection-label {
+    color: white;
+    font-size: 1.0625em;
+  }
+}

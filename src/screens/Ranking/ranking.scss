@@ -1,0 +1,23 @@
+.ranking-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 48px 15px;
+  align-items: center;
+}
+
+.ranking-tab-bar {
+  margin-top: 64px;
+
+  @media screen and (max-width: 600px) {
+    margin-top: 56px;
+  }
+}
+
+.ranking-page-div {
+  text-align: center;
+  margin: auto;
+  width: 90%;
+  max-width: 800px;
+}

@@ -1,0 +1,13 @@
+.odds-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 15px;
+
+  .odd {
+    padding: 3px 0;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    width: 3em;
+  }
+}

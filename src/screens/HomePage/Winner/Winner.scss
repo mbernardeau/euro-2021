@@ -1,0 +1,15 @@
+.winner-card {
+  max-width: 370px;
+  width: 90%;
+  margin: 24px;
+  padding: 8px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 8px 8px 12px #aaa;
+  background-color: #f9f6ed;
+
+  .winner-typo {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    line-height: 1.5em;
+  }
+}

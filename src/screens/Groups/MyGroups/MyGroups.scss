@@ -1,0 +1,11 @@
+.my-groups-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .my-groups-card-content {
+    overflow-y: scroll;
+    width: 100%;
+  }
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 16 8">
+<path fill="#002395" d="M0 0h16v8H0z"/>
+<path d="M4.24 0h8v8z" fill="#fecb00"/>
+<g id="b">
+<path id="a" d="M2.353.525L2.8-.85 3.247.525l-1.17-.85h1.446z" fill="#fff"/>
+<use y="1" x="1" xlink:href="#a"/>
+<use y="2" x="2" xlink:href="#a"/>
+</g>
+<use y="3" x="3" xlink:href="#b"/>
+<use y="6" x="6" xlink:href="#b"/>
+</svg>

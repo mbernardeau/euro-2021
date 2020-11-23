@@ -1,0 +1,10 @@
+.auth-btns-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > button {
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}

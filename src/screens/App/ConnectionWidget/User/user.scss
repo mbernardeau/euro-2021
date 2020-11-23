@@ -1,0 +1,17 @@
+.user-widget {
+  display: flex;
+  align-items: center;
+
+  .username {
+    color: white;
+    font-size: 18px;
+
+    @media screen and (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  .user-avatar {
+    margin-right: 10px;
+  }
+}

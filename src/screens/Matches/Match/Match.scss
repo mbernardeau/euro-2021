@@ -1,0 +1,19 @@
+.match-card {
+  margin: 7px 0;
+  width: 100%;
+  max-width: 800px;
+
+  .match-content {
+    position: relative;
+
+    .match-teams {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      margin-bottom: 10px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin: 0;
+  }
+}

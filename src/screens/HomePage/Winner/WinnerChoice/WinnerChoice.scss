@@ -1,0 +1,32 @@
+.winner-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .winner-choice-select-container {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+
+    .winner-choice-select-value {
+      font-family: Georgia, Times, 'Times New Roman', serif;
+      line-height: 1.5em;
+      text-align: center;
+      width: 100%;
+
+      .winner-choice-menuitem {
+        font-family: Georgia, Times, 'Times New Roman', serif;
+        line-height: 1.5em;
+      }
+    }
+  }
+
+  .winner-choice-flag {
+    height: 5em;
+  }
+
+  .winner-choice-odd {
+    font-weight: bold;
+  }
+}

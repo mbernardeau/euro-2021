@@ -1,0 +1,14 @@
+.stadium-tooltip {
+  width: 200px;
+
+  .stadium-tooltip-title {
+    display: flex;
+    color: white;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+    justify-content: space-around;
+  }
+
+  .stadium-tooltip-photo {
+    width: 100%;
+  }
+}

@@ -1,0 +1,20 @@
+.create-group-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .create-group-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90%;
+    padding: 0px;
+
+    .create-group-field {
+      margin: 10px;
+      width: 200px;
+    }
+  }
+}

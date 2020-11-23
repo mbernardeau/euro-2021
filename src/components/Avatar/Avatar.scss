@@ -1,0 +1,8 @@
+.avatar-container {
+  display: flex;
+  align-items: center;
+
+  > .avatar-name {
+    margin-left: 10px;
+  }
+}

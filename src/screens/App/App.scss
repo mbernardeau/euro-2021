@@ -1,0 +1,14 @@
+.app-toolbar {
+  justify-content: space-between;
+}
+
+.app-content {
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+
+.app-toolbar-title {
+  @media screen and (max-width: 410px) {
+    display: none;
+  }
+}
