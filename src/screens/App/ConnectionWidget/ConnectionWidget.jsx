@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import { isEmpty } from 'react-redux-firebase'
 import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button'
@@ -8,50 +8,31 @@ import User from './User'
 
 import './ConnectionWidget.scss'
 
-class ConnectionWidget extends Component {
-  state = {
-    modalOpened: false,
-  }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.user && this.state.modalOpened) {
-      this.setState({
-        modalOpened: false,
-      })
+const ConnectionWidget = ({ user }) => {
+  const [modalOpened, setModalOpened] = useState(false)
+
+  useEffect(() => {
+    if (user && modalOpened) {
+      setModalOpened(false)
     }
-  }
+  }, [user, modalOpened])
 
-  openConnectionModal = () => {
-    this.setState({
-      modalOpened: true,
-    })
-  }
+  return (
+    <div className="connection-widget-container">
+      <Dialog title="Connexion" onClose={() => setModalOpened(false)} open={modalOpened}>
+        <ConnectionModal />
+      </Dialog>
 
-  closeConnectionModal = () => {
-    this.setState({
-      modalOpened: false,
-    })
-  }
+      {!isEmpty(user) && <User />}
 
-  render() {
-    const { user } = this.props
-
-    return (
-      <div className="connection-widget-container">
-        <Dialog title="Connexion" onClose={this.closeConnectionModal} open={this.state.modalOpened}>
-          <ConnectionModal />
-        </Dialog>
-
-        {!isEmpty(user) && <User />}
-
-        {isEmpty(user) && (
-          <Button className="connection-label" onClick={this.openConnectionModal}>
-            Se connecter
-          </Button>
-        )}
-      </div>
-    )
-  }
+      {isEmpty(user) && (
+        <Button className="connection-label" onClick={() => setModalOpened(true)}>
+          Se connecter
+        </Button>
+      )}
+    </div>
+  )
 }
 
 ConnectionWidget.propTypes = {

@@ -6,12 +6,12 @@ import { getProfile } from '../../../redux/user'
 import { saveWinner } from '../../../redux/users'
 
 const mapState = state => ({
-  Team: getProfile(state).winnerTeam,
+  team: getProfile(state).winnerTeam,
 })
 
 const mapDispatch = dispatch => ({
-  saveWinner: Team => {
-    dispatch(saveWinner(Team))
+  saveWinner: team => {
+    dispatch(saveWinner(team))
   },
 })
 

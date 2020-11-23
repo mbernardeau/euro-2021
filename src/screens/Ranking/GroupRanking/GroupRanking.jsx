@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import Card from '@material-ui/core/Card'
@@ -14,49 +14,38 @@ import OwnRank from './OwnRank'
 
 import './GroupRanking.scss'
 
-class GroupRanking extends Component {
-  componentDidMount() {
-    const { members, load } = this.props
+const GroupRanking = ({ name, users, userId, members, load, ...other }) => {
+  useEffect(() => {
     load(members)
-  }
+  }, [members, load])
 
-  componentWillReceiveProps(nextProps) {
-    const { members, id, load } = this.props
-    if (nextProps.members !== members || nextProps.id !== id) {
-      load(nextProps.members)
-    }
-  }
-
-  render() {
-    const { name, users, userId, ...other } = this.props
-    return (
-      <Card className="group-ranking-card">
-        <CardContent>
-          <Typography variant="h1" align="center">
-            {name}
-          </Typography>
-          <OwnRank users={users} userId={userId} {...other} />
-          <Table>
-            <TableBody>
-              {users.map((user, index) => (
-                <TableRow key={user.id} className={user.id === userId ? 'own-ranking-row' : ''}>
-                  <TableCell padding="none">
-                    <Typography variant="title">#{index + 1}</Typography>
-                  </TableCell>
-                  <TableCell padding="dense">
-                    <InlineAvatar {...user} />
-                  </TableCell>
-                  <TableCell padding="none">
-                    {(user.score || 0).toLocaleString()} point{user.score > 1 && 's'}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
-    )
-  }
+  return (
+    <Card className="group-ranking-card">
+      <CardContent>
+        <Typography variant="h1" align="center">
+          {name}
+        </Typography>
+        <OwnRank users={users} userId={userId} {...other} />
+        <Table>
+          <TableBody>
+            {users.map((user, index) => (
+              <TableRow key={user.id} className={user.id === userId ? 'own-ranking-row' : ''}>
+                <TableCell padding="none">
+                  <Typography variant="title">#{index + 1}</Typography>
+                </TableCell>
+                <TableCell padding="dense">
+                  <InlineAvatar {...user} />
+                </TableCell>
+                <TableCell padding="none">
+                  {(user.score || 0).toLocaleString()} point{user.score > 1 && 's'}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+    </Card>
+  )
 }
 
 GroupRanking.defaultProps = {

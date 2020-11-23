@@ -10,7 +10,7 @@ const Scores = ({ scores }) => {
   const { A, B, winner } = scores
   return (
     <div className="scores-container">
-      <Typography variant="display2">
+      <Typography variant="body2">
         <span className={winner === 'A' ? 'winner' : ''}>{A}</span>&nbsp;-&nbsp;
         <span className={winner === 'B' ? 'winner' : ''}>{B}</span>
       </Typography>

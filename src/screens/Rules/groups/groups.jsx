@@ -9,7 +9,7 @@ import Table from '../component/table'
 const Groups = () => (
   <Section>
     <div>
-      <Typography variant="display2">Règles durant la phase de groupe</Typography>
+      <Typography variant="body2">Règles durant la phase de groupe</Typography>
       <p>
         Les pronostics fonctionnent avec un système de cotes basé sur celles d’UNIBET. En effet,
         pour chaque match nous proposons une cote pour chaque résultat possible. Ces cotes

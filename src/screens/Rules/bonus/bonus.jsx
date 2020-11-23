@@ -4,7 +4,7 @@ import Section from '../component/section'
 
 const Bonus = () => (
   <Section>
-    <Typography variant="display2" color="inherit">
+    <Typography variant="body2" color="inherit">
       Bonus
     </Typography>
     <p>

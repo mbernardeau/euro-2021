@@ -4,7 +4,7 @@ import Section from '../component/section'
 
 const Subscription = () => (
   <Section>
-    <Typography variant="display2">Droits d’inscription et mode de qualification</Typography>
+    <Typography variant="body2">Droits d’inscription et mode de qualification</Typography>
     <Typography variant="body1">Mode de qualification</Typography>
     <p>
       Il n’y pas d’élimination, tout le monde participe aux pronostics de tous les matchs. Chacun

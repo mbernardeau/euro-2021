@@ -6,7 +6,7 @@ import Table from '../component/table'
 const Playoff = () => (
   <Section>
     <div>
-      <Typography variant="display2">Règles durant la phase finale</Typography>
+      <Typography variant="body2">Règles durant la phase finale</Typography>
       <p>
         Le fonctionnement des paris à partir de ce niveau de la compétition est identique à celui de
         la phase de groupe, à un détail près :

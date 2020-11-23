@@ -28,7 +28,7 @@ class ConnectionModal extends Component {
   render() {
     return (
       <Fragment>
-        <DialogTitle>Connexion</DialogTitle>
+        <DialogTitle disableTypography>Connexion</DialogTitle>
         <DialogContent className="auth-btns-container">
           <Button color="primary" onClick={this.authenticateWithGoogle} variant="contained">
             <FaGoogle />&nbsp; Connexion avec Google
