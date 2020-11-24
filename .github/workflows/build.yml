@@ -67,4 +67,4 @@ jobs:
       - name: Firebase deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: firebase deploy --token="$FIREBASE_TOKEN" --non-interactive
+        run: firebase deploy --token="$FIREBASE_TOKEN" --non-interactive --message "Deployment based on commit $(git rev-parse --short "$GITHUB_SHA")"
