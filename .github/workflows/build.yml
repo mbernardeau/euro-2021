@@ -61,6 +61,6 @@ jobs:
       - name: Install firebase-tools
         run: npm i firebase-tools -g
       - name: Set firebase project
-        run: firebase use default
+        run: firebase use default --token="$FIREBASE_TOKEN"
       - name: Firebase deploy
         run: firebase deploy --token="$FIREBASE_TOKEN" --non-interactive
