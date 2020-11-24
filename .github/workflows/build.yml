@@ -30,7 +30,7 @@ jobs:
         run: npm run build
       - name: Publish built assets
         uses: actions/upload-artifact@v2
-        # if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'
         with:
           name: euro-built
           path: build
@@ -38,7 +38,7 @@ jobs:
   deploy-staging:
     runs-on: ubuntu-latest
     needs: test-lint-build
-    # if: github.ref == 'refs/heads/master' # Run only on master
+    if: github.ref == 'refs/heads/master' # Run only on master
 
     steps:
       - uses: actions/checkout@v2
