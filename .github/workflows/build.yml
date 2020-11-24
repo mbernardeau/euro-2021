@@ -18,10 +18,6 @@ jobs:
           key: euro-dependencies-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             euro-dependencies-
-      - name: check token
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: echo $FIREBASE_TOKEN
       - name: Install dependencies
         run: npm ci
       - name: Lint
@@ -39,32 +35,36 @@ jobs:
           name: euro-built
           path: build
 
-  # deploy-staging:
-  #   runs-on: ubuntu-latest
-  #   needs: test-lint-build
-  #   # if: github.ref == 'refs/heads/master' # Run only on master
+  deploy-staging:
+    runs-on: ubuntu-latest
+    needs: test-lint-build
+    # if: github.ref == 'refs/heads/master' # Run only on master
 
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - uses: actions/setup-node@v2-beta
-  #       with:
-  #         node-version: "14"
-  #     - uses: actions/download-artifact@v2
-  #       with:
-  #         name: euro-built
-  #         path: build
-  #     - uses: actions/cache@v2
-  #       id: npm-cache
-  #       with:
-  #         path: ~/.npm
-  #         key: euro-dependencies-${{ hashFiles('package-lock.json') }}
-  #         restore-keys: |
-  #           euro-dependencies-
-  #     - name: Install dependencies
-  #       run: npm ci && cd functions && npm ci
-  #     - name: Install firebase-tools
-  #       run: npm i firebase-tools -g
-  #     - name: Set firebase project
-  #       run: firebase use default --token="$FIREBASE_TOKEN"
-  #     - name: Firebase deploy
-  #       run: firebase deploy --token="$FIREBASE_TOKEN" --non-interactive
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: "14"
+      - uses: actions/download-artifact@v2
+        with:
+          name: euro-built
+          path: build
+      - uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: ~/.npm
+          key: euro-dependencies-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            euro-dependencies-
+      - name: Install dependencies
+        run: npm ci && cd functions && npm ci
+      - name: Install firebase-tools
+        run: npm i firebase-tools -g
+      - name: Set firebase project
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: firebase use default --token="$FIREBASE_TOKEN" --non-interactive
+      - name: Firebase deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: firebase deploy --token="$FIREBASE_TOKEN" --non-interactive
