@@ -6,7 +6,7 @@ const initState = {
   open: false,
 }
 
-export default (state = initState, action) => {
+const navReducer = (state = initState, action) => {
   const actions = {
     [OPEN_MENU]: () => set(state, 'open', true),
     [CLOSE_MENU]: () => set(state, 'open', false),
@@ -15,3 +15,5 @@ export default (state = initState, action) => {
 
   return actions[action.type] ? actions[action.type]() : state
 }
+
+export default navReducer
