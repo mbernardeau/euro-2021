@@ -3,7 +3,7 @@ name: build
 on: push
 
 jobs:
-  build-styleguide:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,9 +15,9 @@ jobs:
         id: npm-cache
         with:
           path: '**/node_modules'
-          key: rrf-dependencies-${{ hashFiles('package-lock.json') }}
+          key: dependencies-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            rrf-dependencies-
+            dependencies-
       - name: Install dependencies
         run: npm ci && cd functions && npm ci
       - name: Build
