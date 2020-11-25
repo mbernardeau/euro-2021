@@ -12,7 +12,7 @@ const ConnectionWidget = ({ user }) => {
   const [modalOpened, setModalOpened] = useState(false)
 
   useEffect(() => {
-    if (user && modalOpened) {
+    if (!isEmpty(user) && modalOpened) {
       setModalOpened(false)
     }
   }, [user, modalOpened])

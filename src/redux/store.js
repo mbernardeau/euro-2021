@@ -20,11 +20,6 @@ export default function configureStore(initialState = {}, history) {
     firebase.initializeApp(firebaseConfig)
   }
 
-  const firestore = firebase.firestore()
-  firestore.settings({
-    timestampsInSnapshots: true,
-  })
-
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose
   /* eslint-disable no-underscore-dangle */
   const composeEnhancers =

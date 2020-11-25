@@ -10,6 +10,8 @@ import { createFirestoreInstance } from 'redux-firestore'
 import { createBrowserHistory } from 'history'
 import firebase from 'firebase/app'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
+import { FirebaseAppProvider } from 'reactfire'
+import firebaseConfig from './redux/firebaseConfig'
 
 // Import root app
 import App from './screens/App'
@@ -48,13 +50,15 @@ const render = () => {
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={store}>
-        <ReactReduxFirebaseProvider {...rrfProps}>
-          <MuiThemeProvider theme={theme}>
-            <ConnectedRouter history={history}>
-              <App />
-            </ConnectedRouter>
-          </MuiThemeProvider>
-        </ReactReduxFirebaseProvider>
+        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+          <ReactReduxFirebaseProvider {...rrfProps}>
+            <MuiThemeProvider theme={theme}>
+              <ConnectedRouter history={history}>
+                <App />
+              </ConnectedRouter>
+            </MuiThemeProvider>
+          </ReactReduxFirebaseProvider>
+        </FirebaseAppProvider>
       </Provider>
     </React.StrictMode>,
     document.getElementById('root'),

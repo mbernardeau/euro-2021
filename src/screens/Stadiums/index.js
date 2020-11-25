@@ -1,3 +1,1 @@
-import Stadiums from './StadiumsContainer'
-
-export default Stadiums
+export { default } from './Stadiums'

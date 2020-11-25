@@ -1,1 +1,1 @@
-export { default } from './WinnerChoiceContainer'
+export { default } from './WinnerChoice'

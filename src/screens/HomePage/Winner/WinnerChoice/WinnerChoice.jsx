@@ -12,30 +12,35 @@ import moment from 'moment'
 import { COMPETITION_START_DATE } from '../../../App/constants'
 
 import './WinnerChoice.scss'
+import { useTeams } from '../../../../hooks'
 
-const WinnerChoice = ({ teams, userTeam, onValueChange }) => (
-  <div className="winner-choice">
-    {FlagTest(teams, userTeam)}
-    <div className="winner-choice-select-container">
-      <Select
-        className="winner-choice-select-value"
-        value={userTeam}
-        onChange={onValueChange}
-        inputProps={{
-          name: 'userTeam',
-        }}
-        disabled={moment().isAfter(COMPETITION_START_DATE)}
-      >
-        {map(teams, ({ name, id }) => (
-          <MenuItem key={id} value={id}>
-            {name}
-          </MenuItem>
-        ))}
-      </Select>
+const WinnerChoice = ({ userTeam, onValueChange }) => {
+  const teams = useTeams()
+
+  return (
+    <div className="winner-choice">
+      {FlagTest(teams, userTeam)}
+      <div className="winner-choice-select-container">
+        <Select
+          className="winner-choice-select-value"
+          value={userTeam}
+          onChange={onValueChange}
+          inputProps={{
+            name: 'userTeam',
+          }}
+          disabled={moment().isAfter(COMPETITION_START_DATE)}
+        >
+          {map(teams, ({ name, id }) => (
+            <MenuItem key={id} value={id}>
+              {name}
+            </MenuItem>
+          ))}
+        </Select>
+      </div>
+      {OddTest(teams, userTeam)}
     </div>
-    {OddTest(teams, userTeam)}
-  </div>
-)
+  )
+}
 
 // Affichage du drapeau du pays choisi
 const FlagTest = (teams, userTeam) => {

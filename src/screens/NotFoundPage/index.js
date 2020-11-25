@@ -11,9 +11,6 @@
 
 import React from 'react'
 
-// eslint-disable-next-line react/prefer-stateless-function
-export default class NotFound extends React.PureComponent {
-  render() {
-    return <h1>Page non trouvée</h1>
-  }
-}
+const NotFound = () => <h1>Page non trouvée</h1>
+
+export default NotFound

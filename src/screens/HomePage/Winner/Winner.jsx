@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import WinnerChoice from './WinnerChoice'
 
 import './Winner.scss'
+import { SuspenseWithPerf } from 'reactfire'
 
 const Winner = ({ team, saveWinner }) => {
   const [selectedTeam, setSelectedTeam] = useState(team)
@@ -35,7 +36,9 @@ const Winner = ({ team, saveWinner }) => {
         Quel pays gagnera la coupe du monde ?
       </Typography>
       <CardContent>
-        <WinnerChoice userTeam={selectedTeam} onValueChange={handleChange} />
+        <SuspenseWithPerf fallback={<></>} traceId="winner-choice">
+          <WinnerChoice userTeam={selectedTeam} onValueChange={handleChange} />
+        </SuspenseWithPerf>
       </CardContent>
     </Card>
   )

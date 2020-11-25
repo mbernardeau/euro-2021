@@ -7,12 +7,7 @@ import { combineReducers } from 'redux'
 import { connectRouter } from 'connected-react-router'
 import { firebaseReducer } from 'react-redux-firebase'
 
-import matches from './matches'
-import bets from './bets'
-import teams from './teams'
-import stadiums from './stadiums'
 import groups from './groups'
-import nav from './nav'
 import ui from './ui'
 import users from './users'
 import { firestoreReducer } from 'redux-firestore'
@@ -25,11 +20,6 @@ export default function createReducer(history) {
     router: connectRouter(history),
     firebase: firebaseReducer,
     firestore: firestoreReducer,
-    nav,
-    matches,
-    bets,
-    teams,
-    stadiums,
     groups,
     ui,
     users,

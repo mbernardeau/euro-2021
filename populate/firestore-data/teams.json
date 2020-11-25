@@ -1,0 +1,226 @@
+{
+  "-Kj2zfp9V5wdpN59exkD": {
+    "name": "Russie",
+    "code": "ru",
+    "group": "A",
+    "winOdd": 41,
+    "__collections__": {}
+  },
+  "-Kj2zfpEdmB6SgyPd85W": {
+    "name": "Arabie Saoudite",
+    "code": "sa",
+    "group": "A",
+    "winOdd": 1001,
+    "__collections__": {}
+  },
+  "-Kj2zfpFzqykBwiz5dcL": {
+    "name": "Égypte",
+    "code": "eg",
+    "group": "A",
+    "winOdd": 151,
+    "__collections__": {}
+  },
+  "-Kj2zfpFzqykBwiz5dcM": {
+    "name": "Suisse",
+    "code": "ch",
+    "group": "E",
+    "winOdd": 81,
+    "__collections__": {}
+  },
+  "-Kj2zfpFzqykBwiz5dcN": {
+    "name": "Maroc",
+    "code": "ma",
+    "group": "B",
+    "winOdd": 401,
+    "__collections__": {}
+  },
+  "-Kj2zfpGJmSTghyT06un": {
+    "group": "G",
+    "winOdd": 1001,
+    "name": "Panama",
+    "code": "pa",
+    "__collections__": {}
+  },
+  "-Kj2zfpGJmSTghyT06uo": {
+    "name": "Angleterre",
+    "code": "gb-eng",
+    "group": "G",
+    "winOdd": 17,
+    "__collections__": {}
+  },
+  "-Kj2zfpHPqNpMy7ZgxmM": {
+    "group": "C",
+    "winOdd": 7,
+    "name": "France",
+    "code": "fr",
+    "__collections__": {}
+  },
+  "-Kj2zfpIxWevwDITiL0V": {
+    "name": "Allemagne",
+    "code": "de",
+    "group": "F",
+    "winOdd": 5.5,
+    "__collections__": {}
+  },
+  "-Kj2zfpJov1GY9sA2IgE": {
+    "name": "Tunisie",
+    "code": "tn",
+    "group": "G",
+    "winOdd": 501,
+    "__collections__": {}
+  },
+  "-Kj2zfpJov1GY9sA2IgF": {
+    "name": "Pologne",
+    "code": "pl",
+    "group": "H",
+    "winOdd": 46,
+    "__collections__": {}
+  },
+  "-Kj2zfpKYdjdHhPukkXr": {
+    "code": "rs",
+    "group": "E",
+    "winOdd": 151,
+    "name": "Serbie",
+    "__collections__": {}
+  },
+  "-Kj2zfpKYdjdHhPukkXs": {
+    "name": "Suède",
+    "code": "se",
+    "group": "F",
+    "winOdd": 125,
+    "__collections__": {}
+  },
+  "-Kj2zfpKYdjdHhPukkXt": {
+    "code": "sn",
+    "group": "H",
+    "winOdd": 151,
+    "name": "Sénégal",
+    "__collections__": {}
+  },
+  "-Kj2zfpKYdjdHhPukkXu": {
+    "group": "B",
+    "winOdd": 7,
+    "name": "Espagne",
+    "code": "es",
+    "__collections__": {}
+  },
+  "-Kj2zfpLjC03AaK-W8Lo": {
+    "code": "pe",
+    "group": "C",
+    "winOdd": 201,
+    "name": "Pérou",
+    "__collections__": {}
+  },
+  "-Kj2zfpM7z9dtuBQZC4c": {
+    "group": "D",
+    "winOdd": 201,
+    "name": "Nigeria",
+    "code": "ng",
+    "__collections__": {}
+  },
+  "-Kj2zfpN8l22eNCLSzLj": {
+    "name": "Iran",
+    "code": "ir",
+    "group": "B",
+    "winOdd": 501,
+    "__collections__": {}
+  },
+  "-Kj2zfpN8l22eNCLSzLk": {
+    "code": "be",
+    "group": "G",
+    "winOdd": 12,
+    "name": "Belgique",
+    "__collections__": {}
+  },
+  "-Kj2zfpN8l22eNCLSzLl": {
+    "code": "jp",
+    "group": "H",
+    "winOdd": 301,
+    "name": "Japon",
+    "__collections__": {}
+  },
+  "-Kj2zfpO3MwCoLIdNuNf": {
+    "name": "Australie",
+    "code": "au",
+    "group": "C",
+    "winOdd": 301,
+    "__collections__": {}
+  },
+  "-Kj2zfpO3MwCoLIdNuNg": {
+    "name": "Uruguay",
+    "code": "uy",
+    "group": "A",
+    "winOdd": 31,
+    "__collections__": {}
+  },
+  "-Kj2zfpPgzwXCT7Bnm1y": {
+    "group": "B",
+    "winOdd": 23,
+    "name": "Portugal",
+    "code": "pt",
+    "__collections__": {}
+  },
+  "-Kj2zfpRCBdqgDxcBLBQ": {
+    "group": "D",
+    "winOdd": 201,
+    "name": "Islande",
+    "code": "is",
+    "__collections__": {}
+  },
+  "-Kj2zfpRCBdqgDxcBLBR": {
+    "name": "Brésil",
+    "code": "br",
+    "group": "E",
+    "winOdd": 5.5,
+    "__collections__": {}
+  },
+  "-Kj2zfpSUE3rJOjKDuJD": {
+    "group": "D",
+    "winOdd": 9,
+    "name": "Argentine",
+    "code": "ar",
+    "__collections__": {}
+  },
+  "-Kj2zfpSUE3rJOjKDuJE": {
+    "code": "mx",
+    "group": "F",
+    "winOdd": 101,
+    "name": "Mexique",
+    "__collections__": {}
+  },
+  "-Kj2zfpSUE3rJOjKDuJF": {
+    "name": "Colombie",
+    "code": "co",
+    "group": "H",
+    "winOdd": 31,
+    "__collections__": {}
+  },
+  "-Kj2zfpSUE3rJOjKDuJG": {
+    "group": "F",
+    "winOdd": 501,
+    "name": "Corée du Sud",
+    "code": "kr",
+    "__collections__": {}
+  },
+  "-Kj2zfpSUE3rJOjKDuJH": {
+    "name": "Costa Rica",
+    "code": "cr",
+    "group": "E",
+    "winOdd": 501,
+    "__collections__": {}
+  },
+  "-Kj2zfpT4N-Ti7bAyicd": {
+    "group": "C",
+    "winOdd": 81,
+    "name": "Danemark",
+    "code": "dk",
+    "__collections__": {}
+  },
+  "-Kj2zfpT4N-Ti7bAyice": {
+    "name": "Croatie",
+    "code": "hr",
+    "group": "D",
+    "winOdd": 31,
+    "__collections__": {}
+  }
+}

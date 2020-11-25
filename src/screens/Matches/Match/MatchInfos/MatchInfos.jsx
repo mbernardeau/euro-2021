@@ -6,9 +6,11 @@ import Tooltip from '@material-ui/core/Tooltip'
 import StadiumTooltip from './StadiumTooltip'
 
 import './matchInfos.scss'
+import { useStadium } from '../../../../hooks'
 
-const MatchInfos = ({ match, stadium }) => {
-  const dateTime = moment(match.dateTime)
+const MatchInfos = ({ match }) => {
+  const dateTime = moment(match.dateTime.toDate())
+  const stadium = useStadium(match.stadium, {})
 
   return (
     <div className="match-infos-container">
