@@ -5,19 +5,19 @@ import CardContent from '@material-ui/core/CardContent'
 import FormControl from '@material-ui/core/FormControl'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import GroupApplyStatus from './GroupApplyStatus'
+import { useApplyInGroup } from '../../../hooks/groups'
 import './JoinGroup.scss'
 
-const JoinGroup = ({ applyInGroup }) => {
+const JoinGroup = () => {
   const [code, setCode] = useState('')
+  const [applyInGroup] = useApplyInGroup()
 
   const handleSelection = (event) => setCode(event.target.value)
 
-  const apply = () => {
+  const apply = async () => {
     if (code) {
-      applyInGroup(code)
+      await applyInGroup(code)
       setCode('')
     }
   }
@@ -60,14 +60,10 @@ const JoinGroup = ({ applyInGroup }) => {
           Envoyer la demande
         </Button>
       </CardActions>
-
-      <GroupApplyStatus />
     </Card>
   )
 }
 
-JoinGroup.propTypes = {
-  applyInGroup: PropTypes.func.isRequired,
-}
+JoinGroup.propTypes = {}
 
 export default JoinGroup

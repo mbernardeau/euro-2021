@@ -11,7 +11,7 @@ import firebaseConfig from './firebaseConfig'
 
 import createReducer from './reducers'
 
-export default function configureStore(initialState = {}, history) {
+export default function configureStore(initialState = {}) {
   const middlewares = [thunk]
 
   const enhancers = [applyMiddleware(...middlewares)]
@@ -31,7 +31,7 @@ export default function configureStore(initialState = {}, history) {
   /* eslint-enable */
 
   const store = createStore(
-    createReducer(history),
+    createReducer(),
     initialState,
     composeEnhancers(...enhancers),
   )
@@ -42,7 +42,7 @@ export default function configureStore(initialState = {}, history) {
     module.hot.accept('./reducers', () => {
       import('./reducers').then((reducerModule) => {
         const createReducers = reducerModule.default
-        const nextReducers = createReducers(history)
+        const nextReducers = createReducers()
         store.replaceReducer(nextReducers)
       })
     })

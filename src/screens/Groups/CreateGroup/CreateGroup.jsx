@@ -6,15 +6,15 @@ import FormControl from '@material-ui/core/FormControl'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
+import { useCreateGroup } from '../../../hooks'
 import './CreateGroup.scss'
 import CurrencyFormat from './CurrencyFormat'
-import GroupCreateStatus from './GroupCreateStatus'
 
-const CreateGroup = ({ createGroup }) => {
+const CreateGroup = () => {
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
+  const createGroup = useCreateGroup()
 
   const errorMessage =
     name.length > 0 && name.length < 5 ? '5 caractères minimum' : undefined
@@ -77,14 +77,10 @@ const CreateGroup = ({ createGroup }) => {
           Envoyer la demande
         </Button>
       </CardActions>
-
-      <GroupCreateStatus />
     </Card>
   )
 }
 
-CreateGroup.propTypes = {
-  createGroup: PropTypes.func.isRequired,
-}
+CreateGroup.propTypes = {}
 
 export default CreateGroup

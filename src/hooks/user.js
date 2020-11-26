@@ -62,10 +62,10 @@ export const useLogout = () => {
 }
 
 export const useUserProfile = () => {
-  const auth = useUser()
+  const user = useUser()
   const firestore = useFirestore()
 
-  const userRef = firestore.collection('users').doc(auth?.uid || ' ')
+  const userRef = firestore.collection('users').doc(user?.uid || ' ')
 
   return useFirestoreDocData(userRef)
 }

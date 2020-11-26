@@ -11,36 +11,33 @@
  * the linting exception.
  */
 
-import React, { Fragment, useState } from 'react'
-
-import PropTypes from 'prop-types'
 import AppBar from '@material-ui/core/AppBar'
+import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import { SuspenseWithPerf } from 'reactfire'
-
-import HomePage from '../HomePage'
-import GroupsPage from '../Groups'
-import RankingPage from '../Ranking'
-import MatchesPage from '../Matches'
-import RulesPage from '../Rules'
-import FAQPage from '../FAQ'
-import MatchesValidationPage from '../MatchesValidation'
-import ValidInscriptionPage from '../ValidInscription'
-import Stadiums from '../Stadiums'
-import NotFoundPage from '../NotFoundPage'
-
+import PropTypes from 'prop-types'
+import React, { useState } from 'react'
 import { isEmpty } from 'react-redux-firebase'
-
-import { Switch, Route } from 'react-router-dom'
-import NavigationMenu from './NavigationMenu'
-import ConnectionWidget from './ConnectionWidget'
-
+import { Route, Switch } from 'react-router-dom'
+import { SuspenseWithPerf } from 'reactfire'
+import { useUserProfile } from '../../hooks'
+import FAQPage from '../FAQ'
+import GroupsPage from '../Groups'
+import HomePage from '../HomePage'
+import MatchesPage from '../Matches'
+import MatchesValidationPage from '../MatchesValidation'
+import NotFoundPage from '../NotFoundPage'
+import RankingPage from '../Ranking'
+import RulesPage from '../Rules'
+import Stadiums from '../Stadiums'
+import ValidInscriptionPage from '../ValidInscription'
 import './App.scss'
+import ConnectionWidget from './ConnectionWidget'
+import NavigationMenu from './NavigationMenu'
 
-const App = ({ user }) => {
+const App = () => {
+  const user = useUserProfile()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (

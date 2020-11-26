@@ -1,5 +1,6 @@
+export * from './bets'
+export * from './groups'
 export * from './matches'
 export * from './stadiums'
 export * from './teams'
-export * from './bets'
 export * from './user'

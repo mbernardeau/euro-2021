@@ -3,7 +3,7 @@ import { useFirestoreDocData, useUser } from 'reactfire'
 
 export const useBet = (matchId) => {
   const { uid } = useUser()
-  console.log(uid)
+
   const firestore = useFirestore()
   const ref = firestore.collection('bets').doc(`${matchId}_${uid}`)
 

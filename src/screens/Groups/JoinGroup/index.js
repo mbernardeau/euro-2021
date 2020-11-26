@@ -1,1 +1,1 @@
-export { default } from './JoinGroupContainer'
+export { default } from './JoinGroup'

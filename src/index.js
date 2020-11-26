@@ -2,16 +2,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'connected-react-router'
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
 import moment from 'moment'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
-import { createBrowserHistory } from 'history'
 import firebase from 'firebase/app'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
-import { FirebaseAppProvider } from 'reactfire'
+import { FirebaseAppProvider, SuspenseWithPerf } from 'reactfire'
 import firebaseConfig from './redux/firebaseConfig'
+import { SnackbarProvider } from 'notistack'
 
 // Import root app
 import App from './screens/App'
@@ -23,17 +22,13 @@ import './index.css'
 
 import theme from './theme'
 import reportWebVitals from './reportWebVitals'
+import { BrowserRouter } from 'react-router-dom'
 
 // Set moment locale for the whole app
 moment.locale('fr')
 
-// Create redux store with history
-// this uses the singleton browserHistory provided by react-router
-// Optionally, this could be changed to leverage a created history
-// e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
 const initialState = {}
-const history = createBrowserHistory()
-const store = configureStore(initialState, history)
+const store = configureStore(initialState)
 
 const rrfProps = {
   firebase,
@@ -49,17 +44,24 @@ const rrfProps = {
 const render = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <Provider store={store}>
-        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
-          <ReactReduxFirebaseProvider {...rrfProps}>
-            <MuiThemeProvider theme={theme}>
-              <ConnectedRouter history={history}>
-                <App />
-              </ConnectedRouter>
-            </MuiThemeProvider>
-          </ReactReduxFirebaseProvider>
-        </FirebaseAppProvider>
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+            <ReactReduxFirebaseProvider {...rrfProps}>
+              <MuiThemeProvider theme={theme}>
+                <SnackbarProvider>
+                  <SuspenseWithPerf
+                    fallback="App loading something"
+                    traceId="app"
+                  >
+                    <App />
+                  </SuspenseWithPerf>
+                </SnackbarProvider>
+              </MuiThemeProvider>
+            </ReactReduxFirebaseProvider>
+          </FirebaseAppProvider>
+        </Provider>
+      </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root'),
   )
