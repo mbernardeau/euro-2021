@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase-admin": "5.12.0",
-    "node-firestore-import-export": "0.8.1"
+    "firebase-admin": "9.4.1",
+    "node-firestore-import-export": "1.1.0"
   }
 }
