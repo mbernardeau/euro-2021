@@ -5,18 +5,16 @@ import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { isEmpty } from 'react-redux-firebase'
 import { useHistory } from 'react-router'
-import { SuspenseWithPerf, useUser } from 'reactfire'
+import { SuspenseWithPerf } from 'reactfire'
 import WorldCupImg from '../../../assets/2018_FIFA_WC.svg'
+import { useIsUserAdmin, useIsUserConnected } from '../../../hooks'
 import { openPAMTab } from '../../../utils'
 import './NavigationMenu.scss'
 
-const isConnected = (user) => !isEmpty(user)
-const isAdmin = (user) => isConnected(user) && user.admin
-
 const NavigationMenu = ({ closeMenu, menuOpen }) => {
-  const user = useUser()
+  const isConnected = useIsUserConnected()
+  const isAdmin = useIsUserAdmin()
   const history = useHistory()
 
   const goTo = (to) => () => {
@@ -45,35 +43,35 @@ const NavigationMenu = ({ closeMenu, menuOpen }) => {
         </ListItem>
 
         {/* Route accessibles avec connexion */}
-        {isConnected(user) && (
+        {isConnected && (
           <ListItem button onClick={goTo('/matches')}>
             <ListItemText primary="Pariez" />
           </ListItem>
         )}
 
         {/* Route accessibles avec connexion */}
-        {isConnected(user) && (
+        {isConnected && (
           <ListItem button onClick={goTo('/ranking')}>
             <ListItemText primary="Classement" />
           </ListItem>
         )}
 
         {/* Route accessible pour admin seulement */}
-        {isAdmin(user) && (
+        {isAdmin && (
           <ListItem button onClick={goTo('/matchesvalidation')}>
             <ListItemText primary="Validation des matchs" />
           </ListItem>
         )}
 
         {/* Route accessibles avec connexion */}
-        {isConnected(user) && (
+        {isConnected && (
           <ListItem button onClick={goTo('/groups')}>
             <ListItemText primary="Gestion des tribus" />
           </ListItem>
         )}
 
         {/* Route accessible pour admin seulement */}
-        {isAdmin(user) && (
+        {isAdmin && (
           <ListItem button onClick={goTo('/validinscription')}>
             <ListItemText primary="Valider l'inscription d'un membre" />
           </ListItem>

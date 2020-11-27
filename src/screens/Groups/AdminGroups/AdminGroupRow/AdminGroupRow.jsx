@@ -5,7 +5,9 @@ import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
 import size from 'lodash/size'
 
-const AdminGroupRow = ({ name, joinKey, price, members, awaitingMembers }) => (
+const AdminGroupRow = ({
+  group: { name, joinKey, price, members, awaitingMembers },
+}) => (
   <TableRow>
     <TableCell>
       <b>{name}</b>
@@ -27,16 +29,16 @@ const AdminGroupRow = ({ name, joinKey, price, members, awaitingMembers }) => (
   </TableRow>
 )
 
-AdminGroupRow.defaultProps = {
-  members: {},
-}
+AdminGroupRow.defaultProps = {}
 
 AdminGroupRow.propTypes = {
-  name: PropTypes.string.isRequired,
-  joinKey: PropTypes.string.isRequired,
-  members: PropTypes.objectOf(PropTypes.bool),
-  awaitingMembers: PropTypes.objectOf(PropTypes.bool),
-  price: PropTypes.number,
+  group: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    joinKey: PropTypes.string.isRequired,
+    members: PropTypes.arrayOf(PropTypes.string),
+    awaitingMembers: PropTypes.arrayOf(PropTypes.string),
+    price: PropTypes.number,
+  }),
 }
 
 export default AdminGroupRow

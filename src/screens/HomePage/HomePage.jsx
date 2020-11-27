@@ -9,23 +9,20 @@
  * the linting exception.
  */
 
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-
 import Button from '@material-ui/core/Button'
 import EventAvailableIcon from '@material-ui/icons/EventAvailable'
-import PollIcon from '@material-ui/icons/Poll'
 import ListIcon from '@material-ui/icons/List'
-
-import { isEmpty } from 'react-redux-firebase'
-
+import PollIcon from '@material-ui/icons/Poll'
+import PropTypes from 'prop-types'
+import React from 'react'
+import myImage from '../../assets/visuels/bandeauEvenement2.jpg'
+import { useIsUserConnected } from '../../hooks'
+import './HomePage.scss'
 import Winner from './Winner'
 
-import myImage from '../../assets/visuels/bandeauEvenement2.jpg'
+const HomePage = ({ history }) => {
+  const isConnected = useIsUserConnected()
 
-import './HomePage.scss'
-
-const HomePage = ({ history, user }) => {
   return (
     <div className="home-page-div">
       <p className="home-speech">
@@ -61,8 +58,8 @@ const HomePage = ({ history, user }) => {
             Règles
           </Button>
         </div>
-        {!isEmpty(user) && (
-          <Fragment>
+        {isConnected && (
+          <>
             <div className="home-button-panel">
               <p>Tous vos paris : </p>
               <Button
@@ -85,10 +82,10 @@ const HomePage = ({ history, user }) => {
                 Classement
               </Button>
             </div>
-          </Fragment>
+          </>
         )}
       </div>
-      {!isEmpty(user) && <Winner />}
+      {isConnected && <Winner />}
       <img alt="Home" className="home-logo" src={myImage} />
     </div>
   )

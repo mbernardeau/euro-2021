@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import findIndex from 'lodash/findIndex'
 import size from 'lodash/size'
 import Typography from '@material-ui/core/Typography'
+import { useUserProfile } from '../../../../hooks'
 
-const OwnRank = ({ users, members, userId }) => {
-  const rank = findIndex(users, { id: userId }) + 1
+const OwnRank = ({ opponents, members }) => {
+  const { uid } = useUserProfile()
+  const rank = findIndex(opponents, { id: uid }) + 1
 
   return (
     <Typography variant="caption" align="right">
@@ -16,11 +18,10 @@ const OwnRank = ({ users, members, userId }) => {
 }
 
 OwnRank.propTypes = {
-  userId: PropTypes.string.isRequired,
-  members: PropTypes.objectOf(PropTypes.bool),
-  users: PropTypes.arrayOf(
+  members: PropTypes.arrayOf(PropTypes.string),
+  opponents: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string.isRequired,
+      uid: PropTypes.string.isRequired,
     }),
   ),
 }

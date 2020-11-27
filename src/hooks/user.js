@@ -69,3 +69,7 @@ export const useUserProfile = () => {
 
   return useFirestoreDocData(userRef)
 }
+
+export const useIsUserConnected = () => !!useUserProfile()?.uid
+
+export const useIsUserAdmin = () => !!useUserProfile()?.admin

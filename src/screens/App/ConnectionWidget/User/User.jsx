@@ -3,7 +3,6 @@ import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-import PropTypes from 'prop-types'
 import React, { useRef, useState } from 'react'
 import { useLogout, useUserProfile } from '../../../../hooks'
 import './user.scss'
@@ -42,8 +41,6 @@ const User = () => {
   )
 }
 
-User.propTypes = {
-  logout: PropTypes.func.isRequired,
-}
+User.propTypes = {}
 
 export default User

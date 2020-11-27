@@ -1,29 +1,25 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-
-import { isEmpty } from 'react-redux-firebase'
-import map from 'lodash/map'
-import filter from 'lodash/filter'
-import sum from 'lodash/sum'
-
 import Typography from '@material-ui/core/Typography'
+import includes from 'lodash/includes'
+import PropTypes from 'prop-types'
+import React, { useMemo } from 'react'
+import { useUserProfile } from '../../../../hooks'
 
-const DisplayPrice = ({ groups, userId }) => {
-  const somme = sum(
-    map(
-      filter(
-        groups,
-        ({ awaitingMembers }) =>
-          !isEmpty(awaitingMembers) && awaitingMembers[userId],
-      ),
-      'price',
-    ),
+const DisplayPrice = ({ groups }) => {
+  const { uid } = useUserProfile()
+
+  const somme = useMemo(
+    () =>
+      groups
+        .map((groupSnapshot) => groupSnapshot.data())
+        .filter(({ awaitingMembers }) => includes(awaitingMembers, uid))
+        .map(({ price }) => price),
+    [groups, uid],
   )
 
   if (somme === 0) return null
 
   return (
-    <Fragment>
+    <>
       <br />
       <Typography gutterBottom variant="h2">
         Vous devez encore <b>{somme}€ </b> sur le site de la{' '}
@@ -37,18 +33,17 @@ const DisplayPrice = ({ groups, userId }) => {
         </a>{' '}
         pour règler votre(vos) inscription(s).
       </Typography>
-    </Fragment>
+    </>
   )
 }
 
 DisplayPrice.propTypes = {
-  groups: PropTypes.objectOf(
+  groups: PropTypes.arrayOf(
     PropTypes.shape({
-      awaitingMembers: PropTypes.objectOf(PropTypes.bool),
-      price: PropTypes.number,
+      id: PropTypes.string.isRequired,
+      data: PropTypes.func.isRequired,
     }),
   ),
-  userId: PropTypes.string.isRequired,
 }
 
 export default DisplayPrice

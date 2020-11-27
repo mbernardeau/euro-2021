@@ -1,7 +1,8 @@
 import { useSnackbar } from 'notistack'
-import { useFirestore } from 'react-redux-firebase'
-import { useUser } from 'reactfire'
+import { useCallback } from 'react'
+import { useFirestoreCollection, useUser, useFirestore } from 'reactfire'
 import { v4 as uuidv4 } from 'uuid'
+import { useIsUserAdmin, useUserProfile } from './user'
 
 const priceValidationMessage = (price) => (
   <>
@@ -22,6 +23,7 @@ const priceValidationMessage = (price) => (
 export const useCreateGroup = () => {
   const user = useUser()
   const firestore = useFirestore()
+  const FieldValue = useFirestore.FieldValue
   const { enqueueSnackbar } = useSnackbar()
 
   return async (group) => {
@@ -29,7 +31,7 @@ export const useCreateGroup = () => {
     await firestore.collection('groups').add({
       ...group,
       createdBy: user.uid,
-      createdAt: firestore.FieldValue.serverTimestamp(),
+      createdAt: FieldValue.serverTimestamp(),
       joinKey,
       version: 1,
       members: [user.uid],
@@ -49,6 +51,7 @@ export const useApplyInGroup = () => {
   const firestore = useFirestore()
   const user = useUser()
   const { enqueueSnackbar } = useSnackbar()
+  const FieldValue = useFirestore.FieldValue
 
   const applyFn = async (joinKey) => {
     const groupQuerySnapshot = await firestore
@@ -100,7 +103,7 @@ export const useApplyInGroup = () => {
         .collection('groups')
         .doc(groupSnapshot.id)
         .update({
-          awaitingMembers: firestore.FieldValue.arrayUnion('greater_virginia'),
+          awaitingMembers: FieldValue.arrayUnion('greater_virginia'),
         })
 
       enqueueSnackbar(
@@ -115,7 +118,7 @@ export const useApplyInGroup = () => {
         .collection('groups')
         .doc(groupSnapshot.id)
         .update({
-          members: firestore.FieldValue.arrayUnion('greater_virginia'),
+          members: FieldValue.arrayUnion('greater_virginia'),
         })
       enqueueSnackbar(
         <>
@@ -127,4 +130,75 @@ export const useApplyInGroup = () => {
   }
 
   return [applyFn]
+}
+
+export const useGroupsForUserMember = () => {
+  const { uid } = useUserProfile()
+
+  const query = useFirestore()
+    .collection('groups')
+    .where('members', 'array-contains', uid)
+
+  return useFirestoreCollection(query).docs
+}
+
+export const useGroupsForUserAwaitingMember = () => {
+  const { uid } = useUserProfile()
+
+  const query = useFirestore()
+    .collection('groups')
+    .where('awaitingMembers', 'array-contains', uid)
+
+  return useFirestoreCollection(query).docs
+}
+
+export const useGroupsForUser = () => {
+  const groupsMember = useGroupsForUserMember()
+  const groupsAwaitingMember = useGroupsForUserAwaitingMember()
+
+  return [...groupsMember, ...groupsAwaitingMember]
+}
+
+export const useGroupCreatedByUser = () => {
+  const { uid } = useUserProfile()
+
+  const query = useFirestore()
+    .collection('groups')
+    .where('createdBy', '==', uid)
+
+  return useFirestoreCollection(query).docs
+}
+
+export const useGroupsContainingAwaitingMembers = () => {
+  const query = useFirestore()
+    .collection('groups')
+    .where('awaitingMembers', '!=', [])
+
+  return useFirestoreCollection(query).docs
+}
+
+export const useValidApply = (groupId, userId) => {
+  const isAdmin = useIsUserAdmin()
+  if (!isAdmin) {
+    throw new Error('useValidApply can only be used by admins')
+  }
+  const { enqueueSnackbar } = useSnackbar()
+  const firestore = useFirestore()
+  const FieldValue = useFirestore.FieldValue
+
+  return useCallback(
+    () =>
+      firestore
+        .collection('groups')
+        .doc(groupId)
+        .update({
+          awaitingMembers: FieldValue.arrayRemove(userId),
+          members: FieldValue.arrayUnion(userId),
+        })
+        .then(() => enqueueSnackbar('Joueur validé', { variant: 'success' }))
+        .catch(() =>
+          enqueueSnackbar('Validation échouée :(', { variant: 'error' }),
+        ),
+    [FieldValue, enqueueSnackbar, firestore, groupId, userId],
+  )
 }

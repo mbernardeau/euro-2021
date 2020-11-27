@@ -1,1 +1,1 @@
-export { default } from './RankingContainer'
+export { default } from './Ranking'

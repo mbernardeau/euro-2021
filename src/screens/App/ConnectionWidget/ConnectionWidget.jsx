@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react'
-import { isEmpty } from 'react-redux-firebase'
-import PropTypes from 'prop-types'
 import Button from '@material-ui/core/Button'
 import Dialog from '@material-ui/core/Dialog'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import { useIsUserConnected } from '../../../hooks'
 import ConnectionModal from '../ConnectionModal'
+import './ConnectionWidget.scss'
 import User from './User'
 
-import './ConnectionWidget.scss'
-
-const ConnectionWidget = ({ user }) => {
+const ConnectionWidget = () => {
+  const isConnected = useIsUserConnected()
   const [modalOpened, setModalOpened] = useState(false)
 
   useEffect(() => {
-    if (!isEmpty(user) && modalOpened) {
+    if (isConnected && modalOpened) {
       setModalOpened(false)
     }
-  }, [user, modalOpened])
+  }, [isConnected, modalOpened])
 
   return (
     <div className="connection-widget-container">
@@ -27,9 +27,9 @@ const ConnectionWidget = ({ user }) => {
         <ConnectionModal />
       </Dialog>
 
-      {!isEmpty(user) && <User />}
+      {isConnected && <User />}
 
-      {isEmpty(user) && (
+      {!isConnected && (
         <Button
           className="connection-label"
           onClick={() => setModalOpened(true)}

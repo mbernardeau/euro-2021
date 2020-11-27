@@ -28,9 +28,9 @@ const WinnerChoice = ({ userTeam, onValueChange }) => {
           }}
           disabled={isPast(COMPETITION_START_DATE)}
         >
-          {map(teams, ({ name, id }) => (
-            <MenuItem key={id} value={id}>
-              {name}
+          {map(teams, (team) => (
+            <MenuItem key={team.id} value={team.id}>
+              {team.data().name}
             </MenuItem>
           ))}
         </Select>
@@ -46,7 +46,10 @@ const FlagTest = (teams, userTeam) => {
 
   return (
     teamDisplayed && (
-      <Flag country={teamDisplayed.code} className="winner-choice-flag" />
+      <Flag
+        country={teamDisplayed.data().code}
+        className="winner-choice-flag"
+      />
     )
   )
 }

@@ -1,10 +1,10 @@
-import { useFirestore } from 'react-redux-firebase'
-import { useFirestoreDocData, useUser } from 'reactfire'
+import { useFirestoreDocData, useUser, useFirestore } from 'reactfire'
 
 export const useBet = (matchId) => {
   const { uid } = useUser()
 
   const firestore = useFirestore()
+  const FieldValue = useFirestore.FieldValue
   const ref = firestore.collection('bets').doc(`${matchId}_${uid}`)
 
   const setBet = (bet) => {
@@ -13,8 +13,8 @@ export const useBet = (matchId) => {
         ...bet,
         matchId,
         uid,
-        updatedAt: firestore.FieldValue.serverTimestamp(),
-        version: firestore.FieldValue.increment(1),
+        updatedAt: FieldValue.serverTimestamp(),
+        version: FieldValue.increment(1),
       },
       { merge: true },
     )

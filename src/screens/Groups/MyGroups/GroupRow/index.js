@@ -1,1 +1,1 @@
-export { default } from './GroupRowContainer'
+export { default } from './GroupRow'

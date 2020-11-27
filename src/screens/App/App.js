@@ -18,10 +18,9 @@ import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
-import { isEmpty } from 'react-redux-firebase'
 import { Route, Switch } from 'react-router-dom'
-import { SuspenseWithPerf } from 'reactfire'
-import { useUserProfile } from '../../hooks'
+import { preloadAuth, preloadFirestore, SuspenseWithPerf } from 'reactfire'
+import { useIsUserAdmin, useIsUserConnected } from '../../hooks'
 import FAQPage from '../FAQ'
 import GroupsPage from '../Groups'
 import HomePage from '../HomePage'
@@ -37,7 +36,11 @@ import ConnectionWidget from './ConnectionWidget'
 import NavigationMenu from './NavigationMenu'
 
 const App = () => {
-  const user = useUserProfile()
+  preloadAuth()
+  preloadFirestore()
+
+  const isConnected = useIsUserConnected()
+  const isAdmin = useIsUserAdmin()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -76,18 +79,18 @@ const App = () => {
           <Route path="/stadiums" component={Stadiums} />
 
           {/* Routes accessibles avec connexion */}
-          {!isEmpty(user) && <Route path="/matches" component={MatchesPage} />}
-          {!isEmpty(user) && <Route path="/ranking" component={RankingPage} />}
-          {!isEmpty(user) && <Route path="/groups" component={GroupsPage} />}
+          {isConnected && <Route path="/matches" component={MatchesPage} />}
+          {isConnected && <Route path="/ranking" component={RankingPage} />}
+          {isConnected && <Route path="/groups" component={GroupsPage} />}
 
           {/* Route accessible pour admin */}
-          {!isEmpty(user) && user.admin && (
+          {isConnected && isAdmin && (
             <Route
               path="/matchesvalidation"
               component={MatchesValidationPage}
             />
           )}
-          {!isEmpty(user) && user.admin && (
+          {isConnected && isAdmin && (
             <Route path="/validinscription" component={ValidInscriptionPage} />
           )}
 

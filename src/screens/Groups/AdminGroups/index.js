@@ -1,1 +1,1 @@
-export { default } from './AdminGroupsContainer'
+export { default } from './AdminGroups'

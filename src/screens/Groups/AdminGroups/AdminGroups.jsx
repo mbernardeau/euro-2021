@@ -1,22 +1,24 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import TableCell from '@material-ui/core/TableCell'
-import TableRow from '@material-ui/core/TableRow'
-import TableHead from '@material-ui/core/TableHead'
-import TableBody from '@material-ui/core/TableBody'
 import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
+import TableHead from '@material-ui/core/TableHead'
+import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
-import map from 'lodash/map'
 import isEmpty from 'lodash/isEmpty'
-
+import map from 'lodash/map'
+import React from 'react'
+import { useGroupCreatedByUser } from '../../../hooks'
 import AdminGroupRow from './AdminGroupRow'
-
 import './AdminGroups.scss'
 
-const AdminGroups = ({ groups }) =>
-  isEmpty(groups) ? null : (
+const AdminGroups = () => {
+  const groups = useGroupCreatedByUser()
+
+  if (isEmpty(groups)) return null
+
+  return (
     <Card className="admin-groups-card">
       <Typography gutterBottom variant="h1" component="h2">
         Administration des tribus
@@ -37,21 +39,18 @@ const AdminGroups = ({ groups }) =>
             </TableRow>
           </TableHead>
           <TableBody>
-            {map(groups, (group, key) => (
-              <AdminGroupRow key={key} {...group} />
+            {map(groups, (group) => (
+              <AdminGroupRow key={group.id} group={group.data()} />
             ))}
           </TableBody>
         </Table>
       </CardContent>
     </Card>
   )
-
-AdminGroups.defaultProps = {
-  groups: [],
 }
 
-AdminGroups.propTypes = {
-  groups: PropTypes.array,
-}
+AdminGroups.defaultProps = {}
+
+AdminGroups.propTypes = {}
 
 export default AdminGroups
