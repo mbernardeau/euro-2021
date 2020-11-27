@@ -3,7 +3,6 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
-import moment from 'moment'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
 import firebase from 'firebase/app'
@@ -23,9 +22,6 @@ import './index.css'
 import theme from './theme'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
-
-// Set moment locale for the whole app
-moment.locale('fr')
 
 const initialState = {}
 const store = configureStore(initialState)

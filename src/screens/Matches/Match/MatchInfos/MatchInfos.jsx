@@ -1,21 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import moment from 'moment'
 import Tooltip from '@material-ui/core/Tooltip'
-
+import format from 'date-fns/format'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import fr from 'date-fns/locale/fr'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { useStadium } from '../../../../hooks'
+import './matchInfos.scss'
 import StadiumTooltip from './StadiumTooltip'
 
-import './matchInfos.scss'
-import { useStadium } from '../../../../hooks'
-
 const MatchInfos = ({ match }) => {
-  const dateTime = moment(match.dateTime.toDate())
+  const dateTime = match.dateTime.toDate()
   const stadium = useStadium(match.stadium, {})
 
   return (
     <div className="match-infos-container">
-      <Tooltip title={dateTime.format('LLL')} enterTouchDelay={0}>
-        <div>{dateTime.fromNow()}</div>
+      <Tooltip
+        title={format(dateTime, 'PPPppp', { locale: fr })}
+        enterTouchDelay={0}
+      >
+        <div>
+          {formatDistanceToNow(dateTime, { locale: fr, addSuffix: true })}
+        </div>
       </Tooltip>
       <div>•</div>
       <Tooltip title={<StadiumTooltip {...stadium} />} enterTouchDelay={0}>

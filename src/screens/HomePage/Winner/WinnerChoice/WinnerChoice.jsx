@@ -1,18 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Flag from '../../../../components/Flag'
-import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
-import Typography from '@material-ui/core/Typography'
+import Select from '@material-ui/core/Select'
 import Tooltip from '@material-ui/core/Tooltip'
-
+import Typography from '@material-ui/core/Typography'
+import isPast from 'date-fns/isPast'
 import find from 'lodash/find'
 import map from 'lodash/map'
-import moment from 'moment'
-import { COMPETITION_START_DATE } from '../../../App/constants'
-
-import './WinnerChoice.scss'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Flag from '../../../../components/Flag'
 import { useTeams } from '../../../../hooks'
+import { COMPETITION_START_DATE } from '../../../App/constants'
+import './WinnerChoice.scss'
 
 const WinnerChoice = ({ userTeam, onValueChange }) => {
   const teams = useTeams()
@@ -28,7 +26,7 @@ const WinnerChoice = ({ userTeam, onValueChange }) => {
           inputProps={{
             name: 'userTeam',
           }}
-          disabled={moment().isAfter(COMPETITION_START_DATE)}
+          disabled={isPast(COMPETITION_START_DATE)}
         >
           {map(teams, ({ name, id }) => (
             <MenuItem key={id} value={id}>
