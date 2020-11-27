@@ -1,65 +1,46 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-
 import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
-
+import React, { useRef, useState } from 'react'
+import { useLogout, useUserProfile } from '../../../../hooks'
 import './user.scss'
 
-class User extends PureComponent {
-  state = {
-    anchorEl: null,
-    open: false,
-  }
+const User = () => {
+  const user = useUserProfile()
+  const logout = useLogout()
+  const [isOpen, setIsOpen] = useState(false)
+  const anchorEl = useRef()
 
-  handleClick = (event) => {
-    this.setState({ open: true, anchorEl: event.currentTarget })
-  }
+  return (
+    <div className="user-widget">
+      <Avatar src={user.avatarUrl} className="user-avatar" />
 
-  handleClose = () => {
-    this.setState({ open: false })
-  }
+      <span className="username">{user.displayName}</span>
 
-  render() {
-    const { user, logout } = this.props
+      <IconButton
+        aria-label="Plus"
+        aria-owns={isOpen ? 'long-menu' : null}
+        aria-haspopup="true"
+        onClick={() => setIsOpen(true)}
+        ref={anchorEl}
+        color="inherit"
+      >
+        <MoreVertIcon />
+      </IconButton>
 
-    return (
-      <div className="user-widget">
-        <Avatar src={user.avatarUrl} className="user-avatar" />
-
-        <span className="username">{user.displayName}</span>
-
-        <IconButton
-          aria-label="Plus"
-          aria-owns={this.state.open ? 'long-menu' : null}
-          aria-haspopup="true"
-          onClick={this.handleClick}
-          color="inherit"
-        >
-          <MoreVertIcon />
-        </IconButton>
-
-        <Menu
-          open={this.state.open}
-          anchorEl={this.state.anchorEl}
-          onClose={this.handleClose}
-        >
-          <MenuItem onClick={logout}>Se déconnecter</MenuItem>
-        </Menu>
-      </div>
-    )
-  }
+      <Menu
+        open={isOpen}
+        anchorEl={anchorEl?.current}
+        onClose={() => setIsOpen(false)}
+      >
+        <MenuItem onClick={logout}>Se déconnecter</MenuItem>
+      </Menu>
+    </div>
+  )
 }
 
-User.propTypes = {
-  user: PropTypes.shape({
-    avatarUrl: PropTypes.string.isRequired,
-    displayName: PropTypes.string.isRequired,
-  }).isRequired,
-  logout: PropTypes.func.isRequired,
-}
+User.propTypes = {}
 
 export default User

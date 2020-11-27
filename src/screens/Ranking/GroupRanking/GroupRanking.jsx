@@ -1,23 +1,28 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
-
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import TableRow from '@material-ui/core/TableRow'
+import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
-import Table from '@material-ui/core/Table'
-import InlineAvatar from '../../../components/Avatar'
+import TableRow from '@material-ui/core/TableRow'
 import Typography from '@material-ui/core/Typography'
-
+import orderBy from 'lodash/orderBy'
+import PropTypes from 'prop-types'
+import React, { useMemo } from 'react'
+import InlineAvatar from '../../../components/Avatar'
+import { useOpponents, useUserProfile } from '../../../hooks'
+import './GroupRanking.scss'
 import OwnRank from './OwnRank'
 
-import './GroupRanking.scss'
-
-const GroupRanking = ({ name, users, userId, members, load, ...other }) => {
-  useEffect(() => {
-    load(members)
-  }, [members, load])
+const GroupRanking = ({ name, members }) => {
+  const { uid } = useUserProfile()
+  const opponents = useOpponents(members)
+  const sortedOpponents = useMemo(
+    () =>
+      orderBy(opponents, (userSnapshot) => userSnapshot.data().score ?? 0, [
+        'desc',
+      ]),
+    [opponents],
+  )
 
   return (
     <Card className="group-ranking-card">
@@ -25,26 +30,30 @@ const GroupRanking = ({ name, users, userId, members, load, ...other }) => {
         <Typography variant="h1" align="center">
           {name}
         </Typography>
-        <OwnRank users={users} userId={userId} {...other} />
+        <OwnRank opponents={sortedOpponents} members={members} />
         <Table>
           <TableBody>
-            {users.map((user, index) => (
-              <TableRow
-                key={user.id}
-                className={user.id === userId ? 'own-ranking-row' : ''}
-              >
-                <TableCell padding="none">
-                  <Typography variant="title">#{index + 1}</Typography>
-                </TableCell>
-                <TableCell padding="dense">
-                  <InlineAvatar {...user} />
-                </TableCell>
-                <TableCell padding="none">
-                  {(user.score || 0).toLocaleString()} point
-                  {user.score > 1 && 's'}
-                </TableCell>
-              </TableRow>
-            ))}
+            {sortedOpponents.map((userSnapshot, index) => {
+              const user = userSnapshot.data()
+
+              return (
+                <TableRow
+                  key={userSnapshot.id}
+                  className={userSnapshot.id === uid ? 'own-ranking-row' : ''}
+                >
+                  <TableCell padding="none">
+                    <Typography variant="title">#{index + 1}</Typography>
+                  </TableCell>
+                  <TableCell padding="dense">
+                    <InlineAvatar {...user} />
+                  </TableCell>
+                  <TableCell padding="none">
+                    {(user.score || 0).toLocaleString()} point
+                    {user.score > 1 && 's'}
+                  </TableCell>
+                </TableRow>
+              )
+            })}
           </TableBody>
         </Table>
       </CardContent>
@@ -52,22 +61,9 @@ const GroupRanking = ({ name, users, userId, members, load, ...other }) => {
   )
 }
 
-GroupRanking.defaultProps = {
-  users: [],
-}
-
 GroupRanking.propTypes = {
   name: PropTypes.string.isRequired,
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      score: PropTypes.number,
-    }),
-  ),
-  userId: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  load: PropTypes.func.isRequired,
-  members: PropTypes.objectOf(PropTypes.bool).isRequired,
+  members: PropTypes.arrayOf(PropTypes.string).isRequired,
   selection: PropTypes.number,
 }
 

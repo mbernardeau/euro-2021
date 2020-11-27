@@ -1,61 +1,36 @@
 // Import all the third party stuff
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'connected-react-router'
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
-import moment from 'moment'
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
-import { createFirestoreInstance } from 'redux-firestore'
-import { createBrowserHistory } from 'history'
-import firebase from 'firebase/app'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
+import { FirebaseAppProvider, SuspenseWithPerf } from 'reactfire'
+import firebaseConfig from './firebaseConfig'
+import { SnackbarProvider } from 'notistack'
 
 // Import root app
 import App from './screens/App'
-
-import configureStore from './redux/store'
 
 // Import CSS reset and Global Styles
 import './index.css'
 
 import theme from './theme'
 import reportWebVitals from './reportWebVitals'
-
-// Set moment locale for the whole app
-moment.locale('fr')
-
-// Create redux store with history
-// this uses the singleton browserHistory provided by react-router
-// Optionally, this could be changed to leverage a created history
-// e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
-const initialState = {}
-const history = createBrowserHistory()
-const store = configureStore(initialState, history)
-
-const rrfProps = {
-  firebase,
-  config: {
-    userProfile: 'users', // firebase root where user profiles are stored
-    enableLogging: false, // enable/disable Firebase's database logging
-    useFirestoreForProfile: true, // Firestore for Profile instead of Realtime DB
-  },
-  dispatch: store.dispatch,
-  createFirestoreInstance,
-}
+import { BrowserRouter } from 'react-router-dom'
 
 const render = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <Provider store={store}>
-        <ReactReduxFirebaseProvider {...rrfProps}>
+      <BrowserRouter>
+        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
           <MuiThemeProvider theme={theme}>
-            <ConnectedRouter history={history}>
-              <App />
-            </ConnectedRouter>
+            <SnackbarProvider>
+              <SuspenseWithPerf fallback="App loading something" traceId="app">
+                <App />
+              </SuspenseWithPerf>
+            </SnackbarProvider>
           </MuiThemeProvider>
-        </ReactReduxFirebaseProvider>
-      </Provider>
+        </FirebaseAppProvider>
+      </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root'),
   )

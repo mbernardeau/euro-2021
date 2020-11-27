@@ -17,16 +17,21 @@ import GroupRow from './GroupRow'
 import DisplayPrice from './DisplayPrice'
 
 import './MyGroups.scss'
+import { useGroupsForUser } from '../../../hooks'
 
-const MyGroups = ({ groups, userId }) =>
-  isEmpty(groups) ? null : (
+const MyGroups = () => {
+  const groups = useGroupsForUser()
+
+  if (isEmpty(groups)) return null
+
+  return (
     <Card className="my-groups-card">
       <Typography gutterBottom variant="h1">
         Mes tribus
       </Typography>
 
       {/* Composant qui s'affiche si membre en attente dans au moins un groupe */}
-      <DisplayPrice groups={groups} userId={userId} />
+      <DisplayPrice groups={groups} />
 
       <CardContent className="my-groups-card-content">
         <Table>
@@ -38,14 +43,15 @@ const MyGroups = ({ groups, userId }) =>
             </TableRow>
           </TableHead>
           <TableBody>
-            {map(groups, (group, key) => (
-              <GroupRow {...group} key={key} />
+            {map(groups, (groupSnapshot, key) => (
+              <GroupRow group={groupSnapshot.data()} key={groupSnapshot.id} />
             ))}
           </TableBody>
         </Table>
       </CardContent>
     </Card>
   )
+}
 
 MyGroups.propTypes = {
   groups: PropTypes.objectOf(PropTypes.shape({})),

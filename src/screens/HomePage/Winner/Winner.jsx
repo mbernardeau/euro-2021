@@ -1,23 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import PropTypes from 'prop-types'
-
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-
+import React from 'react'
+import { SuspenseWithPerf } from 'reactfire'
+import { useSelectedWinner } from '../../../hooks'
+import './Winner.scss'
 import WinnerChoice from './WinnerChoice'
 
-import './Winner.scss'
-
-const Winner = ({ team, saveWinner }) => {
-  const [selectedTeam, setSelectedTeam] = useState(team)
-
-  useEffect(() => {
-    setSelectedTeam(team)
-  }, [team])
+const Winner = () => {
+  const [team, saveWinner] = useSelectedWinner()
 
   const handleChange = (e) => {
-    setSelectedTeam(e.target.value)
     saveWinner(e.target.value)
   }
 
@@ -35,19 +28,16 @@ const Winner = ({ team, saveWinner }) => {
         Quel pays gagnera la coupe du monde ?
       </Typography>
       <CardContent>
-        <WinnerChoice userTeam={selectedTeam} onValueChange={handleChange} />
+        <SuspenseWithPerf fallback={<></>} traceId="winner-choice">
+          <WinnerChoice userTeam={team} onValueChange={handleChange} />
+        </SuspenseWithPerf>
       </CardContent>
     </Card>
   )
 }
 
-Winner.propTypes = {
-  team: PropTypes.string,
-  saveWinner: PropTypes.func.isRequired,
-}
+Winner.propTypes = {}
 
-Winner.defaultProps = {
-  team: '',
-}
+Winner.defaultProps = {}
 
 export default Winner

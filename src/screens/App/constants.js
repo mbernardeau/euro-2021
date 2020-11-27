@@ -8,8 +8,5 @@
  * Follow this format:
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
-import moment from 'moment'
 
-export const DEFAULT_LOCALE = 'en'
-
-export const COMPETITION_START_DATE = moment('2018-06-14T15:00:00.000Z')
+export const COMPETITION_START_DATE = new Date('2018-06-14T15:00:00.000Z')

@@ -1,1 +1,1 @@
-export { default } from './ValidInscriptionRowContainer'
+export { default } from './ValidInscriptionRow'

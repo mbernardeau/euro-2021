@@ -1,24 +1,23 @@
-import React, { Fragment, useState } from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-import isEmpty from 'lodash/isEmpty'
 import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
-
+import Tabs from '@material-ui/core/Tabs'
+import isEmpty from 'lodash/isEmpty'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { SuspenseWithPerf } from 'reactfire'
+import { useGroupsForUserMember } from '../../hooks'
 import GroupRanking from './GroupRanking'
-
 import './ranking.scss'
 
-const Ranking = ({ groups = [] }) => {
-  const [selectedTab, setselectedTab] = useState()
-
+const Ranking = () => {
+  const [selectedTab, setSelectedTab] = useState(0)
+  const groups = useGroupsForUserMember()
   const handleTabChange = (event, value) => {
-    setselectedTab(value)
+    setSelectedTab(value)
   }
 
   return isEmpty(groups) ? (
-    <Fragment>
+    <>
       <div className="ranking-page-div">
         <p>
           Pour pouvoir vous visualiser dans le classement, il vous faut tout
@@ -37,29 +36,31 @@ const Ranking = ({ groups = [] }) => {
           administrateurs.
         </p>
       </div>
-    </Fragment>
+    </>
   ) : (
-    <Fragment>
+    <>
       <AppBar position="fixed" className="ranking-tab-bar">
         <Tabs value={selectedTab} onChange={handleTabChange} centered>
           {groups.map((group) => (
-            <Tab key={group.id} label={group.name} />
+            <Tab key={group.id} label={group.data().name} />
           ))}
         </Tabs>
       </AppBar>
       <div className="ranking-container">
-        {!isEmpty(groups) && <GroupRanking {...groups[selectedTab]} />}
+        {!isEmpty(groups) && <GroupRanking {...groups[selectedTab]?.data()} />}
       </div>
-    </Fragment>
+    </>
   )
 }
 
-Ranking.propTypes = {
-  groups: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  ),
+Ranking.propTypes = {}
+
+const RankingWithSuspence = (props) => {
+  return (
+    <SuspenseWithPerf fallback="Loading groups..." traceId="rankings">
+      <Ranking {...props} />
+    </SuspenseWithPerf>
+  )
 }
 
-export default Ranking
+export default RankingWithSuspence

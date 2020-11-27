@@ -9,7 +9,6 @@ import isNil from 'lodash/isNil'
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Divider from '@material-ui/core/Divider'
-import moment from 'moment'
 
 import Odds from './Odds'
 import Bet from './Bet'
@@ -21,19 +20,25 @@ import PointsWon from './PointsWon'
 import PointsWonPhase from './PointsWonPhase'
 
 import './Match.scss'
+import { useBet, useTeam } from '../../../hooks'
 
 const empty = {}
 const scoreValidator = (score) => isNumber(score) && score >= 0
 const winnerValidator = (winner) => winner && (winner === 'A' || winner === 'B')
 
-const Match = ({ bet, match, saveBet, teamA, teamB }) => {
+const Match = ({ matchSnapshot }) => {
+  const [bet, saveBet] = useBet(matchSnapshot.id)
   const [currentBet, setCurrentBet] = useState(bet)
+
+  const match = matchSnapshot.data()
+  const teamA = useTeam(match.teamA)
+  const teamB = useTeam(match.teamB)
 
   useEffect(() => {
     setCurrentBet(bet)
   }, [bet])
 
-  const past = moment(match.dateTime).isBefore(new Date())
+  const past = match.dateTime.toMillis() < Date.now()
 
   const isBetValid = (updatedBet) => {
     if (
@@ -91,7 +96,7 @@ const Match = ({ bet, match, saveBet, teamA, teamB }) => {
 
   return (
     (match.phase === '0' || match.display) && (
-      <Fragment>
+      <>
         <Card className="match-card">
           <CardContent className="match-content">
             <div className="match-teams">
@@ -137,15 +142,13 @@ const Match = ({ bet, match, saveBet, teamA, teamB }) => {
             {!past && <ValidIcon valid={betSaved()} />}
           </CardContent>
         </Card>
-      </Fragment>
+      </>
     )
   )
 }
 
 Match.defaultProps = {
   match: {},
-  teamA: {},
-  teamB: {},
   bet: empty,
 }
 
@@ -155,20 +158,6 @@ Match.propTypes = {
     phase: PropTypes.string.isRequired,
     scores: PropTypes.shape({}),
   }),
-  teamA: PropTypes.shape({
-    code: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-  }),
-  teamB: PropTypes.shape({
-    code: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-  }),
-  bet: PropTypes.shape({
-    betTeamA: PropTypes.number,
-    betTeamB: PropTypes.number,
-    betWinner: PropTypes.string,
-  }),
-  saveBet: PropTypes.func.isRequired,
 }
 
 export default Match

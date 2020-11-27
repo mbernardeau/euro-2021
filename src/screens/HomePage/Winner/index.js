@@ -1,1 +1,1 @@
-export { default } from './WinnerContainer'
+export { default } from './Winner'

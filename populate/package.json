@@ -1,0 +1,19 @@
+{
+  "name": "roadtorussia-populate",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase-admin": "9.4.1",
+    "node-firestore-import-export": "1.1.0"
+  }
+}
