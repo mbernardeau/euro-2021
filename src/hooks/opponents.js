@@ -5,25 +5,28 @@ import { useEffect, useMemo, useState } from 'react'
 import { useFirestore } from 'reactfire'
 
 export const useOpponents = (userIds) => {
-  const usersChunks = useMemo(() => chunk(userIds, 10), [userIds])
-  const [users, setUsers] = useState({})
+  const idChunks = useMemo(() => chunk(userIds, 10), [userIds])
+  const [opponents, setOpponents] = useState({})
   const firestore = useFirestore()
 
   useEffect(() => {
     if (isEmpty(userIds)) return
 
-    const unsubscribes = usersChunks.map((idChunk) =>
+    const unsubscribes = idChunks.map((idChunk) =>
       firestore
-        .collection('users')
+        .collection('opponents')
         .where('uid', 'in', idChunk)
         .onSnapshot((snap) => {
-          const addedUsers = keyBy(snap.docs, 'uid')
-          setUsers((currentUsers) => ({ ...currentUsers, ...addedUsers }))
+          const addedUsers = keyBy(snap.docs, 'id')
+          setOpponents((currentUsers) => ({ ...currentUsers, ...addedUsers }))
         }),
     )
 
     return () => unsubscribes.forEach((unsubscribe) => unsubscribe())
-  }, [firestore, userIds, usersChunks])
+  }, [firestore, userIds, idChunks])
 
-  return Object.values(users)
+  return useMemo(
+    () => Object.values(opponents).filter((u) => userIds.includes(u.id)),
+    [opponents, userIds],
+  )
 }

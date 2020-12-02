@@ -9,7 +9,8 @@ import Typography from '@material-ui/core/Typography'
 import map from 'lodash/map'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { useGroupsContainingAwaitingMembers, useOpponents } from '../../hooks'
+import { useGroupsContainingAwaitingMembers } from '../../hooks'
+import { useUsers } from '../../hooks/users'
 import './ValidInscription.scss'
 import ValidInscriptionRow from './ValidInscriptionRow'
 
@@ -52,7 +53,7 @@ const ValidInscription = () => {
 }
 
 const ValidInscriptionGroupRows = ({ group, groupId }) => {
-  const users = useOpponents(group.awaitingMembers)
+  const users = useUsers(group.awaitingMembers)
 
   return (
     <>

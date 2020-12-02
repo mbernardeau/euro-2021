@@ -42,7 +42,7 @@ const GroupRanking = ({ name, members }) => {
                   className={userSnapshot.id === uid ? 'own-ranking-row' : ''}
                 >
                   <TableCell padding="none">
-                    <Typography variant="title">#{index + 1}</Typography>
+                    <Typography variant="overline">#{index + 1}</Typography>
                   </TableCell>
                   <TableCell padding="dense">
                     <InlineAvatar {...user} />
