@@ -56,6 +56,7 @@ service cloud.firestore {
       allow create: if
         request.resource.data.name.size() >= 5 &&
         request.resource.data.joinKey.size() == 5 &&
+        request.resource.data.price is number &&
         request.resource.data.createdBy == request.auth.uid &&
         request.resource.data.createdAt == request.time;
       allow delete: if false;
