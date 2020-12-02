@@ -1,6 +1,7 @@
 import Typography from '@material-ui/core/Typography'
 import includes from 'lodash/includes'
 import PropTypes from 'prop-types'
+import sumBy from 'lodash/sumBy'
 import React, { useMemo } from 'react'
 import { useUserProfile } from '../../../../hooks'
 
@@ -9,14 +10,16 @@ const DisplayPrice = ({ groups }) => {
 
   const somme = useMemo(
     () =>
-      groups
-        .map((groupSnapshot) => groupSnapshot.data())
-        .filter(({ awaitingMembers }) => includes(awaitingMembers, uid))
-        .map(({ price }) => price),
+      sumBy(
+        groups
+          .map((groupSnapshot) => groupSnapshot.data())
+          .filter(({ awaitingMembers }) => includes(awaitingMembers, uid)),
+        'price',
+      ),
     [groups, uid],
   )
 
-  if (somme === 0) return null
+  if (!somme) return null
 
   return (
     <>

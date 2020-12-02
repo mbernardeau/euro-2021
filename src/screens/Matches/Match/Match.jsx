@@ -1,26 +1,21 @@
-import React, { Fragment, useEffect, useState } from 'react'
-
-import PropTypes from 'prop-types'
-
-import conformsTo from 'lodash/conformsTo'
-import isNumber from 'lodash/isNumber'
-import isNil from 'lodash/isNil'
-
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Divider from '@material-ui/core/Divider'
-
-import Odds from './Odds'
+import conformsTo from 'lodash/conformsTo'
+import isNil from 'lodash/isNil'
+import isNumber from 'lodash/isNumber'
+import PropTypes from 'prop-types'
+import React, { useEffect, useState } from 'react'
+import { useBet, useTeam } from '../../../hooks'
 import Bet from './Bet'
 import ChoiceWinner from './ChoiceWinner'
-import ValidIcon from './ValidIcon'
+import './Match.scss'
 import MatchInfos from './MatchInfos'
-import Scores from './Scores'
+import Odds from './Odds'
 import PointsWon from './PointsWon'
 import PointsWonPhase from './PointsWonPhase'
-
-import './Match.scss'
-import { useBet, useTeam } from '../../../hooks'
+import Scores from './Scores'
+import ValidIcon from './ValidIcon'
 
 const empty = {}
 const scoreValidator = (score) => isNumber(score) && score >= 0
@@ -154,7 +149,9 @@ Match.defaultProps = {
 
 Match.propTypes = {
   match: PropTypes.shape({
-    dateTime: PropTypes.instanceOf(Date).isRequired,
+    dateTime: PropTypes.shape({
+      toDate: PropTypes.func.isRequired,
+    }).isRequired,
     phase: PropTypes.string.isRequired,
     scores: PropTypes.shape({}),
   }),

@@ -1,23 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-import map from 'lodash/map'
-import isEmpty from 'lodash/isEmpty'
-
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Table from '@material-ui/core/Table'
+import TableBody from '@material-ui/core/TableBody'
+import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
-import TableCell from '@material-ui/core/TableCell'
-import TableBody from '@material-ui/core/TableBody'
 import Typography from '@material-ui/core/Typography'
-
-import GroupRow from './GroupRow'
-import DisplayPrice from './DisplayPrice'
-
-import './MyGroups.scss'
+import isEmpty from 'lodash/isEmpty'
+import map from 'lodash/map'
+import React from 'react'
 import { useGroupsForUser } from '../../../hooks'
+import DisplayPrice from './DisplayPrice'
+import GroupRow from './GroupRow'
+import './MyGroups.scss'
 
 const MyGroups = () => {
   const groups = useGroupsForUser()
@@ -53,9 +48,6 @@ const MyGroups = () => {
   )
 }
 
-MyGroups.propTypes = {
-  groups: PropTypes.objectOf(PropTypes.shape({})),
-  userId: PropTypes.string.isRequired,
-}
+MyGroups.propTypes = {}
 
 export default MyGroups

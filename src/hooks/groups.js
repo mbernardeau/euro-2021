@@ -6,7 +6,7 @@ import { useIsUserAdmin, useUserProfile } from './user'
 
 const priceValidationMessage = (price) => (
   <>
-    Payer {price}€ sur la{' '}
+    Payer {price}€ sur la&nbsp;
     <a
       title="Site cagnotte"
       className="group-join-link"
@@ -15,8 +15,8 @@ const priceValidationMessage = (price) => (
       rel="noreferrer"
     >
       cagnotte
-    </a>{' '}
-    pour valider votre inscription !
+    </a>
+    &nbsp; pour valider votre inscription !
   </>
 )
 
@@ -74,7 +74,6 @@ export const useApplyInGroup = () => {
     const [groupSnapshot] = groupQuerySnapshot.docs
     const group = groupSnapshot.data()
 
-    debugger
     if (group.members?.includes(user.uid)) {
       enqueueSnackbar(
         <>
@@ -103,12 +102,12 @@ export const useApplyInGroup = () => {
         .collection('groups')
         .doc(groupSnapshot.id)
         .update({
-          awaitingMembers: FieldValue.arrayUnion('greater_virginia'),
+          awaitingMembers: FieldValue.arrayUnion(user.uid),
         })
 
       enqueueSnackbar(
         <>
-          Demande envoyée pour la tribu <b>{group.name}</b> !{' '}
+          Demande envoyée pour la tribu&nbsp;<b>{group.name}</b> !{' '}
           {priceValidationMessage(group.price)}
         </>,
         { variant: 'success' },
@@ -118,11 +117,11 @@ export const useApplyInGroup = () => {
         .collection('groups')
         .doc(groupSnapshot.id)
         .update({
-          members: FieldValue.arrayUnion('greater_virginia'),
+          members: FieldValue.arrayUnion(user.uid),
         })
       enqueueSnackbar(
         <>
-          Demande envoyée pour la tribu <b>{group.name}</b> !
+          Demande envoyée pour la tribu&nbsp;<b>{group.name}</b> !
         </>,
         { variant: 'success' },
       )

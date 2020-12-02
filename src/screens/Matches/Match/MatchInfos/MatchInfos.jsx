@@ -41,7 +41,9 @@ MatchInfos.defaultProps = {
 
 MatchInfos.propTypes = {
   match: PropTypes.shape({
-    dateTime: PropTypes.instanceOf(Date).isRequired,
+    dateTime: PropTypes.shape({
+      toDate: PropTypes.func.isRequired,
+    }).isRequired,
   }),
   stadium: PropTypes.shape({
     name: PropTypes.string,

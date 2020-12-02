@@ -75,7 +75,7 @@ WinnerChoice.defaultProps = {
 
 WinnerChoice.propTypes = {
   teams: PropTypes.arrayOf(PropTypes.shape({})),
-  userTeam: PropTypes.string.isRequired,
+  userTeam: PropTypes.string,
   onValueChange: PropTypes.func.isRequired,
 }
 
