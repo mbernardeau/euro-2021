@@ -21,7 +21,7 @@ const WinnerChoice = ({ userTeam, onValueChange }) => {
       <div className="winner-choice-select-container">
         <Select
           className="winner-choice-select-value"
-          value={userTeam}
+          value={userTeam ?? ''}
           onChange={onValueChange}
           inputProps={{
             name: 'userTeam',

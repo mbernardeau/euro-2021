@@ -39,8 +39,10 @@ service cloud.firestore {
         (!exists(/databases/$(database)/documents/bets/$(betId)) || request.auth.uid == resource.data.uid);
       allow write: if 
         request.auth.uid == request.resource.data.uid && 
+        request.resource.data.betTeamA is number &&
+        request.resource.data.betTeamB is number &&
         request.resource.data.updatedAt == request.time &&
-        exists(/databases/$(database)/documents/matches/$(resource.data.matchId));
+        exists(/databases/$(database)/documents/matches/$(request.resource.data.matchId));
     }
     // Groups can be updated only if name and joinKey are not altered
     // They can be created only with name of minimum size and joinKey of 10 chars
