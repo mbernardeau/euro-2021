@@ -97,13 +97,13 @@ const Match = ({ matchSnapshot }) => {
             <div className="match-teams">
               <Bet
                 team={teamA}
-                betValue={bet.betTeamA}
+                betValue={currentBet.betTeamA}
                 onBetValueUpdated={handleTeamAChange}
                 past={past}
               />
               <Bet
                 team={teamB}
-                betValue={bet.betTeamB}
+                betValue={currentBet.betTeamB}
                 onBetValueUpdated={handleTeamBChange}
                 past={past}
               />

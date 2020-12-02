@@ -159,7 +159,7 @@ const updateUserScore = (
   const odd = findCote(odds, winner)
   const oddWinner = findCoteFinalWinner(odds, finalWinner) || 0
 
-  const user = db.collection('users').doc(userId)
+  const user = db.collection('opponents').doc(userId)
 
   console.log(`Updating user score for ${userId}`)
   return db

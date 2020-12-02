@@ -1,3 +1,1 @@
-import Bet from './Bet'
-
-export default Bet
+export { default } from './Bet'

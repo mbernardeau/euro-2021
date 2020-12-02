@@ -8,6 +8,7 @@ export const useOpponents = (userIds) => {
   const idChunks = useMemo(() => chunk(userIds, 10), [userIds])
   const [opponents, setOpponents] = useState({})
   const firestore = useFirestore()
+  const { FieldPath } = useFirestore
 
   useEffect(() => {
     if (isEmpty(userIds)) return
@@ -15,7 +16,7 @@ export const useOpponents = (userIds) => {
     const unsubscribes = idChunks.map((idChunk) =>
       firestore
         .collection('opponents')
-        .where('uid', 'in', idChunk)
+        .where(FieldPath.documentId(), 'in', idChunk)
         .onSnapshot((snap) => {
           const addedUsers = keyBy(snap.docs, 'id')
           setOpponents((currentUsers) => ({ ...currentUsers, ...addedUsers }))
@@ -23,7 +24,7 @@ export const useOpponents = (userIds) => {
     )
 
     return () => unsubscribes.forEach((unsubscribe) => unsubscribe())
-  }, [firestore, userIds, idChunks])
+  }, [firestore, userIds, idChunks, FieldPath])
 
   return useMemo(
     () => Object.values(opponents).filter((u) => userIds.includes(u.id)),

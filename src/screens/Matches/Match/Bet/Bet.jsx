@@ -8,25 +8,27 @@ import MenuItem from '@material-ui/core/MenuItem'
 
 import './Bet.scss'
 
-const Bet = ({ team, betValue, onBetValueUpdated, past }) => (
-  <div className="bet">
-    <div className="bet-title">
-      <Flag country={team.code} className="bet-flag" />
-      <div className="team-name">{team.name}</div>
+const Bet = ({ team, betValue, onBetValueUpdated, past }) => {
+  return (
+    <div className="bet">
+      <div className="bet-title">
+        <Flag country={team.code} className="bet-flag" />
+        <div className="team-name">{team.name}</div>
+      </div>
+      <div className="bet-select-container">
+        <Select
+          type="number"
+          value={betValue >= 0 ? betValue : ''}
+          renderValue={renderValue}
+          onChange={onBetValueUpdated}
+          disabled={past}
+        >
+          {menuItems}
+        </Select>
+      </div>
     </div>
-    <div className="bet-select-container">
-      <Select
-        type="number"
-        value={betValue >= 0 ? betValue : ''}
-        renderValue={renderValue}
-        onChange={onBetValueUpdated}
-        disabled={past}
-      >
-        {menuItems}
-      </Select>
-    </div>
-  </div>
-)
+  )
+}
 
 /**
  * Render menu items once (from 0 to 10 goals)
