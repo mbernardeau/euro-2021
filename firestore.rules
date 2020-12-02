@@ -7,6 +7,7 @@ service cloud.firestore {
     function isAdmin() {
       return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.admin == true
     }
+
     // Base data, it shouldn't be modified by anyone except admin
     match /matches/{matchId} {
       allow read: if isAuthenticated();
@@ -20,7 +21,8 @@ service cloud.firestore {
       allow read: if isAuthenticated();
       allow write: if false;
     }
-    // Users can be seen by anyone, but can be modified only by the owner
+
+    // User data is hidden except for the current users and admins
     match /users/{userId} {
       function isCurrentUserOrAdmin() {
         return isAuthenticated() && (request.auth.uid == userId || isAdmin());
@@ -28,32 +30,39 @@ service cloud.firestore {
       allow get: if userId == " " || isCurrentUserOrAdmin();
       allow write: if isCurrentUserOrAdmin();
     }
+    // Opponents can be accessed by authenticated users. 
+    // It should contain only data useful for display in rankings to avoid leak of potentially sensitive information)
     match /opponents/{userId} {
       allow read: if isAuthenticated();
       allow write: if false;
     }
+
     // Bets can only be read by creator and can only be modified if userId is correctly filled
     match /bets/{betId} {
       allow read: if 
         isAuthenticated() &&
         (!exists(/databases/$(database)/documents/bets/$(betId)) || request.auth.uid == resource.data.uid);
       allow write: if 
+        isAuthenticated() &&
         request.auth.uid == request.resource.data.uid && 
         request.resource.data.betTeamA is number &&
         request.resource.data.betTeamB is number &&
         request.resource.data.updatedAt == request.time &&
         exists(/databases/$(database)/documents/matches/$(request.resource.data.matchId));
     }
-    // Groups can be updated only if name and joinKey are not altered
-    // They can be created only with name of minimum size and joinKey of 10 chars
+
+    // Groups can be updated only if name, joinKey createdBy and createdAt are not altered
+    // They can be created only with name of minimum size and joinKey of 5 chars and createdBy/createdAt are coherent.
     match /groups/{groupsId} {
       allow read: if isAuthenticated();
       allow update: if
+        isAuthenticated() &&
         request.resource.data.name == resource.data.name &&
         request.resource.data.joinKey == resource.data.joinKey &&
         request.resource.data.createdBy == resource.data.createdBy &&
         request.resource.data.createdAt == resource.data.createdAt;
       allow create: if
+        isAuthenticated() &&
         request.resource.data.name.size() >= 5 &&
         request.resource.data.joinKey.size() == 5 &&
         request.resource.data.price is number &&
