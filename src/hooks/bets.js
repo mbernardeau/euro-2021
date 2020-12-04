@@ -1,7 +1,9 @@
 import { useFirestoreDocData, useUser, useFirestore } from 'reactfire'
 
 export const useBet = (matchId) => {
-  const { uid } = useUser()
+  const {
+    data: { uid },
+  } = useUser()
 
   const firestore = useFirestore()
   const FieldValue = useFirestore.FieldValue
@@ -20,5 +22,5 @@ export const useBet = (matchId) => {
     )
   }
 
-  return [useFirestoreDocData(ref), setBet]
+  return [useFirestoreDocData(ref).data, setBet]
 }

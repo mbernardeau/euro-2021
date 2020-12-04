@@ -21,7 +21,7 @@ const render = () => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+        <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense>
           <MuiThemeProvider theme={theme}>
             <SnackbarProvider>
               <SuspenseWithPerf fallback="App loading something" traceId="app">

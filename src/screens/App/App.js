@@ -19,7 +19,12 @@ import MenuIcon from '@material-ui/icons/Menu'
 import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { preloadAuth, preloadFirestore, SuspenseWithPerf } from 'reactfire'
+import {
+  preloadAuth,
+  preloadFirestore,
+  SuspenseWithPerf,
+  useFirebaseApp,
+} from 'reactfire'
 import { useIsUserAdmin, useIsUserConnected } from '../../hooks'
 import FAQPage from '../FAQ'
 import GroupsPage from '../Groups'
@@ -36,8 +41,10 @@ import ConnectionWidget from './ConnectionWidget'
 import NavigationMenu from './NavigationMenu'
 
 const App = () => {
-  preloadAuth()
-  preloadFirestore()
+  const firebaseApp = useFirebaseApp()
+
+  preloadAuth({ firebaseApp })
+  preloadFirestore({ firebaseApp })
 
   const isConnected = useIsUserConnected()
   const isAdmin = useIsUserAdmin()

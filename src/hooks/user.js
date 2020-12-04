@@ -62,12 +62,12 @@ export const useLogout = () => {
 }
 
 export const useUserProfile = () => {
-  const user = useUser()
+  const user = useUser().data
   const firestore = useFirestore()
 
   const userRef = firestore.collection('users').doc(user?.uid || ' ')
 
-  return useFirestoreDocData(userRef)
+  return useFirestoreDocData(userRef).data
 }
 
 export const useIsUserConnected = () => !!useUserProfile()?.uid

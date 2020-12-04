@@ -21,7 +21,7 @@ const priceValidationMessage = (price) => (
 )
 
 export const useCreateGroup = () => {
-  const user = useUser()
+  const user = useUser().data
   const firestore = useFirestore()
   const FieldValue = useFirestore.FieldValue
   const { enqueueSnackbar } = useSnackbar()
@@ -49,7 +49,8 @@ export const useCreateGroup = () => {
 
 export const useApplyInGroup = () => {
   const firestore = useFirestore()
-  const user = useUser()
+  const user = useUser().data
+
   const { enqueueSnackbar } = useSnackbar()
   const FieldValue = useFirestore.FieldValue
 
@@ -138,7 +139,7 @@ export const useGroupsForUserMember = () => {
     .collection('groups')
     .where('members', 'array-contains', uid)
 
-  return useFirestoreCollection(query).docs
+  return useFirestoreCollection(query).data?.docs
 }
 
 export const useGroupsForUserAwaitingMember = () => {
@@ -148,7 +149,7 @@ export const useGroupsForUserAwaitingMember = () => {
     .collection('groups')
     .where('awaitingMembers', 'array-contains', uid)
 
-  return useFirestoreCollection(query).docs
+  return useFirestoreCollection(query).data?.docs
 }
 
 export const useGroupsForUser = () => {
@@ -165,7 +166,7 @@ export const useGroupCreatedByUser = () => {
     .collection('groups')
     .where('createdBy', '==', uid)
 
-  return useFirestoreCollection(query).docs
+  return useFirestoreCollection(query).data?.docs
 }
 
 export const useGroupsContainingAwaitingMembers = () => {
@@ -173,7 +174,7 @@ export const useGroupsContainingAwaitingMembers = () => {
     .collection('groups')
     .where('awaitingMembers', '!=', [])
 
-  return useFirestoreCollection(query).docs
+  return useFirestoreCollection(query).data?.docs
 }
 
 export const useValidApply = (groupId, userId) => {
