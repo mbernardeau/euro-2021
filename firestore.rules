@@ -27,7 +27,7 @@ service cloud.firestore {
       function isCurrentUserOrAdmin() {
         return isAuthenticated() && (request.auth.uid == userId || isAdmin());
       }
-      allow get: if userId == " " || isCurrentUserOrAdmin();
+      allow read: if userId == " " || isCurrentUserOrAdmin();
       allow write: if isCurrentUserOrAdmin();
     }
     // Opponents can be accessed by authenticated users. 
