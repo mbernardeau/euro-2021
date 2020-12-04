@@ -20,6 +20,8 @@ jobs:
             euro-dependencies-
       - name: Install dependencies
         run: npm ci
+      - name: Install firebase-tools
+        run: npm i firebase-tools -g
       - name: Lint
         run: npm run lint
       - name: Check prettier

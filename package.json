@@ -33,7 +33,7 @@
     "lint": "eslint src --ext js,jsx",
     "prettier:check": "prettier src --check",
     "prettier:write": "prettier src --write",
-    "test": "firebase emulators:exec --only firestore --project euro2021-3d006 \"react-scripts test --env=node \"",
+    "test": "firebase emulators:exec --only firestore \"react-scripts test --env=node \"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
