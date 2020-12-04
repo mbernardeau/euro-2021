@@ -27,8 +27,8 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "start": "react-scripts start",
+    "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
+    "start": "npm i && react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src --ext js,jsx",
     "prettier:check": "prettier src --check",
