@@ -62,14 +62,23 @@ export const useLogout = () => {
 }
 
 export const useUserProfile = () => {
-  const user = useUser().data
   const firestore = useFirestore()
+  const { uid } = useUser().data ?? {}
 
-  const userRef = firestore.collection('users').doc(user?.uid || ' ')
+  const userRef = firestore
+    .collection('users')
+    .doc(useIsUserConnected() ? uid : ' ')
 
   return useFirestoreDocData(userRef).data
 }
 
-export const useIsUserConnected = () => !!useUserProfile()?.uid
+export const useIsUserConnected = () => {
+  // Fix du crash lors d'une connexion. Il arrive que lors du premier rendu 'reactfire'
+  // fournisse des données incohérentes entre useUser et useAuth.
+  // Pour éviter que les requêtes qui nécessitent une authentification échoue, on valide que les données sont cohérentes
+  const { uid: uidUser } = useUser().data ?? {}
+  const { uid: uidAuth } = useAuth().currentUser ?? {}
+  return uidUser && uidAuth && uidAuth === uidUser
+}
 
 export const useIsUserAdmin = () => !!useUserProfile()?.admin
