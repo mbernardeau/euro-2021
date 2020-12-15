@@ -3,6 +3,7 @@ import {
   assertSucceeds,
   firestore,
 } from '@firebase/rules-unit-testing'
+import { addMinutes, subMinutes } from 'date-fns'
 import { firestore as firestoreAdmin } from 'firebase-admin'
 import {
   createApp,
@@ -11,7 +12,8 @@ import {
   TEST_UID,
 } from '../utils/testUtils'
 
-const MATCH_ID = 'MATCH_ID'
+const FUTURE_MATCH_ID = 'FUTURE_MATCH_ID'
+const PAST_MATCH_ID = 'PAST_MATCH_ID'
 const OTHER_UID = 'OTHER_UID'
 
 describe('Firebase rules/bets', () => {
@@ -21,14 +23,30 @@ describe('Firebase rules/bets', () => {
     app = createApp()
 
     await setupTestData(async (adminApp) => {
-      // Create a match with id MATCH_ID to verify it exists when creating bet
+      // Create a match with id FUTURE_MATCH_ID to verify it exists when creating bet
       await adminApp
         .firestore()
         .collection('matches')
-        .doc(MATCH_ID)
+        .doc(FUTURE_MATCH_ID)
         .set(
           {
-            dateTime: new Date('2020-12-15T08:25:34.890Z'),
+            dateTime: addMinutes(new Date(), 10),
+            teamA: 'TEAM_A',
+            teamB: 'TEAM_B',
+          },
+          {
+            merge: true,
+          },
+        )
+
+      // Create a match in the past with id PAST_MATCH_ID to verify it exists when creating bet
+      await adminApp
+        .firestore()
+        .collection('matches')
+        .doc(PAST_MATCH_ID)
+        .set(
+          {
+            dateTime: subMinutes(new Date(), 10),
             teamA: 'TEAM_A',
             teamB: 'TEAM_B',
           },
@@ -41,9 +59,9 @@ describe('Firebase rules/bets', () => {
       await adminApp
         .firestore()
         .collection('bets')
-        .doc(`${MATCH_ID}_${OTHER_UID}`)
+        .doc(`${FUTURE_MATCH_ID}_${OTHER_UID}`)
         .set({
-          matchId: MATCH_ID,
+          matchId: FUTURE_MATCH_ID,
           uid: OTHER_UID,
           betTeamA: 1,
           betTeamB: 0,
@@ -78,12 +96,16 @@ describe('Firebase rules/bets', () => {
     await assertFails(saveBet({ betTeamB: -1 }))
   })
 
-  function readBet({ matchId = MATCH_ID, uid = TEST_UID }) {
+  it('should refuse bets placed on matches that have begun', async () => {
+    await assertFails(saveBet({ matchId: PAST_MATCH_ID }))
+  })
+
+  function readBet({ matchId = FUTURE_MATCH_ID, uid = TEST_UID }) {
     return app.firestore().collection('bets').doc(`${matchId}_${uid}`).get()
   }
 
   function saveBet({
-    matchId = MATCH_ID,
+    matchId = FUTURE_MATCH_ID,
     uid = TEST_UID,
     betTeamA = 1,
     betTeamB = 0,

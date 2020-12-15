@@ -49,7 +49,7 @@ service cloud.firestore {
         request.resource.data.betTeamB is number && request.resource.data.betTeamB >= 0 &&
         request.resource.data.updatedAt == request.time &&
         request.resource.data.version is number &&
-        exists(/databases/$(database)/documents/matches/$(request.resource.data.matchId));
+        request.time <= get(/databases/$(database)/documents/matches/$(request.resource.data.matchId)).data.dateTime;
     }
 
     // Groups can be updated only if name, joinKey createdBy and createdAt are not altered
