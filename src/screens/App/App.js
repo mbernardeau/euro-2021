@@ -22,6 +22,7 @@ import { Route, Switch } from 'react-router-dom'
 import {
   preloadAuth,
   preloadFirestore,
+  preloadRemoteConfig,
   SuspenseWithPerf,
   useFirebaseApp,
 } from 'reactfire'
@@ -45,6 +46,10 @@ const App = () => {
 
   preloadAuth({ firebaseApp })
   preloadFirestore({ firebaseApp })
+  preloadRemoteConfig({
+    firebaseApp,
+    setup: (remoteConfig) => remoteConfig().fetchAndActivate(),
+  })
 
   const isConnected = useIsUserConnected()
   const isAdmin = useIsUserAdmin()

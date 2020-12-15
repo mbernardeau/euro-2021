@@ -2,6 +2,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
+import parseISO from 'date-fns/parseISO'
 import isPast from 'date-fns/isPast'
 import find from 'lodash/find'
 import map from 'lodash/map'
@@ -9,11 +10,12 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import Flag from '../../../../components/Flag'
 import { useTeams } from '../../../../hooks'
-import { COMPETITION_START_DATE } from '../../../App/constants'
+import { useCompetitionData } from '../../../../hooks/useCompetitionData'
 import './WinnerChoice.scss'
 
 const WinnerChoice = ({ userTeam, onValueChange }) => {
   const teams = useTeams()
+  const { startDate } = useCompetitionData()
 
   return (
     <div className="winner-choice">
@@ -26,7 +28,7 @@ const WinnerChoice = ({ userTeam, onValueChange }) => {
           inputProps={{
             name: 'userTeam',
           }}
-          disabled={isPast(COMPETITION_START_DATE)}
+          disabled={isPast(parseISO(startDate))}
         >
           {map(teams, (team) => (
             <MenuItem key={team.id} value={team.id}>

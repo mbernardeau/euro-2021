@@ -6,6 +6,7 @@ const stagingConfig = {
   storageBucket: 'euro2021-3d006.appspot.com',
   messagingSenderId: '227571739008',
   appId: '1:227571739008:web:6024da3fda61ac0cb13965',
+  measurementId: 'G-VHC3B020NE',
 }
 
 const productionConfig = {
