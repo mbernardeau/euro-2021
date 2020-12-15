@@ -33,7 +33,7 @@
     "lint": "eslint src --ext js,jsx",
     "prettier:check": "prettier src --check",
     "prettier:write": "prettier src --write",
-    "test": "react-scripts test",
+    "test": "firebase emulators:exec --only firestore \"react-scripts test --env=node --runInBand\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -55,8 +55,10 @@
     ]
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^1.1.5",
     "babel-plugin-transform-imports": "^2.0.0",
     "prettier": "^2.2.1",
+    "firebase-admin": "^9.4.2",
     "source-map-explorer": "^2.5.1"
   }
 }

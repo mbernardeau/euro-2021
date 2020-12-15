@@ -30,7 +30,7 @@ service cloud.firestore {
       allow read: if userId == " " || isCurrentUserOrAdmin();
       allow write: if isCurrentUserOrAdmin();
     }
-    // Opponents can be accessed by authenticated users. 
+    // Opponents can be accessed by authenticated users.
     // It should contain only data useful for display in rankings to avoid leak of potentially sensitive information)
     match /opponents/{userId} {
       allow read: if isAuthenticated();
@@ -39,16 +39,17 @@ service cloud.firestore {
 
     // Bets can only be read by creator and can only be modified if userId is correctly filled
     match /bets/{betId} {
-      allow read: if 
+      allow read: if
         isAuthenticated() &&
         (!exists(/databases/$(database)/documents/bets/$(betId)) || request.auth.uid == resource.data.uid);
-      allow write: if 
+      allow write: if
         isAuthenticated() &&
-        request.auth.uid == request.resource.data.uid && 
-        request.resource.data.betTeamA is number &&
-        request.resource.data.betTeamB is number &&
+        request.auth.uid == request.resource.data.uid &&
+        request.resource.data.betTeamA is number && request.resource.data.betTeamA >= 0 &&
+        request.resource.data.betTeamB is number && request.resource.data.betTeamB >= 0 &&
         request.resource.data.updatedAt == request.time &&
-        exists(/databases/$(database)/documents/matches/$(request.resource.data.matchId));
+        request.resource.data.version is number &&
+        request.time <= get(/databases/$(database)/documents/matches/$(request.resource.data.matchId)).data.dateTime;
     }
 
     // Groups can be updated only if name, joinKey createdBy and createdAt are not altered
