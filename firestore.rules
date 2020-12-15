@@ -75,7 +75,7 @@ service cloud.firestore {
 
     match /groupApply/{applyId} {
       allow read: if request.auth.uid == resource.data.uid;
-      allow create: if 
+      allow create: if
         request.auth.uid == request.resource.data.uid &&
         request.resource.data.groupId is string &&
         exists(/databases/$(database)/documents/groups/$(request.resource.data.groupId))
