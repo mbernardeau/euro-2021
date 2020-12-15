@@ -10,7 +10,7 @@ import {
 
 const OTHER_UID = 'OTHER_UID'
 
-describe('Firebase rules/matches', () => {
+describe('Firebase rules/users', () => {
   let app
   let appUnauthenticated
 

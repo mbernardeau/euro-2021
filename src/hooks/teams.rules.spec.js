@@ -5,7 +5,7 @@ import {
   ruleTestingCleanup,
 } from '../utils/testUtils'
 
-describe('Firebase rules/matches', () => {
+describe('Firebase rules/teams', () => {
   let app
   let appUnauthenticated
 
