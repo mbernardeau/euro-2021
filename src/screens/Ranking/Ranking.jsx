@@ -2,9 +2,8 @@ import AppBar from '@material-ui/core/AppBar'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import isEmpty from 'lodash/isEmpty'
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { SuspenseWithPerf } from 'reactfire'
 import { useGroupsForUserMember } from '../../hooks'
 import GroupRanking from './GroupRanking'
 import './ranking.scss'
@@ -57,9 +56,9 @@ Ranking.propTypes = {}
 
 const RankingWithSuspence = (props) => {
   return (
-    <SuspenseWithPerf fallback="Loading groups..." traceId="rankings">
+    <Suspense fallback="Loading groups...">
       <Ranking {...props} />
-    </SuspenseWithPerf>
+    </Suspense>
   )
 }
 

@@ -16,14 +16,15 @@ import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
+import { setUser } from '@sentry/react'
 import PropTypes from 'prop-types'
-import React, { useState } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import {
   preloadAuth,
   preloadFirestore,
   preloadRemoteConfig,
-  SuspenseWithPerf,
+  useAuth,
   useFirebaseApp,
 } from 'reactfire'
 import { useIsUserAdmin, useIsUserConnected } from '../../hooks'
@@ -41,6 +42,18 @@ import './App.scss'
 import ConnectionWidget from './ConnectionWidget'
 import NavigationMenu from './NavigationMenu'
 
+const updateSentryScope = (user) => {
+  if (!user) {
+    setUser(null)
+  } else {
+    setUser({
+      id: user.uid,
+      email: user.email,
+      username: user.displayName,
+    })
+  }
+}
+
 const App = () => {
   const firebaseApp = useFirebaseApp()
 
@@ -50,6 +63,8 @@ const App = () => {
     firebaseApp,
     setup: (remoteConfig) => remoteConfig().fetchAndActivate(),
   })
+
+  useAuth().onAuthStateChanged(updateSentryScope)
 
   const isConnected = useIsUserConnected()
   const isAdmin = useIsUserAdmin()
@@ -71,9 +86,9 @@ const App = () => {
               Road to Russia 2018
             </Typography>
           </div>
-          <SuspenseWithPerf fallback={null} traceId={'load-connexion'}>
+          <Suspense fallback={null}>
             <ConnectionWidget />
-          </SuspenseWithPerf>
+          </Suspense>
         </Toolbar>
       </AppBar>
 

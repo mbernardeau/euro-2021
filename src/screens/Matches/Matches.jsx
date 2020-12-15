@@ -1,16 +1,12 @@
-import React, { useEffect, useMemo } from 'react'
-import PropTypes from 'prop-types'
-import map from 'lodash/map'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
 import AppBar from '@material-ui/core/AppBar'
-
-import Match from './Match'
-
-import './matches.scss'
-import { useState } from 'react'
-import { SuspenseWithPerf } from 'reactfire'
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import map from 'lodash/map'
+import PropTypes from 'prop-types'
+import React, { Suspense, useEffect, useMemo, useState } from 'react'
 import { useMatches } from '../../hooks'
+import Match from './Match'
+import './matches.scss'
 
 const Matches = ({ finishedMatches, futureMatches }) => {
   const [selectedTab, setSelectedTab] = useState(0)
@@ -73,9 +69,9 @@ Matches.propTypes = {
 
 const MatchesSuspense = (props) => {
   return (
-    <SuspenseWithPerf fallback="Loading matches..." traceId="matches">
+    <Suspense fallback="Loading matches...">
       <Matches {...props} />
-    </SuspenseWithPerf>
+    </Suspense>
   )
 }
 

@@ -1,8 +1,7 @@
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
-import React from 'react'
-import { SuspenseWithPerf } from 'reactfire'
+import React, { Suspense } from 'react'
 import { useSelectedWinner } from '../../../hooks'
 import './Winner.scss'
 import WinnerChoice from './WinnerChoice'
@@ -28,9 +27,9 @@ const Winner = () => {
         Quel pays gagnera la coupe du monde ?
       </Typography>
       <CardContent>
-        <SuspenseWithPerf fallback={<></>} traceId="winner-choice">
+        <Suspense fallback={<></>}>
           <WinnerChoice userTeam={team} onValueChange={handleChange} />
-        </SuspenseWithPerf>
+        </Suspense>
       </CardContent>
     </Card>
   )

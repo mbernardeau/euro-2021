@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import PropTypes from 'prop-types'
 import map from 'lodash/map'
 import Stadium from './Stadium'
-import { SuspenseWithPerf } from 'reactfire'
 import { useStadiums } from '../../hooks'
 
 const Stadiums = () => {
@@ -32,9 +31,9 @@ Stadiums.propTypes = {
 
 const StadiumsSuspense = (props) => {
   return (
-    <SuspenseWithPerf fallback="Loading stadiums..." traceId="stadiums">
+    <Suspense fallback="Loading stadiums...">
       <Stadiums {...props} />
-    </SuspenseWithPerf>
+    </Suspense>
   )
 }
 

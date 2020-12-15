@@ -1,11 +1,13 @@
 // Import all the third party stuff
-import React from 'react'
+import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
-import { FirebaseAppProvider, SuspenseWithPerf } from 'reactfire'
+import { FirebaseAppProvider } from 'reactfire'
 import firebaseConfig from './firebaseConfig'
 import { SnackbarProvider } from 'notistack'
+import * as Sentry from '@sentry/react'
+import { Integrations as TracingIntegrations } from '@sentry/tracing'
 
 // Import root app
 import App from './screens/App'
@@ -17,6 +19,15 @@ import theme from './theme'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 
+Sentry.init({
+  dsn:
+    'https://d6853c21fd4d412da6f6b369ee5f5676@o491892.ingest.sentry.io/5558208',
+  autoSessionTracking: true,
+  integrations: [new TracingIntegrations.BrowserTracing()],
+  // À réduire pour la prod
+  tracesSampleRate: 1.0,
+})
+
 const render = () => {
   ReactDOM.render(
     <React.StrictMode>
@@ -24,9 +35,9 @@ const render = () => {
         <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense>
           <MuiThemeProvider theme={theme}>
             <SnackbarProvider>
-              <SuspenseWithPerf fallback="App loading something" traceId="app">
+              <Suspense fallback="App loading something">
                 <App />
-              </SuspenseWithPerf>
+              </Suspense>
             </SnackbarProvider>
           </MuiThemeProvider>
         </FirebaseAppProvider>

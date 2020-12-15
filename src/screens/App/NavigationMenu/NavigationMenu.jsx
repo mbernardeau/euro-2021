@@ -4,9 +4,8 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemText from '@material-ui/core/ListItemText'
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useHistory } from 'react-router'
-import { SuspenseWithPerf } from 'reactfire'
 import WorldCupImg from '../../../assets/2018_FIFA_WC.svg'
 import { useIsUserAdmin, useIsUserConnected } from '../../../hooks'
 import { openPAMTab } from '../../../utils'
@@ -103,12 +102,9 @@ NavigationMenu.propTypes = {
 
 const NavigationMenuSuspense = (props) => {
   return (
-    <SuspenseWithPerf
-      fallback="Loading Navigation menu"
-      traceId="navigation-menu"
-    >
+    <Suspense fallback="Loading Navigation menu">
       <NavigationMenu {...props} />
-    </SuspenseWithPerf>
+    </Suspense>
   )
 }
 
