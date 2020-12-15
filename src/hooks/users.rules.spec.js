@@ -43,6 +43,12 @@ describe('Firebase rules/users', () => {
     )
   })
 
+  it('should refuse attempt to gain admin access', async () => {
+    await assertFails(
+      app.firestore().collection('users').doc(TEST_UID).update({ admin: true }),
+    )
+  })
+
   it('should reject reading and writing other user data', async () => {
     await assertFails(app.firestore().collection('users').doc(OTHER_UID).get())
     await assertFails(

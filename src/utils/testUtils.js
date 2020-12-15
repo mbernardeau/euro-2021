@@ -9,10 +9,10 @@ export const TEST_PROJECT_ID = 'euro2021'
 export const TEST_UID = 'test uid'
 export const ADMIN_UID = 'ADMIN_UID'
 
-export const createApp = () =>
+export const createApp = ({ uid = TEST_UID } = {}) =>
   initializeTestApp({
     projectId: TEST_PROJECT_ID,
-    auth: { uid: TEST_UID },
+    auth: { uid },
   })
 
 export const createAppAsAdminUser = async () => {
