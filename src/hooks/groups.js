@@ -1,7 +1,8 @@
 import { useSnackbar } from 'notistack'
 import { useCallback } from 'react'
-import { useFirestoreCollection, useUser, useFirestore } from 'reactfire'
+import { useFirestore, useFirestoreCollection, useUser } from 'reactfire'
 import { v4 as uuidv4 } from 'uuid'
+import { useFunctionsInRegion } from './useCallableFunction'
 import { useIsUserAdmin, useUserProfile } from './user'
 
 const priceValidationMessage = (price) => (
@@ -182,22 +183,16 @@ export const useValidApply = (groupId, userId) => {
     throw new Error('useValidApply can only be used by admins')
   }
   const { enqueueSnackbar } = useSnackbar()
-  const firestore = useFirestore()
-  const FieldValue = useFirestore.FieldValue
+
+  const validApplyCallable = useFunctionsInRegion().httpsCallable('validApply')
 
   return useCallback(
     () =>
-      firestore
-        .collection('groups')
-        .doc(groupId)
-        .update({
-          awaitingMembers: FieldValue.arrayRemove(userId),
-          members: FieldValue.arrayUnion(userId),
-        })
+      validApplyCallable({ groupId, userId })
         .then(() => enqueueSnackbar('Joueur validé', { variant: 'success' }))
         .catch(() =>
           enqueueSnackbar('Validation échouée :(', { variant: 'error' }),
         ),
-    [FieldValue, enqueueSnackbar, firestore, groupId, userId],
+    [enqueueSnackbar, groupId, userId, validApplyCallable],
   )
 }

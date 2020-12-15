@@ -23,6 +23,7 @@ import { Route, Switch } from 'react-router-dom'
 import {
   preloadAuth,
   preloadFirestore,
+  preloadFunctions,
   useAuth,
   useFirebaseApp,
 } from 'reactfire'
@@ -58,6 +59,10 @@ const App = () => {
 
   preloadAuth({ firebaseApp })
   preloadFirestore({ firebaseApp })
+  preloadFunctions({
+    region: 'europe-west3',
+    firebaseApp,
+  })
 
   useAuth().onAuthStateChanged(updateSentryScope)
 
