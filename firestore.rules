@@ -45,9 +45,10 @@ service cloud.firestore {
       allow write: if
         isAuthenticated() &&
         request.auth.uid == request.resource.data.uid &&
-        request.resource.data.betTeamA is number &&
-        request.resource.data.betTeamB is number &&
+        request.resource.data.betTeamA is number && request.resource.data.betTeamA >= 0 &&
+        request.resource.data.betTeamB is number && request.resource.data.betTeamB >= 0 &&
         request.resource.data.updatedAt == request.time &&
+        request.resource.data.version is number &&
         exists(/databases/$(database)/documents/matches/$(request.resource.data.matchId));
     }
 

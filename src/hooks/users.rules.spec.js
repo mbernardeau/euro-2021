@@ -1,10 +1,10 @@
-import { assertSucceeds, assertFails } from '@firebase/rules-unit-testing'
+import { assertFails, assertSucceeds } from '@firebase/rules-unit-testing'
 import {
-  createAdminApp,
   createApp,
   createAppAsAdminUser,
   createUnauthenticatedApp,
   ruleTestingCleanup,
+  setupTestData,
   TEST_UID,
 } from '../utils/testUtils'
 
@@ -14,23 +14,27 @@ describe('Firebase rules/users', () => {
   let app
   let appUnauthenticated
 
-  beforeAll(() => {
+  beforeAll(async () => {
     app = createApp()
     appUnauthenticated = createUnauthenticatedApp()
 
-    createAdminApp().firestore().collection('users').doc(TEST_UID).set({
-      uid: TEST_UID,
-    })
-    createAdminApp().firestore().collection('users').doc(OTHER_UID).set({
-      uid: OTHER_UID,
+    await setupTestData(async (adminApp) => {
+      await adminApp.firestore().collection('users').doc(TEST_UID).set({
+        uid: TEST_UID,
+      })
+      await adminApp.firestore().collection('users').doc(OTHER_UID).set({
+        uid: OTHER_UID,
+      })
     })
   })
 
   afterAll(ruleTestingCleanup)
 
   it('should accept reading and writing own user data', async () => {
-    assertSucceeds(app.firestore().collection('users').doc(TEST_UID).get())
-    assertSucceeds(
+    await assertSucceeds(
+      app.firestore().collection('users').doc(TEST_UID).get(),
+    )
+    await assertSucceeds(
       app
         .firestore()
         .collection('users')
@@ -40,8 +44,8 @@ describe('Firebase rules/users', () => {
   })
 
   it('should reject reading and writing other user data', async () => {
-    assertFails(app.firestore().collection('users').doc(OTHER_UID).get())
-    assertFails(
+    await assertFails(app.firestore().collection('users').doc(OTHER_UID).get())
+    await assertFails(
       app
         .firestore()
         .collection('users')
@@ -51,10 +55,10 @@ describe('Firebase rules/users', () => {
   })
 
   it('should reject reading and writing user for unauthenticated user', async () => {
-    assertFails(
+    await assertFails(
       appUnauthenticated.firestore().collection('users').doc(TEST_UID).get(),
     )
-    assertFails(
+    await assertFails(
       appUnauthenticated
         .firestore()
         .collection('users')
@@ -63,11 +67,13 @@ describe('Firebase rules/users', () => {
     )
   })
 
-  it('should accept reading and writing other user data if connected user is admin', () => {
-    const appAdmin = createAppAsAdminUser()
+  it('should accept reading and writing other user data if connected user is admin', async () => {
+    const appAdmin = await createAppAsAdminUser()
 
-    assertSucceeds(appAdmin.firestore().collection('users').doc(TEST_UID).get())
-    assertSucceeds(
+    await assertSucceeds(
+      appAdmin.firestore().collection('users').doc(TEST_UID).get(),
+    )
+    await assertSucceeds(
       appAdmin
         .firestore()
         .collection('users')
