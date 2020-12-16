@@ -23,7 +23,6 @@ import { Route, Switch } from 'react-router-dom'
 import {
   preloadAuth,
   preloadFirestore,
-  preloadRemoteConfig,
   useAuth,
   useFirebaseApp,
 } from 'reactfire'
@@ -59,10 +58,6 @@ const App = () => {
 
   preloadAuth({ firebaseApp })
   preloadFirestore({ firebaseApp })
-  preloadRemoteConfig({
-    firebaseApp,
-    setup: (remoteConfig) => remoteConfig().fetchAndActivate(),
-  })
 
   useAuth().onAuthStateChanged(updateSentryScope)
 
