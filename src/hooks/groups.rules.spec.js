@@ -175,10 +175,10 @@ describe('Firebase rules/groups', () => {
           }),
       )
     })
-    it('should be accepted if user is admin', async () => {
+    it('should be also refused if user is admin', async () => {
       await createGroup()
 
-      await assertSucceeds(
+      await assertFails(
         appAdmin
           .firestore()
           .collection('groups')

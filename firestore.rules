@@ -54,14 +54,11 @@ service cloud.firestore {
         request.time <= get(/databases/$(database)/documents/matches/$(request.resource.data.matchId)).data.dateTime;
     }
 
-    // Groups can be updated only if name, joinKey createdBy and createdAt are not altered
-    // They can be created only with name of minimum size and joinKey of 5 chars and createdBy/createdAt are coherent.
+    // Groups cannot be modified except by functions
+    // Creation is still allowed given some restrictions on data
     match /groups/{groupsId} {
       allow read: if isAuthenticated();
-      allow update: if
-       isAuthenticated() && 
-       isAdmin() &&
-       !request.resource.data.diff(resource.data).affectedKeys().hasAny(['name', 'price', 'joinKey', 'createdBy', 'createdAt']);
+      allow update: if false;
       allow create: if
         isAuthenticated() &&
         request.resource.data.name is string && request.resource.data.name.size() >= 5 &&
