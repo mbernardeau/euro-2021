@@ -28,8 +28,10 @@ jobs:
         run: npm run lint
       - name: Check prettier
         run: npm run prettier:check
-      - name: Test
+      - name: Unit tests
         run: npm test
+      - name: Test Firebase rules
+        run: npm run test:rules
       - name: Build
         run: npm run build
       - name: Publish built assets

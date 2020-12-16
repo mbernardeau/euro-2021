@@ -21,7 +21,7 @@
     "cleanUrls": true
   },
   "firestore": {
-    "rules": "firestore.rules",
+    "rules": "src/firebase/rules/firestore.rules",
     "indexes": "firestore.indexes.json"
   },
   "emulators": {
