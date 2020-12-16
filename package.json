@@ -30,7 +30,8 @@
     "lint": "eslint src --ext js,jsx",
     "prettier:check": "prettier src --check",
     "prettier:write": "prettier src --write",
-    "test": "firebase emulators:exec --only firestore \"react-scripts test --env=node --runInBand\"",
+    "test:rules": "firebase emulators:exec --only firestore \"react-scripts test --testPathPattern 'firebase/rules/__tests__' --env=node --runInBand\"",
+    "test": "react-scripts test --testPathIgnorePatterns='<rootDir>/src/firebase/rules/__tests__'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

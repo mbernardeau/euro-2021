@@ -3,8 +3,8 @@
   "description": "Road to Russia 2018 - Cloud Functions for Firebase",
   "version": "0.1.0",
   "dependencies": {
-    "firebase-admin": "9.4.1",
-    "firebase-functions": "3.12.0"
+    "firebase-admin": "9.4.2",
+    "firebase-functions": "3.13.0"
   },
   "engines": {
     "node": "12"

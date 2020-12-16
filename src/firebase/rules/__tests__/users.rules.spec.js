@@ -6,7 +6,7 @@ import {
   ruleTestingCleanup,
   setupTestData,
   TEST_UID,
-} from '../utils/testUtils'
+} from '../../../utils/testUtils'
 
 const OTHER_UID = 'OTHER_UID'
 
@@ -40,6 +40,12 @@ describe('Firebase rules/users', () => {
         .collection('users')
         .doc(TEST_UID)
         .set({ avatarUrl: 'http://' }, { merge: true }),
+    )
+  })
+
+  it('should refuse attempt to gain admin access', async () => {
+    await assertFails(
+      app.firestore().collection('users').doc(TEST_UID).update({ admin: true }),
     )
   })
 

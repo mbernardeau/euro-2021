@@ -5,7 +5,7 @@ import {
   ruleTestingCleanup,
   setupTestData,
   TEST_UID,
-} from '../utils/testUtils'
+} from '../../../utils/testUtils'
 
 const OTHER_UID = 'OTHER_UID'
 

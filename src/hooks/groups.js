@@ -1,7 +1,8 @@
 import { useSnackbar } from 'notistack'
 import { useCallback } from 'react'
-import { useFirestoreCollection, useUser, useFirestore } from 'reactfire'
+import { useFirestore, useFirestoreCollection, useUser } from 'reactfire'
 import { v4 as uuidv4 } from 'uuid'
+import { useFunctionsInRegion } from './useCallableFunction'
 import { useIsUserAdmin, useUserProfile } from './user'
 
 const priceValidationMessage = (price) => (
@@ -52,82 +53,81 @@ export const useApplyInGroup = () => {
   const user = useUser().data
 
   const { enqueueSnackbar } = useSnackbar()
-  const FieldValue = useFirestore.FieldValue
 
-  const applyFn = async (joinKey) => {
-    const groupQuerySnapshot = await firestore
-      .collection('groups')
-      .where('joinKey', '==', joinKey)
-      .get()
-
-    if (groupQuerySnapshot.empty) {
-      enqueueSnackbar(
-        <>
-          Aucune tribu avec le code <b>{joinKey}</b> n'existe
-        </>,
-        {
-          variant: 'error',
-        },
-      )
-      return
-    }
-
-    const [groupSnapshot] = groupQuerySnapshot.docs
-    const group = groupSnapshot.data()
-
-    if (group.members?.includes(user.uid)) {
-      enqueueSnackbar(
-        <>
-          Vous appartenez déjà à la tribu <b>{group.name}</b>
-        </>,
-        {
-          variant: 'info',
-        },
-      )
-      return
-    }
-
-    if (group.awaitingMembers?.includes(user.uid)) {
-      enqueueSnackbar(
-        <>
-          Vous avez déjà fait une demande pour rejoindre la tribu&nbsp;
-          <b>{group.name}</b>
-        </>,
-        { variant: 'info' },
-      )
-      return
-    }
-
-    if (group.price > 0) {
-      await firestore
+  const applyFn = useCallback(
+    async (joinKey) => {
+      const groupQuerySnapshot = await firestore
         .collection('groups')
-        .doc(groupSnapshot.id)
-        .update({
-          awaitingMembers: FieldValue.arrayUnion(user.uid),
+        .where('joinKey', '==', joinKey)
+        .get()
+
+      if (groupQuerySnapshot.empty) {
+        enqueueSnackbar(
+          <>
+            Aucune tribu avec le code <b>{joinKey}</b> n'existe
+          </>,
+          {
+            variant: 'error',
+          },
+        )
+        return
+      }
+
+      const [groupSnapshot] = groupQuerySnapshot.docs
+      const group = groupSnapshot.data()
+
+      if (group.members?.includes(user.uid)) {
+        enqueueSnackbar(
+          <>
+            Vous appartenez déjà à la tribu <b>{group.name}</b>
+          </>,
+          {
+            variant: 'info',
+          },
+        )
+        return
+      }
+
+      if (group.awaitingMembers?.includes(user.uid)) {
+        enqueueSnackbar(
+          <>
+            Vous avez déjà fait une demande pour rejoindre la tribu&nbsp;
+            <b>{group.name}</b>
+          </>,
+          { variant: 'info' },
+        )
+        return
+      }
+
+      // Send a request by writing in groupApply collection
+      await firestore
+        .collection('groupApply')
+        .doc(`${groupSnapshot.id}_${user.uid}`)
+        .set({
+          uid: user.uid,
+          groupId: groupSnapshot.id,
+          status: 'sent',
         })
 
-      enqueueSnackbar(
-        <>
-          Demande envoyée pour la tribu&nbsp;<b>{group.name}</b> !{' '}
-          {priceValidationMessage(group.price)}
-        </>,
-        { variant: 'success' },
-      )
-    } else {
-      await firestore
-        .collection('groups')
-        .doc(groupSnapshot.id)
-        .update({
-          members: FieldValue.arrayUnion(user.uid),
-        })
-      enqueueSnackbar(
-        <>
-          Demande envoyée pour la tribu&nbsp;<b>{group.name}</b> !
-        </>,
-        { variant: 'success' },
-      )
-    }
-  }
+      if (group.price > 0) {
+        enqueueSnackbar(
+          <>
+            Demande envoyée pour la tribu&nbsp;<b>{group.name}</b> !{' '}
+            {priceValidationMessage(group.price)}
+          </>,
+          { variant: 'success' },
+        )
+      } else {
+        enqueueSnackbar(
+          <>
+            Demande envoyée pour la tribu&nbsp;<b>{group.name}</b> !
+          </>,
+          { variant: 'success' },
+        )
+      }
+    },
+    [enqueueSnackbar, firestore, user.uid],
+  )
 
   return [applyFn]
 }
@@ -183,22 +183,16 @@ export const useValidApply = (groupId, userId) => {
     throw new Error('useValidApply can only be used by admins')
   }
   const { enqueueSnackbar } = useSnackbar()
-  const firestore = useFirestore()
-  const FieldValue = useFirestore.FieldValue
+
+  const validApplyCallable = useFunctionsInRegion().httpsCallable('validApply')
 
   return useCallback(
     () =>
-      firestore
-        .collection('groups')
-        .doc(groupId)
-        .update({
-          awaitingMembers: FieldValue.arrayRemove(userId),
-          members: FieldValue.arrayUnion(userId),
-        })
+      validApplyCallable({ groupId, userId })
         .then(() => enqueueSnackbar('Joueur validé', { variant: 'success' }))
         .catch(() =>
           enqueueSnackbar('Validation échouée :(', { variant: 'error' }),
         ),
-    [FieldValue, enqueueSnackbar, firestore, groupId, userId],
+    [enqueueSnackbar, groupId, userId, validApplyCallable],
   )
 }
