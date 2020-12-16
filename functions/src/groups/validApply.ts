@@ -1,13 +1,23 @@
-const functions = require('firebase-functions')
-const admin = require('firebase-admin')
+import * as functions from 'firebase-functions'
+import * as admin from 'firebase-admin'
+import { UserProfile, ValidApplyParams } from '../types'
+
 const db = admin.firestore()
 
-exports.validApply = functions
+export const validApply = functions
   .region('europe-west3')
-  .https.onCall(async ({ groupId, userId }, { auth }) => {
-    const isAdmin = (await db.collection('users').doc(auth.uid).get()).get(
-      'admin',
-    )
+  .https.onCall(async ({ groupId, userId }: ValidApplyParams, { auth }) => {
+    if (!auth) {
+      throw new functions.https.HttpsError(
+        'unauthenticated',
+        'User must be authenticated',
+      )
+    }
+
+    const user = (
+      await db.collection('users').doc(auth.uid).get()
+    ).data() as UserProfile
+    const isAdmin = user.admin
 
     if (!isAdmin) {
       throw new functions.https.HttpsError(

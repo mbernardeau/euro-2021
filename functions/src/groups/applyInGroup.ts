@@ -1,17 +1,25 @@
-const functions = require('firebase-functions')
-const admin = require('firebase-admin')
+import * as functions from 'firebase-functions'
+import * as admin from 'firebase-admin'
+import { Group, GroupApply } from '../types'
+
 const db = admin.firestore()
 
-const isPayingGroup = async (groupRef) => {
-  const group = (await groupRef.get()).data()
+const isPayingGroup = async (
+  groupRef: FirebaseFirestore.DocumentReference<FirebaseFirestore.DocumentData>,
+) => {
+  const groupSnapshot = await groupRef.get()
+  if (!groupSnapshot.exists) {
+    throw new Error(`Group with id ${groupRef.id} does not exist`)
+  }
+  const group = groupSnapshot.data() as Group
   return group.price > 0
 }
 
-exports.applyInGroup = functions
+export const applyInGroup = functions
   .region('europe-west3')
   .firestore.document('groupApply/{applyId}')
   .onCreate(async (groupApplySnapshot) => {
-    const { groupId, uid } = groupApplySnapshot.data()
+    const { groupId, uid } = groupApplySnapshot.data() as GroupApply
 
     const groupRef = db.collection('groups').doc(groupId)
     const payingGroup = await isPayingGroup(groupRef)
