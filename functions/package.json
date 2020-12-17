@@ -2,12 +2,23 @@
   "name": "roadtorussia-functions",
   "description": "Road to Russia 2018 - Cloud Functions for Firebase",
   "version": "0.1.0",
+  "main": "build/index.js",
   "dependencies": {
-    "firebase-admin": "9.4.2",
-    "firebase-functions": "3.13.0"
+    "firebase-admin": "^9.4.2",
+    "firebase-functions": "^3.13.0"
   },
   "engines": {
-    "node": "12"
+    "node": "14",
+    "npm": ">=7"
   },
-  "private": true
+  "scripts": {
+    "lint": "eslint src -c .eslintrc.js",
+    "build": "rm -rf build && tsc --outDir build"
+  },
+  "private": true,
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "typescript": "^4.1.3"
+  }
 }
