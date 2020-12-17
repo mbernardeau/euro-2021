@@ -33,8 +33,8 @@
     "build": "react-scripts build",
     "lint": "eslint src --ext js,jsx",
     "lint:functions": "cd functions && npm run lint",
-    "prettier:check": "prettier {src,functions} --check",
-    "prettier:write": "prettier src --write",
+    "prettier:check": "prettier --check \"{src,functions}/**/*.{js,jsx,ts,md}\"",
+    "prettier:write": "prettier --write \"{src,functions}/**/*.{js,jsx,ts,md}\"",
     "test:rules": "firebase emulators:exec --only firestore \"react-scripts test --testPathPattern 'firebase/rules/__tests__' --env=node --runInBand\"",
     "test": "react-scripts test --testPathIgnorePatterns='<rootDir>/src/firebase/rules/__tests__'",
     "eject": "react-scripts eject"
