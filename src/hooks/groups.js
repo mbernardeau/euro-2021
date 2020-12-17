@@ -184,7 +184,9 @@ export const useValidApply = (groupId, userId) => {
   }
   const { enqueueSnackbar } = useSnackbar()
 
-  const validApplyCallable = useFunctionsInRegion().httpsCallable('validApply')
+  const validApplyCallable = useFunctionsInRegion().httpsCallable(
+    'groups-validApply',
+  )
 
   return useCallback(
     () =>
