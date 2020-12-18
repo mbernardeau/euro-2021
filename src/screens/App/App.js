@@ -27,6 +27,7 @@ import {
   preloadFunctions,
   useAuth,
   useFirebaseApp,
+  useFirestore,
 } from 'reactfire'
 import FAQPage from '../FAQ'
 import GroupsPage from '../Groups'
@@ -54,6 +55,43 @@ const updateSentryScope = (user) => {
   }
 }
 
+/**
+ * Mise à jour du profil utilisateur (dans la collection `users` sur une connection)
+ */
+const updateUserProfile = (firestore, auth, FieldValue) => async (user) => {
+  // getRedirectResult ne sera rempli que lors d'un connexion manuelle.
+  // Les reconnexions auto et les rafraichissments de token ne donnent pas les `additionalUserInfo`
+  const userCredentials = await auth.getRedirectResult()
+
+  let additionalUserInfo = {}
+  if (userCredentials.user) {
+    const { providerId, profile } = userCredentials.additionalUserInfo
+    additionalUserInfo = {
+      providerId,
+      profile,
+      avatarUrl: profile?.picture?.data?.url ?? user.photoURL,
+    }
+  }
+
+  return firestore
+    .collection('users')
+    .doc(user.uid)
+    .set(
+      {
+        uid: user.uid,
+        avatarUrl: user.photoURL,
+        displayName: user.displayName,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        providerData: user.providerData,
+        lastConnection: FieldValue.serverTimestamp(),
+        nbConnections: FieldValue.increment(1),
+        ...additionalUserInfo,
+      },
+      { merge: true },
+    )
+}
+
 const App = () => {
   const firebaseApp = useFirebaseApp()
 
@@ -64,7 +102,16 @@ const App = () => {
     firebaseApp,
   })
 
-  useAuth().onAuthStateChanged(updateSentryScope)
+  const auth = useAuth()
+  const firestore = useFirestore()
+  const FieldValue = useFirestore.FieldValue
+
+  useAuth().onAuthStateChanged(async (user) => {
+    updateSentryScope(user)
+    if (user) {
+      await updateUserProfile(firestore, auth, FieldValue)(user)
+    }
+  })
 
   const [menuOpen, setMenuOpen] = useState(false)
 

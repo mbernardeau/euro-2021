@@ -13,14 +13,18 @@ export const onUserUpdate = functions
   .onUpdate((change) => {
     const userProfile = change.after.data() as UserProfile
 
-    return db.collection('opponents').doc(userProfile.uid).set(
-      {
-        uid: userProfile.uid,
-        avatarUrl: userProfile.avatarUrl,
-        displayName: userProfile.displayName,
-      },
-      {
-        merge: true,
-      },
-    )
+    return db
+      .collection('opponents')
+      .doc(userProfile.uid)
+      .set(
+        {
+          uid: userProfile.uid,
+          avatarUrl:
+            userProfile.profile?.picture?.data?.url ?? userProfile.avatarUrl,
+          displayName: userProfile.displayName,
+        },
+        {
+          merge: true,
+        },
+      )
   })

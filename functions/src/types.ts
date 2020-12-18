@@ -9,6 +9,16 @@ export interface UserProfile {
   uid: string
   avatarUrl?: string
   displayName: string
+  profile?: {
+    // Photo de profil (uniquement pour facebook)
+    picture: {
+      data: {
+        height: number
+        width: number
+        url: string
+      }
+    }
+  }
 }
 
 export interface Group {
