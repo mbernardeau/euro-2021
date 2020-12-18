@@ -9,10 +9,10 @@
   "dependencies": {
     "@material-ui/core": "^4.11.2",
     "@material-ui/icons": "^4.11.2",
-    "@sentry/react": "^5.29.0",
-    "@sentry/tracing": "^5.29.0",
+    "@sentry/react": "^5.29.2",
+    "@sentry/tracing": "^5.29.2",
     "date-fns": "^2.16.1",
-    "firebase": "^8.2.0",
+    "firebase": "^8.2.1",
     "immutadot": "^1.0.0",
     "node-sass": "^4.14.1",
     "notistack": "^1.0.2",
@@ -35,7 +35,7 @@
     "lint:functions": "cd functions && npm run lint",
     "prettier:check": "prettier --check \"{src,functions}/**/*.{js,jsx,ts,md}\"",
     "prettier:write": "prettier --write \"{src,functions}/**/*.{js,jsx,ts,md}\"",
-    "test:rules": "firebase emulators:exec --only firestore \"react-scripts test --testPathPattern 'firebase/rules/__tests__' --env=node --runInBand\"",
+    "test:rules": "firebase emulators:exec --only firestore \"react-scripts test --testPathPattern 'firebase/rules/__tests__/.+\\.spec\\.js' --env=node --runInBand\"",
     "test": "react-scripts test --testPathIgnorePatterns='<rootDir>/src/firebase/rules/__tests__'",
     "eject": "react-scripts eject"
   },

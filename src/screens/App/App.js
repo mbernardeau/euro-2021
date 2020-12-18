@@ -21,13 +21,13 @@ import PropTypes from 'prop-types'
 import React, { Suspense, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import {
+  AuthCheck,
   preloadAuth,
   preloadFirestore,
   preloadFunctions,
   useAuth,
   useFirebaseApp,
 } from 'reactfire'
-import { useIsUserAdmin, useIsUserConnected } from '../../hooks'
 import FAQPage from '../FAQ'
 import GroupsPage from '../Groups'
 import HomePage from '../HomePage'
@@ -66,8 +66,6 @@ const App = () => {
 
   useAuth().onAuthStateChanged(updateSentryScope)
 
-  const isConnected = useIsUserConnected()
-  const isAdmin = useIsUserAdmin()
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -105,21 +103,25 @@ const App = () => {
           <Route path="/faq" component={FAQPage} />
           <Route path="/stadiums" component={Stadiums} />
 
-          {/* Routes accessibles avec connexion */}
-          {isConnected && <Route path="/matches" component={MatchesPage} />}
-          {isConnected && <Route path="/ranking" component={RankingPage} />}
-          {isConnected && <Route path="/groups" component={GroupsPage} />}
+          <AuthCheck>
+            {/* Routes accessibles avec connexion */}
+            <Route path="/matches" component={MatchesPage} />
+            <Route path="/ranking" component={RankingPage} />
+            <Route path="/groups" component={GroupsPage} />
 
-          {/* Route accessible pour admin */}
-          {isConnected && isAdmin && (
-            <Route
-              path="/matchesvalidation"
-              component={MatchesValidationPage}
-            />
-          )}
-          {isConnected && isAdmin && (
-            <Route path="/validinscription" component={ValidInscriptionPage} />
-          )}
+            {/* Route accessible pour admin */}
+            <AuthCheck requiredClaims={{ role: 'admin' }}>
+              <Route
+                path="/matchesvalidation"
+                component={MatchesValidationPage}
+              />
+
+              <Route
+                path="/validinscription"
+                component={ValidInscriptionPage}
+              />
+            </AuthCheck>
+          </AuthCheck>
 
           {/* NotFoundPage en dernier choix sinon il est active */}
           <Route component={NotFoundPage} />

@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router'
-import { useAuth } from 'reactfire'
+import { useAuth, useIdTokenResult } from 'reactfire'
 import { useUser, useFirestore, useFirestoreDocData } from 'reactfire'
 
 const saveUserData = (firestore, FieldValue) => ({
@@ -35,7 +35,7 @@ export const useGoogleLogin = () => {
   const provider = new useAuth.GoogleAuthProvider()
 
   return () =>
-    auth.signInWithPopup(provider).then(saveUserData(firestore, FieldValue))
+    auth.signInWithRedirect(provider).then(saveUserData(firestore, FieldValue))
 }
 
 export const useFacebookLogin = () => {
@@ -48,7 +48,7 @@ export const useFacebookLogin = () => {
   const provider = new useAuth.FacebookAuthProvider()
 
   return () =>
-    auth.signInWithPopup(provider).then(saveUserData(firestore, FieldValue))
+    auth.signInWithRedirect(provider).then(saveUserData(firestore, FieldValue))
 }
 
 export const useLogout = () => {
@@ -64,7 +64,6 @@ export const useLogout = () => {
 export const useUserProfile = () => {
   const firestore = useFirestore()
   const { uid } = useUser().data ?? {}
-
   const userRef = firestore
     .collection('users')
     .doc(useIsUserConnected() ? uid : ' ')
@@ -81,4 +80,14 @@ export const useIsUserConnected = () => {
   return uidUser && uidAuth && uidAuth === uidUser
 }
 
-export const useIsUserAdmin = () => !!useUserProfile()?.admin
+export const useIsUserAdmin = () => {
+  const isConnected = useIsUserConnected()
+
+  const user = useUser().data
+
+  const token = useIdTokenResult(
+    isConnected && user ? user : { getIdTokenResult: () => Promise.resolve() },
+  )
+
+  return isConnected && token?.data?.claims?.role === 'admin'
+}

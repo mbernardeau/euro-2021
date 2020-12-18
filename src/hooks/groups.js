@@ -170,6 +170,12 @@ export const useGroupCreatedByUser = () => {
 }
 
 export const useGroupsContainingAwaitingMembers = () => {
+  const isAdmin = useIsUserAdmin()
+  if (!isAdmin) {
+    throw new Error(
+      'useGroupsContainingAwaitingMembers can only be used by admins',
+    )
+  }
   const query = useFirestore()
     .collection('groups')
     .where('awaitingMembers', '!=', [])

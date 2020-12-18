@@ -10,7 +10,7 @@ import {
   ruleTestingCleanup,
   setupTestData,
   TEST_UID,
-} from '../../../utils/testUtils'
+} from './testUtils'
 
 const FUTURE_MATCH_ID = 'FUTURE_MATCH_ID'
 const PAST_MATCH_ID = 'PAST_MATCH_ID'

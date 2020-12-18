@@ -44,7 +44,7 @@ const GroupRanking = ({ name, members }) => {
                   <TableCell padding="none">
                     <Typography variant="overline">#{index + 1}</Typography>
                   </TableCell>
-                  <TableCell padding="dense">
+                  <TableCell padding="default">
                     <InlineAvatar {...user} />
                   </TableCell>
                   <TableCell padding="none">
