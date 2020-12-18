@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import Typography from '@material-ui/core/Typography'
 import findIndex from 'lodash/findIndex'
 import size from 'lodash/size'
-import Typography from '@material-ui/core/Typography'
-import { useUserProfile } from '../../../../hooks'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { useAuth } from 'reactfire'
 
 const OwnRank = ({ opponents, members }) => {
-  const { uid } = useUserProfile()
+  const { uid } = useAuth().currentUser
   const rank = findIndex(opponents, { id: uid }) + 1
 
   return (

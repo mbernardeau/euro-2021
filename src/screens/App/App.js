@@ -66,10 +66,15 @@ const updateUserProfile = (firestore, auth, FieldValue) => async (user) => {
   let additionalUserInfo = {}
   if (userCredentials.user) {
     const { providerId, profile } = userCredentials.additionalUserInfo
+    if (profile?.picture?.data?.url) {
+      user.photoURL = await user.updateProfile({
+        photoURL: profile?.picture?.data?.url,
+      })
+    }
+
     additionalUserInfo = {
       providerId,
       profile,
-      avatarUrl: profile?.picture?.data?.url ?? user.photoURL,
     }
   }
 
@@ -79,7 +84,8 @@ const updateUserProfile = (firestore, auth, FieldValue) => async (user) => {
     .set(
       {
         uid: user.uid,
-        avatarUrl: user.photoURL,
+        avatarUrl:
+          additionalUserInfo.profile?.picture?.data?.url ?? user.photoURL,
         displayName: user.displayName,
         email: user.email,
         phoneNumber: user.phoneNumber,

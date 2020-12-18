@@ -3,14 +3,15 @@ import TableRow from '@material-ui/core/TableRow'
 import includes from 'lodash/includes'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
+import { useAuth } from 'reactfire'
 import Avatar from '../../../../components/Avatar'
-import { useOpponents, useUserProfile } from '../../../../hooks'
+import { useOpponents } from '../../../../hooks'
 import GroupStatus from './GroupStatus'
 
 const GroupRow = ({
   group: { name, members, awaitingMembers, createdBy } = {},
 }) => {
-  const { uid } = useUserProfile()
+  const { uid } = useAuth().currentUser
   const createdByArray = useMemo(() => [createdBy], [createdBy])
   const [creator] = useOpponents(createdByArray)
 
