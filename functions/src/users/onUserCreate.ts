@@ -13,10 +13,14 @@ export const onUserCreate = functions
   .onCreate((snap) => {
     const userProfile = snap.data() as UserProfile
 
-    return db.collection('opponents').doc(userProfile.uid).create({
-      score: 0,
-      uid: userProfile.uid,
-      avatarUrl: userProfile.avatarUrl,
-      displayName: userProfile.displayName,
-    })
+    return db
+      .collection('opponents')
+      .doc(userProfile.uid)
+      .create({
+        score: 0,
+        uid: userProfile.uid,
+        avatarUrl:
+          userProfile.profile?.picture?.data?.url ?? userProfile.avatarUrl,
+        displayName: userProfile.displayName,
+      })
   })

@@ -1,9 +1,14 @@
 import { useSnackbar } from 'notistack'
 import { useCallback } from 'react'
-import { useFirestore, useFirestoreCollection, useUser } from 'reactfire'
+import {
+  useAuth,
+  useFirestore,
+  useFirestoreCollection,
+  useUser,
+} from 'reactfire'
 import { v4 as uuidv4 } from 'uuid'
 import { useFunctionsInRegion } from './useCallableFunction'
-import { useIsUserAdmin, useUserProfile } from './user'
+import { useIsUserAdmin } from './user'
 
 const priceValidationMessage = (price) => (
   <>
@@ -133,7 +138,7 @@ export const useApplyInGroup = () => {
 }
 
 export const useGroupsForUserMember = () => {
-  const { uid } = useUserProfile()
+  const { uid } = useAuth().currentUser
 
   const query = useFirestore()
     .collection('groups')
@@ -143,7 +148,7 @@ export const useGroupsForUserMember = () => {
 }
 
 export const useGroupsForUserAwaitingMember = () => {
-  const { uid } = useUserProfile()
+  const { uid } = useAuth().currentUser
 
   const query = useFirestore()
     .collection('groups')
@@ -160,7 +165,7 @@ export const useGroupsForUser = () => {
 }
 
 export const useGroupCreatedByUser = () => {
-  const { uid } = useUserProfile()
+  const { uid } = useAuth().currentUser
 
   const query = useFirestore()
     .collection('groups')
@@ -170,6 +175,12 @@ export const useGroupCreatedByUser = () => {
 }
 
 export const useGroupsContainingAwaitingMembers = () => {
+  const isAdmin = useIsUserAdmin()
+  if (!isAdmin) {
+    throw new Error(
+      'useGroupsContainingAwaitingMembers can only be used by admins',
+    )
+  }
   const query = useFirestore()
     .collection('groups')
     .where('awaitingMembers', '!=', [])

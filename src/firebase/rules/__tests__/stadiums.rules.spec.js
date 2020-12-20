@@ -3,7 +3,7 @@ import {
   createApp,
   createUnauthenticatedApp,
   ruleTestingCleanup,
-} from '../../../utils/testUtils'
+} from './testUtils'
 
 describe('Firebase rules/stadiums', () => {
   let app

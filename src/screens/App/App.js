@@ -21,13 +21,14 @@ import PropTypes from 'prop-types'
 import React, { Suspense, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import {
+  AuthCheck,
   preloadAuth,
   preloadFirestore,
   preloadFunctions,
   useAuth,
   useFirebaseApp,
+  useFirestore,
 } from 'reactfire'
-import { useIsUserAdmin, useIsUserConnected } from '../../hooks'
 import FAQPage from '../FAQ'
 import GroupsPage from '../Groups'
 import HomePage from '../HomePage'
@@ -54,6 +55,49 @@ const updateSentryScope = (user) => {
   }
 }
 
+/**
+ * Mise à jour du profil utilisateur (dans la collection `users` sur une connection)
+ */
+const updateUserProfile = (firestore, auth, FieldValue) => async (user) => {
+  // getRedirectResult ne sera rempli que lors d'un connexion manuelle.
+  // Les reconnexions auto et les rafraichissments de token ne donnent pas les `additionalUserInfo`
+  const userCredentials = await auth.getRedirectResult()
+
+  let additionalUserInfo = {}
+  if (userCredentials.user) {
+    const { providerId, profile } = userCredentials.additionalUserInfo
+    if (profile?.picture?.data?.url) {
+      user.photoURL = await user.updateProfile({
+        photoURL: profile?.picture?.data?.url,
+      })
+    }
+
+    additionalUserInfo = {
+      providerId,
+      profile,
+    }
+  }
+
+  return firestore
+    .collection('users')
+    .doc(user.uid)
+    .set(
+      {
+        uid: user.uid,
+        avatarUrl:
+          additionalUserInfo.profile?.picture?.data?.url ?? user.photoURL,
+        displayName: user.displayName,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        providerData: user.providerData,
+        lastConnection: FieldValue.serverTimestamp(),
+        nbConnections: FieldValue.increment(1),
+        ...additionalUserInfo,
+      },
+      { merge: true },
+    )
+}
+
 const App = () => {
   const firebaseApp = useFirebaseApp()
 
@@ -64,10 +108,17 @@ const App = () => {
     firebaseApp,
   })
 
-  useAuth().onAuthStateChanged(updateSentryScope)
+  const auth = useAuth()
+  const firestore = useFirestore()
+  const FieldValue = useFirestore.FieldValue
 
-  const isConnected = useIsUserConnected()
-  const isAdmin = useIsUserAdmin()
+  useAuth().onAuthStateChanged(async (user) => {
+    updateSentryScope(user)
+    if (user) {
+      await updateUserProfile(firestore, auth, FieldValue)(user)
+    }
+  })
+
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
@@ -105,21 +156,25 @@ const App = () => {
           <Route path="/faq" component={FAQPage} />
           <Route path="/stadiums" component={Stadiums} />
 
-          {/* Routes accessibles avec connexion */}
-          {isConnected && <Route path="/matches" component={MatchesPage} />}
-          {isConnected && <Route path="/ranking" component={RankingPage} />}
-          {isConnected && <Route path="/groups" component={GroupsPage} />}
+          <AuthCheck>
+            {/* Routes accessibles avec connexion */}
+            <Route path="/matches" component={MatchesPage} />
+            <Route path="/ranking" component={RankingPage} />
+            <Route path="/groups" component={GroupsPage} />
 
-          {/* Route accessible pour admin */}
-          {isConnected && isAdmin && (
-            <Route
-              path="/matchesvalidation"
-              component={MatchesValidationPage}
-            />
-          )}
-          {isConnected && isAdmin && (
-            <Route path="/validinscription" component={ValidInscriptionPage} />
-          )}
+            {/* Route accessible pour admin */}
+            <AuthCheck requiredClaims={{ role: 'admin' }}>
+              <Route
+                path="/matchesvalidation"
+                component={MatchesValidationPage}
+              />
+
+              <Route
+                path="/validinscription"
+                component={ValidInscriptionPage}
+              />
+            </AuthCheck>
+          </AuthCheck>
 
           {/* NotFoundPage en dernier choix sinon il est active */}
           <Route component={NotFoundPage} />

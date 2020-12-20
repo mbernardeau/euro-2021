@@ -8,13 +8,14 @@ import Typography from '@material-ui/core/Typography'
 import orderBy from 'lodash/orderBy'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
+import { useAuth } from 'reactfire'
 import InlineAvatar from '../../../components/Avatar'
-import { useOpponents, useUserProfile } from '../../../hooks'
+import { useOpponents } from '../../../hooks'
 import './GroupRanking.scss'
 import OwnRank from './OwnRank'
 
 const GroupRanking = ({ name, members }) => {
-  const { uid } = useUserProfile()
+  const { uid } = useAuth().currentUser
   const opponents = useOpponents(members)
   const sortedOpponents = useMemo(
     () =>
@@ -44,7 +45,7 @@ const GroupRanking = ({ name, members }) => {
                   <TableCell padding="none">
                     <Typography variant="overline">#{index + 1}</Typography>
                   </TableCell>
-                  <TableCell padding="dense">
+                  <TableCell padding="default">
                     <InlineAvatar {...user} />
                   </TableCell>
                   <TableCell padding="none">

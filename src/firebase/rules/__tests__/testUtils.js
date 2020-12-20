@@ -15,20 +15,10 @@ export const createApp = ({ uid = TEST_UID } = {}) =>
     auth: { uid },
   })
 
-export const createAppAsAdminUser = async () => {
-  await setupTestData((adminApp) =>
-    adminApp.firestore().collection('users').doc(ADMIN_UID).set(
-      {
-        uid: ADMIN_UID,
-        admin: true,
-      },
-      { merge: true },
-    ),
-  )
-
+export const createAppAsAdminUser = () => {
   return initializeTestApp({
     projectId: TEST_PROJECT_ID,
-    auth: { uid: ADMIN_UID },
+    auth: { uid: ADMIN_UID, role: 'admin' },
   })
 }
 

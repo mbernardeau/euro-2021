@@ -1,12 +1,12 @@
 import Typography from '@material-ui/core/Typography'
 import includes from 'lodash/includes'
-import PropTypes from 'prop-types'
 import sumBy from 'lodash/sumBy'
+import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
-import { useUserProfile } from '../../../../hooks'
+import { useAuth } from 'reactfire'
 
 const DisplayPrice = ({ groups }) => {
-  const { uid } = useUserProfile()
+  const { uid } = useAuth().currentUser
 
   const somme = useMemo(
     () =>

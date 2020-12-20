@@ -4,11 +4,12 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import React, { useRef, useState } from 'react'
-import { useLogout, useUserProfile } from '../../../../hooks'
+import { useAuth } from 'reactfire'
+import { useLogout } from '../../../../hooks'
 import './user.scss'
 
 const User = () => {
-  const user = useUserProfile()
+  const user = useAuth().currentUser
   const logout = useLogout()
   const [isOpen, setIsOpen] = useState(false)
   const anchorEl = useRef()

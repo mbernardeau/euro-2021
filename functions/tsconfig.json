@@ -7,7 +7,7 @@
     "sourceMap": true,
     "strict": true,
     "allowJs": true,
-    "target": "es2017"
+    "target": "es2020"
   },
   "compileOnSave": true,
   "include": [

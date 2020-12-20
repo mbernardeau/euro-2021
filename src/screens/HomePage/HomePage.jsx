@@ -15,14 +15,12 @@ import ListIcon from '@material-ui/icons/List'
 import PollIcon from '@material-ui/icons/Poll'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { AuthCheck } from 'reactfire'
 import myImage from '../../assets/visuels/bandeauEvenement2.webp'
-import { useIsUserConnected } from '../../hooks'
 import './HomePage.scss'
 import Winner from './Winner'
 
 const HomePage = ({ history }) => {
-  const isConnected = useIsUserConnected()
-
   return (
     <div className="home-page-div">
       <p className="home-speech">
@@ -58,34 +56,34 @@ const HomePage = ({ history }) => {
             Règles
           </Button>
         </div>
-        {isConnected && (
-          <>
-            <div className="home-button-panel">
-              <p>Tous vos paris : </p>
-              <Button
-                className="home-button"
-                onClick={() => history.push('/matches')}
-                color="primary"
-              >
-                <EventAvailableIcon className="icon-left" />
-                Parier
-              </Button>
-            </div>
-            <div className="home-button-panel">
-              <p>Votre classement : </p>
-              <Button
-                className="home-button"
-                onClick={() => history.push('/ranking')}
-                color="primary"
-              >
-                <PollIcon className="icon-left" />
-                Classement
-              </Button>
-            </div>
-          </>
-        )}
+        <AuthCheck>
+          <div className="home-button-panel">
+            <p>Tous vos paris : </p>
+            <Button
+              className="home-button"
+              onClick={() => history.push('/matches')}
+              color="primary"
+            >
+              <EventAvailableIcon className="icon-left" />
+              Parier
+            </Button>
+          </div>
+          <div className="home-button-panel">
+            <p>Votre classement : </p>
+            <Button
+              className="home-button"
+              onClick={() => history.push('/ranking')}
+              color="primary"
+            >
+              <PollIcon className="icon-left" />
+              Classement
+            </Button>
+          </div>
+        </AuthCheck>
       </div>
-      {isConnected && <Winner />}
+      <AuthCheck>
+        <Winner />
+      </AuthCheck>
       <img alt="Home" className="home-logo" src={myImage} />
     </div>
   )

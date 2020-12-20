@@ -48,7 +48,7 @@ module.exports = {
     'no-param-reassign': 'error',
     'no-redeclare': 'error',
     'no-sequences': 'error',
-    'no-shadow': [
+    '@typescript-eslint/no-shadow': [
       'error',
       {
         hoist: 'all',

@@ -5,7 +5,7 @@ service cloud.firestore {
       return request.auth != null;
     }
     function isAdmin() {
-      return debug(get(/databases/$(database)/documents/users/$(request.auth.uid)).data).admin == true
+      return request.auth.token.role is string && request.auth.token.role == 'admin'
     }
 
     // Base data, it shouldn't be modified by anyone except admin

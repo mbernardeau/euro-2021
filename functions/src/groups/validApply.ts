@@ -1,6 +1,6 @@
-import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
-import { UserProfile, ValidApplyParams } from '../types'
+import * as functions from 'firebase-functions'
+import { UserIdToken, UserRole, ValidApplyParams } from '../types'
 
 const db = admin.firestore()
 
@@ -14,10 +14,7 @@ export const validApply = functions
       )
     }
 
-    const user = (
-      await db.collection('users').doc(auth.uid).get()
-    ).data() as UserProfile
-    const isAdmin = user.admin
+    const isAdmin = (auth.token as UserIdToken).role === UserRole.admin
 
     if (!isAdmin) {
       throw new functions.https.HttpsError(
