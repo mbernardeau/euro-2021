@@ -79,5 +79,12 @@ service cloud.firestore {
       allow update: if false;
       allow delete: if false;
     }
+
+     match /notificationSubscriptions/{notificationSubscriptionId} {
+        allow read: if request.auth.uid == resource.data.uid;
+        allow create: if request.auth.uid == request.resource.data.uid && request.resource.data.token == notificationSubscriptionId;
+        allow update: if request.auth.uid == resource.data.uid && request.auth.uid == request.resource.data.uid && request.resource.data.token == notificationSubscriptionId;
+        allow delete: if request.auth.uid == resource.data.uid;
+     }
   }
 }
