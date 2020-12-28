@@ -1,16 +1,11 @@
-const admin = require('firebase-admin')
 const fs = require('fs')
-const serviceAccount = require('./euro2021-3d006-firebase-adminsdk-swizj.json')
-const { firestoreExport } = require('node-firestore-import-export')
+const serviceAccount = require('./pronostics-47048-firebase-adminsdk-xn7s7.json')
+const { backup, initializeApp } = require('firestore-export-import')
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-})
-
-const db = admin.firestore()
+initializeApp(serviceAccount)
 
 const exportCollection = (collectionName) => {
-  firestoreExport(db.collection(collectionName)).then((data) => {
+  backup(collectionName).then((data) => {
     const jsonData = JSON.stringify(data, null, 2)
     fs.writeFile(
       `./firestore-data/${collectionName}.json`,
