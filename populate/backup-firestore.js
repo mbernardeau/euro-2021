@@ -1,5 +1,5 @@
 const fs = require('fs')
-const serviceAccount = require('./pronostics-47048-firebase-adminsdk-xn7s7.json')
+const serviceAccount = require('./euro2021-3d006-firebase-adminsdk-swizj.json')
 const { backup, initializeApp } = require('firestore-export-import')
 
 initializeApp(serviceAccount)

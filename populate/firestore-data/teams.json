@@ -2,226 +2,226 @@
   "teams": {
     "-Kj2zfp9V5wdpN59exkD": {
       "group": "A",
-      "code": "ru",
       "name": "Russie",
+      "code": "ru",
       "winOdd": 41,
       "subCollection": {}
     },
     "-Kj2zfpEdmB6SgyPd85W": {
       "name": "Arabie Saoudite",
-      "winOdd": 1001,
       "group": "A",
+      "winOdd": 1001,
       "code": "sa",
       "subCollection": {}
     },
     "-Kj2zfpFzqykBwiz5dcL": {
-      "code": "eg",
       "group": "A",
-      "name": "Égypte",
+      "code": "eg",
       "winOdd": 151,
+      "name": "Égypte",
       "subCollection": {}
     },
     "-Kj2zfpFzqykBwiz5dcM": {
-      "code": "ch",
-      "group": "E",
       "name": "Suisse",
+      "group": "E",
       "winOdd": 81,
+      "code": "ch",
       "subCollection": {}
     },
     "-Kj2zfpFzqykBwiz5dcN": {
       "group": "B",
-      "name": "Maroc",
       "winOdd": 401,
       "code": "ma",
+      "name": "Maroc",
       "subCollection": {}
     },
     "-Kj2zfpGJmSTghyT06un": {
-      "name": "Panama",
-      "winOdd": 1001,
-      "group": "G",
       "code": "pa",
+      "winOdd": 1001,
+      "name": "Panama",
+      "group": "G",
       "subCollection": {}
     },
     "-Kj2zfpGJmSTghyT06uo": {
-      "winOdd": 17,
-      "group": "G",
       "name": "Angleterre",
       "code": "gb-eng",
+      "group": "G",
+      "winOdd": 17,
       "subCollection": {}
     },
     "-Kj2zfpHPqNpMy7ZgxmM": {
-      "name": "France",
       "winOdd": 7,
-      "group": "C",
       "code": "fr",
+      "name": "France",
+      "group": "C",
       "subCollection": {}
     },
     "-Kj2zfpIxWevwDITiL0V": {
-      "name": "Allemagne",
       "code": "de",
-      "winOdd": 5.5,
+      "name": "Allemagne",
       "group": "F",
+      "winOdd": 5.5,
       "subCollection": {}
     },
     "-Kj2zfpJov1GY9sA2IgE": {
       "name": "Tunisie",
-      "code": "tn",
-      "group": "G",
       "winOdd": 501,
+      "group": "G",
+      "code": "tn",
       "subCollection": {}
     },
     "-Kj2zfpJov1GY9sA2IgF": {
-      "group": "H",
       "name": "Pologne",
-      "code": "pl",
       "winOdd": 46,
+      "group": "H",
+      "code": "pl",
       "subCollection": {}
     },
     "-Kj2zfpKYdjdHhPukkXr": {
-      "name": "Serbie",
-      "group": "E",
       "winOdd": 151,
       "code": "rs",
+      "group": "E",
+      "name": "Serbie",
       "subCollection": {}
     },
     "-Kj2zfpKYdjdHhPukkXs": {
       "name": "Suède",
+      "code": "se",
       "group": "F",
       "winOdd": 125,
-      "code": "se",
       "subCollection": {}
     },
     "-Kj2zfpKYdjdHhPukkXt": {
-      "winOdd": 151,
-      "group": "H",
       "name": "Sénégal",
+      "winOdd": 151,
       "code": "sn",
+      "group": "H",
       "subCollection": {}
     },
     "-Kj2zfpKYdjdHhPukkXu": {
-      "winOdd": 7,
-      "name": "Espagne",
       "code": "es",
+      "name": "Espagne",
       "group": "B",
+      "winOdd": 7,
       "subCollection": {}
     },
     "-Kj2zfpLjC03AaK-W8Lo": {
-      "name": "Pérou",
+      "code": "pe",
       "group": "C",
       "winOdd": 201,
-      "code": "pe",
+      "name": "Pérou",
       "subCollection": {}
     },
     "-Kj2zfpM7z9dtuBQZC4c": {
+      "code": "ng",
+      "winOdd": 201,
       "name": "Nigeria",
       "group": "D",
-      "winOdd": 201,
-      "code": "ng",
       "subCollection": {}
     },
     "-Kj2zfpN8l22eNCLSzLj": {
+      "code": "ir",
+      "name": "Iran",
       "group": "B",
       "winOdd": 501,
-      "name": "Iran",
-      "code": "ir",
       "subCollection": {}
     },
     "-Kj2zfpN8l22eNCLSzLk": {
       "name": "Belgique",
-      "winOdd": 12,
       "group": "G",
+      "winOdd": 12,
       "code": "be",
       "subCollection": {}
     },
     "-Kj2zfpN8l22eNCLSzLl": {
-      "group": "H",
-      "name": "Japon",
-      "code": "jp",
       "winOdd": 301,
+      "code": "jp",
+      "name": "Japon",
+      "group": "H",
       "subCollection": {}
     },
     "-Kj2zfpO3MwCoLIdNuNf": {
-      "group": "C",
       "winOdd": 301,
-      "code": "au",
+      "group": "C",
       "name": "Australie",
+      "code": "au",
       "subCollection": {}
     },
     "-Kj2zfpO3MwCoLIdNuNg": {
-      "group": "A",
-      "name": "Uruguay",
-      "winOdd": 31,
       "code": "uy",
+      "group": "A",
+      "winOdd": 31,
+      "name": "Uruguay",
       "subCollection": {}
     },
     "-Kj2zfpPgzwXCT7Bnm1y": {
-      "name": "Portugal",
       "winOdd": 23,
-      "group": "B",
       "code": "pt",
+      "group": "B",
+      "name": "Portugal",
       "subCollection": {}
     },
     "-Kj2zfpRCBdqgDxcBLBQ": {
       "group": "D",
+      "name": "Islande",
       "winOdd": 201,
       "code": "is",
-      "name": "Islande",
       "subCollection": {}
     },
     "-Kj2zfpRCBdqgDxcBLBR": {
-      "winOdd": 5.5,
-      "code": "br",
       "group": "E",
+      "winOdd": 5.5,
       "name": "Brésil",
+      "code": "br",
       "subCollection": {}
     },
     "-Kj2zfpSUE3rJOjKDuJD": {
-      "code": "ar",
       "group": "D",
       "winOdd": 9,
+      "code": "ar",
       "name": "Argentine",
       "subCollection": {}
     },
     "-Kj2zfpSUE3rJOjKDuJE": {
-      "group": "F",
-      "name": "Mexique",
-      "code": "mx",
       "winOdd": 101,
+      "group": "F",
+      "code": "mx",
+      "name": "Mexique",
       "subCollection": {}
     },
     "-Kj2zfpSUE3rJOjKDuJF": {
-      "group": "H",
       "name": "Colombie",
-      "code": "co",
       "winOdd": 31,
+      "group": "H",
+      "code": "co",
       "subCollection": {}
     },
     "-Kj2zfpSUE3rJOjKDuJG": {
+      "name": "Corée du Sud",
       "code": "kr",
       "group": "F",
-      "name": "Corée du Sud",
       "winOdd": 501,
       "subCollection": {}
     },
     "-Kj2zfpSUE3rJOjKDuJH": {
-      "code": "cr",
-      "group": "E",
-      "name": "Costa Rica",
       "winOdd": 501,
+      "name": "Costa Rica",
+      "group": "E",
+      "code": "cr",
       "subCollection": {}
     },
     "-Kj2zfpT4N-Ti7bAyicd": {
+      "group": "C",
+      "name": "Danemark",
       "winOdd": 81,
       "code": "dk",
-      "name": "Danemark",
-      "group": "C",
       "subCollection": {}
     },
     "-Kj2zfpT4N-Ti7bAyice": {
-      "group": "D",
       "winOdd": 31,
       "code": "hr",
       "name": "Croatie",
+      "group": "D",
       "subCollection": {}
     }
   }
