@@ -90,7 +90,7 @@ const Match = ({ matchSnapshot }) => {
     currentBet.betWinner === bet.betWinner
 
   return (
-    (match.phase === '0' || match.display) && (
+    match.display && (
       <>
         <Card className="match-card">
           <CardContent className="match-content">
