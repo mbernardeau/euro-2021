@@ -1,122 +1,124 @@
 {
-  "-Kioc-ZW9T-10wOZ3oD0": {
-    "name": "Stade Krestovski",
-    "capacity": 69500,
-    "photo": {
-      "credit": "Andrew Shiva / Wikipedia, via Wikimedia Commons",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/RUS-2016-Aerial-SPB-Krestovsky_Stadium_02.jpg/512px-RUS-2016-Aerial-SPB-Krestovsky_Stadium_02.jpg"
+  "stadiums": {
+    "-Kioc-ZW9T-10wOZ3oD0": {
+      "name": "Stade Krestovski",
+      "photo": {
+        "credit": "Andrew Shiva / Wikipedia, via Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/RUS-2016-Aerial-SPB-Krestovsky_Stadium_02.jpg/512px-RUS-2016-Aerial-SPB-Krestovsky_Stadium_02.jpg"
+      },
+      "city": "Saint-Pétersbourg",
+      "capacity": 68134,
+      "subCollection": {}
     },
-    "city": "Saint-Pétersbourg",
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oD1": {
-    "city": "Moscou",
-    "name": "Stade Loujniki",
-    "capacity": 89318,
-    "photo": {
-      "credit": "© Steven Pavlov / http://commons.wikimedia.org/wiki/User:Senapa, via Wikimedia Commons",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_%D0%9B%D1%83%D0%B6%D0%BD%D0%B8%D0%BA%D0%B8_%2829_%D0%BC%D0%B0%D1%80%D1%82%D0%B0_2017%29_%C2%B7_23.jpg/640px-%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_%D0%9B%D1%83%D0%B6%D0%BD%D0%B8%D0%BA%D0%B8_%2829_%D0%BC%D0%B0%D1%80%D1%82%D0%B0_2017%29_%C2%B7_23.jpg"
+    "-Kioc-ZW9T-10wOZ3oD1": {
+      "photo": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Baku_National_Stadium_2015-06.jpg/640px-Baku_National_Stadium_2015-06.jpg",
+        "credit": "Kremlin.ru / Пресс-служба Президента Российской Федерации / http://commons.wikimedia.org/wiki/User:Senapa, via Wikimedia Commons"
+      },
+      "city": "Bakou",
+      "name": "Baku Olympic Stadium",
+      "capacity": 69870,
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oD2": {
-    "city": "Moscou",
-    "name": "Otkrytie Arena",
-    "capacity": 46990,
-    "photo": {
-      "credit": "By Brateevsky (Own work) [CC BY-SA 4.0], via Wikimedia Commons",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Stadium_Spartak_in_Moscow.jpg/512px-Stadium_Spartak_in_Moscow.jpg"
+    "-Kioc-ZW9T-10wOZ3oD2": {
+      "photo": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Copenhagen_Parken_Stadium_1.jpg/640px-Copenhagen_Parken_Stadium_1.jpg",
+        "credit": "By Валерий Дед (Own work) [CC BY-SA 4.0], via Wikimedia Commons"
+      },
+      "capacity": 38190,
+      "name": "Saint Parken Stadium",
+      "city": "Copenhague",
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oD3": {
-    "city": "Nijni Novgorod",
-    "name": "Stade de Nijni-Novgorod",
-    "capacity": 44899,
-    "photo": {
-      "credit": "Par A.Savin (Wikimedia Commons · WikiPhotoSpace) (Travail personnel) [FAL], via Wikimedia Commons",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Nizhny_Novgorod_Stadium_2018-05-02_%281%29.jpg/640px-Nizhny_Novgorod_Stadium_2018-05-02_%281%29.jpg"
+    "-Kioc-ZW9T-10wOZ3oD3": {
+      "name": "Stadio Olimpico",
+      "photo": {
+        "credit": "Par Alexdevil (Wikimedia Commons · WikiPhotoSpace) (Travail personnel) [FAL], via Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Stadio_Olimpico_Roma.jpg/640px-Stadio_Olimpico_Roma.jpg"
+      },
+      "city": "Rome",
+      "capacity": 72968,
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oD5": {
-    "city": "Kaliningrad",
-    "name": "Stade de Kaliningrad",
-    "capacity": 35000,
-    "photo": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Kaliningrad_stadium_-_2018-04-07.jpg/640px-Kaliningrad_stadium_-_2018-04-07.jpg",
-      "credit": "By A.Savin (Wikimedia Commons · WikiPhotoSpace) (Own work) [FAL], via Wikimedia Commons"
+    "-Kioc-ZW9T-10wOZ3oD5": {
+      "name": "Johan Cruyff Arena",
+      "photo": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Ajax_Arena.jpg/640px-Ajax_Arena.jpg",
+        "credit": "By Paolo (Wikimedia Commons · WikiPhotoSpace) (Own work) [FAL], via Wikimedia Commons"
+      },
+      "capacity": 54990,
+      "city": "Amsterdam",
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oD6": {
-    "name": "Stade Yubileyniy",
-    "capacity": 45015,
-    "photo": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_Mordovia_arena.jpg/640px-%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_Mordovia_arena.jpg",
-      "credit": "Par Kyongwon (Travail personnel) [CC BY-SA 4.0], via Wikimedia Commons"
+    "-Kioc-ZW9T-10wOZ3oD6": {
+      "capacity": 55600,
+      "city": "Bucarest",
+      "photo": {
+        "credit": "Par Nowy Styl Group (Travail personnel) [CC BY-SA 4.0], via Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Arena-bukareszt.jpg/640px-Arena-bukareszt.jpg"
+      },
+      "name": "Arena Națională",
+      "subCollection": {}
     },
-    "city": "Saransk",
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oD7": {
-    "city": "Rostov-sur-le-Don",
-    "name": "Stade de Rostov-sur-le-Don",
-    "capacity": 43702,
-    "photo": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Rostov_Arena_%282%29.jpg/640px-Rostov_Arena_%282%29.jpg",
-      "credit": "GennadyL [CC0], via Wikimedia Commons"
+    "-Kioc-ZW9T-10wOZ3oD7": {
+      "capacity": 90000,
+      "city": "Londres",
+      "name": "Wembley",
+      "photo": {
+        "credit": "Evka W (Own work), via Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Wembley.jpg/640px-Wembley.jpg"
+      },
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oD8": {
-    "city": "Sotchi",
-    "name": "Stade olympique Ficht",
-    "capacity": 47659,
-    "photo": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Sochi_Olympic_Park_Fisht_Olympic_Stadium_P5020324_2200.jpg/512px-Sochi_Olympic_Park_Fisht_Olympic_Stadium_P5020324_2200.jpg",
-      "credit": "Par Alexxx1979 (Travail personnel) [CC BY-SA 4.0], via Wikimedia Commons"
+    "-Kioc-ZW9T-10wOZ3oD8": {
+      "name": "Hampdem Park",
+      "capacity": 52063,
+      "photo": {
+        "credit": "Par Dan Kearney (Travail personnel) [CC BY-SA 4.0], via Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Hampden_Park_%28Glasgow%29_aerial_view_cropped.jpg/640px-Hampden_Park_%28Glasgow%29_aerial_view_cropped.jpg"
+      },
+      "city": "Glasgow",
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oD9": {
-    "city": "Volgograd",
-    "name": "Stade central",
-    "capacity": 45015,
-    "photo": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Volgograd_Arena1.jpg/640px-Volgograd_Arena1.jpg",
-      "credit": "www.volganet.ru [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0) or GFDL 1.3 (www.gnu.org/licenses/fdl-1.3.html)], via Wikimedia Commons"
+    "-Kioc-ZW9T-10wOZ3oD9": {
+      "city": "Bilbao",
+      "name": "San Mamés",
+      "photo": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Bilbao_San_Mam%C3%A9s_Stadium_4.jpg/640px-Bilbao_San_Mam%C3%A9s_Stadium_4.jpg",
+        "credit": "Par Валерий Дед, via Wikimedia Commons"
+      },
+      "capacity": 53000,
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oDA": {
-    "city": "Samara",
-    "name": "Stade de Samara",
-    "capacity": 44918,
-    "photo": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Samara_Arena1.jpg/640px-Samara_Arena1.jpg",
-      "credit": "Par Samorok (Travail personnel) [CC BY-SA 4.0], via Wikimedia Commons"
+    "-Kioc-ZW9T-10wOZ3oDA": {
+      "photo": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Aviva_Stadium%28Dublin_Arena%29.JPG/640px-Aviva_Stadium%28Dublin_Arena%29.JPG",
+        "credit": "Par Tarafuku10 (Travail personnel) [CC BY-SA 4.0], via Wikimedia Commons"
+      },
+      "city": "Dublin",
+      "name": "Dublin Arena",
+      "capacity": 51700,
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oDB": {
-    "city": "Kazan",
-    "name": "Kazan-Arena",
-    "capacity": 45015,
-    "photo": {
-      "credit": "Par Kazaneer (Travail personnel) [CC BY-SA 3.0 ou GFDL], via Wikimedia Commons",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C_%D0%B0%D1%80%D0%B5%D0%BD%D0%B0.jpg/512px-%D0%9A%D0%B0%D0%B7%D0%B0%D0%BD%D1%8C_%D0%B0%D1%80%D0%B5%D0%BD%D0%B0.jpg"
+    "-Kioc-ZW9T-10wOZ3oDB": {
+      "photo": {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Allianz_Arena_zu_verschiedenen_Zeiten.jpg/521px-Allianz_Arena_zu_verschiedenen_Zeiten.jpg",
+        "credit": "Par Richard Bartz (Travail personnel) [CC BY-SA 3.0 ou GFDL], via Wikimedia Commons"
+      },
+      "city": "Munich",
+      "capacity": 75000,
+      "name": "Alianz Arena",
+      "subCollection": {}
     },
-    "__collections__": {}
-  },
-  "-Kioc-ZW9T-10wOZ3oDC": {
-    "city": "Iekaterinbourg",
-    "name": "Iekaterinbourg Arena",
-    "capacity": 35000,
-    "photo": {
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Estadio_Central_%28Ekaterinburg-arena%29.jpg/640px-Estadio_Central_%28Ekaterinburg-arena%29.jpg",
-      "credit": "Par Фальшивомонетчик (Travail personnel) [CC BY 4.0], via Wikimedia Commons"
-    },
-    "__collections__": {}
+    "-Kioc-ZW9T-10wOZ3oDC": {
+      "name": "Puskás Aréna",
+      "city": "Budapest",
+      "capacity": 67889,
+      "photo": {
+        "credit": "Par Attila Károly Nagy (Travail personnel) [CC BY 4.0], via Wikimedia Commons",
+        "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Ferenc_Pusk%C3%A1s_Stadium_2019.jpg/640px-Ferenc_Pusk%C3%A1s_Stadium_2019.jpg"
+      },
+      "subCollection": {}
+    }
   }
 }
