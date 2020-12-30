@@ -1,54 +1,65 @@
 {
   "matches": {
     "-Kj2zgJGrbesJWV8zQFP": {
-      "streaming": "TF1",
-      "teamA": "-Kj2zfp9V5wdpN59exkD",
       "odds": {
         "1": 1.35,
         "2": 9.75,
-        "N": 4.25,
         "B": 9.75,
+        "N": 4.25,
         "A": 1.35
       },
       "scores": {
         "B": 2,
-        "A": 2,
-        "winner": "N"
+        "winner": "N",
+        "A": 2
       },
-      "phase": "0",
-      "teamB": "-Kj2zfpEdmB6SgyPd85W",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD1",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD3",
       "dateTime": {
-        "_seconds": 1525968000,
+        "_seconds": 1623438000,
         "_nanoseconds": 0
       },
+      "teamB": "-Kj2zfp9V5wdpN59exkD",
+      "teamA": "-Kj2zfpFzqykBwiz5dcL",
+      "phase": "0",
+      "display": true,
+      "streaming": "TF1",
       "subCollection": {}
     },
     "-Kj2zgJN_QhVeEpyAeh5": {
-      "teamB": "-Kj2zfpO3MwCoLIdNuNg",
-      "teamA": "-Kj2zfpFzqykBwiz5dcL",
-      "stadium": "-Kioc-ZW9T-10wOZ3oDC",
-      "dateTime": {
-        "_seconds": 1529064000,
-        "_nanoseconds": 0
-      },
+      "teamB": "-Kj2zfpFzqykBwiz5dcM",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD1",
       "phase": "0",
-      "streaming": "BeIN",
-      "scores": {
-        "A": 1,
-        "winner": "N",
-        "B": 1
+      "dateTime": {
+        "_seconds": 1623502800,
+        "_nanoseconds": 0
       },
       "odds": {
         "1": 7,
         "2": 1.52,
+        "A": 7,
         "N": 3.55,
-        "B": 1.52,
-        "A": 7
+        "B": 1.52
+      },
+      "streaming": "BeIN",
+      "teamA": "-Kj2zfpEdmB6SgyPd85W",
+      "display": true,
+      "scores": {
+        "winner": "N",
+        "B": 1,
+        "A": 1
       },
       "subCollection": {}
     },
     "-Kj2zgJOa5shOQaGqFH5": {
+      "display": false,
+      "teamA": "-Kj2zfpFzqykBwiz5dcL",
+      "phase": "0",
+      "dateTime": {
+        "_seconds": 1623859200,
+        "_nanoseconds": 0
+      },
+      "streaming": "BeIN",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD1",
       "odds": {
         "1": 1.85,
         "2": 3.9,
@@ -56,264 +67,125 @@
         "A": 2.33,
         "B": 3.35
       },
-      "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD0",
-      "teamB": "-Kj2zfpN8l22eNCLSzLj",
-      "dateTime": {
-        "_seconds": 1529074800,
-        "_nanoseconds": 0
-      },
-      "teamA": "-Kj2zfpFzqykBwiz5dcN",
-      "phase": "0",
       "scores": {
-        "winner": "B",
         "A": 0,
+        "winner": "B",
         "B": 4
       },
+      "teamB": "-Kj2zfpEdmB6SgyPd85W",
       "subCollection": {}
     },
     "-Kj2zgJQPZRVObVjNxZU": {
       "scores": {
-        "winner": "B",
         "A": 0,
-        "B": 4
+        "B": 4,
+        "winner": "B"
       },
-      "phase": "0",
-      "streaming": "TF1",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD8",
-      "teamB": "-Kj2zfpKYdjdHhPukkXu",
-      "dateTime": {
-        "_seconds": 1529085600,
-        "_nanoseconds": 0
-      },
-      "teamA": "-Kj2zfpPgzwXCT7Bnm1y",
+      "teamB": "-Kj2zfpFzqykBwiz5dcM",
+      "teamA": "-Kj2zfp9V5wdpN59exkD",
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "B": 1.88,
         "N": 3.25,
-        "A": 4.2
+        "A": 4.2,
+        "B": 1.88
       },
+      "phase": "0",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD3",
+      "dateTime": {
+        "_seconds": 1623870000,
+        "_nanoseconds": 0
+      },
+      "display": false,
+      "streaming": "M6",
       "subCollection": {}
     },
     "-Kj2zgJRjiBeMLOSOa4I": {
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "N": 5.7,
-        "A": 1.19,
-        "B": 15.5
-      },
-      "streaming": "TF1",
-      "stadium": "-Kioc-ZW9T-10wOZ3oDB",
-      "teamB": "-Kj2zfpO3MwCoLIdNuNf",
-      "teamA": "-Kj2zfpHPqNpMy7ZgxmM",
-      "dateTime": {
-        "_seconds": 1529143200,
-        "_nanoseconds": 0
-      },
+      "teamA": "-Kj2zfp9V5wdpN59exkD",
+      "phase": "0",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD3",
       "scores": {
+        "winner": "A",
         "B": 0,
-        "A": 1,
-        "winner": "A"
-      },
-      "phase": "0",
-      "subCollection": {}
-    },
-    "-Kj2zgJSdV3hZMuU4j1w": {
-      "teamB": "-Kj2zfpRCBdqgDxcBLBQ",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD6",
-      "teamA": "-Kj2zfpSUE3rJOjKDuJD",
-      "phase": "0",
-      "streaming": "BeIN",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "A": 1.32,
-        "B": 10.75,
-        "N": 4.35
-      },
-      "dateTime": {
-        "_seconds": 1629154000,
-        "_nanoseconds": 0
-      },
-      "subCollection": {}
-    },
-    "-Kj2zgJT_IOBQrEjRANR": {
-      "teamB": "-Kj2zfpT4N-Ti7bAyicd",
-      "teamA": "-Kj2zfpLjC03AaK-W8Lo",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "A": 3.5,
-        "B": 2.12,
-        "N": 3.1
-      },
-      "dateTime": {
-        "_seconds": 1529164800,
-        "_nanoseconds": 0
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD2",
-      "phase": "0",
-      "streaming": "BeIN",
-      "subCollection": {}
-    },
-    "-Kj2zgJV6HuPAhuoX1JL": {
-      "teamA": "-Kj2zfpT4N-Ti7bAyice",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD5",
-      "phase": "0",
-      "streaming": "TF1",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "N": 3.25,
-        "B": 4.5,
-        "A": 1.82
-      },
-      "teamB": "-Kj2zfpM7z9dtuBQZC4c",
-      "dateTime": {
-        "_seconds": 1529175600,
-        "_nanoseconds": 0
-      },
-      "subCollection": {}
-    },
-    "-Kj2zgJWZB6iEKe2C3S-": {
-      "dateTime": {
-        "_seconds": 1529236800,
-        "_nanoseconds": 0
-      },
-      "teamA": "-Kj2zfpSUE3rJOjKDuJH",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD7",
-      "phase": "0",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 1.95,
-        "N": 3.15,
-        "A": 4
+        "A": 1
       },
       "streaming": "BeIN",
-      "teamB": "-Kj2zfpKYdjdHhPukkXr",
+      "teamB": "-Kj2zfpEdmB6SgyPd85W",
+      "display": false,
+      "dateTime": {
+        "_seconds": 1624204800,
+        "_nanoseconds": 0
+      },
+      "odds": {
+        "1": 1.7,
+        "2": 4.3,
+        "B": 15.5,
+        "A": 1.19,
+        "N": 5.7
+      },
       "subCollection": {}
     },
     "-Kj2zgJXT8q12LIs6rP5": {
-      "phase": "0",
-      "streaming": "TF1",
-      "teamA": "-Kj2zfpIxWevwDITiL0V",
-      "dateTime": {
-        "_seconds": 1529247600,
-        "_nanoseconds": 0
-      },
-      "teamB": "-Kj2zfpSUE3rJOjKDuJE",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 7.25,
-        "N": 4.1,
-        "A": 1.43
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oDA",
-      "subCollection": {}
-    },
-    "-Kj2zgJ_Va7Kl-e-t87b": {
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "N": 4.4,
-        "A": 1.35,
-        "B": 9
-      },
-      "teamA": "-Kj2zfpRCBdqgDxcBLBR",
-      "phase": "0",
-      "dateTime": {
-        "_seconds": 1529258400,
-        "_nanoseconds": 0
-      },
-      "streaming": "TF1",
-      "teamB": "-Kj2zfpFzqykBwiz5dcM",
       "stadium": "-Kioc-ZW9T-10wOZ3oD1",
-      "subCollection": {}
-    },
-    "-Kj2zgJfurtr7oRcLW4h": {
+      "display": false,
       "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD3",
-      "teamB": "-Kj2zfpSUE3rJOjKDuJG",
-      "dateTime": {
-        "_seconds": 1529323200,
-        "_nanoseconds": 0
-      },
-      "teamA": "-Kj2zfpKYdjdHhPukkXs",
-      "streaming": "BeIN",
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "B": 3.7,
-        "N": 3.1,
-        "A": 2.05
+        "N": 4.1,
+        "A": 1.43,
+        "B": 7.25
       },
+      "teamB": "-Kj2zfpFzqykBwiz5dcL",
+      "dateTime": {
+        "_seconds": 1624204800,
+        "_nanoseconds": 0
+      },
+      "streaming": "BeIN",
+      "teamA": "-Kj2zfpFzqykBwiz5dcM",
       "subCollection": {}
     },
     "-Kj2zgJo-v-r6DFBut7y": {
+      "teamB": "-Kj2zfpGJmSTghyT06un",
+      "phase": "0",
       "odds": {
         "1": 1.7,
         "2": 4.3,
+        "A": 1.13,
         "N": 6.8,
-        "B": 21,
-        "A": 1.13
+        "B": 21
       },
-      "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD8",
-      "teamA": "-Kj2zfpN8l22eNCLSzLk",
-      "teamB": "-Kj2zfpGJmSTghyT06un",
       "dateTime": {
-        "_seconds": 1529334000,
+        "_seconds": 1623513600,
         "_nanoseconds": 0
       },
+      "teamA": "-Kj2zfpFzqykBwiz5dcN",
+      "display": true,
+      "stadium": "-Kioc-ZW9T-10wOZ3oD2",
       "streaming": "BeIN",
       "subCollection": {}
     },
     "-Kj2zgJo-v-r6DFBut7z": {
-      "stadium": "-Kioc-ZW9T-10wOZ3oD9",
-      "streaming": "BeIN",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 1.33,
-        "A": 10,
-        "N": 4.4
-      },
+      "teamA": "-Kj2zfpHPqNpMy7ZgxmM",
       "dateTime": {
-        "_seconds": 1529344800,
+        "_seconds": 1623524400,
         "_nanoseconds": 0
       },
-      "teamA": "-Kj2zfpJov1GY9sA2IgE",
       "teamB": "-Kj2zfpGJmSTghyT06uo",
+      "display": true,
       "phase": "0",
-      "subCollection": {}
-    },
-    "-Kj2zgJpGG5jHcYK06-X": {
-      "teamA": "-Kj2zfpSUE3rJOjKDuJF",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD0",
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "B": 5.1,
-        "A": 1.7,
-        "N": 3.4
+        "N": 4.4,
+        "B": 1.33,
+        "A": 10
       },
-      "dateTime": {
-        "_seconds": 1529409600,
-        "_nanoseconds": 0
-      },
-      "phase": "0",
-      "streaming": "BeIN",
-      "teamB": "-Kj2zfpN8l22eNCLSzLl",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD2",
+      "streaming": "M6",
       "subCollection": {}
     },
     "-Kj2zgJsLJ5umqZ2iiAN": {
-      "teamA": "-Kj2zfpJov1GY9sA2IgF",
-      "phase": "0",
-      "teamB": "-Kj2zfpKYdjdHhPukkXt",
       "odds": {
         "1": 1.7,
         "2": 4.3,
@@ -321,36 +193,44 @@
         "A": 2.28,
         "N": 3
       },
-      "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD6",
+      "phase": "0",
+      "teamB": "-Kj2zfpGJmSTghyT06uo",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD0",
+      "display": false,
       "dateTime": {
-        "_seconds": 1529420400,
+        "_seconds": 1623848400,
         "_nanoseconds": 0
       },
+      "streaming": "BeIN",
+      "teamA": "-Kj2zfpGJmSTghyT06un",
       "subCollection": {}
     },
     "-Kj2zgJuTNBgf-js0QLA": {
+      "stadium": "-Kioc-ZW9T-10wOZ3oD2",
+      "teamB": "-Kj2zfpHPqNpMy7ZgxmM",
       "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD0",
+      "display": false,
+      "streaming": "BeIN",
       "dateTime": {
-        "_seconds": 1529431200,
+        "_seconds": 1623945600,
         "_nanoseconds": 0
       },
+      "teamA": "-Kj2zfpFzqykBwiz5dcN",
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "N": 3.25,
         "B": 4.5,
-        "A": 1.82
+        "A": 1.82,
+        "N": 3.25
       },
-      "teamB": "-Kj2zfpFzqykBwiz5dcL",
-      "streaming": "BeIN",
-      "teamA": "-Kj2zfp9V5wdpN59exkD",
       "subCollection": {}
     },
     "-Kj2zgJuTNBgf-js0QLB": {
+      "stadium": "-Kioc-ZW9T-10wOZ3oD0",
+      "teamA": "-Kj2zfpGJmSTghyT06un",
+      "teamB": "-Kj2zfpHPqNpMy7ZgxmM",
       "dateTime": {
-        "_seconds": 1529496000,
+        "_seconds": 1624302000,
         "_nanoseconds": 0
       },
       "odds": {
@@ -360,75 +240,60 @@
         "N": 3.65,
         "A": 1.53
       },
-      "teamA": "-Kj2zfpPgzwXCT7Bnm1y",
-      "phase": "0",
-      "teamB": "-Kj2zfpFzqykBwiz5dcN",
       "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD7",
+      "phase": "0",
+      "display": false,
       "subCollection": {}
     },
     "-Kj2zgJvZ03_Dv2tQ1jc": {
+      "streaming": "BeIN",
+      "teamB": "-Kj2zfpFzqykBwiz5dcN",
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "N": 5.25,
         "B": 13.5,
+        "N": 5.25,
         "A": 1.23
       },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD1",
-      "phase": "0",
-      "streaming": "TF1",
       "dateTime": {
-        "_seconds": 1529506800,
+        "_seconds": 1624302000,
         "_nanoseconds": 0
       },
-      "teamA": "-Kj2zfpO3MwCoLIdNuNg",
-      "teamB": "-Kj2zfpEdmB6SgyPd85W",
+      "display": false,
+      "teamA": "-Kj2zfpGJmSTghyT06uo",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD2",
+      "phase": "0",
       "subCollection": {}
     },
     "-Kj2zgJxrQJp6fmWssim": {
+      "stadium": "-Kioc-ZW9T-10wOZ3oD5",
+      "dateTime": {
+        "_seconds": 1623600000,
+        "_nanoseconds": 0
+      },
       "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oDB",
-      "streaming": "TF1",
-      "teamB": "-Kj2zfpKYdjdHhPukkXu",
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "B": 1.17,
         "N": 6,
+        "B": 1.17,
         "A": 16.5
       },
-      "teamA": "-Kj2zfpN8l22eNCLSzLj",
-      "dateTime": {
-        "_seconds": 1529517600,
-        "_nanoseconds": 0
-      },
-      "subCollection": {}
-    },
-    "-Kj2zgJzfhGd6M-zLxTD": {
-      "dateTime": {
-        "_seconds": 1529582400,
-        "_nanoseconds": 0
-      },
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 5,
-        "N": 3.4,
-        "A": 1.71
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oDC",
-      "teamA": "-Kj2zfpT4N-Ti7bAyicd",
-      "phase": "0",
-      "teamB": "-Kj2zfpO3MwCoLIdNuNf",
+      "teamA": "-Kj2zfpJov1GY9sA2IgF",
       "streaming": "BeIN",
+      "teamB": "-Kj2zfpKYdjdHhPukkXr",
+      "display": true,
       "subCollection": {}
     },
     "-Kj2zgJzfhGd6M-zLxTE": {
+      "display": true,
+      "teamA": "-Kj2zfpJov1GY9sA2IgE",
       "dateTime": {
-        "_seconds": 1529593200,
+        "_seconds": 1623610800,
         "_nanoseconds": 0
       },
+      "teamB": "-Kj2zfpIxWevwDITiL0V",
+      "streaming": "M6",
       "odds": {
         "1": 1.7,
         "2": 4.3,
@@ -436,136 +301,72 @@
         "A": 1.33,
         "B": 9.25
       },
-      "teamB": "-Kj2zfpLjC03AaK-W8Lo",
       "phase": "0",
-      "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oDA",
-      "teamA": "-Kj2zfpHPqNpMy7ZgxmM",
-      "subCollection": {}
-    },
-    "-Kj2zgK1OovywdrYBAVm": {
-      "teamB": "-Kj2zfpT4N-Ti7bAyice",
-      "teamA": "-Kj2zfpSUE3rJOjKDuJD",
-      "streaming": "BeIN",
-      "dateTime": {
-        "_seconds": 1529604000,
-        "_nanoseconds": 0
-      },
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "A": 1.88,
-        "N": 3.3,
-        "B": 4.1
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD3",
-      "phase": "0",
-      "subCollection": {}
-    },
-    "-Kj2zgK1OovywdrYBAVn": {
-      "teamB": "-Kj2zfpSUE3rJOjKDuJH",
-      "phase": "0",
-      "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD9",
-      "teamA": "-Kj2zfpRCBdqgDxcBLBR",
-      "dateTime": {
-        "_seconds": 1529668800,
-        "_nanoseconds": 0
-      },
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 13,
-        "A": 1.2,
-        "N": 5.8
-      },
+      "stadium": "-Kioc-ZW9T-10wOZ3oD6",
       "subCollection": {}
     },
     "-Kj2zgK2l0NwznS00Qql": {
       "phase": "0",
+      "display": false,
+      "teamB": "-Kj2zfpKYdjdHhPukkXr",
       "streaming": "BeIN",
-      "teamA": "-Kj2zfpM7z9dtuBQZC4c",
-      "teamB": "-Kj2zfpRCBdqgDxcBLBQ",
+      "teamA": "-Kj2zfpIxWevwDITiL0V",
       "dateTime": {
-        "_seconds": 1529679600,
+        "_seconds": 1623934800,
         "_nanoseconds": 0
       },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD0",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 2.65,
-        "N": 3,
-        "A": 2.7
-      },
-      "subCollection": {}
-    },
-    "-Kj2zgK2l0NwznS00Qqm": {
-      "dateTime": {
-        "_seconds": 1529690400,
-        "_nanoseconds": 0
-      },
-      "teamB": "-Kj2zfpFzqykBwiz5dcM",
-      "teamA": "-Kj2zfpKYdjdHhPukkXr",
       "stadium": "-Kioc-ZW9T-10wOZ3oD5",
       "odds": {
         "1": 1.7,
         "2": 4.3,
         "N": 3,
-        "A": 2.82,
-        "B": 2.55
+        "B": 2.65,
+        "A": 2.7
       },
+      "subCollection": {}
+    },
+    "-Kj2zgK2l0NwznS00Qqm": {
+      "teamB": "-Kj2zfpJov1GY9sA2IgF",
       "phase": "0",
-      "streaming": "TF1",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD6",
+      "display": false,
+      "dateTime": {
+        "_seconds": 1623956400,
+        "_nanoseconds": 0
+      },
+      "odds": {
+        "1": 1.7,
+        "2": 4.3,
+        "N": 3,
+        "B": 2.55,
+        "A": 2.82
+      },
+      "streaming": "BeIN",
+      "teamA": "-Kj2zfpJov1GY9sA2IgE",
       "subCollection": {}
     },
     "-Kj2zgK3E-HGFIZCGvJy": {
+      "phase": "0",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD5",
+      "display": false,
+      "odds": {
+        "1": 1.7,
+        "2": 4.3,
+        "A": 1.25,
+        "B": 11.25,
+        "N": 5.1
+      },
       "teamB": "-Kj2zfpJov1GY9sA2IgE",
       "dateTime": {
-        "_seconds": 1529755200,
+        "_seconds": 1624291200,
         "_nanoseconds": 0
       },
-      "phase": "0",
-      "teamA": "-Kj2zfpN8l22eNCLSzLk",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "N": 5.1,
-        "B": 11.25,
-        "A": 1.25
-      },
       "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD8",
-      "subCollection": {}
-    },
-    "-Kj2zgK5ve6ldyni9JDb": {
-      "teamA": "-Kj2zfpSUE3rJOjKDuJG",
-      "streaming": "BeIN",
-      "teamB": "-Kj2zfpSUE3rJOjKDuJE",
-      "phase": "0",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "N": 3.2,
-        "B": 1.93,
-        "A": 4
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD7",
-      "dateTime": {
-        "_seconds": 1529766000,
-        "_nanoseconds": 0
-      },
+      "teamA": "-Kj2zfpKYdjdHhPukkXr",
       "subCollection": {}
     },
     "-Kj2zgK5ve6ldyni9JDc": {
-      "dateTime": {
-        "_seconds": 1529776800,
-        "_nanoseconds": 0
-      },
-      "phase": "0",
-      "teamB": "-Kj2zfpKYdjdHhPukkXs",
-      "streaming": "TF1",
-      "teamA": "-Kj2zfpIxWevwDITiL0V",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD6",
       "odds": {
         "1": 1.7,
         "2": 4.3,
@@ -573,392 +374,394 @@
         "B": 6.7,
         "A": 1.47
       },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD2",
+      "phase": "0",
+      "dateTime": {
+        "_seconds": 1624291200,
+        "_nanoseconds": 0
+      },
+      "teamB": "-Kj2zfpJov1GY9sA2IgF",
+      "streaming": "BeIN",
+      "teamA": "-Kj2zfpIxWevwDITiL0V",
+      "display": false,
       "subCollection": {}
     },
     "-Kj2zgK6wnowR9Es8SiO": {
+      "teamA": "-Kj2zfpKYdjdHhPukkXs",
+      "teamB": "-Kj2zfpKYdjdHhPukkXt",
       "phase": "0",
-      "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD3",
       "dateTime": {
-        "_seconds": 1529841600,
+        "_seconds": 1623589200,
         "_nanoseconds": 0
       },
-      "teamA": "-Kj2zfpGJmSTghyT06uo",
-      "teamB": "-Kj2zfpGJmSTghyT06un",
+      "streaming": "BeIN",
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "A": 1.18,
         "N": 5.9,
+        "A": 1.18,
         "B": 16
       },
+      "display": true,
+      "stadium": "-Kioc-ZW9T-10wOZ3oD7",
       "subCollection": {}
     },
     "-Kj2zgK7SCe-AuK4Bgf4": {
+      "display": true,
       "dateTime": {
-        "_seconds": 1529852400,
+        "_seconds": 1623675600,
         "_nanoseconds": 0
       },
-      "phase": "0",
-      "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oDB",
-      "teamA": "-Kj2zfpN8l22eNCLSzLl",
+      "teamA": "-Kj2zfpKYdjdHhPukkXu",
       "odds": {
         "1": 1.7,
         "2": 4.3,
+        "A": 3.1,
         "N": 3.05,
-        "B": 2.33,
-        "A": 3.1
+        "B": 2.33
       },
-      "teamB": "-Kj2zfpKYdjdHhPukkXt",
-      "subCollection": {}
-    },
-    "-Kj2zgK9XWKcMp4R8tN6": {
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "A": 2.9,
-        "N": 3.05,
-        "B": 2.45
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oDC",
-      "dateTime": {
-        "_seconds": 1529863200,
-        "_nanoseconds": 0
-      },
+      "stadium": "-Kioc-ZW9T-10wOZ3oD8",
+      "teamB": "-Kj2zfpLjC03AaK-W8Lo",
       "streaming": "BeIN",
-      "teamB": "-Kj2zfpSUE3rJOjKDuJF",
       "phase": "0",
-      "teamA": "-Kj2zfpJov1GY9sA2IgF",
       "subCollection": {}
     },
     "-Kj2zgKB5oa_3m7pXtg7": {
+      "phase": "0",
+      "teamB": "-Kj2zfpLjC03AaK-W8Lo",
+      "streaming": "BeIN",
+      "display": false,
+      "stadium": "-Kioc-ZW9T-10wOZ3oD8",
       "dateTime": {
-        "_seconds": 1529935200,
+        "_seconds": 1624032000,
         "_nanoseconds": 0
       },
-      "teamB": "-Kj2zfp9V5wdpN59exkD",
-      "teamA": "-Kj2zfpO3MwCoLIdNuNg",
       "odds": {
         "1": 1.7,
         "2": 4.3,
         "N": 3.05,
-        "B": 2.9,
-        "A": 2.45
+        "A": 2.45,
+        "B": 2.9
       },
-      "stadium": "-Kioc-ZW9T-10wOZ3oDA",
-      "phase": "0",
-      "streaming": "BeIN",
+      "teamA": "-Kj2zfpKYdjdHhPukkXt",
       "subCollection": {}
     },
     "-Kj2zgKCVghYIVJ6J2V2": {
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "N": 3.4,
         "A": 4.9,
+        "N": 3.4,
         "B": 1.72
       },
-      "streaming": "TF1",
+      "teamA": "-Kj2zfpKYdjdHhPukkXs",
       "phase": "0",
-      "teamB": "-Kj2zfpFzqykBwiz5dcL",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD9",
+      "teamB": "-Kj2zfpKYdjdHhPukkXu",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD7",
+      "streaming": "TF1",
       "dateTime": {
-        "_seconds": 1529935200,
+        "_seconds": 1624042800,
         "_nanoseconds": 0
       },
-      "teamA": "-Kj2zfpEdmB6SgyPd85W",
+      "display": false,
       "subCollection": {}
     },
     "-Kj2zgKFmqNSgABIZ0wv": {
+      "streaming": "BeIN",
+      "phase": "0",
+      "teamB": "-Kj2zfpKYdjdHhPukkXs",
       "odds": {
         "1": 1.7,
         "2": 4.3,
+        "N": 4.35,
         "A": 9.25,
-        "B": 1.35,
-        "N": 4.35
+        "B": 1.35
       },
-      "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD6",
-      "teamB": "-Kj2zfpPgzwXCT7Bnm1y",
-      "streaming": "BeIN",
       "dateTime": {
-        "_seconds": 1529949600,
+        "_seconds": 1624388400,
         "_nanoseconds": 0
       },
-      "teamA": "-Kj2zfpN8l22eNCLSzLj",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD7",
+      "display": false,
+      "teamA": "-Kj2zfpLjC03AaK-W8Lo",
       "subCollection": {}
     },
     "-Kj2zgKGyT9xK_oM7Eby": {
+      "phase": "0",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD8",
+      "teamB": "-Kj2zfpKYdjdHhPukkXu",
+      "streaming": "BeIN",
       "dateTime": {
-        "_seconds": 1529949600,
+        "_seconds": 1624388400,
         "_nanoseconds": 0
       },
+      "display": false,
+      "teamA": "-Kj2zfpKYdjdHhPukkXt",
       "odds": {
         "1": 1.7,
         "2": 4.3,
+        "B": 9,
         "N": 4.5,
-        "A": 1.33,
-        "B": 9
+        "A": 1.33
       },
-      "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD5",
-      "teamB": "-Kj2zfpFzqykBwiz5dcN",
-      "phase": "0",
-      "teamA": "-Kj2zfpKYdjdHhPukkXu",
-      "subCollection": {}
-    },
-    "-Kj2zgKHfJeVs6mBV5E3": {
-      "teamB": "-Kj2zfpHPqNpMy7ZgxmM",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 1.65,
-        "N": 3.5,
-        "A": 5.3
-      },
-      "streaming": "BeIN",
-      "dateTime": {
-        "_seconds": 1530021600,
-        "_nanoseconds": 0
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD1",
-      "phase": "0",
-      "teamA": "-Kj2zfpT4N-Ti7bAyicd",
       "subCollection": {}
     },
     "-Kj2zgKHfJeVs6mBV5E4": {
+      "dateTime": {
+        "_seconds": 1623686400,
+        "_nanoseconds": 0
+      },
+      "display": true,
       "streaming": "BeIN",
+      "teamA": "-Kj2zfpN8l22eNCLSzLj",
+      "teamB": "-Kj2zfpN8l22eNCLSzLl",
+      "phase": "0",
       "odds": {
         "2": 4.3,
         "A": 3.35,
         "N": 3.15,
         "B": 2.15
       },
-      "dateTime": {
-        "_seconds": 1530021600,
-        "_nanoseconds": 0
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD8",
-      "teamA": "-Kj2zfpO3MwCoLIdNuNf",
-      "phase": "0",
-      "teamB": "-Kj2zfpLjC03AaK-W8Lo",
-      "subCollection": {}
-    },
-    "-Kj2zgKIWNQnDfpog-at": {
-      "teamA": "-Kj2zfpRCBdqgDxcBLBQ",
-      "teamB": "-Kj2zfpT4N-Ti7bAyice",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 1.78,
-        "N": 3.3,
-        "A": 4.6
-      },
-      "dateTime": {
-        "_seconds": 1530036000,
-        "_nanoseconds": 0
-      },
-      "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD0",
-      "streaming": "BeIN",
-      "subCollection": {}
-    },
-    "-Kj2zgKJ2wzt1CxDqVYy": {
-      "phase": "0",
-      "teamA": "-Kj2zfpM7z9dtuBQZC4c",
-      "teamB": "-Kj2zfpSUE3rJOjKDuJD",
-      "dateTime": {
-        "_seconds": 1532628000,
-        "_nanoseconds": 0
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD7",
-      "streaming": "BeIN",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "A": 7,
-        "B": 1.45,
-        "N": 4
-      },
-      "subCollection": {}
-    },
-    "-Kj2zgKJ2wzt1CxDqVYz": {
-      "dateTime": {
-        "_seconds": 1530108000,
-        "_nanoseconds": 0
-      },
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "N": 5,
-        "B": 1.28,
-        "A": 10.25
-      },
-      "teamA": "-Kj2zfpSUE3rJOjKDuJG",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD2",
-      "phase": "0",
-      "teamB": "-Kj2zfpIxWevwDITiL0V",
-      "streaming": "BeIN",
-      "subCollection": {}
-    },
-    "-Kj2zgKK_FjuLE5qkbk-": {
-      "streaming": "BeIN",
-      "phase": "0",
-      "teamB": "-Kj2zfpKYdjdHhPukkXs",
-      "teamA": "-Kj2zfpSUE3rJOjKDuJE",
-      "dateTime": {
-        "_seconds": 1530108000,
-        "_nanoseconds": 0
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oD3",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 2.88,
-        "A": 2.48,
-        "N": 3.05
-      },
-      "subCollection": {}
-    },
-    "-Kj2zgKK_FjuLE5qkbk0": {
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "A": 9,
-        "B": 1.35,
-        "N": 4.4
-      },
-      "streaming": "BeIN",
-      "teamA": "-Kj2zfpKYdjdHhPukkXr",
-      "teamB": "-Kj2zfpRCBdqgDxcBLBR",
-      "dateTime": {
-        "_seconds": 1530122400,
-        "_nanoseconds": 0
-      },
-      "stadium": "-Kioc-ZW9T-10wOZ3oDB",
-      "phase": "0",
-      "subCollection": {}
-    },
-    "-Kj2zgKLiV6gztv_zoCg": {
-      "teamB": "-Kj2zfpSUE3rJOjKDuJH",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "A": 1.88,
-        "N": 3.25,
-        "B": 4.2
-      },
-      "phase": "0",
-      "teamA": "-Kj2zfpFzqykBwiz5dcM",
-      "dateTime": {
-        "_seconds": 1530122400,
-        "_nanoseconds": 0
-      },
-      "streaming": "BeIN",
-      "stadium": "-Kioc-ZW9T-10wOZ3oDC",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD9",
       "subCollection": {}
     },
     "-Kj2zgKPFE3FgypNGQ-1": {
+      "teamB": "-Kj2zfpM7z9dtuBQZC4c",
+      "stadium": "-Kioc-ZW9T-10wOZ3oDA",
+      "phase": "0",
+      "dateTime": {
+        "_seconds": 1623697200,
+        "_nanoseconds": 0
+      },
+      "display": true,
+      "teamA": "-Kj2zfpN8l22eNCLSzLk",
       "odds": {
         "1": 1.7,
         "2": 4.3,
+        "N": 3.3,
         "B": 1.85,
-        "A": 4.2,
-        "N": 3.3
+        "A": 4.2
       },
-      "teamA": "-Kj2zfpN8l22eNCLSzLl",
-      "teamB": "-Kj2zfpJov1GY9sA2IgF",
-      "dateTime": {
-        "_seconds": 1530194400,
-        "_nanoseconds": 0
-      },
-      "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD5",
-      "streaming": "BeIN",
-      "subCollection": {}
-    },
-    "-Kj2zgKQu1S6GvJrwX7C": {
-      "streaming": "BeIN",
-      "odds": {
-        "1": 1.7,
-        "2": 4.3,
-        "B": 1.99,
-        "N": 3.15,
-        "A": 3.85
-      },
-      "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oD6",
-      "teamB": "-Kj2zfpSUE3rJOjKDuJF",
-      "teamA": "-Kj2zfpKYdjdHhPukkXt",
-      "dateTime": {
-        "_seconds": 1530194400,
-        "_nanoseconds": 0
-      },
+      "streaming": "TF1",
       "subCollection": {}
     },
     "-Kj2zgKRUwOUaYO9TiKz": {
-      "stadium": "-Kioc-ZW9T-10wOZ3oD9",
+      "teamA": "-Kj2zfpM7z9dtuBQZC4c",
+      "dateTime": {
+        "_seconds": 1624021200,
+        "_nanoseconds": 0
+      },
+      "display": false,
+      "streaming": "BeIN",
+      "stadium": "-Kioc-ZW9T-10wOZ3oDA",
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "N": 3.1,
         "B": 2.28,
+        "N": 3.1,
         "A": 3.15
       },
-      "streaming": "BeIN",
-      "teamB": "-Kj2zfpJov1GY9sA2IgE",
-      "teamA": "-Kj2zfpGJmSTghyT06un",
       "phase": "0",
-      "dateTime": {
-        "_seconds": 1530208800,
-        "_nanoseconds": 0
-      },
+      "teamB": "-Kj2zfpN8l22eNCLSzLl",
       "subCollection": {}
     },
     "-Kj2zgKRUwOUaYO9TiL-": {
-      "phase": "0",
-      "stadium": "-Kioc-ZW9T-10wOZ3oDA",
+      "streaming": "BeIN",
       "dateTime": {
-        "_seconds": 1530208800,
+        "_seconds": 1624129200,
         "_nanoseconds": 0
       },
-      "teamA": "-Kj2zfpGJmSTghyT06uo",
-      "streaming": "BeIN",
-      "teamB": "-Kj2zfpN8l22eNCLSzLk",
+      "stadium": "-Kioc-ZW9T-10wOZ3oD9",
+      "teamB": "-Kj2zfpN8l22eNCLSzLj",
+      "teamA": "-Kj2zfpN8l22eNCLSzLk",
+      "phase": "0",
+      "display": false,
       "odds": {
         "1": 1.7,
         "2": 4.3,
-        "A": 2.82,
         "B": 2.42,
-        "N": 3.2
+        "N": 3.2,
+        "A": 2.82
       },
       "subCollection": {}
     },
     "-Kj2zgKRUwOUbY09TiKa": {
       "stadium": "-Kioc-ZW9T-10wOZ3oDA",
-      "teamB": "-Kj2zfpGJmSTghyT06uo",
-      "scores": {
-        "A": 2,
-        "winner": "A",
+      "teamA": "-Kj2zfpM7z9dtuBQZC4c",
+      "streaming": "BeIN",
+      "dateTime": {
+        "_seconds": 1624464000,
+        "_nanoseconds": 0
+      },
+      "display": false,
+      "teamB": "-Kj2zfpN8l22eNCLSzLj",
+      "phase": "0",
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "N": 3,
+        "B": 2,
+        "A": 1
+      },
+      "subCollection": {}
+    },
+    "-Kj2zgKRUwOUbY09TiKb": {
+      "display": false,
+      "streaming": "BeIN",
+      "stadium": "-Kioc-ZW9T-10wOZ3oDA",
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "N": 3,
+        "B": 2,
+        "A": 1
+      },
+      "teamB": "-Kj2zfpN8l22eNCLSzLj",
+      "dateTime": {
+        "_seconds": 1624464000,
+        "_nanoseconds": 0
+      },
+      "phase": "0",
+      "teamA": "-Kj2zfpM7z9dtuBQZC4c",
+      "subCollection": {}
+    },
+    "-Kj2zgKRUwOUbY09TiKc": {
+      "stadium": "-Kioc-ZW9T-10wOZ3oD9",
+      "teamA": "-Kj2zfpN8l22eNCLSzLl",
+      "display": false,
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "N": 3,
+        "A": 1,
         "B": 2
       },
-      "streaming": "BeIN",
-      "teamA": "-Kj2zfpKYdjdHhPukkXs",
       "dateTime": {
-        "_seconds": 1530453600,
+        "_seconds": 1624464000,
+        "_nanoseconds": 0
+      },
+      "streaming": "BeIN",
+      "teamB": "-Kj2zfpN8l22eNCLSzLk",
+      "phase": "0",
+      "subCollection": {}
+    },
+    "-Kj2zgKRUwOUbY09TiKd": {
+      "stadium": "-Kioc-ZW9T-10wOZ3oDC",
+      "teamA": "-Kj2zfpRCBdqgDxcBLBQ",
+      "teamB": "-Kj2zfpPgzwXCT7Bnm1y",
+      "display": true,
+      "dateTime": {
+        "_seconds": 1623772800,
+        "_nanoseconds": 0
+      },
+      "phase": "0",
+      "streaming": "BeIN",
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "N": 3,
+        "B": 2,
+        "A": 1
+      },
+      "subCollection": {}
+    },
+    "-Kj2zgKRUwOUbY09TiKe": {
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "N": 3,
+        "A": 1,
+        "B": 2
+      },
+      "teamA": "-Kj2zfpO3MwCoLIdNuNg",
+      "dateTime": {
+        "_seconds": 1623783600,
         "_nanoseconds": 0
       },
       "display": true,
-      "odds": {
-        "A": 1,
-        "B": 2,
-        "N": 3,
-        "P1": 4,
-        "P2": 5
+      "phase": "0",
+      "stadium": "-Kioc-ZW9T-10wOZ3oDB",
+      "teamB": "-Kj2zfpO3MwCoLIdNuNf",
+      "streaming": "M6",
+      "subCollection": {}
+    },
+    "-Kj2zgKRUwOUbY09TiKf": {
+      "stadium": "-Kioc-ZW9T-10wOZ3oDC",
+      "streaming": "TF1",
+      "teamA": "-Kj2zfpRCBdqgDxcBLBQ",
+      "phase": "0",
+      "teamB": "-Kj2zfpO3MwCoLIdNuNg",
+      "dateTime": {
+        "_seconds": 1624107600,
+        "_nanoseconds": 0
       },
-      "phase": "8",
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "N": 3,
+        "A": 1,
+        "B": 2
+      },
+      "display": false,
+      "subCollection": {}
+    },
+    "-Kj2zgKRUwOUbY09TiKg": {
+      "dateTime": {
+        "_seconds": 1624118400,
+        "_nanoseconds": 0
+      },
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "A": 1,
+        "N": 3,
+        "B": 2
+      },
+      "streaming": "M6",
+      "teamB": "-Kj2zfpO3MwCoLIdNuNf",
+      "phase": "0",
+      "stadium": "-Kioc-ZW9T-10wOZ3oDB",
+      "display": false,
+      "teamA": "-Kj2zfpPgzwXCT7Bnm1y",
+      "subCollection": {}
+    },
+    "-Kj2zgKRUwOUbY09TiKh": {
+      "dateTime": {
+        "_seconds": 1624474800,
+        "_nanoseconds": 0
+      },
+      "stadium": "-Kioc-ZW9T-10wOZ3oDC",
+      "teamA": "-Kj2zfpPgzwXCT7Bnm1y",
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "N": 3,
+        "A": 1,
+        "B": 2
+      },
+      "display": false,
+      "teamB": "-Kj2zfpO3MwCoLIdNuNg",
+      "phase": "0",
+      "streaming": "TF1",
+      "subCollection": {}
+    },
+    "-Kj2zgKRUwOUbY09TiKi": {
+      "dateTime": {
+        "_seconds": 1624474800,
+        "_nanoseconds": 0
+      },
+      "phase": "0",
+      "teamB": "-Kj2zfpRCBdqgDxcBLBQ",
+      "display": false,
+      "streaming": "BeIN",
+      "stadium": "-Kioc-ZW9T-10wOZ3oDB",
+      "teamA": "-Kj2zfpO3MwCoLIdNuNf",
+      "odds": {
+        "1": 4,
+        "2": 5,
+        "N": 3,
+        "B": 2,
+        "A": 1
+      },
       "subCollection": {}
     }
   }
