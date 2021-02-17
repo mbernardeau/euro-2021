@@ -112,7 +112,7 @@ const App = () => {
   const firestore = useFirestore()
   const FieldValue = useFirestore.FieldValue
 
-  useAuth().onAuthStateChanged(async (user) => {
+  auth.onAuthStateChanged(async (user) => {
     updateSentryScope(user)
     if (user) {
       await updateUserProfile(firestore, auth, FieldValue)(user)
