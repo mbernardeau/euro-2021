@@ -24,7 +24,7 @@
     "react-scripts": "4.0.3",
     "reactfire": "3.0.0-rc.0",
     "uuid": "^8.3.2",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^1.1.0"
   },
   "scripts": {
     "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
