@@ -4,6 +4,7 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import React, { useRef, useState } from 'react'
+import { useHistory } from 'react-router'
 import { useAuth } from 'reactfire'
 import { useLogout } from '../../../../hooks'
 import './user.scss'
@@ -13,6 +14,7 @@ const User = () => {
   const logout = useLogout()
   const [isOpen, setIsOpen] = useState(false)
   const anchorEl = useRef()
+  const history = useHistory()
 
   return (
     <div className="user-widget">
@@ -36,6 +38,14 @@ const User = () => {
         anchorEl={anchorEl?.current}
         onClose={() => setIsOpen(false)}
       >
+        <MenuItem
+          onClick={() => {
+            history.push('/profile')
+            setIsOpen(false)
+          }}
+        >
+          Profil
+        </MenuItem>
         <MenuItem onClick={logout}>Se déconnecter</MenuItem>
       </Menu>
     </div>

@@ -18,6 +18,7 @@ import './index.css'
 import theme from './theme'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
+import NotificationPermissionProvider from './screens/Notifications/NotificationPermissionProvider'
 
 Sentry.init({
   dsn:
@@ -36,7 +37,9 @@ const render = () => {
           <MuiThemeProvider theme={theme}>
             <SnackbarProvider>
               <Suspense fallback="App loading something">
-                <App />
+                <NotificationPermissionProvider>
+                  <App />
+                </NotificationPermissionProvider>
               </Suspense>
             </SnackbarProvider>
           </MuiThemeProvider>

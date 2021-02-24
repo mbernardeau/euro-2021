@@ -25,16 +25,20 @@ import {
   preloadAuth,
   preloadFirestore,
   preloadFunctions,
+  preloadMessaging,
   useAuth,
   useFirebaseApp,
   useFirestore,
 } from 'reactfire'
+import { useNotificationPermission } from '../../hooks/notifications'
 import FAQPage from '../FAQ'
 import GroupsPage from '../Groups'
 import HomePage from '../HomePage'
 import MatchesPage from '../Matches'
 import MatchesValidationPage from '../MatchesValidation'
 import NotFoundPage from '../NotFoundPage'
+import NotificationHandler from '../Notifications/NotificationHandler'
+import Profile from '../Profile'
 import RankingPage from '../Ranking'
 import RulesPage from '../Rules'
 import Stadiums from '../Stadiums'
@@ -107,6 +111,9 @@ const App = () => {
     region: 'europe-west3',
     firebaseApp,
   })
+  preloadMessaging({ firebaseApp })
+
+  const { permission } = useNotificationPermission()
 
   const auth = useAuth()
   const firestore = useFirestore()
@@ -148,6 +155,10 @@ const App = () => {
         closeMenu={() => setMenuOpen(false)}
       />
 
+      <AuthCheck>
+        {permission === 'granted' && <NotificationHandler />}
+      </AuthCheck>
+
       <div className="app-content">
         {/* Routes accessibles sans connexion */}
         <Switch>
@@ -161,6 +172,7 @@ const App = () => {
             <Route path="/matches" component={MatchesPage} />
             <Route path="/ranking" component={RankingPage} />
             <Route path="/groups" component={GroupsPage} />
+            <Route path="/profile" component={Profile} />
 
             {/* Route accessible pour admin */}
             <AuthCheck requiredClaims={{ role: 'admin' }}>
