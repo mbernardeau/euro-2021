@@ -36,11 +36,11 @@ const render = () => {
         <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense>
           <MuiThemeProvider theme={theme}>
             <SnackbarProvider>
-              <NotificationPermissionProvider>
-                <Suspense fallback="App loading something">
+              <Suspense fallback="App loading something">
+                <NotificationPermissionProvider>
                   <App />
-                </Suspense>
-              </NotificationPermissionProvider>
+                </NotificationPermissionProvider>
+              </Suspense>
             </SnackbarProvider>
           </MuiThemeProvider>
         </FirebaseAppProvider>

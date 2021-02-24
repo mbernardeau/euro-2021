@@ -1,12 +1,15 @@
 import { createContext, useCallback, useMemo, useState } from 'react'
+import { useMessaging } from 'reactfire'
 
 export const NotificationPermissionContext = createContext()
 
 const compatibleNavigator = 'Notification' in window && navigator.serviceWorker
 
 const NotificationPermissionProvider = ({ children }) => {
+  const isSupported = useMessaging.isSupported()
+
   const [permission, setPermission] = useState(() => {
-    if (!compatibleNavigator) {
+    if (!compatibleNavigator || !isSupported) {
       return 'old-navigator'
     }
     return Notification.permission
