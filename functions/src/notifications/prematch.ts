@@ -19,6 +19,7 @@ const HOURS_BEFORE_MATCH = 2
 export const sendPrematchNotifications = functions
   .region(EU_WEST_3)
   .pubsub.schedule(`every ${HOURS_BEFORE_MATCH} hours`)
+  .timeZone('Europe/Paris')
   .onRun(async (context) => {
     // On récupère la date de l'événement et on crée un intervalle avec date + 2 heures
     const startdate = new Date(context.timestamp)

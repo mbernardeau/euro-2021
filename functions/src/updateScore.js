@@ -1,5 +1,6 @@
 const functions = require('firebase-functions')
 const admin = require('firebase-admin')
+const { EU_WEST_3 } = require('./constants')
 
 const db = admin.firestore()
 

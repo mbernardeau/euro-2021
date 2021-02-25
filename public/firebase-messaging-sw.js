@@ -58,7 +58,7 @@ messaging.onBackgroundMessage(({ data }) => {
   const { title, body, ...payload } = data
 
   const notificationOptions = {
-    body: data.body,
+    body: data.body ?? buildNotificationBody(data),
     icon: '/icon-192x192.png',
     lang: 'fr',
     data: payload,
@@ -66,3 +66,19 @@ messaging.onBackgroundMessage(({ data }) => {
 
   self.registration.showNotification(data.title, notificationOptions)
 })
+
+/**
+ * Construction du corps de la notification localement au client
+ *
+ * @param {{ notificationType: "PREMATCH", matchDateTime: string }} data
+ * @returns {string} Texte à mettre dans le body de la notification
+ */
+function buildNotificationBody(data) {
+  if (data.notificationType === 'PREMATCH') {
+    // En construisant la date localement, on s'assure que l'heure correspond bien à l'heure locale du périphérique
+    const { matchDateTime } = data
+    const hours = new Date(matchDateTime).getHours()
+
+    return `Vous n'avez pas encore fait votre pari. Le match commence à ${hours}h.`
+  }
+}

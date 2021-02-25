@@ -1,5 +1,6 @@
 import { useCallback, useContext } from 'react'
 import { useAuth, useFirestore, useMessaging } from 'reactfire'
+import firebaseConfig from '../firebaseConfig'
 import { NotificationPermissionContext } from '../screens/Notifications/NotificationPermissionProvider'
 
 /**
@@ -18,8 +19,7 @@ export const useRegisterNavigator = () => {
 
   const registerNavigator = useCallback(async () => {
     const token = await messaging.getToken({
-      vapidKey:
-        'BNFLkkL8ftMrBv1GfbDSyhoC9swL_XH-CVLTcLaEhGUdGY6iLoBQnKoRLdGgKsld7seb-kp4SJPISxKe1xDKvW8',
+      vapidKey: firebaseConfig.vapidKey,
     })
     return firestore.collection('notificationSubscriptions').doc(token).set(
       {
