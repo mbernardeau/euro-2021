@@ -1,5 +1,6 @@
-import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
+import * as functions from 'firebase-functions'
+import { EU_WEST_3 } from '../constants'
 import { UserProfile } from '../types'
 
 const db = admin.firestore()
@@ -8,7 +9,7 @@ const db = admin.firestore()
  * On user profile updated, mirror changes to the opponents collection
  */
 export const onUserUpdate = functions
-  .region('europe-west3')
+  .region(EU_WEST_3)
   .firestore.document('users/{userId}')
   .onUpdate((change) => {
     const userProfile = change.after.data() as UserProfile

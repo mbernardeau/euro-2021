@@ -1,11 +1,12 @@
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
+import { EU_WEST_3 } from '../constants'
 import { UserIdToken, UserRole, ValidApplyParams } from '../types'
 
 const db = admin.firestore()
 
 export const validApply = functions
-  .region('europe-west3')
+  .region(EU_WEST_3)
   .https.onCall(async ({ groupId, userId }: ValidApplyParams, { auth }) => {
     if (!auth) {
       throw new functions.https.HttpsError(

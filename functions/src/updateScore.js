@@ -7,7 +7,7 @@ const round = (value, decimals) =>
   Number(`${Math.round(`${value}e${decimals}`)}${`e-${decimals}`}`)
 
 exports.updateScore = functions
-  .region('europe-west3')
+  .region(EU_WEST_3)
   .firestore.document('matches/{matchId}')
   .onUpdate((change) => {
     // Get final scores

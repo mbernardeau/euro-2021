@@ -1,5 +1,6 @@
-import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
+import * as functions from 'firebase-functions'
+import { EU_WEST_3 } from '../constants'
 import { Group, GroupApply } from '../types'
 
 const db = admin.firestore()
@@ -16,7 +17,7 @@ const isPayingGroup = async (
 }
 
 export const applyInGroup = functions
-  .region('europe-west3')
+  .region(EU_WEST_3)
   .firestore.document('groupApply/{applyId}')
   .onCreate(async (groupApplySnapshot) => {
     const { groupId, uid } = groupApplySnapshot.data() as GroupApply
