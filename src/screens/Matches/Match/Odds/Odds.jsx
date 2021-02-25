@@ -14,41 +14,28 @@ const getColor = (value) => {
   return `#${toHex(r)}${toHex(g)}00`
 }
 
-const Odds = ({ P1, P2, A, B, N, phase, teamA, teamB }) => {
-  const oddBasis = (
-    <div className="odds-container">
-      <Tooltip
-        placement="right"
-        title={`Cote de victoire de l'équipe: ${teamA.name}`}
-        enterTouchDelay={0}
-      >
-        <div className="odd" style={{ backgroundColor: getColor(A) }}>
-          {A}
-        </div>
-      </Tooltip>
-      <Tooltip placement="top" title="Cote du match nul" enterTouchDelay={0}>
-        <div className="odd" style={{ backgroundColor: getColor(N) }}>
-          {N}
-        </div>
-      </Tooltip>
-      <Tooltip
-        placement="left"
-        title={`Cote de victoire de l'équipe: ${teamB.name}`}
-        enterTouchDelay={0}
-      >
-        <div className="odd" style={{ backgroundColor: getColor(B) }}>
-          {B}
-        </div>
-      </Tooltip>
-    </div>
-  )
+const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
+  const oddBasis =
+    bet_teamA && bet_teamB ? (
+      <div className="odds-container">
+        <Tooltip placement="top" title="Cote du match nul" enterTouchDelay={0}>
+          <div className="odd" style={{ backgroundColor: getColor(odds.N) }}>
+            {odds.N}
+          </div>
+        </Tooltip>
+      </div>
+    ) : (
+      <div></div>
+    )
 
   return (
     phase &&
-    (phase === '0' ? (
-      oddBasis
-    ) : (
-      <Fragment>
+    (phase === '0'
+      ? oddBasis
+      : {
+          /*
+          todo - code phase finale odds
+          <Fragment>
         {oddBasis}
         <div className="odds-container">
           <Tooltip
@@ -70,8 +57,8 @@ const Odds = ({ P1, P2, A, B, N, phase, teamA, teamB }) => {
             </div>
           </Tooltip>
         </div>
-      </Fragment>
-    ))
+      </Fragment>*/
+        })
   )
 }
 
