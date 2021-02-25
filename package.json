@@ -28,7 +28,7 @@
   },
   "scripts": {
     "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
-    "start": "npm i && HTTPS=true react-scripts start",
+    "start": "npm i && react-scripts start",
     "build": "react-scripts build",
     "lint": "eslint src --ext js,jsx",
     "lint:functions": "cd functions && npm run lint",
