@@ -17,8 +17,6 @@ firebase.initializeApp({
 
 const messaging = firebase.messaging()
 
-console.log('hello from sw')
-
 /**
  * Handler lorsque l'on clique sur la notification.
  * Dans ce cas on essaye de chercher un onglet déjà ouvert sur l'application (même origine que le sw).

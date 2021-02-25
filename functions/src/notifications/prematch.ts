@@ -39,9 +39,13 @@ export const sendPrematchNotifications = functions
       return
     }
 
+    /**
+     * Récupération des souscriptions qui ont activé les notifications de prématch
+     */
     const usersToNotify = await admin
       .firestore()
       .collection('notificationSubscriptions')
+      .where(NotificationType.PREMATCH, '==', true)
       .get()
 
     if (usersToNotify.size === 0) {
@@ -137,11 +141,11 @@ async function findSubscriptionsWithoutBet(
     snap.data(),
   ) as NotificationSubscription[]
 
-  const hasNoBet = await Promise.all(
+  const subscriptionsWithBets = await Promise.all(
     subscriptions.map(({ uid }) => betExists(uid, matchId)),
   )
 
-  return subscriptions.filter((_, index) => !hasNoBet[index])
+  return subscriptions.filter((_, index) => !subscriptionsWithBets[index])
 }
 
 /**

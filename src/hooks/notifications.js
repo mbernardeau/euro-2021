@@ -1,5 +1,12 @@
 import { useCallback, useContext } from 'react'
-import { useAuth, useFirestore, useMessaging } from 'reactfire'
+import {
+  useAuth,
+  useFirestore,
+  useFirestoreDocData,
+  useMessaging,
+} from 'reactfire'
+import { useSnackbar } from 'notistack'
+
 import firebaseConfig from '../firebaseConfig'
 import { NotificationPermissionContext } from '../screens/Notifications/NotificationPermissionProvider'
 
@@ -12,24 +19,63 @@ export const useNotificationPermission = () => {
   return useContext(NotificationPermissionContext)
 }
 
+export const useNotificationConfiguration = () => {
+  const { token } = useNotificationPermission()
+  const { enqueueSnackbar } = useSnackbar()
+
+  const firestore = useFirestore()
+  const FieldValue = useFirestore.FieldValue
+  const ref = firestore.collection('notificationSubscriptions').doc(token)
+
+  const updateConfiguration = async (newConfig) => {
+    await ref.set(
+      {
+        ...newConfig,
+        updatedAt: FieldValue.serverTimestamp(),
+        version: FieldValue.increment(1),
+      },
+      { merge: true },
+    )
+
+    enqueueSnackbar('Les paramètres de notifications ont été enregistrés', {
+      variant: 'success',
+    })
+  }
+
+  return [
+    useFirestoreDocData(ref, { idField: 'token' }).data,
+    updateConfiguration,
+  ]
+}
+
 export const useRegisterNavigator = () => {
   const messaging = useMessaging()
   const firestore = useFirestore()
+  const FieldValue = useFirestore.FieldValue
+  const { setToken } = useNotificationPermission()
+
   const { uid } = useAuth().currentUser
 
   const registerNavigator = useCallback(async () => {
     const token = await messaging.getToken({
       vapidKey: firebaseConfig.vapidKey,
     })
-    return firestore.collection('notificationSubscriptions').doc(token).set(
-      {
-        uid,
-        token,
-        // Ici potentiellement un niveau de notifications
-      },
-      { merge: true },
-    )
-  }, [firestore, messaging, uid])
+    setToken(token)
+
+    return firestore
+      .collection('notificationSubscriptions')
+      .doc(token)
+      .set(
+        {
+          uid,
+          token,
+          PREMATCH: true,
+          updatedAt: FieldValue.serverTimestamp(),
+          version: FieldValue.increment(1),
+        },
+        { merge: true },
+      )
+  }, [FieldValue, firestore, messaging, setToken, uid])
 
   return [registerNavigator]
 }

@@ -6,6 +6,8 @@ const invalidTokenErrorCodes = [
   'messaging/invalid-argument',
 ]
 
+const db = firestore()
+
 /**
  * Suppression des tokens ayant provoqué une erreur "normale" car ils ont expiré
  *
@@ -45,12 +47,10 @@ export async function removeInvalidTokens(
     })
     .filter((index) => index !== null)
     .map((index) => notificationSubscriptions[index || -1])
-    .map(({ token }) =>
-      firestore().collection('notificationSubscriptions').doc(token),
-    )
+    .map(({ token }) => db.collection('notificationSubscriptions').doc(token))
 
   if (invalidSubscriptions.length) {
-    const batch = firestore().batch()
+    const batch = db.batch()
 
     invalidSubscriptions.forEach((ref) => batch.delete(ref))
 

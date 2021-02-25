@@ -68,6 +68,11 @@ export interface NotificationSubscription {
   token: string
 }
 
+/**
+ * Identifiant lié à un type de notification.
+ * Permet de faire des traitements partuliers dans le front (activation/désactivation),
+ * dans les cloud functions ou dans le service worker
+ */
 export enum NotificationType {
   /** Notification de prematch */
   PREMATCH = 'PREMATCH',
