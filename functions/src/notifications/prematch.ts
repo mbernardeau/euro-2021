@@ -8,6 +8,7 @@ import {
   PrematchNotificationData,
   Team,
 } from '../types'
+import { removeInvalidTokens } from './removeInvalidTokens'
 
 const db = admin.firestore()
 
@@ -50,6 +51,10 @@ export const sendPrematchNotifications = functions
 
     await Promise.all(
       matchesToNotify.docs.map(async (matchSnap) => {
+        console.log(
+          '-- Envoi des notifications pour le match "%s" --',
+          matchSnap.id,
+        )
         const notificationData = await buildNotification(matchSnap)
 
         const subscriptionsWithoutBet = await findSubscriptionsWithoutBet(
@@ -57,14 +62,32 @@ export const sendPrematchNotifications = functions
           matchSnap.id,
         )
 
+        if (subscriptionsWithoutBet.length === 0) {
+          console.log(
+            'Aucun utilisateur sans pari pour le match "%s". Aucune notification envoyée.',
+            matchSnap.id,
+          )
+          return
+        }
+
         const response = await admin.messaging().sendMulticast({
           data: notificationData,
           tokens: subscriptionsWithoutBet.map(({ token }) => token),
         })
 
         console.log(
-          `${response.successCount} notifications sent for match ${matchSnap.id}`,
+          '%d notifications envoyées pour le match "%s".',
+          response.successCount,
+          matchSnap.id,
         )
+        if (response.failureCount > 0) {
+          console.log(
+            '%d notifications en erreur pour le match "%s".',
+            response.failureCount,
+            matchSnap.id,
+          )
+          await removeInvalidTokens(response, subscriptionsWithoutBet)
+        }
       }),
     )
   })
@@ -115,10 +138,10 @@ async function findSubscriptionsWithoutBet(
   ) as NotificationSubscription[]
 
   const hasNoBet = await Promise.all(
-    subscriptions.map(({ uid }) => !betExists(uid, matchId)),
+    subscriptions.map(({ uid }) => betExists(uid, matchId)),
   )
 
-  return subscriptions.filter((_, index) => hasNoBet[index])
+  return subscriptions.filter((_, index) => !hasNoBet[index])
 }
 
 /**
