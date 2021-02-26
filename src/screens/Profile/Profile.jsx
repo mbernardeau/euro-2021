@@ -25,7 +25,7 @@ const Profile = () => {
         />
         {permission === 'granted' && (
           <div className="notification-type-chooser">
-            <Typography variant="h3" className="notifi">
+            <Typography variant="h3">
               Choisissez les types de notifications:
             </Typography>
 
