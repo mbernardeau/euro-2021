@@ -1,5 +1,5 @@
 import { firestore, messaging } from 'firebase-admin'
-import { NotificationSubscription } from '../types'
+import { NotificationSubscription } from '../model'
 
 const invalidTokenErrorCodes = [
   'messaging/registration-token-not-registered',

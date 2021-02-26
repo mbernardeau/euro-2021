@@ -1,7 +1,7 @@
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
 import { EU_WEST_3 } from '../constants'
-import { UserIdToken, UserRole, ValidApplyParams } from '../types'
+import { UserIdToken, UserRole, ValidApplyParams } from '../model'
 
 const db = admin.firestore()
 

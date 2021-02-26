@@ -7,7 +7,7 @@ import {
   NotificationType,
   PrematchNotificationData,
   Team,
-} from '../types'
+} from '../model'
 import { removeInvalidTokens } from './removeInvalidTokens'
 
 const db = admin.firestore()
@@ -24,7 +24,7 @@ export const sendPrematchNotifications = functions
   .onRun(async (context) => {
     // On récupère la date de l'événement et on crée un intervalle avec date + 2 heures
     const startdate = new Date(context.timestamp)
-    const endDate = new Date()
+    const endDate = new Date(context.timestamp)
     endDate.setHours(startdate.getHours() + HOURS_BEFORE_MATCH)
 
     // Récupération des matches à notifier (ceux dans l'intervalle de deux heures)

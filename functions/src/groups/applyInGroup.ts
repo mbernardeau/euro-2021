@@ -1,7 +1,7 @@
 import * as admin from 'firebase-admin'
 import * as functions from 'firebase-functions'
 import { EU_WEST_3 } from '../constants'
-import { Group, GroupApply } from '../types'
+import { Group, GroupApply } from '../model'
 
 const db = admin.firestore()
 
