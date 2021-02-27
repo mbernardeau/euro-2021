@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Tooltip from '@material-ui/core/Tooltip'
 import padStart from 'lodash/padStart'
+import isNil from 'lodash/isNil'
 
 import './Odds.scss'
 
@@ -15,14 +16,21 @@ const getColor = (value) => {
 }
 
 const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
+  const oddUsed =
+    bet_teamA + bet_teamB < 7 ? odds[`P${bet_teamA}${bet_teamB}`] : odds.Pautre
+
   const oddBasis =
-    bet_teamA && bet_teamB ? (
+    !isNil(bet_teamA) && !isNil(bet_teamB) ? (
       <div className="odds-container">
-        <Tooltip placement="top" title="Cote du match nul" enterTouchDelay={0}>
-          <div className="odd" style={{ backgroundColor: getColor(odds.N) }}>
-            {odds.N}
-          </div>
-        </Tooltip>
+        {!isNil(
+          oddUsed,
+        ) /* Est-ce utile de faire un controle de coherence ? */ && (
+          <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
+            <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
+              {oddUsed}
+            </div>
+          </Tooltip>
+        )}
       </div>
     ) : (
       <div></div>
@@ -63,11 +71,6 @@ const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
 }
 
 Odds.propTypes = {
-  P1: PropTypes.number,
-  P2: PropTypes.number,
-  A: PropTypes.number,
-  B: PropTypes.number,
-  N: PropTypes.number,
   phase: PropTypes.string,
   teamA: PropTypes.shape({
     name: PropTypes.string.isRequired,
