@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Tooltip from '@material-ui/core/Tooltip'
 import padStart from 'lodash/padStart'
 import isNil from 'lodash/isNil'
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
 
 import './Odds.scss'
 
@@ -19,22 +20,19 @@ const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
   const oddUsed =
     bet_teamA + bet_teamB < 7 ? odds[`P${bet_teamA}${bet_teamB}`] : odds.Pautre
 
-  const oddBasis =
-    !isNil(bet_teamA) && !isNil(bet_teamB) ? (
-      <div className="odds-container">
-        {!isNil(
-          oddUsed,
-        ) /* Est-ce utile de faire un controle de coherence ? */ && (
-          <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
-            <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
-              {oddUsed}
-            </div>
-          </Tooltip>
+  const oddBasis = (
+    <div className="odds-container">
+      <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
+        {!isNil(oddUsed) ? (
+          <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
+            {oddUsed}
+          </div>
+        ) : (
+          <HelpOutlineIcon></HelpOutlineIcon>
         )}
-      </div>
-    ) : (
-      <div></div>
-    )
+      </Tooltip>
+    </div>
+  )
 
   return (
     phase &&
