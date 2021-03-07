@@ -1,10 +1,10 @@
-import React /*, { Fragment }*/ from 'react'
-import PropTypes from 'prop-types'
 import Tooltip from '@material-ui/core/Tooltip'
-import padStart from 'lodash/padStart'
-import isNil from 'lodash/isNil'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
-
+import OddDialog from './OddDialog'
+import isNil from 'lodash/isNil'
+import padStart from 'lodash/padStart'
+import PropTypes from 'prop-types'
+import React /*, { Fragment }*/ from 'react'
 import './Odds.scss'
 
 const toHex = (number) =>
@@ -22,15 +22,20 @@ const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
 
   const oddBasis = (
     <div className="odds-container">
-      <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
-        {!isNil(oddUsed) ? (
-          <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
-            {oddUsed}
-          </div>
-        ) : (
-          <HelpOutlineIcon></HelpOutlineIcon>
-        )}
-      </Tooltip>
+      <div className="odd-selected">
+        <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
+          {!isNil(oddUsed) ? (
+            <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
+              {oddUsed}
+            </div>
+          ) : (
+            <HelpOutlineIcon></HelpOutlineIcon>
+          )}
+        </Tooltip>
+      </div>
+      <div className="odd-dialog">
+        <OddDialog odds={odds}></OddDialog>
+      </div>
     </div>
   )
 
@@ -71,7 +76,7 @@ const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
 Odds.propTypes = {
   bet_teamA: PropTypes.number,
   bet_teamB: PropTypes.number,
-  odds: PropTypes.shape({
+  /*   odds: PropTypes.shape({
     P00: PropTypes.number.isRequired,
     P01: PropTypes.number.isRequired,
     P02: PropTypes.number.isRequired,
@@ -101,7 +106,7 @@ Odds.propTypes = {
     P51: PropTypes.number.isRequired,
     P60: PropTypes.number.isRequired,
     Pautre: PropTypes.number.isRequired,
-  }),
+  }), */
   phase: PropTypes.string,
   teamA: PropTypes.shape({
     name: PropTypes.string.isRequired,
