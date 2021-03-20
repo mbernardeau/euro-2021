@@ -17,14 +17,28 @@ exports.updateScore = functions
     if (
       scores === undefined ||
       scores.A === undefined ||
-      scores.B === undefined ||
-      scores.winner === undefined
+      scores.B === undefined
     ) {
       console.log('No scores defined (sorry not sorry)')
       return null
     }
+
+    // Get scores
+    const realScoreTeamA = scores.A
+    const realScoreTeamB = scores.B
+
+    // Get odd
+    const oddScore =
+      realScoreTeamA + realScoreTeamB < 7
+        ? odds[`P${realScoreTeamA}${realScoreTeamB}`]
+        : odds.Pautre
+
     // Get winner
-    const { winner } = scores
+    const winner =
+      scores.winner === undefined
+        ? findWinner(realScoreTeamA, realScoreTeamB)
+        : scores.winner
+
     // Get bets
     const bets = db.collection('bets')
     return bets
@@ -36,13 +50,9 @@ exports.updateScore = functions
         datas.forEach((doc) => {
           // Get a bet
           const bet = doc.data()
-          const { betTeamA, betTeamB, userId } = bet
+          const { betTeamA, betTeamB, uid: userId } = bet
           const betId = doc.id
           const oldBetScore = bet.pointsWon
-
-          // Did the user win the bet ?
-          const realScoreTeamA = scores.A
-          const realScoreTeamB = scores.B
 
           if (!phase || phase === '0') {
             console.log('Match de phase de poule')
@@ -55,7 +65,7 @@ exports.updateScore = functions
               promises.push(
                 updateUserScore(
                   odds,
-                  betWinner,
+                  oddScore,
                   betWinner,
                   userId,
                   oldBetScore,
@@ -63,7 +73,7 @@ exports.updateScore = functions
                 ),
               )
               promises.push(
-                updatePointsWon(odds, betWinner, betWinner, betId, 4),
+                updatePointsWon(odds, oddScore, betWinner, betId, 4),
               )
             } else if (winner === betWinner) {
               // good result ! Two times team's odd
@@ -71,7 +81,7 @@ exports.updateScore = functions
               promises.push(
                 updateUserScore(
                   odds,
-                  betWinner,
+                  oddScore,
                   betWinner,
                   userId,
                   oldBetScore,
@@ -79,7 +89,7 @@ exports.updateScore = functions
                 ),
               )
               promises.push(
-                updatePointsWon(odds, betWinner, betWinner, betId, 2),
+                updatePointsWon(odds, oddScore, betWinner, betId, 2),
               )
             } else {
               console.log(
@@ -88,7 +98,7 @@ exports.updateScore = functions
               promises.push(
                 updateUserScore(
                   odds,
-                  betWinner,
+                  oddScore,
                   betWinner,
                   userId,
                   oldBetScore,
@@ -96,13 +106,13 @@ exports.updateScore = functions
                 ),
               )
               promises.push(
-                updatePointsWon(odds, betWinner, betWinner, betId, 0),
+                updatePointsWon(odds, oddScore, betWinner, betId, 0),
               )
             }
           } else {
             console.log('Phase finale ', phase)
             const betWinner = findWinner(betTeamA, betTeamB)
-            const finalWinner = betWinner === 'N' ? bet.betWinner : betWinner
+            const finalBetWinner = betWinner === 'N' ? bet.betWinner : betWinner
 
             const phaseCoeff = getPhaseCoeff(phase)
 
@@ -111,7 +121,7 @@ exports.updateScore = functions
             const hasGoodScore =
               betTeamA === realScoreTeamA && betTeamB === realScoreTeamB
             const bonVainqueurFinalCoeff =
-              finalWinner === winner ? phaseCoeff.bonVainqueurFinal : 0
+              finalBetWinner === winner ? phaseCoeff.bonVainqueurFinal : 0
 
             let phaseVainqueurCoeff = 0
 
@@ -122,8 +132,8 @@ exports.updateScore = functions
             promises.push(
               updateUserScore(
                 odds,
-                betWinner,
-                finalWinner,
+                oddScore,
+                finalBetWinner,
                 userId,
                 oldBetScore,
                 phaseVainqueurCoeff,
@@ -133,8 +143,8 @@ exports.updateScore = functions
             promises.push(
               updatePointsWon(
                 odds,
-                betWinner,
-                finalWinner,
+                oddScore,
+                finalBetWinner,
                 betId,
                 phaseVainqueurCoeff,
                 bonVainqueurFinalCoeff,
@@ -149,19 +159,18 @@ exports.updateScore = functions
 
 const updateUserScore = (
   odds,
-  winner,
+  odd,
   finalWinner,
   userId,
   oldBetScore = 0,
   coeff,
   coeffVainqueur = 0,
 ) => {
-  const odd = findCote(odds, winner)
   const oddWinner = findCoteFinalWinner(odds, finalWinner) || 0
 
+  console.log(`Updating user score for ${userId}`)
   const user = db.collection('opponents').doc(userId)
 
-  console.log(`Updating user score for ${userId}`)
   return db
     .runTransaction((t) =>
       t.get(user).then((snapshot) => {
@@ -182,17 +191,17 @@ const updateUserScore = (
 
 const updatePointsWon = (
   odds,
-  winner,
+  odd,
   finalWinner,
   id,
   coeff,
   coeffVainqueur = 0,
 ) => {
-  const odd = findCote(odds, winner)
   const oddWinner = findCoteFinalWinner(odds, finalWinner) || 0
-  const bets = db.collection('bets').doc(id)
 
   console.log(`Updating points won for bet ${id}`)
+  const bets = db.collection('bets').doc(id)
+
   return db
     .runTransaction((t) =>
       t.get(bets).then((betSnap) =>
@@ -220,16 +229,8 @@ const findWinner = (score1, score2) => {
   return 'B'
 }
 
-const findCote = (odds, winner) =>
-  ({
-    A: odds.A,
-    B: odds.B,
-    N: odds.N,
-  }[winner])
-
 const findCoteFinalWinner = (odds, winner) => {
-  if (winner === 'A') return odds.P1
-  if (winner === 'B') return odds.P2
+  // todo - To code
   return undefined
 }
 
