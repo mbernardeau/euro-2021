@@ -24,7 +24,7 @@ const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
     <div className="odds-container">
       <div className="odd-selected">
         <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
-          {!isNil(oddUsed) ? (
+          {!isNil(bet_teamA) || !isNil(bet_teamB) ? (
             <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
               {oddUsed}
             </div>
@@ -76,7 +76,7 @@ const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
 Odds.propTypes = {
   bet_teamA: PropTypes.number,
   bet_teamB: PropTypes.number,
-  /*   odds: PropTypes.shape({
+  odds: PropTypes.exact({
     P00: PropTypes.number.isRequired,
     P01: PropTypes.number.isRequired,
     P02: PropTypes.number.isRequired,
@@ -106,7 +106,7 @@ Odds.propTypes = {
     P51: PropTypes.number.isRequired,
     P60: PropTypes.number.isRequired,
     Pautre: PropTypes.number.isRequired,
-  }), */
+  }),
   phase: PropTypes.string,
   teamA: PropTypes.shape({
     name: PropTypes.string.isRequired,

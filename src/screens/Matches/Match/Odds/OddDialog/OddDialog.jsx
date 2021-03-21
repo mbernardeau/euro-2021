@@ -5,7 +5,7 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 import AddCircleIcon from '@material-ui/icons/AddCircle'
 import Paper from '@material-ui/core/Paper'
 import Grid from '@material-ui/core/Grid'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import {
   Button,
   DialogActions,
@@ -29,7 +29,6 @@ const OddDialog = ({ odds }) => {
     return (
       <>
         {Object.keys(odds)
-          .filter((key) => key.length === 3 || key === 'Pautre')
           .sort()
           .map((key) => (
             <Grid key={key} item xs={4}>
@@ -76,8 +75,8 @@ const OddDialog = ({ odds }) => {
   )
 }
 
-/* OddDialog.propTypes = {
-  odds: PropTypes.shape({
+OddDialog.propTypes = {
+  odds: PropTypes.exact({
     P00: PropTypes.number.isRequired,
     P01: PropTypes.number.isRequired,
     P02: PropTypes.number.isRequired,
@@ -108,6 +107,6 @@ const OddDialog = ({ odds }) => {
     P60: PropTypes.number.isRequired,
     Pautre: PropTypes.number.isRequired,
   }),
-} */
+}
 
 export default OddDialog
