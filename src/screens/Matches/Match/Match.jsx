@@ -101,6 +101,16 @@ const Match = ({ matchSnapshot }) => {
                 onBetValueUpdated={handleTeamAChange}
                 past={past}
               />
+              {!past && (
+                <Odds
+                  bet_teamA={currentBet.betTeamA}
+                  bet_teamB={currentBet.betTeamB}
+                  odds={match.odds}
+                  phase={match.phase}
+                  teamA={teamA}
+                  teamB={teamB}
+                />
+              )}
               <Bet
                 team={teamB}
                 betValue={currentBet.betTeamB}
@@ -115,14 +125,6 @@ const Match = ({ matchSnapshot }) => {
                 betValue={bet.betWinner}
                 onBetValueUpdated={handleWinnerChoiceChange}
                 past={past}
-              />
-            )}
-            {!past && (
-              <Odds
-                {...match.odds}
-                phase={match.phase}
-                teamA={teamA}
-                teamB={teamB}
               />
             )}
             {past && <Scores {...match} />}

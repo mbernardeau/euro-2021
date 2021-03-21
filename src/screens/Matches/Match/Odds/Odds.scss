@@ -1,13 +1,26 @@
 .odds-container {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   margin: 5px 15px;
+  align-items: center;
 
   .odd {
-    padding: 3px 0;
+    padding: 3px;
     color: white;
     text-align: center;
     font-weight: bold;
     width: 3em;
+    height: 1em;
+  }
+
+  .odd-selected {
+    display: flex;
+  }
+
+  .odd-dialog {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
   }
 }

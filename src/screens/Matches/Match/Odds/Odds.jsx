@@ -1,8 +1,10 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
 import Tooltip from '@material-ui/core/Tooltip'
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
+import OddDialog from './OddDialog'
+import isNil from 'lodash/isNil'
 import padStart from 'lodash/padStart'
-
+import PropTypes from 'prop-types'
+import React /*, { Fragment }*/ from 'react'
 import './Odds.scss'
 
 const toHex = (number) =>
@@ -14,41 +16,37 @@ const getColor = (value) => {
   return `#${toHex(r)}${toHex(g)}00`
 }
 
-const Odds = ({ P1, P2, A, B, N, phase, teamA, teamB }) => {
+const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
+  const oddUsed =
+    bet_teamA + bet_teamB < 7 ? odds[`P${bet_teamA}${bet_teamB}`] : odds.Pautre
+
   const oddBasis = (
     <div className="odds-container">
-      <Tooltip
-        placement="right"
-        title={`Cote de victoire de l'équipe: ${teamA.name}`}
-        enterTouchDelay={0}
-      >
-        <div className="odd" style={{ backgroundColor: getColor(A) }}>
-          {A}
-        </div>
-      </Tooltip>
-      <Tooltip placement="top" title="Cote du match nul" enterTouchDelay={0}>
-        <div className="odd" style={{ backgroundColor: getColor(N) }}>
-          {N}
-        </div>
-      </Tooltip>
-      <Tooltip
-        placement="left"
-        title={`Cote de victoire de l'équipe: ${teamB.name}`}
-        enterTouchDelay={0}
-      >
-        <div className="odd" style={{ backgroundColor: getColor(B) }}>
-          {B}
-        </div>
-      </Tooltip>
+      <div className="odd-selected">
+        <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
+          {!isNil(bet_teamA) || !isNil(bet_teamB) ? (
+            <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
+              {oddUsed}
+            </div>
+          ) : (
+            <HelpOutlineIcon></HelpOutlineIcon>
+          )}
+        </Tooltip>
+      </div>
+      <div className="odd-dialog">
+        <OddDialog odds={odds}></OddDialog>
+      </div>
     </div>
   )
 
   return (
     phase &&
-    (phase === '0' ? (
-      oddBasis
-    ) : (
-      <Fragment>
+    (phase === '0'
+      ? oddBasis
+      : {
+          /*
+          todo - code phase finale odds
+          <Fragment>
         {oddBasis}
         <div className="odds-container">
           <Tooltip
@@ -70,17 +68,45 @@ const Odds = ({ P1, P2, A, B, N, phase, teamA, teamB }) => {
             </div>
           </Tooltip>
         </div>
-      </Fragment>
-    ))
+      </Fragment>*/
+        })
   )
 }
 
 Odds.propTypes = {
-  P1: PropTypes.number,
-  P2: PropTypes.number,
-  A: PropTypes.number,
-  B: PropTypes.number,
-  N: PropTypes.number,
+  bet_teamA: PropTypes.number,
+  bet_teamB: PropTypes.number,
+  odds: PropTypes.exact({
+    P00: PropTypes.number.isRequired,
+    P01: PropTypes.number.isRequired,
+    P02: PropTypes.number.isRequired,
+    P03: PropTypes.number.isRequired,
+    P04: PropTypes.number.isRequired,
+    P05: PropTypes.number.isRequired,
+    P06: PropTypes.number.isRequired,
+    P10: PropTypes.number.isRequired,
+    P11: PropTypes.number.isRequired,
+    P12: PropTypes.number.isRequired,
+    P13: PropTypes.number.isRequired,
+    P14: PropTypes.number.isRequired,
+    P15: PropTypes.number.isRequired,
+    P20: PropTypes.number.isRequired,
+    P21: PropTypes.number.isRequired,
+    P22: PropTypes.number.isRequired,
+    P23: PropTypes.number.isRequired,
+    P24: PropTypes.number.isRequired,
+    P30: PropTypes.number.isRequired,
+    P31: PropTypes.number.isRequired,
+    P32: PropTypes.number.isRequired,
+    P33: PropTypes.number.isRequired,
+    P40: PropTypes.number.isRequired,
+    P41: PropTypes.number.isRequired,
+    P42: PropTypes.number.isRequired,
+    P50: PropTypes.number.isRequired,
+    P51: PropTypes.number.isRequired,
+    P60: PropTypes.number.isRequired,
+    Pautre: PropTypes.number.isRequired,
+  }),
   phase: PropTypes.string,
   teamA: PropTypes.shape({
     name: PropTypes.string.isRequired,

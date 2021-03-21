@@ -1,0 +1,25 @@
+.paper-odd-container {
+  display: flex;
+
+  .odd-string {
+    color: black;
+    background-color: lightgray;
+    text-align: center;
+    flex-grow: 1;
+  }
+
+  .odd-value {
+    color: white;
+    background-color: green;
+    text-align: center;
+    font-weight: bold;
+    width: 3em;
+  }
+}
+
+.dialog-title {
+  color: white;
+  background-color: green;
+  text-align: center;
+  font-weight: bold;
+}

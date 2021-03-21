@@ -23,7 +23,7 @@ const Stadium = ({ stadium }) => (
 
 const styles = {
   card: {
-    arginTop: 15,
+    marginTop: 15,
     marginBottom: 15,
     width: 400,
   },
