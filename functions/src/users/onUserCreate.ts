@@ -1,6 +1,7 @@
-import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
-import { UserProfile } from '../types'
+import * as functions from 'firebase-functions'
+import { EU_WEST_3 } from '../constants'
+import { UserProfile } from '../model'
 
 const db = admin.firestore()
 
@@ -8,7 +9,7 @@ const db = admin.firestore()
  * On user profile created, create a corresponding entity in `opponents collection`
  */
 export const onUserCreate = functions
-  .region('europe-west3')
+  .region(EU_WEST_3)
   .firestore.document('users/{userId}')
   .onCreate((snap) => {
     const userProfile = snap.data() as UserProfile

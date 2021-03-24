@@ -7,6 +7,7 @@ const compatibleNavigator = 'Notification' in window && navigator.serviceWorker
 
 const NotificationPermissionProvider = ({ children }) => {
   const isSupported = useMessaging.isSupported()
+  const [token, setToken] = useState()
 
   const [permission, setPermission] = useState(() => {
     if (!compatibleNavigator || !isSupported) {
@@ -28,8 +29,10 @@ const NotificationPermissionProvider = ({ children }) => {
     () => ({
       permission,
       refreshPermission,
+      token,
+      setToken,
     }),
-    [permission, refreshPermission],
+    [permission, refreshPermission, token, setToken],
   )
 
   return (

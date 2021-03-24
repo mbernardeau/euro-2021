@@ -1,10 +1,5 @@
 import { auth } from 'firebase-admin'
 
-export interface ValidApplyParams {
-  groupId: string
-  userId: string
-}
-
 export interface UserProfile {
   uid: string
   avatarUrl?: string
@@ -21,17 +16,13 @@ export interface UserProfile {
   }
 }
 
-export interface Group {
-  price: number
-}
-
-export interface GroupApply {
-  groupId: string
-  uid: string
-}
-
+/**
+ * Rôles disponibles pour les utilisateurs
+ */
 export enum UserRole {
+  /** Utilisateur avec des droits d'administration */
   admin = 'admin',
+  /** Utilisateur normal */
   user = 'user',
 }
 

@@ -7,6 +7,8 @@ const stagingConfig = {
   messagingSenderId: '227571739008',
   appId: '1:227571739008:web:6024da3fda61ac0cb13965',
   measurementId: 'G-VHC3B020NE',
+  vapidKey:
+    'BNFLkkL8ftMrBv1GfbDSyhoC9swL_XH-CVLTcLaEhGUdGY6iLoBQnKoRLdGgKsld7seb-kp4SJPISxKe1xDKvW8',
 }
 
 const productionConfig = {
