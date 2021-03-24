@@ -16,21 +16,32 @@ const db = admin.firestore()
  * Envoyer la notification x heures avant le match.
  */
 const HOURS_BEFORE_MATCH = 2
+/**
+ * La notification doit être envoyée _au moins_ 1 heure avant le match
+ */
+const MIN_HOURS_BEFORE_MATCH_DELAY = 1
 
+/**
+ * Envoi d'une notification de pré-matche.
+ * Fonction exécutée toutes les 2 heures.
+ * Pour chaque exécution on prend les matches qui ont lieu au moins une heure après et moins de 3 heures avant
+ * les matches suivants seront captés par les exécutions suivantes).
+ */
 export const sendPrematchNotifications = functions
   .region(EU_WEST_3)
-  .pubsub.schedule(`every ${HOURS_BEFORE_MATCH} hours`)
+  .pubsub.schedule(`every ${HOURS_BEFORE_MATCH} hours from 11:01 to 21:01`)
   .timeZone('Europe/Paris')
   .onRun(async (context) => {
     // On récupère la date de l'événement et on crée un intervalle avec date + 2 heures
-    const startdate = new Date(context.timestamp)
+    const startDate = new Date(context.timestamp)
+    startDate.setHours(startDate.getHours() + MIN_HOURS_BEFORE_MATCH_DELAY)
     const endDate = new Date(context.timestamp)
-    endDate.setHours(startdate.getHours() + HOURS_BEFORE_MATCH)
+    endDate.setHours(startDate.getHours() + HOURS_BEFORE_MATCH)
 
     // Récupération des matches à notifier (ceux dans l'intervalle de deux heures)
     const matchesToNotify = await db
       .collection('matches')
-      .where('dateTime', '>=', startdate)
+      .where('dateTime', '>=', startDate)
       .where('dateTime', '<', endDate)
       .get()
 
