@@ -9,7 +9,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
-    "@sentry/react": "^6.2.2",
+    "@sentry/react": "^6.2.3",
     "@sentry/tracing": "^6.2.3",
     "date-fns": "^2.19.0",
     "firebase": "^8.3.1",
