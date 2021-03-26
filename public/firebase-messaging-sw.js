@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-undef */
 /* eslint-env worker */
-importScripts('https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js')
-importScripts('https://www.gstatic.com/firebasejs/8.2.9/firebase-messaging.js')
+importScripts('https://www.gstatic.com/firebasejs/8.3.0/firebase-app.js')
+importScripts('https://www.gstatic.com/firebasejs/8.3.0/firebase-messaging.js')
 
 firebase.initializeApp({
   apiKey: 'AIzaSyDhYtLgdmUJS08BUl0bN3LHxND5a-KId7g',
