@@ -45,6 +45,11 @@ const Match = ({ matchSnapshot }) => {
       return false
     }
 
+    if (match.phase !== '0' && !updatedBet.betWinner) {
+      /* Default winner is A when we bet a draw */
+      updatedBet.betWinner = 'A'
+    }
+
     return match.phase === '0'
       ? true
       : updatedBet.betTeamA !== updatedBet.betTeamB ||
@@ -106,9 +111,6 @@ const Match = ({ matchSnapshot }) => {
                   bet_teamA={currentBet.betTeamA}
                   bet_teamB={currentBet.betTeamB}
                   odds={match.odds}
-                  phase={match.phase}
-                  teamA={teamA}
-                  teamB={teamB}
                 />
               )}
               <Bet
