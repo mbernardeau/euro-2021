@@ -4,7 +4,7 @@ import OddDialog from './OddDialog'
 import isNil from 'lodash/isNil'
 import padStart from 'lodash/padStart'
 import PropTypes from 'prop-types'
-import React /*, { Fragment }*/ from 'react'
+import React from 'react'
 import './Odds.scss'
 
 const toHex = (number) =>
@@ -16,7 +16,7 @@ const getColor = (value) => {
   return `#${toHex(r)}${toHex(g)}00`
 }
 
-const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
+const Odds = ({ bet_teamA, bet_teamB, odds }) => {
   const oddUsed =
     bet_teamA + bet_teamB < 7 ? odds[`P${bet_teamA}${bet_teamB}`] : odds.Pautre
 
@@ -39,38 +39,7 @@ const Odds = ({ bet_teamA, bet_teamB, odds, phase, teamA, teamB }) => {
     </div>
   )
 
-  return (
-    phase &&
-    (phase === '0'
-      ? oddBasis
-      : {
-          /*
-          todo - code phase finale odds
-          <Fragment>
-        {oddBasis}
-        <div className="odds-container">
-          <Tooltip
-            placement="right"
-            title={`Cote de victoire finale de l'équipe: ${teamA.name}`}
-            enterTouchDelay={0}
-          >
-            <div className="odd" style={{ backgroundColor: getColor(P1) }}>
-              {P1}
-            </div>
-          </Tooltip>
-          <Tooltip
-            placement="left"
-            title={`Cote de victoire finale de l'équipe: ${teamB.name}`}
-            enterTouchDelay={0}
-          >
-            <div className="odd" style={{ backgroundColor: getColor(P2) }}>
-              {P2}
-            </div>
-          </Tooltip>
-        </div>
-      </Fragment>*/
-        })
-  )
+  return oddBasis
 }
 
 Odds.propTypes = {
@@ -106,13 +75,6 @@ Odds.propTypes = {
     P51: PropTypes.number.isRequired,
     P60: PropTypes.number.isRequired,
     Pautre: PropTypes.number.isRequired,
-  }),
-  phase: PropTypes.string,
-  teamA: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-  }),
-  teamB: PropTypes.shape({
-    name: PropTypes.string.isRequired,
   }),
 }
 
