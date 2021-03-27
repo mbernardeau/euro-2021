@@ -4,6 +4,20 @@ const { EU_WEST_3 } = require('./constants')
 
 const db = admin.firestore()
 
+// Category of game to calculate proximity
+const category = {
+  CAT1: { proxi1: 0, proxi2: 1, proxi3: 2 },
+  CAT2: { proxi1: 1, proxi2: 2, proxi3: 3 },
+  CAT3: { proxi1: 2, proxi2: 3, proxi3: 4 },
+}
+
+// Proxi points
+const proxiCoeff = {
+  PROXI1: 0.6,
+  PROXI2: 0.35,
+  PROXI3: 0.2,
+}
+
 const round = (value, decimals) =>
   Number(`${Math.round(`${value}e${decimals}`)}${`e-${decimals}`}`)
 
@@ -12,8 +26,8 @@ exports.updateScore = functions
   .firestore.document('matches/{matchId}')
   .onUpdate((change) => {
     // Get final scores
-    // odds: {1, 2, A, B, N}
-    // scores: {A, B, winner}
+    // odds: {P00, ..., P60, Pautre}
+    // scores: {A, B, (winner)}
     const { odds, scores, phase } = change.after.data()
     if (
       scores === undefined ||
@@ -28,17 +42,24 @@ exports.updateScore = functions
     const realScoreTeamA = scores.A
     const realScoreTeamB = scores.B
 
-    // Get odd
-    const oddScore =
-      realScoreTeamA + realScoreTeamB < 7
-        ? odds[`P${realScoreTeamA}${realScoreTeamB}`]
-        : odds.Pautre
-
     // Get winner
     const winner =
       scores.winner === undefined
         ? findWinner(realScoreTeamA, realScoreTeamB)
         : scores.winner
+
+    // Calculate category of match on goals scored
+    const nbButs = realScoreTeamA + realScoreTeamB
+    const catMatch =
+      winner !== 'N' && nbButs < 3
+        ? category.CAT1
+        : nbButs < 6
+        ? category.CAT2
+        : category.CAT3
+
+    // Get odd
+    const oddScore =
+      nbButs < 7 ? odds[`P${realScoreTeamA}${realScoreTeamB}`] : odds.Pautre
 
     // Get bets
     const bets = db.collection('bets')
@@ -61,24 +82,24 @@ exports.updateScore = functions
             console.log(betWinner)
 
             if (betTeamA === realScoreTeamA && betTeamB === realScoreTeamB) {
-              // perfect match ! Four times team's odd
+              // perfect match ! Full points
               console.log('HOLY SH*T YOU WIN, you guess perfectly the score !')
               promises.push(
-                updateUserScore(
-                  odds,
-                  oddScore,
-                  betWinner,
-                  userId,
-                  oldBetScore,
-                  4,
-                ),
+                updateUserScore(odds, oddScore, betWinner, userId, oldBetScore),
               )
-              promises.push(
-                updatePointsWon(odds, oddScore, betWinner, betId, 4),
-              )
+              promises.push(updatePointsWon(odds, oddScore, betWinner, betId))
             } else if (winner === betWinner) {
-              // good result ! Two times team's odd
+              // good result ! We calculate proxi
               console.log('You only guess the issue of the match (sucker)')
+
+              const nbButsEcart = Math.abs(nbButs - betTeamA - betTeamB)
+              const coeffProxi =
+                nbButsEcart <= catMatch.proxi1
+                  ? proxiCoeff.PROXI1
+                  : nbButsEcart <= catMatch.proxi2
+                  ? proxiCoeff.PROXI2
+                  : proxiCoeff.PROXI3
+
               promises.push(
                 updateUserScore(
                   odds,
@@ -86,11 +107,11 @@ exports.updateScore = functions
                   betWinner,
                   userId,
                   oldBetScore,
-                  2,
+                  coeffProxi,
                 ),
               )
               promises.push(
-                updatePointsWon(odds, oddScore, betWinner, betId, 2),
+                updatePointsWon(odds, oddScore, betWinner, betId, coeffProxi),
               )
             } else {
               console.log(
@@ -164,11 +185,9 @@ const updateUserScore = (
   finalWinner,
   userId,
   oldBetScore = 0,
-  coeff,
-  coeffVainqueur = 0,
+  coeffProxi = 1,
+  coeffPhase = 1,
 ) => {
-  const oddWinner = findCoteFinalWinner(odds, finalWinner) || 0
-
   console.log(`Updating user score for ${userId}`)
   const user = db.collection('opponents').doc(userId)
 
@@ -177,11 +196,11 @@ const updateUserScore = (
       t.get(user).then((snapshot) => {
         const oldScore = snapshot.data().score || 0
         const newScore = round(
-          oldScore - oldBetScore + coeff * odd + coeffVainqueur * oddWinner,
+          oldScore - oldBetScore + coeffProxi * odd * coeffPhase,
           2,
         )
         console.log(
-          `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeff} * ${odd} + ${coeffVainqueur} * ${oddWinner} = ${newScore})`,
+          `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeffProxi} * ${odd} * ${coeffPhase} = ${newScore})`,
         )
         return t.update(user, { score: newScore })
       }),
@@ -195,11 +214,9 @@ const updatePointsWon = (
   odd,
   finalWinner,
   id,
-  coeff,
-  coeffVainqueur = 0,
+  coeffProxi = 1,
+  coeffPhase = 1,
 ) => {
-  const oddWinner = findCoteFinalWinner(odds, finalWinner) || 0
-
   console.log(`Updating points won for bet ${id}`)
   const bets = db.collection('bets').doc(id)
 
@@ -207,14 +224,14 @@ const updatePointsWon = (
     .runTransaction((t) =>
       t.get(bets).then((betSnap) =>
         t.update(betSnap.ref, {
-          pointsWon: round(coeff * odd + coeffVainqueur * oddWinner, 2),
+          pointsWon: round(coeffProxi * odd * coeffPhase, 2),
         }),
       ),
     )
     .then(() =>
       console.log(
         `Bet ${id} update with ${round(
-          coeff * odd + coeffVainqueur * oddWinner,
+          coeffProxi * odd * coeffPhase,
           2,
         )} points`,
       ),
@@ -228,11 +245,6 @@ const findWinner = (score1, score2) => {
   if (score1 > score2) return 'A'
   if (score1 === score2) return 'N'
   return 'B'
-}
-
-const findCoteFinalWinner = (odds, winner) => {
-  // todo - To code
-  return undefined
 }
 
 const getPhaseCoeff = (phase) =>
