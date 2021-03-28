@@ -8,7 +8,7 @@ import isNumber from 'lodash/isNumber'
 
 import './PointsWonPhase.scss'
 
-const findWinner = (scoreA, scoreB) => {
+const findResult = (scoreA, scoreB) => {
   if (scoreA > scoreB) return 'A'
   if (scoreA === scoreB) return 'N'
   return 'B'
@@ -119,21 +119,21 @@ const PointsWon = ({
   if (!scores) return null
 
   const { A, B, winner } = scores
-  const matchWinner = findWinner(A, B)
+  const matchWinner = findResult(A, B)
   const matchFinalWinner = findFinalWinner(A, B, winner)
   const goodScore = A === betTeamA && B === betTeamB
   const hasBet = isNumber(pointsWon)
   const goodWinner =
-    !goodScore && hasBet && matchWinner === findWinner(betTeamA, betTeamB)
+    !goodScore && hasBet && matchWinner === findResult(betTeamA, betTeamB)
   const finalWinner =
     hasBet &&
     matchFinalWinner === findFinalWinner(betTeamA, betTeamB, betWinner)
 
   return (
     <div className="points-won-container">
-      <Typography variant="h2">
+      {/* <Typography variant="h2">
         {getMessage(goodScore, goodWinner, finalWinner, hasBet)}
-      </Typography>
+      </Typography> */}
       <div className="points-won-container">
         <Typography
           variant="body1"
@@ -141,10 +141,9 @@ const PointsWon = ({
             goodWinner ? 'good-winner' : ''
           }`}
         >
-          {pointsWon > 0 ? '+' : ''} {pointsWon || 0} point
-          {pointsWon > 1 ? 's' : ''}
+          {pointsWon || 0} pts
         </Typography>
-        <Tooltip
+        {/* <Tooltip
           title={getCalculus(
             phase,
             odds,
@@ -158,7 +157,7 @@ const PointsWon = ({
           enterTouchDelay={0}
         >
           <InfoIcon className="points-won-info-icon" />
-        </Tooltip>
+        </Tooltip> */}
       </div>
     </div>
   )

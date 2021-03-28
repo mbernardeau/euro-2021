@@ -106,20 +106,22 @@ const Match = ({ matchSnapshot }) => {
                 onBetValueUpdated={handleTeamAChange}
                 past={past}
               />
-              {!past && (
-                <Odds
-                  bet_teamA={currentBet.betTeamA}
-                  bet_teamB={currentBet.betTeamB}
-                  odds={match.odds}
-                />
-              )}
-              {past && <Scores {...match} />}
-              {past &&
-                (match.phase === '0' ? (
-                  <PointsWon {...match} {...bet} />
-                ) : (
-                  <PointsWonPhase {...match} {...bet} />
-                ))}
+              <div className="points-odds-container">
+                {!past && (
+                  <Odds
+                    bet_teamA={currentBet.betTeamA}
+                    bet_teamB={currentBet.betTeamB}
+                    odds={match.odds}
+                  />
+                )}
+                {past && <Scores {...match} />}
+                {past &&
+                  (match.phase === '0' ? (
+                    <PointsWon {...match} {...bet} />
+                  ) : (
+                    <PointsWonPhase {...match} {...bet} />
+                  ))}
+              </div>
               <Bet
                 team={teamB}
                 betValue={currentBet.betTeamB}
