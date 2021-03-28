@@ -28,10 +28,12 @@ const Matches = ({ finishedMatches, futureMatches }) => {
       matches.filter((match) => {
         const timestamp = match.get('dateTime').toMillis()
 
+        const past = timestamp <= comparingDate
+
         if (selectedTab === 0) {
-          return timestamp > comparingDate
+          return !past
         } else {
-          return timestamp <= comparingDate
+          return past
         }
       }),
     [comparingDate, matches, selectedTab],

@@ -33,7 +33,7 @@ const Match = ({ matchSnapshot }) => {
     setCurrentBet(bet)
   }, [bet])
 
-  const past = match.dateTime.toMillis() < Date.now()
+  const past = match.dateTime.toMillis() <= Date.now()
 
   const isBetValid = (updatedBet) => {
     if (
@@ -113,6 +113,13 @@ const Match = ({ matchSnapshot }) => {
                   odds={match.odds}
                 />
               )}
+              {past && <Scores {...match} />}
+              {past &&
+                (match.phase === '0' ? (
+                  <PointsWon {...match} {...bet} />
+                ) : (
+                  <PointsWonPhase {...match} {...bet} />
+                ))}
               <Bet
                 team={teamB}
                 betValue={currentBet.betTeamB}
@@ -129,13 +136,6 @@ const Match = ({ matchSnapshot }) => {
                 past={past}
               />
             )}
-            {past && <Scores {...match} />}
-            {past &&
-              (match.phase === '0' ? (
-                <PointsWon {...match} {...bet} />
-              ) : (
-                <PointsWonPhase {...match} {...bet} />
-              ))}
             <Divider />
             <MatchInfos match={match} />
             {!past && <ValidIcon valid={betSaved()} />}
