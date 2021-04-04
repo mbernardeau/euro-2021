@@ -18,7 +18,7 @@ import React from 'react'
 import { AuthCheck } from 'reactfire'
 import myImage from '../../assets/visuels/bandeauEvenement2.webp'
 import './HomePage.scss'
-import Winner from './Winner'
+import FinalWinner from './FinalWinner'
 
 const HomePage = ({ history }) => {
   return (
@@ -82,7 +82,7 @@ const HomePage = ({ history }) => {
         </AuthCheck>
       </div>
       <AuthCheck>
-        <Winner />
+        <FinalWinner />
       </AuthCheck>
       <img alt="Home" className="home-logo" src={myImage} />
     </div>

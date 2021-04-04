@@ -10,9 +10,9 @@ import React from 'react'
 import { COMPETITION_START_DATE } from '../../../../shared'
 import Flag from '../../../../components/Flag'
 import { useTeams } from '../../../../hooks'
-import './WinnerChoice.scss'
+import './FinalWinnerChoice.scss'
 
-const WinnerChoice = ({ userTeam, onValueChange }) => {
+const FinalWinnerChoice = ({ userTeam, onValueChange }) => {
   const teams = useTeams()
 
   return (
@@ -69,14 +69,14 @@ const OddTest = (teams, userTeam) => {
   )
 }
 
-WinnerChoice.defaultProps = {
+FinalWinnerChoice.defaultProps = {
   teams: [],
 }
 
-WinnerChoice.propTypes = {
+FinalWinnerChoice.propTypes = {
   teams: PropTypes.arrayOf(PropTypes.shape({})),
   userTeam: PropTypes.string,
   onValueChange: PropTypes.func.isRequired,
 }
 
-export default WinnerChoice
+export default FinalWinnerChoice
