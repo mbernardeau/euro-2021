@@ -17,7 +17,7 @@ const FinalWinnerChoice = ({ userTeam, onValueChange }) => {
 
   return (
     <div className="winner-choice">
-      {FlagTest(teams, userTeam)}
+      {FlagDisplay(teams, userTeam)}
       <div className="winner-choice-select-container">
         <Select
           className="winner-choice-select-value"
@@ -35,14 +35,16 @@ const FinalWinnerChoice = ({ userTeam, onValueChange }) => {
           ))}
         </Select>
       </div>
-      {OddTest(teams, userTeam)}
+      {OddDisplay(teams, userTeam)}
     </div>
   )
 }
 
 // Affichage du drapeau du pays choisi
-const FlagTest = (teams, userTeam) => {
+const FlagDisplay = (teams, userTeam) => {
   const teamDisplayed = find(teams, (team) => team.id === userTeam)
+
+  console.log(teamDisplayed)
 
   return (
     teamDisplayed && (
@@ -55,14 +57,14 @@ const FlagTest = (teams, userTeam) => {
 }
 
 // Affichage de la cote du pays choisi
-const OddTest = (teams, userTeam) => {
+const OddDisplay = (teams, userTeam) => {
   const teamDisplayed = find(teams, (team) => team.id === userTeam)
 
   return (
     teamDisplayed && (
       <Tooltip title="Cote pour la victoire finale" placement="right">
-        <Typography variant="body1" className="winner-choice-odd">
-          {teamDisplayed.winOdd}
+        <Typography variant="h1" className="winner-choice-odd">
+          {teamDisplayed.data().winOdd}
         </Typography>
       </Tooltip>
     )
