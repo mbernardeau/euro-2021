@@ -37,8 +37,14 @@ const getMessage = (proxi, hasBet) => {
   return 'Dommage, vous ferez mieux la prochaine fois'
 }
 
+const round = (value, decimals) =>
+  Number(`${Math.round(`${value}e${decimals}`)}${`e-${decimals}`}`)
+
 const getCalculus = (odd, proxi, phase) => {
-  const calculText = `${proxi} × ${odd} × ${phase} = ${proxi * odd * phase}`
+  const calculText = `${proxi} × ${odd} × ${phase} = ${round(
+    proxi * odd * phase,
+    2,
+  )}`
   if (proxi === proxiCoeff.SCORE_PARFAIT) return `🤩 ` + calculText
   else if (proxi === proxiCoeff.PROXI1) return `😐 ` + calculText
   else if (proxi === proxiCoeff.PROXI2) return `😐 ` + calculText
@@ -57,7 +63,7 @@ const PointsWon = ({ pointsWon, scores, phase, betTeamA, betTeamB, odds }) => {
   const nbButs = A + B
   const phaseCoeff = getPhaseCoeff(phase)
   const oddScore = nbButs < 7 ? odds[`P${A}${B}`] : odds.Pautre
-  const proxiArrondie = pointsWon / oddScore + 0.1 // 0.1 en marge
+  const proxiArrondie = pointsWon / (oddScore * phaseCoeff) + 0.1 // 0.1 en marge
   const realProxi =
     proxiArrondie > proxiCoeff.SCORE_PARFAIT
       ? proxiCoeff.SCORE_PARFAIT
@@ -76,8 +82,12 @@ const PointsWon = ({ pointsWon, scores, phase, betTeamA, betTeamB, odds }) => {
         <Typography
           variant="body1"
           className={`points-won ${
-            realProxi === proxiCoeff.SCORE_PARFAIT ? 'good-score' : ''
-          } ${realProxi >= proxiCoeff.PROXI3 ? 'good-winner' : ''}`}
+            realProxi === proxiCoeff.SCORE_PARFAIT
+              ? 'good-score'
+              : realProxi >= proxiCoeff.PROXI3
+              ? 'good-winner'
+              : ''
+          } `}
         >
           {pointsWon || 0} pts
         </Typography>
@@ -101,6 +111,7 @@ PointsWon.propTypes = {
     A: PropTypes.number.isRequired,
     B: PropTypes.number.isRequired,
   }),
+  phase: PropTypes.string,
   betTeamA: PropTypes.number,
   betTeamB: PropTypes.number,
   odds: PropTypes.objectOf(PropTypes.number),
