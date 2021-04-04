@@ -1,0 +1,60 @@
+{
+  "teams": {
+    "-Kj2zfp9V5wdpN59exkD": {
+      "name": "Real Madrid",
+      "group": "A",
+      "winOdd": 41,
+      "code": "rm",
+      "subCollection": {}
+    },
+    "-Kj2zfpEdmB6SgyPd85W": {
+      "group": "A",
+      "code": "liv",
+      "name": "Liverpool",
+      "winOdd": 1001,
+      "subCollection": {}
+    },
+    "-Kj2zfpFzqykBwiz5dcL": {
+      "group": "B",
+      "name": "Man City",
+      "winOdd": 151,
+      "code": "manc",
+      "subCollection": {}
+    },
+    "-Kj2zfpFzqykBwiz5dcM": {
+      "group": "B",
+      "name": "Dortmund",
+      "code": "dort",
+      "winOdd": 81,
+      "subCollection": {}
+    },
+    "-Kj2zfpO3MwCoLIdNuNf": {
+      "name": "Bayern",
+      "code": "bay",
+      "group": "C",
+      "winOdd": 301,
+      "subCollection": {}
+    },
+    "-Kj2zfpO3MwCoLIdNuNg": {
+      "winOdd": 31,
+      "name": "PSG",
+      "group": "C",
+      "code": "psg",
+      "subCollection": {}
+    },
+    "-Kj2zfpPgzwXCT7Bnm1y": {
+      "name": "Porto",
+      "group": "D",
+      "winOdd": 23,
+      "code": "por",
+      "subCollection": {}
+    },
+    "-Kj2zfpRCBdqgDxcBLBQ": {
+      "group": "D",
+      "winOdd": 201,
+      "code": "che",
+      "name": "Chelsea",
+      "subCollection": {}
+    }
+  }
+}

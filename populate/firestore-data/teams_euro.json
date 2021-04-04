@@ -1,0 +1,172 @@
+{
+    "teams": {
+      "-Kj2zfp9V5wdpN59exkD": {
+        "name": "Italie",
+        "group": "A",
+        "winOdd": 41,
+        "code": "it",
+        "subCollection": {}
+      },
+      "-Kj2zfpEdmB6SgyPd85W": {
+        "group": "A",
+        "code": "gb-wls",
+        "name": "Pays de Galles",
+        "winOdd": 1001,
+        "subCollection": {}
+      },
+      "-Kj2zfpFzqykBwiz5dcL": {
+        "group": "A",
+        "name": "Turquie",
+        "winOdd": 151,
+        "code": "tr",
+        "subCollection": {}
+      },
+      "-Kj2zfpFzqykBwiz5dcM": {
+        "group": "A",
+        "name": "Suisse",
+        "code": "ch",
+        "winOdd": 81,
+        "subCollection": {}
+      },
+      "-Kj2zfpFzqykBwiz5dcN": {
+        "code": "dk",
+        "name": "Danemark",
+        "winOdd": 401,
+        "group": "B",
+        "subCollection": {}
+      },
+      "-Kj2zfpGJmSTghyT06un": {
+        "group": "B",
+        "name": "Finlande",
+        "winOdd": 1001,
+        "code": "fi",
+        "subCollection": {}
+      },
+      "-Kj2zfpGJmSTghyT06uo": {
+        "code": "ru",
+        "winOdd": 17,
+        "group": "B",
+        "name": "Russie",
+        "subCollection": {}
+      },
+      "-Kj2zfpHPqNpMy7ZgxmM": {
+        "name": "Belgique",
+        "group": "B",
+        "winOdd": 7,
+        "code": "be",
+        "subCollection": {}
+      },
+      "-Kj2zfpIxWevwDITiL0V": {
+        "name": "Ukraine",
+        "code": "ua",
+        "group": "C",
+        "winOdd": 5.5,
+        "subCollection": {}
+      },
+      "-Kj2zfpJov1GY9sA2IgE": {
+        "group": "C",
+        "name": "Pays-Bas",
+        "code": "nl",
+        "winOdd": 501,
+        "subCollection": {}
+      },
+      "-Kj2zfpJov1GY9sA2IgF": {
+        "winOdd": 46,
+        "group": "C",
+        "name": "Autriche",
+        "code": "at",
+        "subCollection": {}
+      },
+      "-Kj2zfpKYdjdHhPukkXr": {
+        "group": "C",
+        "winOdd": 151,
+        "name": "Macédoine du N.",
+        "code": "mk",
+        "subCollection": {}
+      },
+      "-Kj2zfpKYdjdHhPukkXs": {
+        "code": "gb-eng",
+        "group": "D",
+        "name": "Angleterre",
+        "winOdd": 125,
+        "subCollection": {}
+      },
+      "-Kj2zfpKYdjdHhPukkXt": {
+        "code": "hr",
+        "winOdd": 151,
+        "group": "D",
+        "name": "Croatie",
+        "subCollection": {}
+      },
+      "-Kj2zfpKYdjdHhPukkXu": {
+        "code": "gb-sct",
+        "winOdd": 7,
+        "group": "D",
+        "name": "Écosse",
+        "subCollection": {}
+      },
+      "-Kj2zfpLjC03AaK-W8Lo": {
+        "name": "R. tchèque",
+        "winOdd": 201,
+        "group": "D",
+        "code": "cz",
+        "subCollection": {}
+      },
+      "-Kj2zfpM7z9dtuBQZC4c": {
+        "name": "Suède",
+        "code": "se",
+        "group": "E",
+        "winOdd": 201,
+        "subCollection": {}
+      },
+      "-Kj2zfpN8l22eNCLSzLj": {
+        "winOdd": 501,
+        "group": "E",
+        "code": "pl",
+        "name": "Pologne",
+        "subCollection": {}
+      },
+      "-Kj2zfpN8l22eNCLSzLk": {
+        "code": "es",
+        "group": "E",
+        "winOdd": 12,
+        "name": "Espagne",
+        "subCollection": {}
+      },
+      "-Kj2zfpN8l22eNCLSzLl": {
+        "code": "sk",
+        "group": "E",
+        "name": "Slovaquie",
+        "winOdd": 301,
+        "subCollection": {}
+      },
+      "-Kj2zfpO3MwCoLIdNuNf": {
+        "name": "Allemagne",
+        "code": "de",
+        "group": "F",
+        "winOdd": 301,
+        "subCollection": {}
+      },
+      "-Kj2zfpO3MwCoLIdNuNg": {
+        "winOdd": 31,
+        "name": "France",
+        "group": "F",
+        "code": "fr",
+        "subCollection": {}
+      },
+      "-Kj2zfpPgzwXCT7Bnm1y": {
+        "name": "Portugal",
+        "group": "F",
+        "winOdd": 23,
+        "code": "pt",
+        "subCollection": {}
+      },
+      "-Kj2zfpRCBdqgDxcBLBQ": {
+        "group": "F",
+        "winOdd": 201,
+        "code": "hu",
+        "name": "Hongrie",
+        "subCollection": {}
+      }
+    }
+  }
