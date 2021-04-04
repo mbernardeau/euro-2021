@@ -16,6 +16,16 @@ const proxiCoeff = {
   PROXI3: 0.2,
 }
 
+// https://docs.google.com/spreadsheets/d/1ZioOtyCblJtJf0WAaRxVWmnibqOeC7eDcJYDVEYRqng/edit?usp=sharing
+const getPhaseCoeff = (phase) =>
+  ({
+    0: 1,
+    8: 1.67,
+    4: 3.34,
+    2: 6.69,
+    1: 13.37,
+  }[phase])
+
 const getMessage = (proxi, hasBet) => {
   if (!hasBet) return "Vous n'avez pas pronostiqué"
   if (proxi === proxiCoeff.SCORE_PARFAIT)
@@ -27,8 +37,8 @@ const getMessage = (proxi, hasBet) => {
   return 'Dommage, vous ferez mieux la prochaine fois'
 }
 
-const getCalculus = (odd, proxi) => {
-  const calculText = `${proxi} × ${odd} = ${proxi * odd}`
+const getCalculus = (odd, proxi, phase) => {
+  const calculText = `${proxi} × ${odd} × ${phase} = ${proxi * odd * phase}`
   if (proxi === proxiCoeff.SCORE_PARFAIT) return `🤩 ` + calculText
   else if (proxi === proxiCoeff.PROXI1) return `😐 ` + calculText
   else if (proxi === proxiCoeff.PROXI2) return `😐 ` + calculText
@@ -36,7 +46,7 @@ const getCalculus = (odd, proxi) => {
   return '0 + 0 = 😶'
 }
 
-const PointsWon = ({ pointsWon, scores, betTeamA, betTeamB, odds }) => {
+const PointsWon = ({ pointsWon, scores, phase, betTeamA, betTeamB, odds }) => {
   if (!scores) return null
 
   // No bet ?
@@ -45,6 +55,7 @@ const PointsWon = ({ pointsWon, scores, betTeamA, betTeamB, odds }) => {
   // Check proxi
   const { A, B } = scores
   const nbButs = A + B
+  const phaseCoeff = getPhaseCoeff(phase)
   const oddScore = nbButs < 7 ? odds[`P${A}${B}`] : odds.Pautre
   const proxiArrondie = pointsWon / oddScore + 0.1 // 0.1 en marge
   const realProxi =
@@ -72,7 +83,7 @@ const PointsWon = ({ pointsWon, scores, betTeamA, betTeamB, odds }) => {
         </Typography>
         {
           <Tooltip
-            title={getCalculus(oddScore, realProxi)}
+            title={getCalculus(oddScore, realProxi, phaseCoeff)}
             placement="right"
             enterTouchDelay={0}
           >

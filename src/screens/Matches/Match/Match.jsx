@@ -13,7 +13,6 @@ import './Match.scss'
 import MatchInfos from './MatchInfos'
 import Odds from './Odds'
 import PointsWon from './PointsWon'
-import PointsWonPhase from './PointsWonPhase'
 import Scores from './Scores'
 import ValidIcon from './ValidIcon'
 
@@ -115,12 +114,7 @@ const Match = ({ matchSnapshot }) => {
                   />
                 )}
                 {past && <Scores {...match} />}
-                {past &&
-                  (match.phase === '0' ? (
-                    <PointsWon {...match} {...bet} />
-                  ) : (
-                    <PointsWonPhase {...match} {...bet} />
-                  ))}
+                {past && <PointsWon {...match} {...bet} />}
               </div>
               <Bet
                 team={teamB}
