@@ -8,64 +8,77 @@ import isNumber from 'lodash/isNumber'
 
 import './PointsWon.scss'
 
-const findResult = (scoreA, scoreB) => {
-  if (scoreA > scoreB) return 'A'
-  if (scoreA === scoreB) return 'N'
-  return 'B'
+// Proxi points
+const proxiCoeff = {
+  SCORE_PARFAIT: 1,
+  PROXI1: 0.6,
+  PROXI2: 0.35,
+  PROXI3: 0.2,
 }
 
-const getMessage = (goodScore, goodWinner, hasBet) => {
+const getMessage = (proxi, hasBet) => {
   if (!hasBet) return "Vous n'avez pas pronostiqué"
-  if (goodScore) return 'Vous avez pronostiqué le score parfait!'
-  else if (goodWinner) return 'Vous avez le bon résultat'
+  if (proxi === proxiCoeff.SCORE_PARFAIT)
+    return 'Vous avez pronostiqué le score parfait!'
+  else if (proxi === proxiCoeff.PROXI1) return 'Vous êtes en première proximité'
+  else if (proxi === proxiCoeff.PROXI2) return 'Vous êtes en seconde proximité'
+  else if (proxi === proxiCoeff.PROXI3)
+    return 'Vous êtes en troisième proximité'
   return 'Dommage, vous ferez mieux la prochaine fois'
 }
 
-const getOdd = (odds, winner) =>
-  ({
-    A: odds.A,
-    B: odds.B,
-    N: odds.N,
-  }[winner])
-
-const getCalculus = (odds, winner, goodScore, goodWinner) => {
-  const odd = getOdd(odds, winner)
-  if (goodScore) return `🤩 4 × ${odd} = ${4 * odd}`
-  if (goodWinner) return `😐 2 × ${odd} = ${2 * odd}`
+const getCalculus = (odd, proxi) => {
+  const calculText = `${proxi} × ${odd} = ${proxi * odd}`
+  if (proxi === proxiCoeff.SCORE_PARFAIT) return `🤩 ` + calculText
+  else if (proxi === proxiCoeff.PROXI1) return `😐 ` + calculText
+  else if (proxi === proxiCoeff.PROXI2) return `😐 ` + calculText
+  else if (proxi === proxiCoeff.PROXI3) return `😐 ` + calculText
   return '0 + 0 = 😶'
 }
 
 const PointsWon = ({ pointsWon, scores, betTeamA, betTeamB, odds }) => {
   if (!scores) return null
 
-  const { A, B } = scores
-  const matchWinner = findResult(A, B)
-  const goodScore = A === betTeamA && B === betTeamB
+  // No bet ?
   const hasBet = isNumber(pointsWon)
-  const goodWinner =
-    !goodScore && hasBet && matchWinner === findResult(betTeamA, betTeamB)
+
+  // Check proxi
+  const { A, B } = scores
+  const nbButs = A + B
+  const oddScore = nbButs < 7 ? odds[`P${A}${B}`] : odds.Pautre
+  const proxiArrondie = pointsWon / oddScore + 0.1 // 0.1 en marge
+  const realProxi =
+    proxiArrondie > proxiCoeff.SCORE_PARFAIT
+      ? proxiCoeff.SCORE_PARFAIT
+      : proxiArrondie > proxiCoeff.PROXI1
+      ? proxiCoeff.PROXI1
+      : proxiArrondie > proxiCoeff.PROXI2
+      ? proxiCoeff.PROXI2
+      : proxiArrondie > proxiCoeff.PROXI3
+      ? proxiCoeff.PROXI3
+      : 0
 
   return (
     <div className="points-won-container">
-      {/* <Typography variant="h4">
-        {getMessage(goodScore, goodWinner, hasBet)}
-      </Typography> */}
+      {<Typography variant="h4">{getMessage(realProxi, hasBet)}</Typography>}
       <div className="points-won-container">
         <Typography
           variant="body1"
-          className={`points-won ${goodScore ? 'good-score' : ''} ${
-            goodWinner ? 'good-winner' : ''
-          }`}
+          className={`points-won ${
+            realProxi === proxiCoeff.SCORE_PARFAIT ? 'good-score' : ''
+          } ${realProxi >= proxiCoeff.PROXI3 ? 'good-winner' : ''}`}
         >
           {pointsWon || 0} pts
         </Typography>
-        {/* <Tooltip
-          title={getCalculus(odds, matchWinner, goodScore, goodWinner)}
-          placement="right"
-          enterTouchDelay={0}
-        >
-          <InfoIcon className="points-won-info-icon" />
-        </Tooltip> */}
+        {
+          <Tooltip
+            title={getCalculus(oddScore, realProxi)}
+            placement="right"
+            enterTouchDelay={0}
+          >
+            <InfoIcon className="points-won-info-icon" />
+          </Tooltip>
+        }
       </div>
     </div>
   )
