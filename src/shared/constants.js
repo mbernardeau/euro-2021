@@ -1,1 +1,0 @@
-export const COMPETITION_START_DATE = new Date('2021-06-11T19:00:00.000Z')
