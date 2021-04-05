@@ -12,7 +12,7 @@ export const useTeam = (id, initialData) => {
 }
 
 export const useTeams = () => {
-  const query = useFirestore().collection('teams')
+  const query = useFirestore().collection('teams').orderBy('winOdd')
 
   return useFirestoreCollection(query, { initialData: [] }).data?.docs
 }

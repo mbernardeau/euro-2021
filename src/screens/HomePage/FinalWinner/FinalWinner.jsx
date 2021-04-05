@@ -3,10 +3,10 @@ import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import React, { Suspense } from 'react'
 import { useSelectedWinner } from '../../../hooks'
-import './Winner.scss'
-import WinnerChoice from './WinnerChoice'
+import './FinalWinner.scss'
+import FinalWinnerChoice from './FinalWinnerChoice'
 
-const Winner = () => {
+const FinalWinner = () => {
   const [team, saveWinner] = useSelectedWinner()
 
   const handleChange = (e) => {
@@ -28,15 +28,15 @@ const Winner = () => {
       </Typography>
       <CardContent>
         <Suspense fallback={<></>}>
-          <WinnerChoice userTeam={team} onValueChange={handleChange} />
+          <FinalWinnerChoice userTeam={team} onValueChange={handleChange} />
         </Suspense>
       </CardContent>
     </Card>
   )
 }
 
-Winner.propTypes = {}
+FinalWinner.propTypes = {}
 
-Winner.defaultProps = {}
+FinalWinner.defaultProps = {}
 
-export default Winner
+export default FinalWinner
