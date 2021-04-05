@@ -10,6 +10,13 @@
       display: grid;
       grid-template-columns: 45% 10% 45%;
       margin-bottom: 10px;
+
+      .points-odds-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+      }
     }
   }
 

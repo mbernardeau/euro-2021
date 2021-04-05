@@ -13,7 +13,6 @@ import './Match.scss'
 import MatchInfos from './MatchInfos'
 import Odds from './Odds'
 import PointsWon from './PointsWon'
-import PointsWonPhase from './PointsWonPhase'
 import Scores from './Scores'
 import ValidIcon from './ValidIcon'
 
@@ -33,7 +32,7 @@ const Match = ({ matchSnapshot }) => {
     setCurrentBet(bet)
   }, [bet])
 
-  const past = match.dateTime.toMillis() < Date.now()
+  const past = match.dateTime.toMillis() <= Date.now()
 
   const isBetValid = (updatedBet) => {
     if (
@@ -106,13 +105,17 @@ const Match = ({ matchSnapshot }) => {
                 onBetValueUpdated={handleTeamAChange}
                 past={past}
               />
-              {!past && (
-                <Odds
-                  bet_teamA={currentBet.betTeamA}
-                  bet_teamB={currentBet.betTeamB}
-                  odds={match.odds}
-                />
-              )}
+              <div className="points-odds-container">
+                {!past && (
+                  <Odds
+                    bet_teamA={currentBet.betTeamA}
+                    bet_teamB={currentBet.betTeamB}
+                    odds={match.odds}
+                  />
+                )}
+                {past && <Scores {...match} />}
+                {past && <PointsWon {...match} {...bet} />}
+              </div>
               <Bet
                 team={teamB}
                 betValue={currentBet.betTeamB}
@@ -129,13 +132,6 @@ const Match = ({ matchSnapshot }) => {
                 past={past}
               />
             )}
-            {past && <Scores {...match} />}
-            {past &&
-              (match.phase === '0' ? (
-                <PointsWon {...match} {...bet} />
-              ) : (
-                <PointsWonPhase {...match} {...bet} />
-              ))}
             <Divider />
             <MatchInfos match={match} />
             {!past && <ValidIcon valid={betSaved()} />}

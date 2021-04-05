@@ -8,14 +8,23 @@ import './Scores.scss'
 const Scores = ({ scores }) => {
   if (!scores) return null
   const { A, B, winner } = scores
+  const realResult = findResult(A, B)
+  const realWinner = realResult === 'N' ? winner : realResult
   return (
     <div className="scores-container">
       <Typography variant="body2">
-        <span className={winner === 'A' ? 'winner' : ''}>{A}</span>&nbsp;-&nbsp;
-        <span className={winner === 'B' ? 'winner' : ''}>{B}</span>
+        <span className={realWinner === 'A' ? 'winner' : ''}>{A}</span>
+        &nbsp;-&nbsp;
+        <span className={realWinner === 'B' ? 'winner' : ''}>{B}</span>
       </Typography>
     </div>
   )
+}
+
+const findResult = (score1, score2) => {
+  if (score1 > score2) return 'A'
+  if (score1 === score2) return 'N'
+  return 'B'
 }
 
 Scores.propTypes = {
