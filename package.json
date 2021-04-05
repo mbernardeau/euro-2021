@@ -59,7 +59,7 @@
   "devDependencies": {
     "@firebase/rules-unit-testing": "^1.2.5",
     "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.5",
+    "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^13.0.16",
     "babel-plugin-transform-imports": "^2.0.0",
     "firebase-admin": "^9.5.0",
