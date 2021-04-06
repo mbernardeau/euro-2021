@@ -1,5 +1,4 @@
 export * from './bets'
-export * from './competition'
 export * from './groups'
 export * from './matches'
 export * from './opponents'

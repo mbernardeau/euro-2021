@@ -9,10 +9,6 @@ service cloud.firestore {
     }
 
     // Base data, it shouldn't be modified by anyone except admin
-    match /competitions/1BWoxRomTm3aaJFqRVHV {
-      allow read: if isAuthenticated();
-      allow write: if false;
-    }
     match /matches/{matchId} {
       allow read: if isAuthenticated();
       allow write: if false;
