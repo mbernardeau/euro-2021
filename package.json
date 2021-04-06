@@ -29,6 +29,7 @@
   "scripts": {
     "analyze": "npm run build && source-map-explorer 'build/static/js/*.js'",
     "start": "npm i && react-scripts start",
+    "start:ldc": "npm i && REACT_APP_DATABASE=LDC react-scripts start",
     "build": "react-scripts build",
     "build:ldc": "REACT_APP_DATABASE=LDC react-scripts build",
     "lint": "eslint src --ext js,jsx",
