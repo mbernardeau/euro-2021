@@ -180,10 +180,8 @@ const updateUserScore = (
     .runTransaction((t) =>
       t.get(user).then((snapshot) => {
         const oldScore = snapshot.data().score || 0
-        const newScore = round(
-          oldScore - oldBetScore + coeffProxi * odd * coeffPhase,
-          2,
-        )
+        const newScore =
+          oldScore - oldBetScore + round(coeffProxi * odd * coeffPhase, 2)
         console.log(
           `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeffProxi} * ${odd} * ${coeffPhase} = ${newScore})`,
         )
