@@ -7,13 +7,13 @@ import find from 'lodash/find'
 import map from 'lodash/map'
 import PropTypes from 'prop-types'
 import React from 'react'
-import { COMPETITION_START_DATE } from '../../../../shared'
 import Flag from '../../../../components/Flag'
-import { useTeams } from '../../../../hooks'
+import { useTeams, useCompetitionStartDate } from '../../../../hooks'
 import './FinalWinnerChoice.scss'
 
 const FinalWinnerChoice = ({ userTeam, onValueChange }) => {
   const teams = useTeams()
+  const CompetitionStartDate = Date(useCompetitionStartDate().startDate)
 
   return (
     <div className="winner-choice">
@@ -26,7 +26,7 @@ const FinalWinnerChoice = ({ userTeam, onValueChange }) => {
           inputProps={{
             name: 'userTeam',
           }}
-          disabled={isPast(COMPETITION_START_DATE)}
+          disabled={isPast(CompetitionStartDate)}
         >
           {map(teams, (team) => (
             <MenuItem key={team.id} value={team.id}>
