@@ -87,7 +87,9 @@ exports.updateScore = functions
               // good result ! We calculate proxi
               console.log('You only guess the issue of the match (sucker)')
 
-              const nbButsEcart = Math.abs(nbButs - betTeamA - betTeamB)
+              const nbButsEcart =
+                Math.abs(realScoreTeamA - betTeamA) +
+                Math.abs(realScoreTeamB - betTeamB)
               const coeffProxi =
                 nbButsEcart <= catMatch.proxi1
                   ? proxiCoeff.PROXI1
