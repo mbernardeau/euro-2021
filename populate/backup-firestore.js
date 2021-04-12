@@ -2,12 +2,13 @@ const { serviceAccount, directoryDatabase } = require('./chooseDatabase.js')
 
 const fs = require('fs')
 const { backup, initializeApp } = require('firestore-export-import')
+var stringify = require('json-stable-stringify')
 
 initializeApp(serviceAccount)
 
 const exportCollection = (collectionName) => {
   backup(collectionName).then((data) => {
-    const jsonData = JSON.stringify(data, null, 2)
+    const jsonData = stringify(data, { space: 3 })
     fs.writeFile(
       `./firestore-data/${directoryDatabase}/${collectionName}.json`,
       jsonData,

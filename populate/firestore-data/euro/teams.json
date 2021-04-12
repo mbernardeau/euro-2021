@@ -1,172 +1,196 @@
 {
-  "teams": {
-    "-Kj2zfp9V5wdpN59exkD": {
-      "winOdd": 41,
-      "group": "A",
-      "name": "Italie",
-      "code": "it",
-      "subCollection": {}
-    },
-    "-Kj2zfpEdmB6SgyPd85W": {
-      "winOdd": 1001,
-      "name": "Pays de Galles",
-      "group": "A",
-      "code": "gb-wls",
-      "subCollection": {}
-    },
-    "-Kj2zfpFzqykBwiz5dcL": {
-      "code": "tr",
-      "name": "Turquie",
-      "group": "A",
-      "winOdd": 151,
-      "subCollection": {}
-    },
-    "-Kj2zfpFzqykBwiz5dcM": {
-      "group": "A",
-      "winOdd": 81,
-      "name": "Suisse",
-      "code": "ch",
-      "subCollection": {}
-    },
-    "-Kj2zfpFzqykBwiz5dcN": {
-      "group": "B",
-      "winOdd": 401,
-      "name": "Danemark",
-      "code": "dk",
-      "subCollection": {}
-    },
-    "-Kj2zfpGJmSTghyT06un": {
-      "winOdd": 1001,
-      "name": "Finlande",
-      "group": "B",
-      "code": "fi",
-      "subCollection": {}
-    },
-    "-Kj2zfpGJmSTghyT06uo": {
-      "group": "B",
-      "code": "ru",
-      "winOdd": 17,
-      "name": "Russie",
-      "subCollection": {}
-    },
-    "-Kj2zfpHPqNpMy7ZgxmM": {
-      "winOdd": 7,
-      "name": "Belgique",
-      "code": "be",
-      "group": "B",
-      "subCollection": {}
-    },
-    "-Kj2zfpIxWevwDITiL0V": {
-      "group": "C",
-      "name": "Ukraine",
-      "code": "ua",
-      "winOdd": 5.5,
-      "subCollection": {}
-    },
-    "-Kj2zfpJov1GY9sA2IgE": {
-      "code": "nl",
-      "winOdd": 501,
-      "name": "Pays-Bas",
-      "group": "C",
-      "subCollection": {}
-    },
-    "-Kj2zfpJov1GY9sA2IgF": {
-      "winOdd": 46,
-      "group": "C",
-      "name": "Autriche",
-      "code": "at",
-      "subCollection": {}
-    },
-    "-Kj2zfpKYdjdHhPukkXr": {
-      "name": "Macédoine du N.",
-      "winOdd": 151,
-      "group": "C",
-      "code": "mk",
-      "subCollection": {}
-    },
-    "-Kj2zfpKYdjdHhPukkXs": {
-      "code": "gb-eng",
-      "winOdd": 125,
-      "group": "D",
-      "name": "Angleterre",
-      "subCollection": {}
-    },
-    "-Kj2zfpKYdjdHhPukkXt": {
-      "group": "D",
-      "winOdd": 151,
-      "name": "Croatie",
-      "code": "hr",
-      "subCollection": {}
-    },
-    "-Kj2zfpKYdjdHhPukkXu": {
-      "code": "gb-sct",
-      "group": "D",
-      "winOdd": 7,
-      "name": "Écosse",
-      "subCollection": {}
-    },
-    "-Kj2zfpLjC03AaK-W8Lo": {
-      "winOdd": 201,
-      "group": "D",
-      "name": "R. tchèque",
-      "code": "cz",
-      "subCollection": {}
-    },
-    "-Kj2zfpM7z9dtuBQZC4c": {
-      "name": "Suède",
-      "group": "E",
-      "winOdd": 201,
-      "code": "se",
-      "subCollection": {}
-    },
-    "-Kj2zfpN8l22eNCLSzLj": {
-      "group": "E",
-      "winOdd": 501,
-      "name": "Pologne",
-      "code": "pl",
-      "subCollection": {}
-    },
-    "-Kj2zfpN8l22eNCLSzLk": {
-      "group": "E",
-      "name": "Espagne",
-      "code": "es",
-      "winOdd": 12,
-      "subCollection": {}
-    },
-    "-Kj2zfpN8l22eNCLSzLl": {
-      "code": "sk",
-      "group": "E",
-      "winOdd": 301,
-      "name": "Slovaquie",
-      "subCollection": {}
-    },
-    "-Kj2zfpO3MwCoLIdNuNf": {
-      "name": "Allemagne",
-      "code": "de",
-      "group": "F",
-      "winOdd": 301,
-      "subCollection": {}
-    },
-    "-Kj2zfpO3MwCoLIdNuNg": {
-      "code": "fr",
-      "winOdd": 31,
-      "name": "France",
-      "group": "F",
-      "subCollection": {}
-    },
-    "-Kj2zfpPgzwXCT7Bnm1y": {
-      "winOdd": 23,
-      "code": "pt",
-      "group": "F",
-      "name": "Portugal",
-      "subCollection": {}
-    },
-    "-Kj2zfpRCBdqgDxcBLBQ": {
-      "group": "F",
-      "name": "Hongrie",
-      "winOdd": 201,
-      "code": "hu",
-      "subCollection": {}
-    }
-  }
+   "teams": {
+      "-Kj2zfp9V5wdpN59exkD": {
+         "code": "it",
+         "group": "A",
+         "name": "Italie",
+         "subCollection": {
+         },
+         "winOdd": 41
+      },
+      "-Kj2zfpEdmB6SgyPd85W": {
+         "code": "gb-wls",
+         "group": "A",
+         "name": "Pays de Galles",
+         "subCollection": {
+         },
+         "winOdd": 1001
+      },
+      "-Kj2zfpFzqykBwiz5dcL": {
+         "code": "tr",
+         "group": "A",
+         "name": "Turquie",
+         "subCollection": {
+         },
+         "winOdd": 151
+      },
+      "-Kj2zfpFzqykBwiz5dcM": {
+         "code": "ch",
+         "group": "A",
+         "name": "Suisse",
+         "subCollection": {
+         },
+         "winOdd": 81
+      },
+      "-Kj2zfpFzqykBwiz5dcN": {
+         "code": "dk",
+         "group": "B",
+         "name": "Danemark",
+         "subCollection": {
+         },
+         "winOdd": 401
+      },
+      "-Kj2zfpGJmSTghyT06un": {
+         "code": "fi",
+         "group": "B",
+         "name": "Finlande",
+         "subCollection": {
+         },
+         "winOdd": 1001
+      },
+      "-Kj2zfpGJmSTghyT06uo": {
+         "code": "ru",
+         "group": "B",
+         "name": "Russie",
+         "subCollection": {
+         },
+         "winOdd": 17
+      },
+      "-Kj2zfpHPqNpMy7ZgxmM": {
+         "code": "be",
+         "group": "B",
+         "name": "Belgique",
+         "subCollection": {
+         },
+         "winOdd": 7
+      },
+      "-Kj2zfpIxWevwDITiL0V": {
+         "code": "ua",
+         "group": "C",
+         "name": "Ukraine",
+         "subCollection": {
+         },
+         "winOdd": 5.5
+      },
+      "-Kj2zfpJov1GY9sA2IgE": {
+         "code": "nl",
+         "group": "C",
+         "name": "Pays-Bas",
+         "subCollection": {
+         },
+         "winOdd": 501
+      },
+      "-Kj2zfpJov1GY9sA2IgF": {
+         "code": "at",
+         "group": "C",
+         "name": "Autriche",
+         "subCollection": {
+         },
+         "winOdd": 46
+      },
+      "-Kj2zfpKYdjdHhPukkXr": {
+         "code": "mk",
+         "group": "C",
+         "name": "Macédoine du N.",
+         "subCollection": {
+         },
+         "winOdd": 151
+      },
+      "-Kj2zfpKYdjdHhPukkXs": {
+         "code": "gb-eng",
+         "group": "D",
+         "name": "Angleterre",
+         "subCollection": {
+         },
+         "winOdd": 125
+      },
+      "-Kj2zfpKYdjdHhPukkXt": {
+         "code": "hr",
+         "group": "D",
+         "name": "Croatie",
+         "subCollection": {
+         },
+         "winOdd": 151
+      },
+      "-Kj2zfpKYdjdHhPukkXu": {
+         "code": "gb-sct",
+         "group": "D",
+         "name": "Écosse",
+         "subCollection": {
+         },
+         "winOdd": 7
+      },
+      "-Kj2zfpLjC03AaK-W8Lo": {
+         "code": "cz",
+         "group": "D",
+         "name": "R. tchèque",
+         "subCollection": {
+         },
+         "winOdd": 201
+      },
+      "-Kj2zfpM7z9dtuBQZC4c": {
+         "code": "se",
+         "group": "E",
+         "name": "Suède",
+         "subCollection": {
+         },
+         "winOdd": 201
+      },
+      "-Kj2zfpN8l22eNCLSzLj": {
+         "code": "pl",
+         "group": "E",
+         "name": "Pologne",
+         "subCollection": {
+         },
+         "winOdd": 501
+      },
+      "-Kj2zfpN8l22eNCLSzLk": {
+         "code": "es",
+         "group": "E",
+         "name": "Espagne",
+         "subCollection": {
+         },
+         "winOdd": 12
+      },
+      "-Kj2zfpN8l22eNCLSzLl": {
+         "code": "sk",
+         "group": "E",
+         "name": "Slovaquie",
+         "subCollection": {
+         },
+         "winOdd": 301
+      },
+      "-Kj2zfpO3MwCoLIdNuNf": {
+         "code": "de",
+         "group": "F",
+         "name": "Allemagne",
+         "subCollection": {
+         },
+         "winOdd": 301
+      },
+      "-Kj2zfpO3MwCoLIdNuNg": {
+         "code": "fr",
+         "group": "F",
+         "name": "France",
+         "subCollection": {
+         },
+         "winOdd": 31
+      },
+      "-Kj2zfpPgzwXCT7Bnm1y": {
+         "code": "pt",
+         "group": "F",
+         "name": "Portugal",
+         "subCollection": {
+         },
+         "winOdd": 23
+      },
+      "-Kj2zfpRCBdqgDxcBLBQ": {
+         "code": "hu",
+         "group": "F",
+         "name": "Hongrie",
+         "subCollection": {
+         },
+         "winOdd": 201
+      }
+   }
 }
