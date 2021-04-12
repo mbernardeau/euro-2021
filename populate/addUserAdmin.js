@@ -1,5 +1,6 @@
+const { serviceAccount } = require('./chooseDatabase.js')
+
 const admin = require('firebase-admin')
-const serviceAccount = require('./euro2021-3d006-firebase-adminsdk-swizj.json')
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 })

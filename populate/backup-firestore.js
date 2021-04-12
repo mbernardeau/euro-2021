@@ -1,5 +1,6 @@
+const { serviceAccount, directoryDatabase } = require('./chooseDatabase.js')
+
 const fs = require('fs')
-const serviceAccount = require('./euro2021-3d006-firebase-adminsdk-swizj.json')
 const { backup, initializeApp } = require('firestore-export-import')
 
 initializeApp(serviceAccount)
@@ -8,7 +9,7 @@ const exportCollection = (collectionName) => {
   backup(collectionName).then((data) => {
     const jsonData = JSON.stringify(data, null, 2)
     fs.writeFile(
-      `./firestore-data/${collectionName}.json`,
+      `./firestore-data/${directoryDatabase}/${collectionName}.json`,
       jsonData,
       'utf8',
       (err) => {

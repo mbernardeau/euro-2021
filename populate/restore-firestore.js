@@ -1,4 +1,5 @@
-const serviceAccount = require('./euro2021-3d006-firebase-adminsdk-swizj.json')
+const { serviceAccount, directoryDatabase } = require('./chooseDatabase.js')
+
 const { restore, initializeApp } = require('firestore-export-import')
 
 initializeApp(serviceAccount)
@@ -8,9 +9,10 @@ const options = {
 }
 
 const importCollection = (collectionName) => {
-  restore(`./firestore-data/${collectionName}.json`, options).then(() =>
-    console.log(`Collection ${collectionName} was imported`),
-  )
+  restore(
+    `./firestore-data/${directoryDatabase}/${collectionName}.json`,
+    options,
+  ).then(() => console.log(`Collection ${collectionName} was imported`))
 }
 
 importCollection('matches')
