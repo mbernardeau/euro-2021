@@ -1,30 +1,32 @@
+/*
+ * Check if the sum of points won equals to the points people have in ranking
+ */
+const { serviceAccount } = require('./chooseDatabase.js')
+
 const admin = require('firebase-admin')
-
-const serviceAccount = require('./road-to-russia-540bf-firebase-adminsdk-hip91-465a317cbd.json')
-
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://road-to-russia-540bf.firebaseio.com',
 })
 
 const db = admin.firestore()
 
-const round = (value, decimals) => Number(`${Math.round(`${value}e${decimals}`)}${`e-${decimals}`}`)
+const round = (value, decimals) =>
+  Number(`${Math.round(`${value}e${decimals}`)}${`e-${decimals}`}`)
 
-db.collection('users')
+db.collection('opponents')
   .get()
-  .then(querySnapshot => {
-    querySnapshot.forEach(doc => {
-      const { score, displayName } = doc.data()
-      const { id } = doc
+  .then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const { uid, score, displayName } = doc.data()
+      // console.log(uid, score, displayName)
 
       return db
         .collection('bets')
-        .where('userId', '==', id)
+        .where('uid', '==', uid)
         .get()
-        .then(betSnap => {
+        .then((betSnap) => {
           let betScore = 0
-          betSnap.forEach(betDoc => {
+          betSnap.forEach((betDoc) => {
             const { pointsWon } = betDoc.data()
             if (!isNaN(pointsWon)) betScore += round(pointsWon, 2) // eslint-disable-line no-restricted-globals
           })
