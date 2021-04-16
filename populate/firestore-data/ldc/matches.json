@@ -234,6 +234,10 @@
             "Pautre": 200
          },
          "phase": "0",
+         "scores": {
+            "A": 0,
+            "B": 0
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD3",
          "streaming": "RMC Sport",
          "subCollection": {
@@ -279,6 +283,10 @@
             "Pautre": 200
          },
          "phase": "0",
+         "scores": {
+            "A": 1,
+            "B": 2
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD1",
          "streaming": "RMC Sport",
          "subCollection": {
@@ -324,6 +332,10 @@
             "Pautre": 200
          },
          "phase": "0",
+         "scores": {
+            "A": 0,
+            "B": 1
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD2",
          "streaming": "BeRMC SportIN",
          "subCollection": {
@@ -369,6 +381,10 @@
             "Pautre": 200
          },
          "phase": "0",
+         "scores": {
+            "A": 0,
+            "B": 1
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD0",
          "streaming": "RMC Sport",
          "subCollection": {
