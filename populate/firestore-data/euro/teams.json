@@ -1,196 +1,196 @@
 {
-   "teams": {
-      "-Kj2zfp9V5wdpN59exkD": {
-         "code": "it",
-         "group": "A",
-         "name": "Italie",
-         "subCollection": {
-         },
-         "winOdd": 41
-      },
-      "-Kj2zfpEdmB6SgyPd85W": {
-         "code": "gb-wls",
-         "group": "A",
-         "name": "Pays de Galles",
-         "subCollection": {
-         },
-         "winOdd": 1001
-      },
-      "-Kj2zfpFzqykBwiz5dcL": {
-         "code": "tr",
-         "group": "A",
-         "name": "Turquie",
-         "subCollection": {
-         },
-         "winOdd": 151
-      },
-      "-Kj2zfpFzqykBwiz5dcM": {
-         "code": "ch",
-         "group": "A",
-         "name": "Suisse",
-         "subCollection": {
-         },
-         "winOdd": 81
-      },
-      "-Kj2zfpFzqykBwiz5dcN": {
-         "code": "dk",
-         "group": "B",
-         "name": "Danemark",
-         "subCollection": {
-         },
-         "winOdd": 401
-      },
-      "-Kj2zfpGJmSTghyT06un": {
-         "code": "fi",
-         "group": "B",
-         "name": "Finlande",
-         "subCollection": {
-         },
-         "winOdd": 1001
-      },
-      "-Kj2zfpGJmSTghyT06uo": {
-         "code": "ru",
-         "group": "B",
-         "name": "Russie",
-         "subCollection": {
-         },
-         "winOdd": 17
-      },
-      "-Kj2zfpHPqNpMy7ZgxmM": {
-         "code": "be",
-         "group": "B",
-         "name": "Belgique",
-         "subCollection": {
-         },
-         "winOdd": 7
-      },
-      "-Kj2zfpIxWevwDITiL0V": {
-         "code": "ua",
-         "group": "C",
-         "name": "Ukraine",
-         "subCollection": {
-         },
-         "winOdd": 5.5
-      },
-      "-Kj2zfpJov1GY9sA2IgE": {
-         "code": "nl",
-         "group": "C",
-         "name": "Pays-Bas",
-         "subCollection": {
-         },
-         "winOdd": 501
-      },
-      "-Kj2zfpJov1GY9sA2IgF": {
-         "code": "at",
-         "group": "C",
-         "name": "Autriche",
-         "subCollection": {
-         },
-         "winOdd": 46
-      },
-      "-Kj2zfpKYdjdHhPukkXr": {
-         "code": "mk",
-         "group": "C",
-         "name": "Macédoine du N.",
-         "subCollection": {
-         },
-         "winOdd": 151
-      },
-      "-Kj2zfpKYdjdHhPukkXs": {
-         "code": "gb-eng",
-         "group": "D",
-         "name": "Angleterre",
-         "subCollection": {
-         },
-         "winOdd": 125
-      },
-      "-Kj2zfpKYdjdHhPukkXt": {
-         "code": "hr",
-         "group": "D",
-         "name": "Croatie",
-         "subCollection": {
-         },
-         "winOdd": 151
-      },
-      "-Kj2zfpKYdjdHhPukkXu": {
-         "code": "gb-sct",
-         "group": "D",
-         "name": "Écosse",
-         "subCollection": {
-         },
-         "winOdd": 7
-      },
-      "-Kj2zfpLjC03AaK-W8Lo": {
-         "code": "cz",
-         "group": "D",
-         "name": "R. tchèque",
-         "subCollection": {
-         },
-         "winOdd": 201
-      },
-      "-Kj2zfpM7z9dtuBQZC4c": {
-         "code": "se",
-         "group": "E",
-         "name": "Suède",
-         "subCollection": {
-         },
-         "winOdd": 201
-      },
-      "-Kj2zfpN8l22eNCLSzLj": {
-         "code": "pl",
-         "group": "E",
-         "name": "Pologne",
-         "subCollection": {
-         },
-         "winOdd": 501
-      },
-      "-Kj2zfpN8l22eNCLSzLk": {
-         "code": "es",
-         "group": "E",
-         "name": "Espagne",
-         "subCollection": {
-         },
-         "winOdd": 12
-      },
-      "-Kj2zfpN8l22eNCLSzLl": {
-         "code": "sk",
-         "group": "E",
-         "name": "Slovaquie",
-         "subCollection": {
-         },
-         "winOdd": 301
-      },
-      "-Kj2zfpO3MwCoLIdNuNf": {
-         "code": "de",
-         "group": "F",
-         "name": "Allemagne",
-         "subCollection": {
-         },
-         "winOdd": 301
-      },
-      "-Kj2zfpO3MwCoLIdNuNg": {
-         "code": "fr",
-         "group": "F",
-         "name": "France",
-         "subCollection": {
-         },
-         "winOdd": 31
-      },
-      "-Kj2zfpPgzwXCT7Bnm1y": {
-         "code": "pt",
-         "group": "F",
-         "name": "Portugal",
-         "subCollection": {
-         },
-         "winOdd": 23
-      },
-      "-Kj2zfpRCBdqgDxcBLBQ": {
-         "code": "hu",
-         "group": "F",
-         "name": "Hongrie",
-         "subCollection": {
-         },
-         "winOdd": 201
-      }
-   }
+  "teams": {
+    "-Kj2zfp9V5wdpN59exkD": {
+      "code": "it",
+      "elimination": false,
+      "group": "A",
+      "name": "Italie",
+      "subCollection": {},
+      "winOdd": 41
+    },
+    "-Kj2zfpEdmB6SgyPd85W": {
+      "code": "gb-wls",
+      "elimination": false,
+      "group": "A",
+      "name": "Pays de Galles",
+      "subCollection": {},
+      "winOdd": 1001
+    },
+    "-Kj2zfpFzqykBwiz5dcL": {
+      "code": "tr",
+      "elimination": false,
+      "group": "A",
+      "name": "Turquie",
+      "subCollection": {},
+      "winOdd": 151
+    },
+    "-Kj2zfpFzqykBwiz5dcM": {
+      "code": "ch",
+      "elimination": false,
+      "group": "A",
+      "name": "Suisse",
+      "subCollection": {},
+      "winOdd": 81
+    },
+    "-Kj2zfpFzqykBwiz5dcN": {
+      "code": "dk",
+      "elimination": false,
+      "group": "B",
+      "name": "Danemark",
+      "subCollection": {},
+      "winOdd": 401
+    },
+    "-Kj2zfpGJmSTghyT06un": {
+      "code": "fi",
+      "elimination": false,
+      "group": "B",
+      "name": "Finlande",
+      "subCollection": {},
+      "winOdd": 1001
+    },
+    "-Kj2zfpGJmSTghyT06uo": {
+      "code": "ru",
+      "elimination": false,
+      "group": "B",
+      "name": "Russie",
+      "subCollection": {},
+      "winOdd": 17
+    },
+    "-Kj2zfpHPqNpMy7ZgxmM": {
+      "code": "be",
+      "elimination": false,
+      "group": "B",
+      "name": "Belgique",
+      "subCollection": {},
+      "winOdd": 7
+    },
+    "-Kj2zfpIxWevwDITiL0V": {
+      "code": "ua",
+      "elimination": false,
+      "group": "C",
+      "name": "Ukraine",
+      "subCollection": {},
+      "winOdd": 5.5
+    },
+    "-Kj2zfpJov1GY9sA2IgE": {
+      "code": "nl",
+      "elimination": false,
+      "group": "C",
+      "name": "Pays-Bas",
+      "subCollection": {},
+      "winOdd": 501
+    },
+    "-Kj2zfpJov1GY9sA2IgF": {
+      "code": "at",
+      "elimination": false,
+      "group": "C",
+      "name": "Autriche",
+      "subCollection": {},
+      "winOdd": 46
+    },
+    "-Kj2zfpKYdjdHhPukkXr": {
+      "code": "mk",
+      "elimination": false,
+      "group": "C",
+      "name": "Macédoine du N.",
+      "subCollection": {},
+      "winOdd": 151
+    },
+    "-Kj2zfpKYdjdHhPukkXs": {
+      "code": "gb-eng",
+      "elimination": false,
+      "group": "D",
+      "name": "Angleterre",
+      "subCollection": {},
+      "winOdd": 125
+    },
+    "-Kj2zfpKYdjdHhPukkXt": {
+      "code": "hr",
+      "elimination": false,
+      "group": "D",
+      "name": "Croatie",
+      "subCollection": {},
+      "winOdd": 151
+    },
+    "-Kj2zfpKYdjdHhPukkXu": {
+      "code": "gb-sct",
+      "elimination": false,
+      "group": "D",
+      "name": "Écosse",
+      "subCollection": {},
+      "winOdd": 7
+    },
+    "-Kj2zfpLjC03AaK-W8Lo": {
+      "code": "cz",
+      "elimination": false,
+      "group": "D",
+      "name": "R. tchèque",
+      "subCollection": {},
+      "winOdd": 201
+    },
+    "-Kj2zfpM7z9dtuBQZC4c": {
+      "code": "se",
+      "elimination": false,
+      "group": "E",
+      "name": "Suède",
+      "subCollection": {},
+      "winOdd": 201
+    },
+    "-Kj2zfpN8l22eNCLSzLj": {
+      "code": "pl",
+      "elimination": false,
+      "group": "E",
+      "name": "Pologne",
+      "subCollection": {},
+      "winOdd": 501
+    },
+    "-Kj2zfpN8l22eNCLSzLk": {
+      "code": "es",
+      "elimination": false,
+      "group": "E",
+      "name": "Espagne",
+      "subCollection": {},
+      "winOdd": 12
+    },
+    "-Kj2zfpN8l22eNCLSzLl": {
+      "code": "sk",
+      "elimination": false,
+      "group": "E",
+      "name": "Slovaquie",
+      "subCollection": {},
+      "winOdd": 301
+    },
+    "-Kj2zfpO3MwCoLIdNuNf": {
+      "code": "de",
+      "elimination": false,
+      "group": "F",
+      "name": "Allemagne",
+      "subCollection": {},
+      "winOdd": 301
+    },
+    "-Kj2zfpO3MwCoLIdNuNg": {
+      "code": "fr",
+      "elimination": false,
+      "group": "F",
+      "name": "France",
+      "subCollection": {},
+      "winOdd": 31
+    },
+    "-Kj2zfpPgzwXCT7Bnm1y": {
+      "code": "pt",
+      "elimination": false,
+      "group": "F",
+      "name": "Portugal",
+      "subCollection": {},
+      "winOdd": 23
+    },
+    "-Kj2zfpRCBdqgDxcBLBQ": {
+      "code": "hu",
+      "elimination": false,
+      "group": "F",
+      "name": "Hongrie",
+      "subCollection": {},
+      "winOdd": 201
+    }
+  }
 }

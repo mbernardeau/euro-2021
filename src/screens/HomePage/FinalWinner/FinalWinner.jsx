@@ -2,12 +2,17 @@ import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
 import Typography from '@material-ui/core/Typography'
 import React, { Suspense } from 'react'
-import { useSelectedWinner } from '../../../hooks'
+import { useSelectedWinner, useCompetitionStartDate } from '../../../hooks'
 import './FinalWinner.scss'
 import FinalWinnerChoice from './FinalWinnerChoice'
+import isPast from 'date-fns/isPast'
 
 const FinalWinner = () => {
   const [team, saveWinner] = useSelectedWinner()
+
+  const CompetitionStartDate = new Date(
+    useCompetitionStartDate().startDate.seconds * 1000,
+  )
 
   const handleChange = (e) => {
     saveWinner(e.target.value)
@@ -21,14 +26,22 @@ const FinalWinner = () => {
         variant="h1"
         component="h2"
       >
-        Choix du vainqueur final
+        {isPast(CompetitionStartDate)
+          ? 'Votre vainqueur final'
+          : 'Choix du vainqueur final'}
       </Typography>
       <Typography className="winner-typo" color="textSecondary">
-        Quel pays gagnera la coupe du monde ?
+        {isPast(CompetitionStartDate)
+          ? 'Vous avez parié pour :'
+          : 'Quel pays gagnera la coupe du monde ?'}
       </Typography>
       <CardContent>
         <Suspense fallback={<></>}>
-          <FinalWinnerChoice userTeam={team} onValueChange={handleChange} />
+          <FinalWinnerChoice
+            userTeam={team}
+            disabled={isPast(CompetitionStartDate)}
+            onValueChange={handleChange}
+          />
         </Suspense>
       </CardContent>
     </Card>

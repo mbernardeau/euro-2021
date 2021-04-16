@@ -49,8 +49,7 @@ const GroupRanking = ({ name, members }) => {
                     <InlineAvatar {...user} />
                   </TableCell>
                   <TableCell padding="none">
-                    {(user.score || 0).toLocaleString()} point
-                    {user.score > 1 && 's'}
+                    {(user.score || 0).toLocaleString()} points
                   </TableCell>
                 </TableRow>
               )
