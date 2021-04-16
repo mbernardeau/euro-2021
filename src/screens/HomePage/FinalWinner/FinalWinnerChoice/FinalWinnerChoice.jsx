@@ -2,20 +2,16 @@ import MenuItem from '@material-ui/core/MenuItem'
 import Select from '@material-ui/core/Select'
 import Tooltip from '@material-ui/core/Tooltip'
 import Typography from '@material-ui/core/Typography'
-import isPast from 'date-fns/isPast'
 import find from 'lodash/find'
 import map from 'lodash/map'
 import PropTypes from 'prop-types'
 import React from 'react'
 import Flag from '../../../../components/Flag'
-import { useTeams, useCompetitionStartDate } from '../../../../hooks'
+import { useTeams } from '../../../../hooks'
 import './FinalWinnerChoice.scss'
 
-const FinalWinnerChoice = ({ userTeam, onValueChange }) => {
+const FinalWinnerChoice = ({ userTeam, disabled, onValueChange }) => {
   const teams = useTeams()
-  const CompetitionStartDate = new Date(
-    useCompetitionStartDate().startDate.seconds * 1000,
-  )
 
   return (
     <div className="winner-choice">
@@ -28,7 +24,7 @@ const FinalWinnerChoice = ({ userTeam, onValueChange }) => {
           inputProps={{
             name: 'userTeam',
           }}
-          disabled={isPast(CompetitionStartDate)}
+          disabled={disabled}
         >
           {map(teams, (team) => (
             <MenuItem key={team.id} value={team.id}>
