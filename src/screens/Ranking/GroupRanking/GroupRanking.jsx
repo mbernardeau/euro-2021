@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useAuth } from 'reactfire'
 import InlineAvatar from '../../../components/Avatar'
-import { useOpponents } from '../../../hooks'
+import { useOpponents, useTeams } from '../../../hooks'
 import './GroupRanking.scss'
 import OwnRank from './OwnRank'
 import Flag from '../../../components/Flag'
@@ -27,7 +27,9 @@ const GroupRanking = ({ name, members }) => {
     [opponents],
   )
 
-  const imgUrl = memoize(() => require(`../../../assets/icons/mask2.png`))
+  const teams = useTeams()
+
+  const imgUrl = memoize(() => require(`../../../assets/icons/mask6.png`))
 
   return (
     <Card className="group-ranking-card">
@@ -40,6 +42,8 @@ const GroupRanking = ({ name, members }) => {
           <TableBody>
             {sortedOpponents.map((userSnapshot, index) => {
               const user = userSnapshot.data()
+
+              const team = teams.find((a) => a.id === user.winnerTeam).data()
 
               return (
                 <TableRow
@@ -56,12 +60,15 @@ const GroupRanking = ({ name, members }) => {
                     {(user.score || 0).toLocaleString()} points
                   </TableCell>
                   <TableCell padding="default">
-                    {/* <Flag country="rm" className="bet-winner-beaten" /> */}
-                    <img
-                      src={imgUrl().default}
-                      className="bet-winner-unknown"
-                      alt="rer"
-                    ></img>
+                    {team.elimination ? (
+                      <Flag country={team.code} className="bet-winner-beaten" />
+                    ) : (
+                      <img
+                        src={imgUrl().default}
+                        className="bet-winner-unknown"
+                        alt="unknown team"
+                      ></img>
+                    )}
                   </TableCell>
                 </TableRow>
               )
