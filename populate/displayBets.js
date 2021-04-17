@@ -13,7 +13,7 @@ const db = admin.firestore()
 const displayBets = async () => {
   const querySnapshot = await db.collection('bets').get()
 
-  return Promise.all(
+  const table = await Promise.all(
     querySnapshot.docs.map(async (doc) => {
       const { uid, matchId, pointsWon } = doc.data()
 
@@ -30,9 +30,16 @@ const displayBets = async () => {
         await db.collection('opponents').doc(uid).get()
       ).data()
 
-      console.log(userName.padEnd(20), nameTeamA, nameTeamB, pointsWon)
+      return {
+        userName,
+        nameTeamA,
+        nameTeamB,
+        pointsWon,
+      }
     }),
   )
+
+  console.table(table)
 }
 
 displayBets().then(() => process.exit(0))
