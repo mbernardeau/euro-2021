@@ -13,6 +13,8 @@ import InlineAvatar from '../../../components/Avatar'
 import { useOpponents } from '../../../hooks'
 import './GroupRanking.scss'
 import OwnRank from './OwnRank'
+import Flag from '../../../components/Flag'
+import memoize from 'lodash/memoize'
 
 const GroupRanking = ({ name, members }) => {
   const { uid } = useAuth().currentUser
@@ -24,6 +26,8 @@ const GroupRanking = ({ name, members }) => {
       ]),
     [opponents],
   )
+
+  const imgUrl = memoize(() => require(`../../../assets/icons/mask2.png`))
 
   return (
     <Card className="group-ranking-card">
@@ -50,6 +54,14 @@ const GroupRanking = ({ name, members }) => {
                   </TableCell>
                   <TableCell padding="none">
                     {(user.score || 0).toLocaleString()} points
+                  </TableCell>
+                  <TableCell padding="default">
+                    {/* <Flag country="rm" className="bet-winner-beaten" /> */}
+                    <img
+                      src={imgUrl().default}
+                      className="bet-winner-unknown"
+                      alt="rer"
+                    ></img>
                   </TableCell>
                 </TableRow>
               )
