@@ -55,19 +55,23 @@ describe('Firebase rules/opponents', () => {
     )
   })
 
-  it('should reject writing on opponent data and other opponent data', async () => {
+  it('should reject writing on opponent data and other opponent data if unauthenticated', async () => {
     await assertFails(
-      app
+      appUnauthenticated
         .firestore()
         .collection('opponents')
         .doc(TEST_UID)
         .update({ score: 1000 }),
     )
     await assertFails(
-      app.firestore().collection('opponents').doc(TEST_UID).delete(),
+      appUnauthenticated
+        .firestore()
+        .collection('opponents')
+        .doc(TEST_UID)
+        .delete(),
     )
     await assertFails(
-      app
+      appUnauthenticated
         .firestore()
         .collection('opponents')
         .doc(OTHER_UID)
