@@ -15,9 +15,9 @@ const displayBets = async () => {
 
   const table = await Promise.all(
     querySnapshot.docs.map(async (doc) => {
-      const { uid, matchId, pointsWon } = doc.data()
+      const { uid, matchId, betTeamA, betTeamB, pointsWon } = doc.data()
 
-      const { teamA, teamB } = (
+      const { teamA, teamB, scores } = (
         await db.collection('matches').doc(matchId).get()
       ).data()
       const { name: nameTeamA } = (
@@ -30,10 +30,15 @@ const displayBets = async () => {
         await db.collection('opponents').doc(uid).get()
       ).data()
 
+      const score = betTeamA + ' - ' + betTeamB
+      const scoreReel = scores.A + ' - ' + scores.B
+
       return {
         userName,
         nameTeamA,
+        score,
         nameTeamB,
+        scoreReel,
         pointsWon,
       }
     }),
