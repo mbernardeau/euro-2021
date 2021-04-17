@@ -11,38 +11,53 @@ admin.initializeApp({
 const db = admin.firestore()
 
 const displayForgottenBets = async () => {
-  const querySnapshot = await db.collection('matches').doc(matchId).get()
+  const querySnapshot = await db.collection('matches').get()
 
   const table = await Promise.all(
     querySnapshot.docs.map(async (doc) => {
+      const querySnapshotUser = await db.collection('opponents').get()
       const { teamA, teamB } = doc.data()
-
-      const { teamA, teamB } = (await db.collection('bets').get()).data()
-
-      const { teamA, teamB } = doc.data()
+      const matchId = doc.id
 
       const { name: nameTeamA } = (
         await db.collection('teams').doc(teamA).get()
       ).data()
+
       const { name: nameTeamB } = (
         await db.collection('teams').doc(teamB).get()
       ).data()
-      const { displayName: userName } = (
-        await db.collection('opponents').doc(uid).get()
-      ).data()
 
-      return {
-        userName,
-        nameTeamA,
-        score,
-        nameTeamB,
-        scoreReel,
-        pointsWon,
-      }
+      return await Promise.all(
+        querySnapshotUser.docs.map(async (doc) => {
+          const { displayName, uid } = doc.data()
+
+          const exist = true
+
+          // await db
+          //   .collection('bets')
+          //   .where('matchId', '==', matchId)
+          //   .where('uid', '==', uid)
+          //   .get()
+
+          return {
+            exist,
+            displayName,
+            nameTeamA,
+            nameTeamB,
+            matchId,
+          }
+        }),
+      )
+
+      // if (!exist) {
+      // return {
+      //   betTable,
+      // }
+      // }
     }),
   )
 
   console.table(table)
 }
 
-displayBets().then(() => process.exit(0))
+displayForgottenBets().then(() => process.exit(0))
