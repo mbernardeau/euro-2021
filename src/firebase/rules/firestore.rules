@@ -40,8 +40,7 @@ service cloud.firestore {
     // It should contain only data useful for display in rankings to avoid leak of potentially sensitive information)
     match /opponents/{userId} {
       allow read: if isAuthenticated();
-      allow write: if isAuthenticated() &&
-        request.auth.uid == request.resource.data.uid;
+      allow write: if false;
     }
 
     // Bets can only be read by creator and can only be modified if userId is correctly filled
