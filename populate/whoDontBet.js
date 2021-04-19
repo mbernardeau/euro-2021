@@ -11,11 +11,11 @@ admin.initializeApp({
 const db = admin.firestore()
 
 const displayForgottenBets = async () => {
-  const querySnapshot = await db.collection('matches').get()
+  const querySnapshotMatch = await db.collection('matches').get()
   const querySnapshotUser = await db.collection('opponents').get()
 
   const table = await Promise.all(
-    querySnapshot.docs.map(async (doc) => {
+    querySnapshotMatch.docs.map(async (doc) => {
       const { teamA, teamB } = doc.data()
       const matchId = doc.id
 
@@ -45,12 +45,12 @@ const displayForgottenBets = async () => {
     }),
   )
 
-  console.table(flatten(table))
+  console.table(flatten(table).filter((a) => !a.exist))
 }
 
 /**
  * Prédicat *asynchrone* pour vérifier si un pari existe.
- * Note: Ici on ne vérifie que l'existance du document, pas sa validité.
+ * Note: Ici on ne vérifie que l'existence du document, pas sa validité.
  *
  * @param uid Identifiant de l'utilisateur
  * @param matchId Identifiant du match
