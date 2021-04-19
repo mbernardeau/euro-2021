@@ -62,7 +62,7 @@ const GroupRanking = ({ name, members }) => {
                       <Flag country={team.code} className="bet-winner-beaten" />
                     ) : (
                       <img
-                        src={imgUrl().default}
+                        src={imgUrl}
                         className="bet-winner-unknown"
                         alt="Équipe non éliminée"
                       />

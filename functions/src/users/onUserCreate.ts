@@ -23,6 +23,5 @@ export const onUserCreate = functions
         avatarUrl:
           userProfile.profile?.picture?.data?.url ?? userProfile.avatarUrl,
         displayName: userProfile.displayName,
-        winnerTeam: userProfile.displayName,
       })
   })

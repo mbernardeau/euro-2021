@@ -4,6 +4,7 @@ export interface UserProfile {
   uid: string
   avatarUrl?: string
   displayName: string
+  winnerTeam: string
   profile?: {
     // Photo de profil (uniquement pour facebook)
     picture: {

@@ -23,7 +23,7 @@ export const onUserUpdate = functions
           avatarUrl:
             userProfile.profile?.picture?.data?.url ?? userProfile.avatarUrl,
           displayName: userProfile.displayName,
-          winnerTeam: userProfile.displayName,
+          winnerTeam: userProfile.winnerTeam,
         },
         {
           merge: true,
