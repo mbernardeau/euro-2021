@@ -15,10 +15,9 @@ const Subscription = () => (
     </p>
     <Typography variant="body1">Droits d’inscription</Typography>
     <p>
-      Le prix est fixé pour chaque TRIBU déclarée. Il faut s&apos;affranchir du
-      droit d’inscription pour activer son compte sur le site. 50 % du prix est
-      reversé à l’association à but humanitaire PAM, et les 50 % restants pour
-      la TRIBU choisie.
+      Il faut s'affranchir du droit d’inscription pour activer son compte sur le site. 
+      Chaque tribu va décider du pourcentage à reverser à l’association à but humanitaire PAM, 
+      et qui ne peut-être qu’entre 20% et 80% du prix.
     </p>
     <Typography variant="body1">Date de validation des pronostics</Typography>
     <p>
@@ -29,7 +28,7 @@ const Subscription = () => (
       &nbsp;En ce qui concerne les pronostics sur le vainqueur de la
       compétition, ceux-ci doivent être réalisés avant le premier match de la
       compétition,
-      <b> le jeudi 14 Juin 2018 à 18h.</b>
+      <b> le jeudi 11 Juin 2021 à 18h.</b>
       <br />
       <br />
       <b>

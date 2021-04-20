@@ -15,7 +15,7 @@ const Bonus = () => (
     </p>
     <p>
       Ainsi les points sont attribués comme suit : cote du pays vainqueur de la
-      coupe du monde * 3 points
+      coupe du monde * 40 points
     </p>
   </Section>
 )
