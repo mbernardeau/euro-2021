@@ -15,9 +15,9 @@ const Subscription = () => (
     </p>
     <Typography variant="body1">Droits d’inscription</Typography>
     <p>
-      Il faut s'affranchir du droit d’inscription pour activer son compte sur le site. 
-      Chaque tribu va décider du pourcentage à reverser à l’association à but humanitaire PAM, 
-      et qui ne peut-être qu’entre 20% et 80% du prix.
+      Il faut s'affranchir du droit d’inscription pour activer son compte sur le
+      site. Chaque tribu va décider du pourcentage à reverser à l’association à
+      but humanitaire PAM, et qui ne peut-être qu’entre 20% et 80% du prix.
     </p>
     <Typography variant="body1">Date de validation des pronostics</Typography>
     <p>
