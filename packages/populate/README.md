@@ -15,4 +15,3 @@ To be able to connect to the database with admin rights, you need to get the fir
 Go to `Settings/Project/Service account/Firebase admin SDK` in Firebase console. Then click on `Generate new private key`.
 
 Then put the correct link to the generated file in `populate.js`, at the serviceAccount import.
-

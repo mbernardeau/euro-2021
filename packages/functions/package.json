@@ -1,7 +1,6 @@
 {
-  "name": "roadtorussia-functions",
+  "name": "@euro-2021/functions",
   "description": "Road to Russia 2018 - Cloud Functions for Firebase",
-  "version": "0.1.0",
   "main": "build/index.js",
   "dependencies": {
     "firebase-admin": "^9.6.0",

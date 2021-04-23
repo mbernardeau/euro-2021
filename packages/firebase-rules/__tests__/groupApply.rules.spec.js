@@ -4,7 +4,7 @@ import {
   ruleTestingCleanup,
   setupTestData,
   TEST_UID,
-} from './testUtils'
+} from '../testUtils'
 
 const GROUP_ID = 'GROUP_ID'
 const USER2_ID = 'USER2_ID'
