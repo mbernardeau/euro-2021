@@ -1,6 +1,5 @@
 {
   "name": "@euro-2021/front",
-  "version": "0.1.0",
   "private": true,
   "engines": {
     "node": "14",
@@ -29,8 +28,8 @@
     "start": "npm run bootstrap && cd packages/front && npm start",
     "start:ldc": "npm run bootstrap && cd packages/front && npm run start:ldc",
     "lint": "eslint \"packages/*/src/**/*.{js,jsx}\"",
-    "prettier:check": "prettier --check \"packages/**/*.{js,jsx,ts,md}\"",
-    "prettier:write": "prettier --write \"packages/**/*.{js,jsx,ts,md}\""
+    "prettier:check": "prettier --check \"packages/**/*.{js,jsx,ts,tsx,md}\"",
+    "prettier:write": "prettier --write \"packages/**/*.{js,jsx,ts,tsx,md}\""
   },
   "eslintConfig": {
     "extends": [
