@@ -3,7 +3,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "firebase emulators:exec --only firestore \"jest --env=node --runInBand\""
+    "test": "firebase emulators:exec --only firestore \"jest --runInBand\""
   },
   "author": "",
   "license": "ISC",
