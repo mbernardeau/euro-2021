@@ -9,8 +9,6 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
-    "@sentry/react": "^6.2.5",
-    "@sentry/tracing": "^6.2.5",
     "date-fns": "^2.21.1",
     "firebase": "8.3.0",
     "node-sass": "^5.0.0",
@@ -27,7 +25,7 @@
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
+    "bootstrap": "lerna bootstrap --hoist",
     "start": "npm run bootstrap && cd packages/front && npm start",
     "start:ldc": "npm run bootstrap && cd packages/front && npm run start:ldc",
     "lint": "eslint \"packages/*/src/**/*.{js,jsx}\"",
