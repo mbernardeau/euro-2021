@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "build",
+    "public": "packages/front/build",
     "rewrites": [
       {
         "source": "**",
@@ -21,7 +21,7 @@
     "cleanUrls": true
   },
   "firestore": {
-    "rules": "src/firebase/rules/firestore.rules",
+    "rules": "packages/firebase-rules/firestore.rules",
     "indexes": "firestore.indexes.json"
   },
   "emulators": {
@@ -45,6 +45,6 @@
     "predeploy": [
       "npm --prefix \"$RESOURCE_DIR\" run build"
     ],
-    "source": "functions"
+    "source": "packages/functions"
   }
 }

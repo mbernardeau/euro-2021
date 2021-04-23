@@ -25,21 +25,19 @@ jobs:
           restore-keys: |
             euro-dependencies-
       - name: Install dependencies
-        run: npm ci
+        run: npm run bootstrap
       - name: Install firebase-tools
         run: npm i firebase-tools@9 -g
       - name: Lint
         run: npm run lint
-      - name: Lint function code
-        run: npm run lint:functions
       - name: Check prettier
         run: npm run prettier:check
       - name: Unit tests
-        run: npm test
+        run: cd packages/front && npm test
       - name: Test Firebase rules
-        run: npm run test:rules
-      - name: Build
-        run: npm run build
+        run: cd packages/firebase-rules && npm run test
+      - name: Build front
+        run: cd packages/front && npm run build
       - name: Publish built assets
         uses: actions/upload-artifact@v2
         if: github.ref == 'refs/heads/master'
@@ -111,9 +109,9 @@ jobs:
           restore-keys: |
             euro-dependencies-
       - name: Install dependencies
-        run: npm ci && cd functions && npm ci
+        run: npm run bootstrap
       - name: Build
-        run: npm run build:ldc
+        run: cd packages/front && npm run build:ldc
       - name: Install firebase-tools
         run: npm i firebase-tools@9 -g
       - name: Set firebase project

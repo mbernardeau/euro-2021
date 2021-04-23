@@ -3,9 +3,9 @@ import {
   createApp,
   createUnauthenticatedApp,
   ruleTestingCleanup,
-} from './testUtils'
+} from '../testUtils'
 
-describe('Firebase rules/matches', () => {
+describe('Firebase rules/teams', () => {
   let app
   let appUnauthenticated
 
@@ -18,33 +18,31 @@ describe('Firebase rules/matches', () => {
 
   it('should accept reading any team once authenticated', async () => {
     await assertSucceeds(
-      app.firestore().collection('matches').doc('test-document').get(),
+      app.firestore().collection('teams').doc('test-document').get(),
     )
-    await assertSucceeds(app.firestore().collection('matches').get())
+    await assertSucceeds(app.firestore().collection('teams').get())
   })
 
   it('should reject team reading if not authenticated', async () => {
     await assertFails(
       appUnauthenticated
         .firestore()
-        .collection('matches')
+        .collection('teams')
         .doc('test-document')
         .get(),
     )
-    await assertFails(
-      appUnauthenticated.firestore().collection('matches').get(),
-    )
+    await assertFails(appUnauthenticated.firestore().collection('teams').get())
   })
 
   it('should reject team writing', async () => {
     await assertFails(
-      app.firestore().collection('matches').doc('test-document').set({}),
+      app.firestore().collection('teams').doc('test-document').set({}),
     )
     await assertFails(
-      app.firestore().collection('matches').doc('test-document').delete(),
+      app.firestore().collection('teams').doc('test-document').delete(),
     )
     await assertFails(
-      app.firestore().collection('matches').doc('test-document').update({}),
+      app.firestore().collection('teams').doc('test-document').update({}),
     )
   })
 })
