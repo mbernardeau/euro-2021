@@ -35,7 +35,7 @@ jobs:
       - name: Unit tests
         run: cd packages/front && npm test
       - name: Test Firebase rules
-        run: cd packages/firebase-riles && npm run test
+        run: cd packages/firebase-rules && npm run test
       - name: Build front
         run: cd packages/front && npm run build
       - name: Publish built assets
