@@ -391,6 +391,96 @@
          },
          "teamA": "-Kj2zfpRCBdqgDxcBLBQ",
          "teamB": "-Kj2zfpPgzwXCT7Bnm1y"
+      },
+      "-Kj2zgJo-v-r6DFBut80": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1619557200
+         },
+         "display": true,
+         "odds": {
+            "P00": 15.8,
+            "P01": 15.7,
+            "P02": 28.4,
+            "P03": 80,
+            "P04": 300,
+            "P05": 400,
+            "P06": 400,
+            "P10": 12.6,
+            "P11": 10.4,
+            "P12": 21.6,
+            "P13": 60,
+            "P14": 220,
+            "P15": 400,
+            "P20": 18.2,
+            "P21": 17.2,
+            "P22": 28.4,
+            "P23": 90,
+            "P24": 350,
+            "P30": 40,
+            "P31": 38,
+            "P32": 70,
+            "P33": 180,
+            "P40": 120,
+            "P41": 110,
+            "P42": 220,
+            "P50": 400,
+            "P51": 400,
+            "P60": 400,
+            "Pautre": 400
+         },
+         "phase": "0",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD0",
+         "streaming": "RMC Sport",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfp9V5wdpN59exkD",
+         "teamB": "-Kj2zfpRCBdqgDxcBLBQ"
+      },
+      "-Kj2zgJo-v-r6DFBut81": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1619643600
+         },
+         "display": true,
+         "odds": {
+            "P00": 33.6,
+            "P01": 19.3,
+            "P02": 22.4,
+            "P03": 39,
+            "P04": 90,
+            "P05": 250,
+            "P06": 400,
+            "P10": 23,
+            "P11": 13.3,
+            "P12": 16.1,
+            "P13": 27.6,
+            "P14": 60,
+            "P15": 180,
+            "P20": 32.4,
+            "P21": 19.3,
+            "P22": 21.6,
+            "P23": 39,
+            "P24": 90,
+            "P30": 70,
+            "P31": 40,
+            "P32": 47,
+            "P33": 80,
+            "P40": 200,
+            "P41": 110,
+            "P42": 130,
+            "P50": 400,
+            "P51": 400,
+            "P60": 400,
+            "Pautre": 400
+         },
+         "phase": "0",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD0",
+         "streaming": "RMC Sport",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpO3MwCoLIdNuNg",
+         "teamB": "-Kj2zfpFzqykBwiz5dcL"
       }
    }
 }
