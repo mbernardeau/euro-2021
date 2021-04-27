@@ -395,7 +395,7 @@
       "-Kj2zgJo-v-r6DFBut80": {
          "dateTime": {
             "_nanoseconds": 0,
-            "_seconds": 1619557200
+            "_seconds": 1619550000
          },
          "display": true,
          "odds": {
@@ -430,6 +430,10 @@
             "Pautre": 400
          },
          "phase": "0",
+         "scores": {
+            "A": 1,
+            "B": 1
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD0",
          "streaming": "RMC Sport",
          "subCollection": {
@@ -440,7 +444,7 @@
       "-Kj2zgJo-v-r6DFBut81": {
          "dateTime": {
             "_nanoseconds": 0,
-            "_seconds": 1619643600
+            "_seconds": 1619636400
          },
          "display": true,
          "odds": {

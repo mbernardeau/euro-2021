@@ -31,7 +31,7 @@ const displayBets = async () => {
       ).data()
 
       const score = betTeamA + ' - ' + betTeamB
-      const scoreReel = scores.A + ' - ' + scores.B
+      const scoreReel = scores ? scores.A + ' - ' + scores.B : 'not played'
 
       return {
         userName,
