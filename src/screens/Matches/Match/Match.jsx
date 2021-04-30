@@ -108,6 +108,8 @@ const Match = ({ matchSnapshot }) => {
               <div className="points-odds-container">
                 {!past && (
                   <Odds
+                    name_teamA={teamA.name}
+                    name_teamB={teamB.name}
                     bet_teamA={currentBet.betTeamA}
                     bet_teamB={currentBet.betTeamB}
                     odds={match.odds}
