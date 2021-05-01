@@ -141,7 +141,7 @@ const App = () => {
           </IconButton>
           <div className="app-toolbar-title">
             <Typography variant="h1" color="inherit">
-              Road to Russia 2018
+              Parions Masqués 2021
             </Typography>
           </div>
           <Suspense fallback={null}>
