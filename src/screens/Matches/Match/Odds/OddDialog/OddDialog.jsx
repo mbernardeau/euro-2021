@@ -28,7 +28,9 @@ const OddDialog = ({ odds, name_teamA, name_teamB }) => {
     return (
       <>
         {Object.keys(odds)
-          .sort()
+          .sort((a, b) => {
+            return odds[a] - odds[b]
+          })
           .map((key) => (
             <Paper className="paper-odd-container">
               <div className="odd-string">{key[1] + '-' + key[2]}</div>
@@ -78,15 +80,15 @@ const OddDialog = ({ odds, name_teamA, name_teamB }) => {
           <div className="columns-container">
             <div className="columns-box">
               <div className="column-container">
-                <p>{name_teamA}</p>
+                <Typography variant="h3">{name_teamA}</Typography>
                 <FormOddColumn odds={OddA}></FormOddColumn>
               </div>
               <div className="column-container">
-                <p>Match nul</p>
+                <Typography variant="h3">Match nul</Typography>
                 <FormOddColumn odds={OddDraw}></FormOddColumn>
               </div>
               <div className="column-container">
-                <p>{name_teamB}</p>
+                <Typography variant="h3">{name_teamB}</Typography>
                 <FormOddColumn odds={OddB}></FormOddColumn>
               </div>
             </div>

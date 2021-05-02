@@ -32,13 +32,15 @@
     flex-direction: row;
     align-content: space-between;
     flex-wrap: wrap;
-    position: relative;
     text-align: center;
 
     .column-container {
-      width: 33%;
-      width: 180px;
+      min-width: 180px;
       margin: 5px;
+
+      @media screen and (max-width: 675px) {
+        width: 100%;
+      }
     }
   }
 }
