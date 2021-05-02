@@ -14,6 +14,7 @@ import CurrencyFormat from './CurrencyFormat'
 const CreateGroup = () => {
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
+  const [percentAsso, setPercentAsso] = useState('')
   const createGroup = useCreateGroup()
 
   const errorMessage =
@@ -24,6 +25,8 @@ const CreateGroup = () => {
   const handleNameChange = (e) => setName(e.target.value)
 
   const handlePriceChange = (e) => setPrice(e.target.value)
+
+  const handlePercentAssoChange = (e) => setPercentAsso(e.target.value)
 
   return (
     <Card className="create-group-card">
@@ -53,11 +56,27 @@ const CreateGroup = () => {
 
         <FormControl className="create-group-field">
           <TextField
+            type="number"
             label="Prix à payer par personne"
             value={price}
             onChange={handlePriceChange}
             InputProps={{
               inputComponent: CurrencyFormat,
+            }}
+          />
+        </FormControl>
+
+        <FormControl className="create-group-field">
+          <TextField
+            type="number"
+            label="Pourcentage attribué à l'association PAM"
+            value={percentAsso ?? 50}
+            onChange={handlePercentAssoChange}
+            InputProps={{
+              inputProps: {
+                max: 100,
+                min: 10,
+              },
             }}
           />
         </FormControl>
@@ -67,9 +86,14 @@ const CreateGroup = () => {
         <Button
           disabled={!isFormValid()}
           onClick={async () => {
-            await createGroup({ name, price: Number(price) })
+            await createGroup({
+              name,
+              price: Number(price),
+              percentAsso: Number(percentAsso),
+            })
             setName('')
             setPrice('')
+            setPercentAsso('')
           }}
           color="primary"
           variant="contained"
