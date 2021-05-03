@@ -62,6 +62,45 @@ describe('Firebase rules/groups', () => {
       })
     })
 
+    describe('Percent validation', () => {
+      it('should refuse group creation if percent is negative', async () => {
+        await assertFails(
+          createGroup({
+            percent: -1,
+          }),
+        )
+      })
+      it('should refuse group creation if percent under 20', async () => {
+        await assertFails(
+          createGroup({
+            percent: 16,
+          }),
+        )
+      })
+      it('should refuse group creation if percent above 80', async () => {
+        await assertFails(
+          createGroup({
+            percent: 81,
+          }),
+        )
+      })
+      it('should refuse group creation if percent is undefined', async () => {
+        await assertFails(
+          createGroup({
+            percent: null,
+          }),
+        )
+      })
+
+      it('should refuse group creation if percent is not a number', async () => {
+        await assertFails(
+          createGroup({
+            percent: 'str',
+          }),
+        )
+      })
+    })
+
     describe('joinKey validation', () => {
       it('should refuse group creation if joinKey is less than 5 chars', async () => {
         await assertFails(
@@ -193,6 +232,7 @@ describe('Firebase rules/groups', () => {
   function createGroup({
     name = 'groupe test',
     price = 0,
+    percent = 50,
     createdBy = TEST_UID,
     createdAt = firestore.FieldValue.serverTimestamp(),
     joinKey = 'ABCDE',
@@ -202,6 +242,7 @@ describe('Firebase rules/groups', () => {
     return app.firestore().collection('groups').doc(GROUP_ID).set({
       name,
       price,
+      percent,
       createdBy,
       createdAt,
       joinKey,

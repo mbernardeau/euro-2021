@@ -14,7 +14,7 @@ import CurrencyFormat from './CurrencyFormat'
 const CreateGroup = () => {
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
-  const [percentAsso, setPercentAsso] = useState('')
+  const [percent, setPercent] = useState('50')
   const createGroup = useCreateGroup()
 
   const errorMessage =
@@ -26,7 +26,7 @@ const CreateGroup = () => {
 
   const handlePriceChange = (e) => setPrice(e.target.value)
 
-  const handlePercentAssoChange = (e) => setPercentAsso(e.target.value)
+  const handlePercentChange = (e) => setPercent(e.target.value)
 
   return (
     <Card className="create-group-card">
@@ -56,7 +56,6 @@ const CreateGroup = () => {
 
         <FormControl className="create-group-field">
           <TextField
-            type="number"
             label="Prix à payer par personne"
             value={price}
             onChange={handlePriceChange}
@@ -69,13 +68,14 @@ const CreateGroup = () => {
         <FormControl className="create-group-field">
           <TextField
             type="number"
-            label="Pourcentage attribué à l'association PAM"
-            value={percentAsso ?? 50}
-            onChange={handlePercentAssoChange}
+            disabled={price <= 0}
+            label="Pourcentage réattribué à l'association PAM"
+            value={percent}
+            onChange={handlePercentChange}
             InputProps={{
               inputProps: {
-                max: 100,
-                min: 10,
+                max: 80,
+                min: 20,
               },
             }}
           />
@@ -89,11 +89,11 @@ const CreateGroup = () => {
             await createGroup({
               name,
               price: Number(price),
-              percentAsso: Number(percentAsso),
+              percent: Number(percent),
             })
             setName('')
             setPrice('')
-            setPercentAsso('')
+            setPercent('')
           }}
           color="primary"
           variant="contained"
