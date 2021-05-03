@@ -40,6 +40,7 @@ import NotFoundPage from '../NotFoundPage'
 import NotificationHandler from '../Notifications/NotificationHandler'
 import Profile from '../Profile'
 import RankingPage from '../Ranking'
+import Rib from '../Rib'
 import RulesPage from '../Rules'
 import Stadiums from '../Stadiums'
 import ValidInscriptionPage from '../ValidInscription'
@@ -173,6 +174,7 @@ const App = () => {
             <Route path="/ranking" component={RankingPage} />
             <Route path="/groups" component={GroupsPage} />
             <Route path="/profile" component={Profile} />
+            <Route path="/rib" component={Rib} />
 
             {/* Route accessible pour admin */}
             <AuthCheck requiredClaims={{ role: 'admin' }}>
