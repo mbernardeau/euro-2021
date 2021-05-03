@@ -16,7 +16,7 @@ const getColor = (value) => {
   return `#${toHex(r)}${toHex(g)}00`
 }
 
-const Odds = ({ bet_teamA, bet_teamB, odds }) => {
+const Odds = ({ name_teamA, name_teamB, bet_teamA, bet_teamB, odds }) => {
   const oddUsed =
     bet_teamA + bet_teamB < 7 ? odds[`P${bet_teamA}${bet_teamB}`] : odds.Pautre
 
@@ -24,7 +24,7 @@ const Odds = ({ bet_teamA, bet_teamB, odds }) => {
     <div className="odds-container">
       <div className="odd-selected">
         <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
-          {!isNil(bet_teamA) || !isNil(bet_teamB) ? (
+          {!isNil(bet_teamA) && !isNil(bet_teamB) ? (
             <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
               {oddUsed}
             </div>
@@ -34,7 +34,11 @@ const Odds = ({ bet_teamA, bet_teamB, odds }) => {
         </Tooltip>
       </div>
       <div className="odd-dialog">
-        <OddDialog odds={odds}></OddDialog>
+        <OddDialog
+          odds={odds}
+          name_teamA={name_teamA}
+          name_teamB={name_teamB}
+        ></OddDialog>
       </div>
     </div>
   )
@@ -43,6 +47,8 @@ const Odds = ({ bet_teamA, bet_teamB, odds }) => {
 }
 
 Odds.propTypes = {
+  name_teamA: PropTypes.string.isRequired,
+  name_teamB: PropTypes.string.isRequired,
   bet_teamA: PropTypes.number,
   bet_teamB: PropTypes.number,
   odds: PropTypes.exact({

@@ -1,5 +1,6 @@
 .paper-odd-container {
   display: flex;
+  margin: 3px;
 
   .odd-string {
     color: black;
@@ -22,4 +23,28 @@
   background-color: green;
   text-align: center;
   font-weight: bold;
+}
+
+.columns-container {
+  .columns-box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+
+    .column-container {
+      min-width: 180px;
+      margin: 5px;
+
+      @media screen and (max-width: 675px) {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.odd-autre-container {
+  margin: 0 5px;
 }

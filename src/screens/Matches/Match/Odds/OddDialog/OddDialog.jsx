@@ -4,7 +4,6 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import AddCircleIcon from '@material-ui/icons/AddCircle'
 import Paper from '@material-ui/core/Paper'
-import Grid from '@material-ui/core/Grid'
 import PropTypes from 'prop-types'
 import {
   Button,
@@ -14,7 +13,7 @@ import {
 } from '@material-ui/core'
 import './OddDialog.scss'
 
-const OddDialog = ({ odds }) => {
+const OddDialog = ({ odds, name_teamA, name_teamB }) => {
   const [open, setOpen] = React.useState(false)
 
   const handleClickOpen = () => {
@@ -25,23 +24,40 @@ const OddDialog = ({ odds }) => {
     setOpen(false)
   }
 
-  function FormRow({ odds }) {
+  function FormOddColumn({ odds }) {
     return (
       <>
         {Object.keys(odds)
-          .sort()
+          .sort((a, b) => {
+            return odds[a] - odds[b]
+          })
           .map((key) => (
-            <Grid key={key} item xs={4}>
-              <Paper className="paper-odd-container">
-                <div className="odd-string">
-                  {key === 'Pautre' ? 'Autre' : key[1] + '-' + key[2]}
-                </div>
-                <div className="odd-value">{odds[key]}</div>
-              </Paper>
-            </Grid>
+            <Paper className="paper-odd-container">
+              <div className="odd-string">{key[1] + '-' + key[2]}</div>
+              <div className="odd-value">{odds[key]}</div>
+            </Paper>
           ))}
       </>
     )
+  }
+
+  // Filter Odds
+  let OddA, OddB, OddAutreValue, OddDraw
+
+  const keys = Object.keys(odds)
+  const keysLength = keys.length
+
+  for (let i = 0; i < keysLength; i++) {
+    const key = keys[i]
+    if (key === 'Pautre') {
+      OddAutreValue = odds[key]
+    } else if (key[2] > key[1]) {
+      OddB = { ...OddB, [key]: odds[key] }
+    } else if (key[2] === key[1]) {
+      OddDraw = { ...OddDraw, [key]: odds[key] }
+    } else {
+      OddA = { ...OddA, [key]: odds[key] }
+    }
   }
 
   return (
@@ -61,9 +77,28 @@ const OddDialog = ({ odds }) => {
         </DialogTitle>
         {/*Padding = Fix pour ne pas afficher la scroll bar */}
         <DialogContent style={{ padding: 12 }}>
-          <Grid container item xs={12} spacing={3}>
-            <FormRow odds={odds}></FormRow>
-          </Grid>
+          <div className="columns-container">
+            <div className="columns-box">
+              <div className="column-container">
+                <Typography variant="h3">{name_teamA}</Typography>
+                <FormOddColumn odds={OddA}></FormOddColumn>
+              </div>
+              <div className="column-container">
+                <Typography variant="h3">Match nul</Typography>
+                <FormOddColumn odds={OddDraw}></FormOddColumn>
+              </div>
+              <div className="column-container">
+                <Typography variant="h3">{name_teamB}</Typography>
+                <FormOddColumn odds={OddB}></FormOddColumn>
+              </div>
+            </div>
+          </div>
+          <div className="odd-autre-container">
+            <Paper className="paper-odd-container">
+              <div className="odd-string">Autre</div>
+              <div className="odd-value">{OddAutreValue}</div>
+            </Paper>
+          </div>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
@@ -107,6 +142,8 @@ OddDialog.propTypes = {
     P60: PropTypes.number.isRequired,
     Pautre: PropTypes.number.isRequired,
   }),
+  name_teamA: PropTypes.string.isRequired,
+  name_teamB: PropTypes.string.isRequired,
 }
 
 export default OddDialog
