@@ -39,9 +39,10 @@ const CreateGroup = () => {
       </Typography>
       <br />
       <Typography variant="body2">
-        Le prix des tribus est libre. Pour une tribu gratuite, laissez le champ
-        &quot;Prix à payer par personne&quot; vide. Le pourcentage rétribué à
-        PAM doit être entre 20% et 80%.
+        Le prix d'inscription aux tribus est libre. Pour une tribu gratuite,
+        laissez le champ &quot;Prix à payer par personne&quot; vide. Le
+        pourcentage rétribué à PAM doit être entre 20% et 80%. Le reste est
+        partagé entre les vainqueurs du concours.
       </Typography>
 
       <CardContent className="create-group-content">
