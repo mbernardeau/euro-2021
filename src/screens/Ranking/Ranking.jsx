@@ -31,7 +31,8 @@ const Ranking = () => {
           >
             cagnotte
           </a>
-          . Si cela est également fait, veuillez attendre la validation des
+          , en paiement liquide ou par <Link to="/rib">virement bancaire</Link>.
+          Si cela est également fait, veuillez attendre la validation des
           administrateurs.
         </p>
       </div>

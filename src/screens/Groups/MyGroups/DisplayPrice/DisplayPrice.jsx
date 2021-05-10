@@ -3,6 +3,7 @@ import includes from 'lodash/includes'
 import sumBy from 'lodash/sumBy'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import { useAuth } from 'reactfire'
 
 const DisplayPrice = ({ groups }) => {
@@ -35,6 +36,14 @@ const DisplayPrice = ({ groups }) => {
           cagnotte
         </a>{' '}
         pour règler votre(vos) inscription(s).
+      </Typography>
+      <Typography gutterBottom variant="h4">
+        Vous pouvez également cette somme par paiement liquide à l'un des
+        organisateurs ou par <Link to="/rib">virement bancaire</Link>.
+      </Typography>
+      <Typography gutterBottom variant="h4">
+        Dans tous les cas, il faut renseigner votre pseudo ainsi que le nom de
+        la/des tribu(es) auxquelles vous vous inscrivez.
       </Typography>
     </>
   )
