@@ -1,15 +1,13 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 
-import data from './data.json'
-import List from '../component/list'
 import Section from '../component/section'
 import Table from '../component/table'
 
 const Groups = () => (
   <Section>
     <div>
-      <Typography variant="body2">Règles durant la phase de groupe</Typography>
+      <Typography variant="h1">Règles durant la phase de groupe</Typography>
       <p>
         Les pronostics fonctionnent avec un système de cotes basé sur notre
         propre système de calcul de côtes ! En effet, pour chaque match nous
@@ -17,20 +15,24 @@ const Groups = () => (
         multiplieront les points attribués selon les trois différents cas
         ci-dessous. Nous nous réservons le droit de changer les cotes jusqu’à la
         veille de chaque match. Les points sont attribués pour les matchs de
-        poules comme suit : A) Tout d’abord c’est le type de résultat qui compte
-        en priorité : Gagnant/Perdant/Match Nul B) Ensuite soit on a le score
-        parfait (100% de la côte est attribué), soit on est proche du score.
+        poules comme suit :
+        <ol>
+          <li>
+            Tout d’abord c’est le type de résultat qui compte en priorité :
+            Gagnant/Perdant/Match Nul
+          </li>
+          <li>
+            Ensuite soit on a le score parfait (100% de la côte est attribué),
+            soit on est proche du score.
+          </li>
+        </ol>
         Pour intéresser tout le monde à chaque match, et quelque soit le score,
         nous avons créé un niveau de proximité pour attribuer des points à ceux
         qui ont un score le plus proche possible. Ceci est défini par un niveau
         de proximité tel que défini ci-dessous :
       </p>
-      <p>Les points sont attribués pour les matchs de poules comme suit :</p>
-      <List dataSource={data.liste1} />
     </div>
     <div>
-      <Typography variant="body1">Exemple phase de groupe</Typography>
-      <br />
       <div className="table_section">
         <Table
           header={[
@@ -59,7 +61,8 @@ const Groups = () => (
       </div>
     </div>
     <div>
-      <Typography variant="body2">Règles durant la phase finale</Typography>
+      <br />
+      <Typography variant="h1">Règles durant la phase finale</Typography>
       <p>
         Le fonctionnement des paris à partir de ce niveau de la compétition est
         identique à celui de la phase de groupe, à un détail près : le score
@@ -67,7 +70,8 @@ const Groups = () => (
         qu’il faut donner le vainqueur en cas de prolongation, voire tirs au
         but. On a donc pour résumer un pronostic à faire sur le score final
         (comme durant la phase de groupe) et un pronostic à faire sur le
-        vainqueur de la partie.
+        vainqueur de la partie. Pas bon ici
+        !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       </p>
       <p>
         Répartition des points sur toute la durée du concours : On choisit de
@@ -114,8 +118,8 @@ const Groups = () => (
           header={['Niveau de la compétition', 'Coefficient Multiplicateur']}
           rows={[
             ['match de poule', 'Cote x 3'],
-            ['8èmes de finale', 'Cote x 5'],
-            ['4ème de finale', 'Cote x 10'],
+            ['8ème de finale', 'Cote x 5'],
+            ['4rts de finale', 'Cote x 10'],
             ['demi finale', 'Cote x 20'],
             ['finale', 'Cote x 40'],
             ['Vainqueur Finale', 'Cote x 40'],
@@ -129,9 +133,13 @@ const Groups = () => (
         Exemple Perdant/Gagnant : 5 parieurs pour le match France-Australie :
       </Typography>
       <p>
-        • Celine parie : 2-1 (cote de 1.6) • Tom parie : 3-1 (cote de 3.6) •
-        Beatrice parie : 2-0 (cote de 2.2) • Johan parie : 1-2 (le traitre)
-        (cote de 3.5) • Kim parie : 6-1 (le fou) (cote de 8)
+        <ul>
+          <li>Celine parie : 2-1 (cote de 1.6)</li>
+          <li>Tom parie : 3-1 (cote de 3.6)</li>
+          <li>Beatrice parie : 2-0 (cote de 2.2)</li>
+          <li>Johan parie : 1-2 (le traitre) (cote de 3.5)</li>
+          <li>Kim parie : 6-1 (le fou) (cote de 8)</li>
+        </ul>
       </p>
       <p>
         Le resultat du match tombe : la France gagne 3-1 apres un match
