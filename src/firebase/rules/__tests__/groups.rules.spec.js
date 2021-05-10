@@ -231,7 +231,7 @@ describe('Firebase rules/groups', () => {
 
   function createGroup({
     name = 'groupe test',
-    price = 0,
+    price = 5,
     percent = 50,
     createdBy = TEST_UID,
     createdAt = firestore.FieldValue.serverTimestamp(),
