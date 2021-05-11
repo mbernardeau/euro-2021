@@ -54,7 +54,7 @@ const Ranking = () => {
 
 Ranking.propTypes = {}
 
-const RankingWithSuspence = (props) => {
+const RankingWithSuspense = (props) => {
   return (
     <Suspense fallback="Loading groups...">
       <Ranking {...props} />
@@ -62,4 +62,4 @@ const RankingWithSuspence = (props) => {
   )
 }
 
-export default RankingWithSuspence
+export default RankingWithSuspense

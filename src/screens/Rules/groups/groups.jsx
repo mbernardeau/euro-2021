@@ -110,7 +110,7 @@ const Groups = () => (
       </p>
     </div>
     <div>
-      <Typography variant="body1">Voici la ponderation par match </Typography>
+      <Typography variant="body1">Voici la pondération par match </Typography>
       <br />
       <div className="table_section">
         !
@@ -137,28 +137,28 @@ const Groups = () => (
           <li>Celine parie : 2-1 (cote de 1.6)</li>
           <li>Tom parie : 3-1 (cote de 3.6)</li>
           <li>Beatrice parie : 2-0 (cote de 2.2)</li>
-          <li>Johan parie : 1-2 (le traitre) (cote de 3.5)</li>
+          <li>Johan parie : 1-2 (le traître) (cote de 3.5)</li>
           <li>Kim parie : 6-1 (le fou) (cote de 8)</li>
         </ul>
       </p>
       <p>
-        Le resultat du match tombe : la France gagne 3-1 apres un match
+        Le résultat du match tombe : la France gagne 3-1 apres un match
         endiablé.(On s’y attendait)
       </p>
       <p>
-        • D’abord le type de resultat est preponderant : Johan a 0 points car il
+        • D’abord le type de résultat est preponderant : Johan a 0 points car il
         avait parié pour l’australie. • Ensuite, on prend la cote lie au score
         3-1 : la cote est de 3.6 • Ensuite on donne le maximum au bon score qui
         gagne le plus de points: Tom gagne 100% de la cote 3.6 points !!!
       </p>
-      <p> Maintenant arrive les proximites pour les autres joueurs :</p>
+      <p> Maintenant arrive les proximités pour les autres joueurs :</p>
       <p>
         • Celine est la plus proche avec son pronostic de 2-1, elle est en 1ere
-        proximite et gagne 60% de la cote du score (3.6) = 2.16 points : (!)
+        proximité et gagne 60% de la cote du score (3.6) = 2.16 points : (!)
         Attention, ne pas confondre avec la cote du score pronostique (1.6 ici )
-        • Beatrice est un peu plus loin avec son 2-0 et est en 2eme proximite,
+        • Beatrice est un peu plus loin avec son 2-0 et est en 2eme proximité,
         elle gagne 35% de la cote du score (3.6) = 1.26 points • Kim avec son
-        pari ose de 6-1 gagne que peu de points car elle est en 3eme proximite
+        pari ose de 6-1 gagne que peu de points car elle est en 3eme proximité
         20% de la cote du score (3.6) = 0.72 points
       </p>
       <Typography variant="body2">

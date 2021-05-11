@@ -34,7 +34,7 @@ const Playoff = () => (
           ]}
           rows={[
             [
-              '8èmes de finale',
+              '8ièmes de finale',
               '5 points',
               '2 points',
               '0 points',
@@ -42,7 +42,7 @@ const Playoff = () => (
             ],
             ['4rts de finale', '8 points', '3 points', '0 points', '+3 points'],
             ['demi-finale', '13 points', '5 points', '0 points', '+5 points'],
-            ['3ieme place', '15 points', '6 points', '0 points', '+6 points'],
+            ['3ième place', '15 points', '6 points', '0 points', '+6 points'],
             ['Finale', '22 points', '8 points', '0 points', '+8 points'],
           ]}
         />
