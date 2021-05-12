@@ -6,6 +6,7 @@ import isNil from 'lodash/isNil'
 import isNumber from 'lodash/isNumber'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
+
 import { useBet, useTeam } from '../../../hooks'
 import Bet from './Bet'
 import ChoiceWinner from './ChoiceWinner'
@@ -15,6 +16,7 @@ import Odds from './Odds'
 import PointsWon from './PointsWon'
 import Scores from './Scores'
 import ValidIcon from './ValidIcon'
+import InformationResult from './InformationResult'
 
 const empty = {}
 const scoreValidator = (score) => isNumber(score) && score >= 0
@@ -97,7 +99,12 @@ const Match = ({ matchSnapshot }) => {
     match.display && (
       <>
         <Card className="match-card">
-          <CardContent className="match-content">
+          <CardContent
+            className="match-content"
+            style={{
+              backgroundColor: isBackgroundRed ? 'red' : 'blue',
+            }}
+          >
             <div className="match-teams">
               <Bet
                 team={teamA}
@@ -136,7 +143,11 @@ const Match = ({ matchSnapshot }) => {
             )}
             <Divider />
             <MatchInfos match={match} />
-            {!past && <ValidIcon valid={betSaved()} />}
+            {past ? (
+              <InformationResult valid={betSaved()} />
+            ) : (
+              <ValidIcon valid={betSaved()} />
+            )}
           </CardContent>
         </Card>
       </>
