@@ -4,18 +4,14 @@ import Section from '../component/section'
 
 const Bonus = () => (
   <Section>
-    <Typography variant="body2" color="inherit">
-      Bonus
+    <Typography variant="h1" color="inherit">
+      Vainqueur final
     </Typography>
     <p>
-      Chaque joueur pronostique également le champion de la coupe du monde avant
-      le début de cette dernière. Une cote est associée à chacun des pays et en
-      cas de succès, les points gagnés sont ajoutés aux points cumulés durant
-      toute la compétition.
-    </p>
-    <p>
-      Ainsi les points sont attribués comme suit : cote du pays vainqueur de la
-      coupe du monde * 40 points
+      Chaque joueur pronostique également le champion de l'EURO 2021 avant que
+      la compétition commence. Si jamais celui-ci est trouvé par le parieur une
+      fois la compétition terminée, la cote associée au pays pronostiqué est
+      ajouté aux autres points gagnés durant toute la compétition.
     </p>
   </Section>
 )
