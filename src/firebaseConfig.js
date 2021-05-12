@@ -29,6 +29,8 @@ const productionConfig = {
   storageBucket: 'euro-2021-prod.appspot.com',
   messagingSenderId: '36611696942',
   appId: '1:36611696942:web:23dceaa163bab62e2ab2bf',
+  vapidKey:
+    'BPKBo7EfPNCQAa0fHXQ-R9OvE7FJvw8Ab8jifyrtdzqlLQekzBto5F_aPoYVDyK8PXXvCBGPr9OGAW_WOpvvGBA',
 }
 
 if (process.env.REACT_APP_DATABASE === 'PRODUCTION') {
