@@ -101,8 +101,8 @@ exports.updateScore = functions
             console.log(
               "YOU LOSE SON, you didn't find the score neither the match issue",
             )
-            promises.push(updateUserScore(oddScore, userId, oldBetScore, 0))
-            promises.push(updatePointsWon(oddScore, betId, 0))
+            promises.push(updateUserScore(oddScore, userId, oldBetScore))
+            promises.push(updatePointsWon(oddScore, betId))
           } else {
             let nbButsEcart =
               Math.abs(realScoreTeamA - betTeamA) +
@@ -131,7 +131,7 @@ exports.updateScore = functions
       })
   })
 
-const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 1) => {
+const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 0) => {
   console.log(`Updating user score for ${userId}`)
   const user = db.collection('opponents').doc(userId)
 
@@ -150,7 +150,7 @@ const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 1) => {
     .catch((err) => console.error(`User ${userId} score update failure:`, err))
 }
 
-const updatePointsWon = (odd, id, coeffProxi = 1) => {
+const updatePointsWon = (odd, id, coeffProxi = 0) => {
   console.log(`Updating points won for bet ${id}`)
   const bets = db.collection('bets').doc(id)
 
