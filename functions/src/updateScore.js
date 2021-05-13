@@ -74,40 +74,13 @@ exports.updateScore = functions
           const betId = doc.id
           const oldBetScore = bet.pointsWon
 
+          const betResult = findResult(betTeamA, betTeamB)
+
+          const hasGoodResult = betResult === realResult
+          let hasGoodWinner = true // Default for group match
+
           if (!phase || phase === '0') {
             console.log('Match de phase de poule')
-            const betResult = findResult(betTeamA, betTeamB)
-
-            if (betTeamA === realScoreTeamA && betTeamB === realScoreTeamB) {
-              // perfect match ! Full points
-              console.log('HOLY SH*T YOU WIN, you guess perfectly the score !')
-              promises.push(updateUserScore(oddScore, userId, oldBetScore))
-              promises.push(updatePointsWon(oddScore, betId))
-            } else if (realResult === betResult) {
-              // good result ! We calculate proxi
-              console.log('You only guess the issue of the match (sucker)')
-
-              const nbButsEcart =
-                Math.abs(realScoreTeamA - betTeamA) +
-                Math.abs(realScoreTeamB - betTeamB)
-              const coeffProxi =
-                nbButsEcart <= catMatch.proxi1
-                  ? proxiCoeff.PROXI1
-                  : nbButsEcart <= catMatch.proxi2
-                  ? proxiCoeff.PROXI2
-                  : proxiCoeff.PROXI3
-
-              promises.push(
-                updateUserScore(oddScore, userId, oldBetScore, coeffProxi),
-              )
-              promises.push(updatePointsWon(oddScore, betId, coeffProxi))
-            } else {
-              console.log(
-                "YOU LOSE SON, you didn't find the score neither the match issue",
-              )
-              promises.push(updateUserScore(oddScore, userId, oldBetScore, 0))
-              promises.push(updatePointsWon(oddScore, betId, 0))
-            }
           } else {
             console.log('Phase finale ', phase)
 
@@ -119,48 +92,38 @@ exports.updateScore = functions
               return null
             }
 
-            const phaseCoeff = getPhaseCoeff(phase)
-            const betResult = findResult(betTeamA, betTeamB)
             const finalBetWinner = betResult === 'N' ? bet.betWinner : betResult
-            const hasGoodResult = betResult === realResult
-            const hasGoodWinner = finalBetWinner === realWinner
 
-            if (!hasGoodResult && !hasGoodWinner) {
-              console.log(
-                "YOU LOSE SON, you didn't find the score neither the match issue",
-              )
-              promises.push(updateUserScore(oddScore, userId, oldBetScore, 0))
-              promises.push(updatePointsWon(oddScore, betId, 0))
-            } else {
-              let nbButsEcart =
-                Math.abs(realScoreTeamA - betTeamA) +
-                Math.abs(realScoreTeamB - betTeamB)
+            hasGoodWinner = finalBetWinner === realWinner
+          }
 
-              // Ajout des malus eventuels
-              if (!hasGoodResult || !hasGoodWinner) nbButsEcart++
+          if (!hasGoodWinner && !hasGoodResult) {
+            console.log(
+              "YOU LOSE SON, you didn't find the score neither the match issue",
+            )
+            promises.push(updateUserScore(oddScore, userId, oldBetScore, 0))
+            promises.push(updatePointsWon(oddScore, betId, 0))
+          } else {
+            let nbButsEcart =
+              Math.abs(realScoreTeamA - betTeamA) +
+              Math.abs(realScoreTeamB - betTeamB)
 
-              const coeffProxi =
-                nbButsEcart === 0
-                  ? proxiCoeff.SCORE_PARFAIT
-                  : nbButsEcart <= catMatch.proxi1
-                  ? proxiCoeff.PROXI1
-                  : nbButsEcart <= catMatch.proxi2
-                  ? proxiCoeff.PROXI2
-                  : proxiCoeff.PROXI3
+            // Ajout des malus eventuels (ne fait rien en cas de match de poule)
+            if (!hasGoodWinner || !hasGoodResult) nbButsEcart++
 
-              promises.push(
-                updateUserScore(
-                  oddScore,
-                  userId,
-                  oldBetScore,
-                  coeffProxi,
-                  phaseCoeff,
-                ),
-              )
-              promises.push(
-                updatePointsWon(oddScore, betId, coeffProxi, phaseCoeff),
-              )
-            }
+            const coeffProxi =
+              nbButsEcart === 0
+                ? proxiCoeff.SCORE_PARFAIT
+                : nbButsEcart <= catMatch.proxi1
+                ? proxiCoeff.PROXI1
+                : nbButsEcart <= catMatch.proxi2
+                ? proxiCoeff.PROXI2
+                : proxiCoeff.PROXI3
+
+            promises.push(
+              updateUserScore(oddScore, userId, oldBetScore, coeffProxi),
+            )
+            promises.push(updatePointsWon(oddScore, betId, coeffProxi))
           }
         })
 
@@ -168,13 +131,7 @@ exports.updateScore = functions
       })
   })
 
-const updateUserScore = (
-  odd,
-  userId,
-  oldBetScore = 0,
-  coeffProxi = 1,
-  coeffPhase = 1,
-) => {
+const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 1) => {
   console.log(`Updating user score for ${userId}`)
   const user = db.collection('opponents').doc(userId)
 
@@ -182,10 +139,9 @@ const updateUserScore = (
     .runTransaction((t) =>
       t.get(user).then((snapshot) => {
         const oldScore = snapshot.data().score || 0
-        const newScore =
-          oldScore - oldBetScore + round(coeffProxi * odd * coeffPhase, 2)
+        const newScore = oldScore - oldBetScore + round(coeffProxi * odd, 2)
         console.log(
-          `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeffProxi} * ${odd} * ${coeffPhase} = ${newScore})`,
+          `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeffProxi} * ${odd} = ${newScore})`,
         )
         return t.update(user, { score: newScore })
       }),
@@ -194,7 +150,7 @@ const updateUserScore = (
     .catch((err) => console.error(`User ${userId} score update failure:`, err))
 }
 
-const updatePointsWon = (odd, id, coeffProxi = 1, coeffPhase = 1) => {
+const updatePointsWon = (odd, id, coeffProxi = 1) => {
   console.log(`Updating points won for bet ${id}`)
   const bets = db.collection('bets').doc(id)
 
@@ -202,17 +158,12 @@ const updatePointsWon = (odd, id, coeffProxi = 1, coeffPhase = 1) => {
     .runTransaction((t) =>
       t.get(bets).then((betSnap) =>
         t.update(betSnap.ref, {
-          pointsWon: round(coeffProxi * odd * coeffPhase, 2),
+          pointsWon: round(coeffProxi * odd, 2),
         }),
       ),
     )
     .then(() =>
-      console.log(
-        `Bet ${id} update with ${round(
-          coeffProxi * odd * coeffPhase,
-          2,
-        )} points`,
-      ),
+      console.log(`Bet ${id} update with ${round(coeffProxi * odd, 2)} points`),
     )
     .catch((err) => {
       console.error(`Bet ${id} update failure:`, err)
@@ -224,12 +175,3 @@ const findResult = (score1, score2) => {
   if (score1 === score2) return 'N'
   return 'B'
 }
-
-// https://docs.google.com/spreadsheets/d/1ZioOtyCblJtJf0WAaRxVWmnibqOeC7eDcJYDVEYRqng/edit?usp=sharing
-const getPhaseCoeff = (phase) =>
-  ({
-    8: 1.67,
-    4: 3.34,
-    2: 6.69,
-    1: 13.37,
-  }[phase])
