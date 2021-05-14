@@ -9,7 +9,7 @@
   "dependencies": {
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
-    "@sentry/react": "^6.2.5",
+    "@sentry/react": "^6.3.6",
     "@sentry/tracing": "^6.2.5",
     "date-fns": "^2.21.1",
     "firebase": "8.3.0",
@@ -32,6 +32,7 @@
     "start:ldc": "npm i && cross-env REACT_APP_DATABASE=LDC react-scripts start",
     "build": "react-scripts build",
     "build:ldc": "cross-env REACT_APP_DATABASE=LDC react-scripts build",
+    "build:prod": "cross-env REACT_APP_DATABASE=PRODUCTION react-scripts build",
     "lint": "eslint src --ext js,jsx",
     "lint:functions": "cd functions && npm run lint",
     "prettier:check": "prettier --check \"{src,functions}/**/*.{js,jsx,ts,md}\"",
