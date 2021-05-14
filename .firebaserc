@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "euro2021-3d006",
-    "ldc": "ldc-2021"
+    "ldc": "ldc-2021",
+    "prod": "euro-2021-prod"
   }
 }
