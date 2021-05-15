@@ -10,6 +10,17 @@ import './Odds.scss'
 const toHex = (number) =>
   padStart(Math.min(Math.round(Math.abs(number)), 255).toString(16), 2, '0')
 
+// https://docs.google.com/spreadsheets/d/1ZioOtyCblJtJf0WAaRxVWmnibqOeC7eDcJYDVEYRqng/edit?usp=sharing
+// Will be used for getColor
+// const getPhaseCoeff = (phase) =>
+//   ({
+//     0: 1,
+//     8: 1.67,
+//     4: 3.34,
+//     2: 6.69,
+//     1: 13.37,
+//   }[phase])
+
 const getColor = (value) => {
   const r = (128 / 13) * (value + 1)
   const g = (-128 / 11) * (value - 12)

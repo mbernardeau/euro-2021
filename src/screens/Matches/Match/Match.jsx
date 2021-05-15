@@ -6,7 +6,6 @@ import isNil from 'lodash/isNil'
 import isNumber from 'lodash/isNumber'
 import PropTypes from 'prop-types'
 import React, { useEffect, useState } from 'react'
-
 import { useBet, useTeam } from '../../../hooks'
 import Bet from './Bet'
 import ChoiceWinner from './ChoiceWinner'
@@ -150,7 +149,7 @@ const Match = ({ matchSnapshot }) => {
             <Divider />
             <MatchInfos match={match} />
             {past ? (
-              <InformationResult valid={betSaved()} />
+              <InformationResult {...bet} />
             ) : (
               <ValidIcon valid={betSaved()} />
             )}

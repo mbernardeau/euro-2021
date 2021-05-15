@@ -5,23 +5,5 @@
 
   .points-won-container {
     position: relative;
-
-    > .points-won {
-      color: black;
-
-      &.good-score {
-        color: green;
-      }
-      &.good-winner {
-        color: orange;
-      }
-    }
-
-    .points-won-info-icon {
-      position: absolute;
-      color: gray;
-      bottom: 5px;
-      right: -35px;
-    }
   }
 }
