@@ -16,7 +16,7 @@ import PollIcon from '@material-ui/icons/Poll'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AuthCheck } from 'reactfire'
-import myImage from '../../assets/visuels/bandeauEvenement2.webp'
+import myImage from '../../assets/visuels/bandeauEvenement2_1920x1080.webp'
 import './HomePage.scss'
 import FinalWinner from './FinalWinner'
 
