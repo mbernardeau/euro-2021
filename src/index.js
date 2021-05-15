@@ -21,8 +21,7 @@ import { BrowserRouter } from 'react-router-dom'
 import NotificationPermissionProvider from './screens/Notifications/NotificationPermissionProvider'
 
 Sentry.init({
-  dsn:
-    'https://d6853c21fd4d412da6f6b369ee5f5676@o491892.ingest.sentry.io/5558208',
+  dsn: 'https://d6853c21fd4d412da6f6b369ee5f5676@o491892.ingest.sentry.io/5558208',
   autoSessionTracking: true,
   integrations: [new TracingIntegrations.BrowserTracing()],
   // À réduire pour la prod
