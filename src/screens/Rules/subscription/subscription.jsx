@@ -10,16 +10,22 @@ const Subscription = () => (
     <br />
     <Typography variant="h2">Mode de qualification</Typography>
     <p>
-      Il n’y pas d’élimination, tout le monde participe aux pronostics de tous
+      Il n’y a pas d’élimination, tout le monde participe aux pronostics de tous
       les matchs. Chacun des participants garde son nombre de points acquis
       durant toute la compétition.
     </p>
     <Typography variant="h2">Droits d’inscription</Typography>
     <p>
-      Il faut s'affranchir du droit d’inscription pour activer son compte sur le
-      site si il y en a un. Chaque tribu va décider du pourcentage à reverser à
-      l’association à but humanitaire PAM, et qui ne peut-être qu’entre 20% et
-      80% du prix.
+      A la création de la tribu, il est possible de définir les droits
+      d'inscription.
+      <br />
+      Le créateur pourra définir si la tribu possède des droits d'inscription,
+      le montant des droits d'inscription et également le pourcentage que chaque
+      participant de la tribu reversera à l’association à but humanitaire PAM
+      (entre 20% et 80% des droits d'inscription).
+      <br />
+      Les participants devront s'affranchir des droits d’inscription pour avoir
+      leur compte activé.
     </p>
     <Typography variant="h2">Date de validation des pronostics</Typography>
     <p>
