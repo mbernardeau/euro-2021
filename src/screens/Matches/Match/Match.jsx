@@ -57,14 +57,16 @@ const Match = ({ matchSnapshot }) => {
           })
   }
 
-  const handleChange = (team) => ({ target: { value } }) => {
-    const updatedBet = {
-      ...currentBet,
-      [`betTeam${team}`]: value,
+  const handleChange =
+    (team) =>
+    ({ target: { value } }) => {
+      const updatedBet = {
+        ...currentBet,
+        [`betTeam${team}`]: value,
+      }
+      setCurrentBet(updatedBet)
+      saveBetIfValid(updatedBet)
     }
-    setCurrentBet(updatedBet)
-    saveBetIfValid(updatedBet)
-  }
 
   const handleTeamAChange = handleChange('A')
   const handleTeamBChange = handleChange('B')
