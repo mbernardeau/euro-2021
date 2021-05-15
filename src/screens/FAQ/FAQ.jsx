@@ -136,7 +136,7 @@ export default class FAQPage extends React.PureComponent {
           question="Je me suis inscris dans une tribu, j'ai payé et été débité, mais je ne retrouve pas ma tribu ?"
           answer="Vérifiez bien que vous vous êtes connectés avec le bon compte d'inscription. Si malgré tout le
           problème subsiste, contacter nos administrateurs à l'adresse suivante:
-          roadtorussiaprono2018@gmail.com"
+          naustra246@gmail.com"
         />
         <FaqEntry
           question="Lorsque je me suis connecté ce matin, les cotes étaient différentes, est-ce normal ?"
@@ -159,7 +159,7 @@ export default class FAQPage extends React.PureComponent {
         <FaqEntry
           question="Pourquoi ne puis-je pas pronostiquer sur le gagnant de la coupe-du-monde ?"
           answer="Si vous avez émis ce pronostic après le 14 juin 17h, il est en effet trop tard (cf. règlement). Si ce n'est
-          pas le cas, merci de nous envoyer un mail à roadtorussiaprono2018@gmail.com avant la date du
+          pas le cas, merci de nous envoyer un mail à naustra246@gmail.com avant la date du
           premier match de la coupe."
         />
         <FaqEntry
@@ -181,7 +181,7 @@ export default class FAQPage extends React.PureComponent {
                 GitHub du projet
               </a>
               . Il est aussi possible d&apos;envoyer un mail à
-              roadtorussiaprono2018@gmail.com décrivant le bug.
+              naustra246@gmail.com décrivant le bug.
             </Fragment>
           }
         />
@@ -209,7 +209,7 @@ export default class FAQPage extends React.PureComponent {
 
         <FaqEntry
           question="Mon problème n'est pas répertorié dans cette FAQ"
-          answer="Vous pouvez nous envoyer votre requête à l'adresse roadtorussiaprono2018@gmail.com. Nous vous
+          answer="Vous pouvez nous envoyer votre requête à l'adresse naustra246@gmail.com. Nous vous
           répondrons le plus rapidement possible afin que votre expérience de jeu soit la plus réussie."
         />
       </div>
