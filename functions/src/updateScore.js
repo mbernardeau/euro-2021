@@ -11,12 +11,12 @@ const category = {
   CAT3: { proxi1: 2, proxi2: 3, proxi3: 4 },
 }
 
-// Proxi points
-const proxiCoeff = {
-  SCORE_PARFAIT: 1,
-  PROXI1: 0.6,
-  PROXI2: 0.35,
-  PROXI3: 0.2,
+// Proxi informations
+const proxiInfos = {
+  SCORE_PARFAIT: { proxiCoeff: 1, proxiLevel: 0 },
+  PROXI1: { proxiCoeff: 0.6, proxiLevel: 1 },
+  PROXI2: { proxiCoeff: 0.35, proxiLevel: 2 },
+  PROXI3: { proxiCoeff: 0.1, proxiLevel: 3 },
 }
 
 const round = (value, decimals) =>
@@ -111,19 +111,31 @@ exports.updateScore = functions
             // Ajout des malus eventuels (ne fait rien en cas de match de poule)
             if (!hasGoodWinner || !hasGoodResult) nbButsEcart++
 
-            const coeffProxi =
+            const proxiInfo =
               nbButsEcart === 0
-                ? proxiCoeff.SCORE_PARFAIT
+                ? proxiInfos.SCORE_PARFAIT
                 : nbButsEcart <= catMatch.proxi1
-                ? proxiCoeff.PROXI1
+                ? proxiInfos.PROXI1
                 : nbButsEcart <= catMatch.proxi2
-                ? proxiCoeff.PROXI2
-                : proxiCoeff.PROXI3
+                ? proxiInfos.PROXI2
+                : proxiInfos.PROXI3
 
             promises.push(
-              updateUserScore(oddScore, userId, oldBetScore, coeffProxi),
+              updateUserScore(
+                oddScore,
+                userId,
+                oldBetScore,
+                proxiInfo.proxiCoeff,
+              ),
             )
-            promises.push(updatePointsWon(oddScore, betId, coeffProxi))
+            promises.push(
+              updatePointsWon(
+                oddScore,
+                betId,
+                proxiInfo.proxiCoeff,
+                proxiInfo.proxiLevel,
+              ),
+            )
           }
         })
 
@@ -150,7 +162,7 @@ const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 0) => {
     .catch((err) => console.error(`User ${userId} score update failure:`, err))
 }
 
-const updatePointsWon = (odd, id, coeffProxi = 0) => {
+const updatePointsWon = (odd, id, coeffProxi = 0, proxiLevel = null) => {
   console.log(`Updating points won for bet ${id}`)
   const bets = db.collection('bets').doc(id)
 
@@ -159,11 +171,17 @@ const updatePointsWon = (odd, id, coeffProxi = 0) => {
       t.get(bets).then((betSnap) =>
         t.update(betSnap.ref, {
           pointsWon: round(coeffProxi * odd, 2),
+          proxi: proxiLevel,
         }),
       ),
     )
     .then(() =>
-      console.log(`Bet ${id} update with ${round(coeffProxi * odd, 2)} points`),
+      console.log(
+        `Bet ${id} update with ${round(
+          coeffProxi * odd,
+          2,
+        )} points. Proxi ${proxiLevel}`,
+      ),
     )
     .catch((err) => {
       console.error(`Bet ${id} update failure:`, err)
