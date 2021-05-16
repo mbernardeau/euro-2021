@@ -23,8 +23,12 @@ const winnerValidator = (winner) => winner && (winner === 'A' || winner === 'B')
 
 const proxiColors = ['#BAEE90', '#E0EE90', '#EEEE90', '#EEDD90']
 
-const getBackgroundColor = (proxiLevel) => {
-  return isNil(proxiLevel) ? 'lightgrey' : proxiColors[proxiLevel]
+const getBackgroundColor = (proxiLevel, pointsWon) => {
+  // No bet ?
+  const hasBet = isNumber(pointsWon)
+
+  if (!hasBet) return 'lightgrey'
+  return isNil(proxiLevel) ? '#EEAB90' : proxiColors[proxiLevel]
 }
 
 const Match = ({ matchSnapshot }) => {
@@ -107,7 +111,9 @@ const Match = ({ matchSnapshot }) => {
           <CardContent
             className="match-content"
             style={{
-              backgroundColor: past && getBackgroundColor(currentBet.proxi),
+              backgroundColor:
+                past &&
+                getBackgroundColor(currentBet.proxi, currentBet.pointsWon),
             }}
           >
             <div className="match-teams">
