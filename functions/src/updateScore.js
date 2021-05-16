@@ -79,7 +79,7 @@ exports.updateScore = functions
           // For group match GoodResult = GoodWinner, bet is lost only based on result
           const hasGoodResult = betResult === realResult
           let hasGoodWinner = true
-          let lostBet = hasGoodResult
+          let lostBet = !hasGoodResult
 
           if (!phase || phase === '0') {
             console.log('Match de phase de poule')
@@ -99,7 +99,7 @@ exports.updateScore = functions
             hasGoodWinner = finalBetWinner === realWinner
 
             // For phase matches, GoodWinner give points even if result is false
-            lostBet |= hasGoodWinner
+            lostBet &= !hasGoodWinner
           }
 
           if (lostBet) {
