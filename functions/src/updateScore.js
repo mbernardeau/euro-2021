@@ -11,12 +11,12 @@ const category = {
   CAT3: { proxi1: 2, proxi2: 3, proxi3: 4 },
 }
 
-// Proxi points
-const proxiCoeff = {
-  SCORE_PARFAIT: 1,
-  PROXI1: 0.6,
-  PROXI2: 0.35,
-  PROXI3: 0.2,
+// Proxi informations
+const proxiInfos = {
+  SCORE_PARFAIT: { proxiCoeff: 1, proxiLevel: 0 },
+  PROXI1: { proxiCoeff: 0.6, proxiLevel: 1 },
+  PROXI2: { proxiCoeff: 0.35, proxiLevel: 2 },
+  PROXI3: { proxiCoeff: 0.1, proxiLevel: 3 },
 }
 
 const round = (value, decimals) =>
@@ -74,40 +74,15 @@ exports.updateScore = functions
           const betId = doc.id
           const oldBetScore = bet.pointsWon
 
+          const betResult = findResult(betTeamA, betTeamB)
+
+          // For group match GoodResult = GoodWinner, bet is lost only based on result
+          const hasGoodResult = betResult === realResult
+          let hasGoodWinner = true
+          let lostBet = !hasGoodResult
+
           if (!phase || phase === '0') {
             console.log('Match de phase de poule')
-            const betResult = findResult(betTeamA, betTeamB)
-
-            if (betTeamA === realScoreTeamA && betTeamB === realScoreTeamB) {
-              // perfect match ! Full points
-              console.log('HOLY SH*T YOU WIN, you guess perfectly the score !')
-              promises.push(updateUserScore(oddScore, userId, oldBetScore))
-              promises.push(updatePointsWon(oddScore, betId))
-            } else if (realResult === betResult) {
-              // good result ! We calculate proxi
-              console.log('You only guess the issue of the match (sucker)')
-
-              const nbButsEcart =
-                Math.abs(realScoreTeamA - betTeamA) +
-                Math.abs(realScoreTeamB - betTeamB)
-              const coeffProxi =
-                nbButsEcart <= catMatch.proxi1
-                  ? proxiCoeff.PROXI1
-                  : nbButsEcart <= catMatch.proxi2
-                  ? proxiCoeff.PROXI2
-                  : proxiCoeff.PROXI3
-
-              promises.push(
-                updateUserScore(oddScore, userId, oldBetScore, coeffProxi),
-              )
-              promises.push(updatePointsWon(oddScore, betId, coeffProxi))
-            } else {
-              console.log(
-                "YOU LOSE SON, you didn't find the score neither the match issue",
-              )
-              promises.push(updateUserScore(oddScore, userId, oldBetScore, 0))
-              promises.push(updatePointsWon(oddScore, betId, 0))
-            }
           } else {
             console.log('Phase finale ', phase)
 
@@ -119,48 +94,53 @@ exports.updateScore = functions
               return null
             }
 
-            const phaseCoeff = getPhaseCoeff(phase)
-            const betResult = findResult(betTeamA, betTeamB)
             const finalBetWinner = betResult === 'N' ? bet.betWinner : betResult
-            const hasGoodResult = betResult === realResult
-            const hasGoodWinner = finalBetWinner === realWinner
 
-            if (!hasGoodResult && !hasGoodWinner) {
-              console.log(
-                "YOU LOSE SON, you didn't find the score neither the match issue",
-              )
-              promises.push(updateUserScore(oddScore, userId, oldBetScore, 0))
-              promises.push(updatePointsWon(oddScore, betId, 0))
-            } else {
-              let nbButsEcart =
-                Math.abs(realScoreTeamA - betTeamA) +
-                Math.abs(realScoreTeamB - betTeamB)
+            hasGoodWinner = finalBetWinner === realWinner
 
-              // Ajout des malus eventuels
-              if (!hasGoodResult || !hasGoodWinner) nbButsEcart++
+            // For phase matches, GoodWinner give points even if result is false
+            lostBet &= !hasGoodWinner
+          }
 
-              const coeffProxi =
-                nbButsEcart === 0
-                  ? proxiCoeff.SCORE_PARFAIT
-                  : nbButsEcart <= catMatch.proxi1
-                  ? proxiCoeff.PROXI1
-                  : nbButsEcart <= catMatch.proxi2
-                  ? proxiCoeff.PROXI2
-                  : proxiCoeff.PROXI3
+          if (lostBet) {
+            console.log(
+              "YOU LOSE SON, you didn't find the score neither the match issue",
+            )
+            promises.push(updateUserScore(oddScore, userId, oldBetScore))
+            promises.push(updatePointsWon(oddScore, betId))
+          } else {
+            let nbButsEcart =
+              Math.abs(realScoreTeamA - betTeamA) +
+              Math.abs(realScoreTeamB - betTeamB)
 
-              promises.push(
-                updateUserScore(
-                  oddScore,
-                  userId,
-                  oldBetScore,
-                  coeffProxi,
-                  phaseCoeff,
-                ),
-              )
-              promises.push(
-                updatePointsWon(oddScore, betId, coeffProxi, phaseCoeff),
-              )
-            }
+            // Ajout des malus eventuels (ne fait rien en cas de match de poule)
+            if (!hasGoodWinner || !hasGoodResult) nbButsEcart++
+
+            const proxiInfo =
+              nbButsEcart === 0
+                ? proxiInfos.SCORE_PARFAIT
+                : nbButsEcart <= catMatch.proxi1
+                ? proxiInfos.PROXI1
+                : nbButsEcart <= catMatch.proxi2
+                ? proxiInfos.PROXI2
+                : proxiInfos.PROXI3
+
+            promises.push(
+              updateUserScore(
+                oddScore,
+                userId,
+                oldBetScore,
+                proxiInfo.proxiCoeff,
+              ),
+            )
+            promises.push(
+              updatePointsWon(
+                oddScore,
+                betId,
+                proxiInfo.proxiCoeff,
+                proxiInfo.proxiLevel,
+              ),
+            )
           }
         })
 
@@ -168,13 +148,7 @@ exports.updateScore = functions
       })
   })
 
-const updateUserScore = (
-  odd,
-  userId,
-  oldBetScore = 0,
-  coeffProxi = 1,
-  coeffPhase = 1,
-) => {
+const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 0) => {
   console.log(`Updating user score for ${userId}`)
   const user = db.collection('opponents').doc(userId)
 
@@ -182,10 +156,9 @@ const updateUserScore = (
     .runTransaction((t) =>
       t.get(user).then((snapshot) => {
         const oldScore = snapshot.data().score || 0
-        const newScore =
-          oldScore - oldBetScore + round(coeffProxi * odd * coeffPhase, 2)
+        const newScore = oldScore - oldBetScore + round(coeffProxi * odd, 2)
         console.log(
-          `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeffProxi} * ${odd} * ${coeffPhase} = ${newScore})`,
+          `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeffProxi} * ${odd} = ${newScore})`,
         )
         return t.update(user, { score: newScore })
       }),
@@ -194,7 +167,7 @@ const updateUserScore = (
     .catch((err) => console.error(`User ${userId} score update failure:`, err))
 }
 
-const updatePointsWon = (odd, id, coeffProxi = 1, coeffPhase = 1) => {
+const updatePointsWon = (odd, id, coeffProxi = 0, proxiLevel = null) => {
   console.log(`Updating points won for bet ${id}`)
   const bets = db.collection('bets').doc(id)
 
@@ -202,16 +175,17 @@ const updatePointsWon = (odd, id, coeffProxi = 1, coeffPhase = 1) => {
     .runTransaction((t) =>
       t.get(bets).then((betSnap) =>
         t.update(betSnap.ref, {
-          pointsWon: round(coeffProxi * odd * coeffPhase, 2),
+          pointsWon: round(coeffProxi * odd, 2),
+          proxi: proxiLevel,
         }),
       ),
     )
     .then(() =>
       console.log(
         `Bet ${id} update with ${round(
-          coeffProxi * odd * coeffPhase,
+          coeffProxi * odd,
           2,
-        )} points`,
+        )} points. Proxi ${proxiLevel}`,
       ),
     )
     .catch((err) => {
@@ -224,12 +198,3 @@ const findResult = (score1, score2) => {
   if (score1 === score2) return 'N'
   return 'B'
 }
-
-// https://docs.google.com/spreadsheets/d/1ZioOtyCblJtJf0WAaRxVWmnibqOeC7eDcJYDVEYRqng/edit?usp=sharing
-const getPhaseCoeff = (phase) =>
-  ({
-    8: 1.67,
-    4: 3.34,
-    2: 6.69,
-    1: 13.37,
-  }[phase])
