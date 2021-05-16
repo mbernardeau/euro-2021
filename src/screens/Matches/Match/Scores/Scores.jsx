@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 
 import './Scores.scss'
+import { Tooltip } from '@material-ui/core'
 
 const Scores = ({ scores }) => {
   if (!scores) return null
@@ -12,11 +13,13 @@ const Scores = ({ scores }) => {
   const realWinner = realResult === 'N' ? winner : realResult
   return (
     <div className="scores-container">
-      <Typography variant="body2">
-        <span className={realWinner === 'A' ? 'winner' : ''}>{A}</span>
-        &nbsp;-&nbsp;
-        <span className={realWinner === 'B' ? 'winner' : ''}>{B}</span>
-      </Typography>
+      <Tooltip title="Score final" placement="top" enterTouchDelay={0}>
+        <Typography variant="body2">
+          <span className={realWinner === 'A' ? 'winner' : ''}>{A}</span>
+          &nbsp;-&nbsp;
+          <span className={realWinner === 'B' ? 'winner' : ''}>{B}</span>
+        </Typography>
+      </Tooltip>
     </div>
   )
 }
