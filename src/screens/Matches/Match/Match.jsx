@@ -16,6 +16,7 @@ import PointsWon from './PointsWon'
 import Scores from './Scores'
 import ValidIcon from './ValidIcon'
 import InformationResult from './InformationResult'
+import InformationMatch from './InformationMatch'
 
 const empty = {}
 const scoreValidator = (score) => isNumber(score) && score >= 0
@@ -154,6 +155,7 @@ const Match = ({ matchSnapshot }) => {
             )}
             <Divider />
             <MatchInfos match={match} />
+            <InformationMatch phase={match.phase} group={teamA.group} />
             {past ? (
               <InformationResult {...bet} />
             ) : (
