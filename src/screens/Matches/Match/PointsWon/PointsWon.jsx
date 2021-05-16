@@ -8,17 +8,14 @@ import './PointsWon.scss'
 
 // Proxi points
 const proxiCoeff = [1, 0.6, 0.35, 0.2]
-const proxiEmoji = [`🤩 `, `😐 `, `😐 `, `😐 `]
+const proxiText = [`🤩 100% de `, `😐 60% de `, `😐 35% de `, `😐 20% de `]
 
 const round = (value, decimals) =>
   Number(`${Math.round(`${value}e${decimals}`)}${`e-${decimals}`}`)
 
 const getCalculus = (odd, proxiLevel) => {
-  const calculText = `${proxiCoeff[proxiLevel]} × ${odd} = ${round(
-    proxiCoeff[proxiLevel] * odd,
-    2,
-  )}`
-  return proxiLevel ? proxiEmoji[proxiLevel] + calculText : '0 + 0 = 😶'
+  const calculText = `${odd} = ${round(proxiCoeff[proxiLevel] * odd, 2)}`
+  return proxiLevel ? proxiText[proxiLevel] + calculText : '0 + 0 = 😶'
 }
 
 const PointsWon = ({ pointsWon, proxi, scores, odds }) => {
