@@ -16,7 +16,7 @@ const priceValidationMessage = (price) => (
     <a
       title="Site cagnotte"
       className="group-join-link"
-      href="https://www.paypal.com/pools/c/84gsKV8QG8"
+      href="https://www.paypal.com/pools/c/8zxiGanwSa"
       target="_blank"
       rel="noreferrer"
     >
@@ -195,8 +195,9 @@ export const useValidApply = (groupId, userId) => {
   }
   const { enqueueSnackbar } = useSnackbar()
 
-  const validApplyCallable =
-    useFunctionsInRegion().httpsCallable('groups-validApply')
+  const validApplyCallable = useFunctionsInRegion().httpsCallable(
+    'groups-validApply',
+  )
 
   return useCallback(
     () =>

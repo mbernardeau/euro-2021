@@ -29,7 +29,7 @@ const DisplayPrice = ({ groups }) => {
         Vous devez encore <b>{somme}€ </b> sur le site de la{' '}
         <a
           title="Site cagnotte"
-          href="https://www.paypal.com/pools/c/84gsKV8QG8"
+          href="https://www.paypal.com/pools/c/8zxiGanwSa"
           target="_blank"
           rel="noreferrer"
         >
@@ -38,7 +38,7 @@ const DisplayPrice = ({ groups }) => {
         pour règler votre(vos) inscription(s).
       </Typography>
       <Typography gutterBottom variant="h4">
-        Vous pouvez également cette somme par paiement liquide à l'un des
+        Vous pouvez également payer cette somme par paiement liquide à l'un des
         organisateurs ou par <Link to="/rib">virement bancaire</Link>.
       </Typography>
       <Typography gutterBottom variant="h4">
