@@ -24,8 +24,8 @@ export default class FAQPage extends React.PureComponent {
         />
         <FaqEntry
           question="Qu'est-ce qu'une tribu ?"
-          answer="Votre/vos équipe(s), le regroupement des amis, connaissances, familles, avec lesquels vous aurez
-          choisi de jouer."
+          answer="Une tribu est un groupe de personnes qui regroupe des amis, des connaissances, des familles, avec lesquels vous aurez
+          choisi de jouer.chacun d'entre vous peut créer sa propre tribu, s'il le souhaite"
         />
         <FaqEntry
           question="Comment participer ?"
@@ -41,21 +41,28 @@ export default class FAQPage extends React.PureComponent {
           vos pronostics."
         />
         <FaqEntry
-          question="Je ne peux plus accéder à mes paris après m'être connecté !"
-          answer="Vérifier votre compte de connexion. Le compte Facebook et Gmail n'est pas lié. 
-          Si vous vous connectez avec l'un puis que vous utilisez l'autre, vous n'aurez plus accès à vos pronostics"
+          question="Comment créer ma tribu ?"
+          answer="Allez dans l'onglet 'Gestion des Tribus' dans le menu déroulant. Dans la section 'Créer une tribu',
+          choisissez le nom de la tribu, le cout de participation par personne, ainsi que le pourcentage 
+          à reverser à PAM (choix entre 20% et 80%). un code d'accès sera alors crée, et qu'il vous suffira 
+          à envoyer aux personnes qui souhaitent faire parti de votre tribu"
         />
         <FaqEntry
           question="Administrer une tribu, qu'est-ce que ça implique ?"
-          answer="L'administrateur de groupe va à la fois et créer et gérer sa tribu. Comment ? C'est à lui que revient
-          la charge de transmettre les codes aux joueurs qu'il souhaite voir participer avec lui. Sans le code de
+          answer="L'administrateur de groupe va à la fois et créer et gérer sa tribu. Comment ? 
+          C'est à lui que revient
+          la charge de transmettre les codes aux joueurs qu'il souhaite voir participer avec lui.
+          Sans le code de
           tribu, un joueur ne peut accéder au groupe de jeu."
         />
         <FaqEntry
           question="Paiement Obligatoire ?"
-          answer="Dans l'absolu, non. Vous pouvez jouer sans miser, cependant vous ne gagnerez rien à part le titre
-          honorifique de champion de votre tribu. Chaque Tribu fixe son prix d'entrée, et les gains seront
-          redistribués aux membres de l'équipe en fonction du classement de la tribu."
+          answer="Dans l'absolu, non. Vous pouvez jouer sans miser, cependant vous ne gagnerez rien à part 
+          le titre
+          honorifique de champion de votre tribu. Chaque Tribu fixe son prix d'entrée, 
+          le pourcentage de reversement 
+          à l'association PAM (de 20% à 80%), et les gains seront redistribués aux membres 
+          de l'équipe en fonction du classement de la tribu."
         />
         <FaqEntry
           question="Comment payer ?"
@@ -79,6 +86,12 @@ export default class FAQPage extends React.PureComponent {
           }
         />
         <FaqEntry
+          question="Je ne peux plus accéder à mes paris après m'être connecté !"
+          answer="Vérifier votre compte de connexion. Le compte Facebook et Gmail n'est pas lié. 
+          Si vous vous connectez avec l'un puis que vous utilisez l'autre, vous n'aurez 
+          plus accès à vos pronostics"
+        />
+        <FaqEntry
           question="Comment savoir si je suis toujours en attente pour rejoindre une tribu ?"
           answer="Dans l'onglet mes tribus, vous aurez votre statut d'inscrit, ainsi que le montant que vous avez
           encore à régler avant de rejoindre telle ou telle équipe."
@@ -92,7 +105,8 @@ export default class FAQPage extends React.PureComponent {
           question="Si j'ai parié une somme, combien puis-je espérer gagner à la fin du jeu ?"
           answer={
             <Fragment>
-              Refaire !!!!!!!!!!!!!!! Les gains seront répartis comme tel:{' '}
+              Cela reste le choix du créateur de la tribu de choisir le porcentage d'attribution des gains de ce concours de pronostics.
+              Prenons, l'exemple de répartition suivant :{' '}
               <br />1<sup>ère</sup> place: 55%, 2<sup>ème</sup> place: 30%, 3
               <sup>ème</sup> place: 15%
               <br />
@@ -115,7 +129,8 @@ export default class FAQPage extends React.PureComponent {
           tribus.
           Dans le cas où vous administrez plusieurs tribus, vous trouverez la liste complète des tribus que
           vous gérez depuis l'onglet correspondant. Vous y retrouverez également toutes les informations
-          nécessaires à la bonne gestion de vos groupes."
+          nécessaires à la bonne gestion de vos groupes.
+          Par contre, vous ne pourrez parier qu'un seul socre de match, et qui sera votre choix dans toutes les tribus auquel vou participez"
         />
         <FaqEntry
           question="Ai-je besoin de plusieurs adresses mail ou profils Facebook pour m'inscrire dans
@@ -139,7 +154,7 @@ export default class FAQPage extends React.PureComponent {
           question="Je me suis inscris dans une tribu, j'ai payé et été débité, mais je ne retrouve pas ma tribu ?"
           answer="Vérifiez bien que vous vous êtes connectés avec le bon compte d'inscription. Si malgré tout le
           problème subsiste, contacter nos administrateurs à l'adresse suivante:
-          roadtorussiaprono2018@gmail.com"
+          parionsmasques2021@gmail.com"
         />
         <FaqEntry
           question="Est-ce que les cotes changent ?"
@@ -155,7 +170,7 @@ export default class FAQPage extends React.PureComponent {
         <FaqEntry
           question="Pourquoi ne puis-je pas pronostiquer sur le gagnant de la coupe-du-monde ?"
           answer="Si vous avez émis ce pronostic après le 11 juin 2021 à 21h, il est en effet trop tard (cf. règlement). 
-          Si ce n'est pas le cas, merci de nous envoyer un mail à roadtorussiaprono2018@gmail.com avant la date du
+          Si ce n'est pas le cas, merci de nous envoyer un mail à parionsmasques2021@gmail.com avant la date du
           premier match de la coupe."
         />
         <FaqEntry
@@ -177,7 +192,7 @@ export default class FAQPage extends React.PureComponent {
                 GitHub du projet
               </a>
               . Il est aussi possible d&apos;envoyer un mail à
-              roadtorussiaprono2018@gmail.com décrivant le bug.
+              parionsmasques2021@gmail.com décrivant le bug.
             </Fragment>
           }
         />
@@ -205,7 +220,7 @@ export default class FAQPage extends React.PureComponent {
 
         <FaqEntry
           question="Mon problème n'est pas répertorié dans cette FAQ"
-          answer="Vous pouvez nous envoyer votre requête à l'adresse roadtorussiaprono2018@gmail.com. Nous vous
+          answer="Vous pouvez nous envoyer votre requête à l'adresse parionsmasques2021@gmail.com. Nous vous
           répondrons le plus rapidement possible afin que votre expérience de jeu soit la plus réussie."
         />
       </div>
