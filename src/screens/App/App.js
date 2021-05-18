@@ -14,9 +14,10 @@
 import AppBar from '@material-ui/core/AppBar'
 import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+// import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import PropTypes from 'prop-types'
+import Baniere from '../../assets/visuels/bandeausignature.png'
 import React, { Suspense, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import {
@@ -127,9 +128,7 @@ const App = () => {
             <MenuIcon />
           </IconButton>
           <div className="app-toolbar-title">
-            <Typography variant="h1" color="inherit">
-              Parions Masqués 2021
-            </Typography>
+            <img src={Baniere} alt="Baniere" />
           </div>
           <Suspense fallback={null}>
             <ConnectionWidget />
