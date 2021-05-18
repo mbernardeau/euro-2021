@@ -12,7 +12,13 @@ const FaqEntry = ({ question, answer }) => (
     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
       {question}
     </AccordionSummary>
-    <AccordionDetails>{answer}</AccordionDetails>
+    <AccordionDetails
+      style={{
+        display: 'block',
+      }}
+    >
+      {answer}
+    </AccordionDetails>
   </Accordion>
 )
 
