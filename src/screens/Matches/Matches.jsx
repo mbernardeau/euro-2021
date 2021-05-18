@@ -2,13 +2,12 @@ import AppBar from '@material-ui/core/AppBar'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import map from 'lodash/map'
-import PropTypes from 'prop-types'
 import React, { Suspense, useEffect, useMemo, useState } from 'react'
 import { useMatches } from '../../hooks'
 import Match from './Match'
 import './matches.scss'
 
-const Matches = ({ finishedMatches, futureMatches }) => {
+const Matches = () => {
   const [selectedTab, setSelectedTab] = useState(0)
   const [comparingDate, setComparingDate] = useState(Date.now())
 
@@ -25,17 +24,19 @@ const Matches = ({ finishedMatches, futureMatches }) => {
 
   const filteredMatches = useMemo(
     () =>
-      matches.filter((match) => {
-        const timestamp = match.get('dateTime').toMillis()
+      selectedTab === 0
+        ? matches.filter((match) => {
+            const timestamp = match.get('dateTime').toMillis()
 
-        const past = timestamp <= comparingDate
+            return timestamp > comparingDate
+          })
+        : matches
+            .filter((match) => {
+              const timestamp = match.get('dateTime').toMillis()
 
-        if (selectedTab === 0) {
-          return !past
-        } else {
-          return past
-        }
-      }),
+              return timestamp <= comparingDate
+            })
+            .reverse(),
     [comparingDate, matches, selectedTab],
   )
 
@@ -54,19 +55,6 @@ const Matches = ({ finishedMatches, futureMatches }) => {
       </div>
     </>
   )
-}
-
-Matches.propTypes = {
-  finishedMatches: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  ),
-  futureMatches: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  ),
 }
 
 const MatchesSuspense = (props) => {

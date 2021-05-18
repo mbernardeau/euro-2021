@@ -23,15 +23,21 @@ const Odds = ({ name_teamA, name_teamB, bet_teamA, bet_teamB, odds }) => {
   const oddBasis = (
     <div className="odds-container">
       <div className="odd-selected">
-        <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
-          {!isNil(bet_teamA) && !isNil(bet_teamB) ? (
+        {!isNil(bet_teamA) && !isNil(bet_teamB) ? (
+          <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
             <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
               {oddUsed}
             </div>
-          ) : (
+          </Tooltip>
+        ) : (
+          <Tooltip
+            placement="top"
+            title="Choisissez un score"
+            enterTouchDelay={0}
+          >
             <HelpOutlineIcon></HelpOutlineIcon>
-          )}
-        </Tooltip>
+          </Tooltip>
+        )}
       </div>
       <div className="odd-dialog">
         <OddDialog
