@@ -17,6 +17,7 @@ import Toolbar from '@material-ui/core/Toolbar'
 // import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
 import PropTypes from 'prop-types'
+import Baniere_mobile from '../../assets/visuels/baniere_pm.png'
 import Baniere from '../../assets/visuels/bandeausignature.png'
 import React, { Suspense, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
@@ -128,7 +129,8 @@ const App = () => {
             <MenuIcon />
           </IconButton>
           <div className="app-toolbar-title">
-            <img src={Baniere} alt="Baniere" />
+            <img id="imgDesktop" src={Baniere} alt="Baniere" />
+            <img id="imgMobile" src={Baniere_mobile} alt="Baniere" />
           </div>
           <Suspense fallback={null}>
             <ConnectionWidget />

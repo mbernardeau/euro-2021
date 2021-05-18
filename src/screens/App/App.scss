@@ -8,7 +8,24 @@
 }
 
 .app-toolbar-title {
-  @media screen and (max-width: 949px) {
+  #imgMobile {
     display: none;
+  }
+  #imgDesktop {
+    display: block;
+  }
+
+  @media all and (max-width: 949px) {
+    #imgMobile {
+      display: block;
+    }
+    #imgDesktop {
+      display: none;
+    }
+  }
+  @media all and (max-width: 669px) {
+    #imgMobile {
+      display: none;
+    }
   }
 }
