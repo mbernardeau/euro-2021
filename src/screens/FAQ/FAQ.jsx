@@ -43,7 +43,7 @@ export default class FAQPage extends React.PureComponent {
         <FaqEntry
           question="Comment créer ma tribu ?"
           answer="Allez dans l'onglet 'Gestion des Tribus' dans le menu déroulant. Dans la section 'Créer une tribu',
-          choisissez le nom de la tribu, le cout de participation par personne, ainsi que le pourcentage 
+          choisissez le nom de la tribu, le coût de participation par personne, ainsi que le pourcentage 
           à reverser à PAM (choix entre 20% et 80%). un code d'accès sera alors crée, et qu'il vous suffira 
           à envoyer aux personnes qui souhaitent faire parti de votre tribu"
         />
@@ -105,10 +105,10 @@ export default class FAQPage extends React.PureComponent {
           question="Si j'ai parié une somme, combien puis-je espérer gagner à la fin du jeu ?"
           answer={
             <Fragment>
-              Cela reste le choix du créateur de la tribu de choisir le porcentage d'attribution des gains de ce concours de pronostics.
-              Prenons, l'exemple de répartition suivant :{' '}
-              <br />1<sup>ère</sup> place: 55%, 2<sup>ème</sup> place: 30%, 3
-              <sup>ème</sup> place: 15%
+              Cela reste le choix du créateur de la tribu de choisir le
+              pourcentage d'attribution des gains de ce concours de pronostics.
+              Prenons, l'exemple de répartition suivant : <br />1<sup>ère</sup>{' '}
+              place: 55%, 2<sup>ème</sup> place: 30%, 3<sup>ème</sup> place: 15%
               <br />
               Le pourcentage s&apos;effectue sur la totalité des sommes misées
               (déduction faite des dons à l&apos;association PAM). Par exemple:{' '}
@@ -130,7 +130,7 @@ export default class FAQPage extends React.PureComponent {
           Dans le cas où vous administrez plusieurs tribus, vous trouverez la liste complète des tribus que
           vous gérez depuis l'onglet correspondant. Vous y retrouverez également toutes les informations
           nécessaires à la bonne gestion de vos groupes.
-          Par contre, vous ne pourrez parier qu'un seul socre de match, et qui sera votre choix dans toutes les tribus auquel vou participez"
+          Par contre, vous ne pourrez parier qu'un seul score de match, et qui sera votre choix dans toutes les tribus auquel vou participez"
         />
         <FaqEntry
           question="Ai-je besoin de plusieurs adresses mail ou profils Facebook pour m'inscrire dans
