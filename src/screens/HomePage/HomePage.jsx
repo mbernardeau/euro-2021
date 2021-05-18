@@ -24,18 +24,6 @@ const HomePage = ({ history }) => {
   return (
     <div className="home-page-div">
       <p className="home-speech">
-<<<<<<< HEAD
-        Bienvenue sur Parions Masques 2021, le site de pronostics du championat
-        d'europe des nations. Jouez en famille ou entre amis sur les scores des
-        matchs et affrontez d&apos;autres tribus ! Le but ? Pariez au plus
-        proche de la réalité les résultats des équipes, marquez des points, et
-        tentez de gagner la première place.
-        <br />
-        <br />
-        Fans de foot aux grands cœurs, le site s&apos;engage à reverser une
-        partie du prix de l'inscription à l&apos;association humanitaire
-        <br />{' '}
-=======
         Bienvenue sur ParionsMasques, le site de pronostics de l'EURO 2021.
         Jouez en famille ou entre amis et affrontez d&apos;autres tribus ! Le
         but ? Pariez au plus proche de la réalité les résultats des équipes,
@@ -44,7 +32,6 @@ const HomePage = ({ history }) => {
         <br />
         Fans de foot aux grands cœurs, le site s&apos;engage à reverser une
         partie des gains (20% à 80%) à l&apos;association humanitaire{' '}
->>>>>>> origin/master
         <a
           title="Site PAM"
           href="https://pourunailleursmeilleur.wordpress.com/"
