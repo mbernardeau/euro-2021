@@ -14,6 +14,7 @@ import CurrencyFormat from './CurrencyFormat'
 const CreateGroup = () => {
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
+  const [percent, setPercent] = useState('50')
   const createGroup = useCreateGroup()
 
   const errorMessage =
@@ -24,6 +25,8 @@ const CreateGroup = () => {
   const handleNameChange = (e) => setName(e.target.value)
 
   const handlePriceChange = (e) => setPrice(e.target.value)
+
+  const handlePercentChange = (e) => setPercent(e.target.value)
 
   return (
     <Card className="create-group-card">
@@ -36,8 +39,10 @@ const CreateGroup = () => {
       </Typography>
       <br />
       <Typography variant="body2">
-        Le prix des tribus est libre. Pour une tribu gratuite, laissez le champ
-        &quot;Prix à payer par personne&quot; vide.
+        Le prix d'inscription aux tribus est libre. Pour une tribu gratuite,
+        laissez le champ &quot;Prix à payer par personne&quot; vide. Le
+        pourcentage rétribué à PAM doit être entre 20% et 80%. Le reste est
+        partagé entre les vainqueurs du concours.
       </Typography>
 
       <CardContent className="create-group-content">
@@ -61,15 +66,36 @@ const CreateGroup = () => {
             }}
           />
         </FormControl>
+
+        <FormControl className="create-group-field">
+          <TextField
+            type="number"
+            disabled={price <= 0}
+            label="Pourcentage réattribué à l'association PAM"
+            value={percent}
+            onChange={handlePercentChange}
+            InputProps={{
+              inputProps: {
+                max: 80,
+                min: 20,
+              },
+            }}
+          />
+        </FormControl>
       </CardContent>
 
       <CardActions>
         <Button
           disabled={!isFormValid()}
           onClick={async () => {
-            await createGroup({ name, price: Number(price) })
+            await createGroup({
+              name,
+              price: Number(price),
+              percent: Number(percent),
+            })
             setName('')
             setPrice('')
+            setPercent('')
           }}
           color="primary"
           variant="contained"

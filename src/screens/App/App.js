@@ -16,7 +16,6 @@ import IconButton from '@material-ui/core/IconButton'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
-import { setUser } from '@sentry/react'
 import PropTypes from 'prop-types'
 import React, { Suspense, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
@@ -40,24 +39,13 @@ import NotFoundPage from '../NotFoundPage'
 import NotificationHandler from '../Notifications/NotificationHandler'
 import Profile from '../Profile'
 import RankingPage from '../Ranking'
+import Rib from '../Rib'
 import RulesPage from '../Rules'
 import Stadiums from '../Stadiums'
 import ValidInscriptionPage from '../ValidInscription'
 import './App.scss'
 import ConnectionWidget from './ConnectionWidget'
 import NavigationMenu from './NavigationMenu'
-
-const updateSentryScope = (user) => {
-  if (!user) {
-    setUser(null)
-  } else {
-    setUser({
-      id: user.uid,
-      email: user.email,
-      username: user.displayName,
-    })
-  }
-}
 
 /**
  * Mise à jour du profil utilisateur (dans la collection `users` sur une connection)
@@ -120,7 +108,6 @@ const App = () => {
   const FieldValue = useFirestore.FieldValue
 
   auth.onAuthStateChanged(async (user) => {
-    updateSentryScope(user)
     if (user) {
       await updateUserProfile(firestore, auth, FieldValue)(user)
     }
@@ -141,7 +128,7 @@ const App = () => {
           </IconButton>
           <div className="app-toolbar-title">
             <Typography variant="h1" color="inherit">
-              Road to Russia 2018
+              Parions Masqués 2021
             </Typography>
           </div>
           <Suspense fallback={null}>
@@ -173,6 +160,7 @@ const App = () => {
             <Route path="/ranking" component={RankingPage} />
             <Route path="/groups" component={GroupsPage} />
             <Route path="/profile" component={Profile} />
+            <Route path="/rib" component={Rib} />
 
             {/* Route accessible pour admin */}
             <AuthCheck requiredClaims={{ role: 'admin' }}>

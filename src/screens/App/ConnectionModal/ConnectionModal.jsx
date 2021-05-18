@@ -36,7 +36,7 @@ const ConnectionModal = () => {
         <Typography gutterBottom>
           En vous connectant, vous déclarez accepter la&nbsp;
           <a
-            href="https://github.com/mbernardeau/Road-to-Russia-2018/blob/master/confidentialite.md"
+            href="https://github.com/mbernardeau/euro-2021/blob/master/confidentialite.md"
             target="_blank"
             rel="noreferrer"
           >

@@ -1,6 +1,6 @@
 {
-  "short_name": "Euro 2021",
-  "name": "ParionsMasques 2021",
+  "short_name": "Parions Masqués",
+  "name": "Parions Masqués - EURO 2021",
   "icons": [
     {
       "src": "favicon.ico",
@@ -28,8 +28,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#d32f2f",
-  "background_color": "#f9f6ed",
+  "theme_color": "#00bcd4",
+  "background_color": "#bcffff",
   "display": "standalone",
   "orientation": "portrait",
   "Scope": "/",

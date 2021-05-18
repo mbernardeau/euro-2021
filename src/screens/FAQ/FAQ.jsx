@@ -207,7 +207,7 @@ export default class FAQPage extends React.PureComponent {
               <br />
               Vous pouvez consulter la politique de confidentialité complète{' '}
               <a
-                href="https://github.com/mbernardeau/Road-to-Russia-2018/blob/master/confidentialite.md"
+                href="https://github.com/mbernardeau/euro-2021/blob/master/confidentialite.md"
                 target="_blank"
                 rel="noreferrer"
               >

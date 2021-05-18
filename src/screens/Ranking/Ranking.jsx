@@ -19,19 +19,20 @@ const Ranking = () => {
     <>
       <div className="ranking-page-div">
         <p>
-          Pour pouvoir vous visualiser dans le classement, il vous faut tout
+          Pour pouvoir visualiser dans le classement, il vous faut tout
           d&apos;abord <Link to="/groups">créer ou rejoindre une tribu</Link>.
           Si cela est dejà fait, vérifier que vous avez bien payé le droit
           d&apos;entrée sur la{' '}
           <a
             title="Site cagnotte"
-            href="https://www.paypal.com/pools/c/84gsKV8QG8"
+            href="https://www.paypal.com/pools/c/8zxiGanwSa"
             target="_blank"
             rel="noreferrer"
           >
             cagnotte
           </a>
-          . Si cela est également fait, veuillez attendre la validation des
+          , en paiement liquide ou par <Link to="/rib">virement bancaire</Link>.
+          Si cela est également fait, veuillez attendre la validation des
           administrateurs.
         </p>
       </div>
