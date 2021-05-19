@@ -19,8 +19,13 @@ import { AuthCheck } from 'reactfire'
 import myImage from '../../assets/visuels/bandeauEvenement2_1920x1080.webp'
 import './HomePage.scss'
 import FinalWinner from './FinalWinner'
+import { Typography } from '@material-ui/core'
+import { useCompetitionData } from '../../hooks'
+import { isPast } from 'date-fns'
 
 const HomePage = ({ history }) => {
+  const LaunchBetDate = new Date(useCompetitionData().launchBet.seconds * 1000)
+
   return (
     <div className="home-page-div">
       <p className="home-speech">
@@ -81,7 +86,15 @@ const HomePage = ({ history }) => {
         </AuthCheck>
       </div>
       <AuthCheck>
-        <FinalWinner />
+        {isPast(LaunchBetDate) ? (
+          <FinalWinner />
+        ) : (
+          <Typography variant="h1">
+            ⚠ Le pronostic du vainqueur final sera accessible le 5 Juin ! D'ici
+            là, vous pouvez créer votre groupe et vous inscrire aux
+            notifications pour être prévenu de toutes les actualité du site !
+          </Typography>
+        )}
       </AuthCheck>
       <img alt="Home" className="home-logo" src={myImage} />
     </div>
