@@ -23,9 +23,21 @@ import { Typography } from '@material-ui/core'
 import { useCompetitionData } from '../../hooks'
 import { isPast } from 'date-fns'
 
-const HomePage = ({ history }) => {
+const WinnerChoice = () => {
   const LaunchBetDate = new Date(useCompetitionData().launchBet.seconds * 1000)
 
+  return isPast(LaunchBetDate) ? (
+    <FinalWinner />
+  ) : (
+    <Typography variant="h1">
+      ⚠ Le pronostic du vainqueur final sera accessible le 5 Juin ! D'ici là,
+      vous pouvez créer votre groupe et vous inscrire aux notifications pour
+      être prévenu de toutes les actualité du site !
+    </Typography>
+  )
+}
+
+const HomePage = ({ history }) => {
   return (
     <div className="home-page-div">
       <p className="home-speech">
@@ -85,17 +97,7 @@ const HomePage = ({ history }) => {
           </div>
         </AuthCheck>
       </div>
-      <AuthCheck>
-        {isPast(LaunchBetDate) ? (
-          <FinalWinner />
-        ) : (
-          <Typography variant="h1">
-            ⚠ Le pronostic du vainqueur final sera accessible le 5 Juin ! D'ici
-            là, vous pouvez créer votre groupe et vous inscrire aux
-            notifications pour être prévenu de toutes les actualité du site !
-          </Typography>
-        )}
-      </AuthCheck>
+      <AuthCheck>{WinnerChoice()}</AuthCheck>
       <img alt="Home" className="home-logo" src={myImage} />
     </div>
   )
