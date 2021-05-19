@@ -185,7 +185,7 @@ export default class FAQPage extends React.PureComponent {
             <Fragment>
               Vous pouvez créer un rapport de bug (ou issue), sur le site&nbsp;
               <a
-                href="https://github.com/mbernardeau/Road-to-Russia-2018/issues/new"
+                href="https://github.com/mbernardeau/euro-2021/issues/new"
                 target="_blank"
                 rel="noreferrer"
               >
