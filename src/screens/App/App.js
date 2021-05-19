@@ -36,7 +36,6 @@ import FAQPage from '../FAQ'
 import GroupsPage from '../Groups'
 import HomePage from '../HomePage'
 import MatchesPage from '../Matches'
-import MatchesValidationPage from '../MatchesValidation'
 import NotFoundPage from '../NotFoundPage'
 import NotificationHandler from '../Notifications/NotificationHandler'
 import Profile from '../Profile'
@@ -165,11 +164,6 @@ const App = () => {
 
             {/* Route accessible pour admin */}
             <AuthCheck requiredClaims={{ role: 'admin' }}>
-              <Route
-                path="/matchesvalidation"
-                component={MatchesValidationPage}
-              />
-
               <Route
                 path="/validinscription"
                 component={ValidInscriptionPage}

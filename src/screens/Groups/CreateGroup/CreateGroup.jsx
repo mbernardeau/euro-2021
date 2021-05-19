@@ -95,7 +95,7 @@ const CreateGroup = () => {
             })
             setName('')
             setPrice('')
-            setPercent('')
+            setPercent('50')
           }}
           color="primary"
           variant="contained"
