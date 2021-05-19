@@ -47,8 +47,7 @@ export const useCreateGroup = () => {
 
     enqueueSnackbar(
       <>
-        Groupe {group.name} créé avec le code <b>{joinKey}</b>.&nbsp;
-        {group.price > 0 && priceValidationMessage(group.price)}
+        Groupe {group.name} créé avec le code <b>{joinKey}</b>.
       </>,
       { variant: 'success' },
     )
@@ -127,7 +126,7 @@ export const useApplyInGroup = () => {
       } else {
         enqueueSnackbar(
           <>
-            Demande envoyée pour la tribu&nbsp;<b>{group.name}</b> !
+            Inscription dans la tribu&nbsp;<b>{group.name}</b> !
           </>,
           { variant: 'success' },
         )

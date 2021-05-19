@@ -182,27 +182,10 @@ describe('Firebase rules/groups', () => {
         )
       })
     })
-
-    describe('members validation', () => {
-      it('should fail if table does not contain current user id', async () => {
-        await assertFails(
-          createGroup({
-            members: ['random str'],
-          }),
-        )
-      })
-      it('should fail if table does contain some other ids', async () => {
-        await assertFails(
-          createGroup({
-            members: [TEST_UID, 'random str'],
-          }),
-        )
-      })
-    })
   })
 
   describe('group edition', () => {
-    it('should be refused is user not admin', async () => {
+    it('should be refused if user not admin', async () => {
       await createGroup()
       await assertFails(
         appUser2
@@ -210,20 +193,19 @@ describe('Firebase rules/groups', () => {
           .collection('groups')
           .doc(GROUP_ID)
           .update({
-            members: firestore.FieldValue.arrayUnion(USER2_ID),
+            createdAt: new Date('2018-05-10'),
           }),
       )
     })
-    it('should be also refused if user is admin', async () => {
+    it('should be also be refused if user is admin', async () => {
       await createGroup()
-
       await assertFails(
         appAdmin
           .firestore()
           .collection('groups')
           .doc(GROUP_ID)
           .update({
-            members: firestore.FieldValue.arrayUnion(USER2_ID),
+            createdAt: new Date('2018-05-10'),
           }),
       )
     })
@@ -237,7 +219,6 @@ describe('Firebase rules/groups', () => {
     createdAt = firestore.FieldValue.serverTimestamp(),
     joinKey = 'ABCDE',
     version = 1,
-    members = [TEST_UID],
   } = {}) {
     return app.firestore().collection('groups').doc(GROUP_ID).set({
       name,
@@ -247,7 +228,6 @@ describe('Firebase rules/groups', () => {
       createdAt,
       joinKey,
       version,
-      members,
     })
   }
 })
