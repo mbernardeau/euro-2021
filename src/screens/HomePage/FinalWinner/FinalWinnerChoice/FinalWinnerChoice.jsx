@@ -42,8 +42,6 @@ const FinalWinnerChoice = ({ userTeam, disabled, onValueChange }) => {
 const FlagDisplay = (teams, userTeam) => {
   const teamDisplayed = find(teams, (team) => team.id === userTeam)
 
-  console.log(teamDisplayed)
-
   return (
     teamDisplayed && (
       <Flag
