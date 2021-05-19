@@ -31,10 +31,11 @@ export const useCreateGroup = () => {
   const firestore = useFirestore()
   const FieldValue = useFirestore.FieldValue
   const { enqueueSnackbar } = useSnackbar()
+  const [applyInGroup] = useApplyInGroup()
 
   const joinKey = uuidv4().slice(0, 5).toUpperCase()
 
-  const empty = async (group) => {
+  return async (group) => {
     await firestore.collection('groups').add({
       ...group,
       createdBy: user.uid,
@@ -42,6 +43,8 @@ export const useCreateGroup = () => {
       joinKey,
       version: 1,
     })
+
+    await applyInGroup(joinKey)
 
     enqueueSnackbar(
       <>
@@ -51,15 +54,6 @@ export const useCreateGroup = () => {
       { variant: 'success' },
     )
   }
-
-  // console.log(empty)
-
-  // Launch next lines after group is created
-
-  // const [applyInGroup] = useApplyInGroup()
-  // return async () => {
-  //   await applyInGroup(joinKey)
-  // }
 }
 
 export const useApplyInGroup = () => {
