@@ -33,9 +33,8 @@ export const useCreateGroup = () => {
   const { enqueueSnackbar } = useSnackbar()
   const [applyInGroup] = useApplyInGroup()
 
-  const joinKey = uuidv4().slice(0, 5).toUpperCase()
-
   return async (group) => {
+    const joinKey = uuidv4().slice(0, 5).toUpperCase()
     await firestore.collection('groups').add({
       ...group,
       createdBy: user.uid,
