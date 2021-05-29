@@ -13,10 +13,15 @@ import InlineAvatar from '../../../components/Avatar'
 import { useOpponents, useTeams } from '../../../hooks'
 import './GroupRanking.scss'
 import OwnRank from './OwnRank'
-import Flag from '../../../components/Flag'
 import imgUrl from '../../../assets/icons/mask6.png'
 import forgotBetImgUrl from '../../../assets/icons/ForgotBet.png'
 import { Tooltip } from '@material-ui/core'
+
+import memoize from 'lodash/memoize'
+
+export const imgUrlFlag = memoize((country) =>
+  require(`../../../assets/flags/${country}.svg`),
+)
 
 const GroupRanking = ({ name, members }) => {
   const { uid } = useAuth().currentUser
@@ -68,9 +73,21 @@ const GroupRanking = ({ name, members }) => {
                           title="Vainqueur final éliminé"
                           placement="right"
                         >
-                          <Flag
-                            country={team.code}
+                          <img
+                            src={imgUrlFlag(team.code).default}
+                            alt={team.code}
                             className="bet-winner-beaten"
+                          />
+                        </Tooltip>
+                      ) : team.unveiled ? (
+                        <Tooltip
+                          title={'Gains en cas de victoire : ' + team.winOdd}
+                          placement="right"
+                        >
+                          <img
+                            src={imgUrlFlag(team.code).default}
+                            alt={team.code}
+                            className="bet-winner-unveiled"
                           />
                         </Tooltip>
                       ) : (
