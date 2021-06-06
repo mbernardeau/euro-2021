@@ -7,8 +7,14 @@ import Tooltip from '@material-ui/core/Tooltip'
 import './PointsWon.scss'
 
 // Proxi points
-const proxiCoeff = [1, 0.6, 0.35, 0.2]
-const proxiText = [`🤩 100% de `, `😐 60% de `, `😐 35% de `, `😐 20% de `]
+const proxiCoeff = [1, 0.6, 0.35, 0.2, 0.1]
+const proxiText = [
+  `🤩 100% de `,
+  `😐 60% de `,
+  `😐 35% de `,
+  `😐 20% de `,
+  `😐 10% de `,
+]
 
 const round = (value, decimals) =>
   Number(`${Math.round(`${value}e${decimals}`)}${`e-${decimals}`}`)
