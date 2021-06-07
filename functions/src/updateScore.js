@@ -6,9 +6,9 @@ const db = admin.firestore()
 
 // Category of game to calculate proximity
 const category = {
-  CAT1: { proxi1: 0, proxi2: 1, proxi3: 2, proxi4: 3 },
-  CAT2: { proxi1: 1, proxi2: 2, proxi3: 3, proxi4: 4 },
-  CAT3: { proxi1: 2, proxi2: 3, proxi3: 4, proxi4: 5 },
+  CAT1: { proxi1: 0, proxi2: 1, proxi3: 2 },
+  CAT2: { proxi1: 1, proxi2: 2, proxi3: 3 },
+  CAT3: { proxi1: 2, proxi2: 3, proxi3: 4 },
 }
 
 // Proxi informations
@@ -16,8 +16,7 @@ const proxiInfos = {
   SCORE_PARFAIT: { proxiCoeff: 1, proxiLevel: 0 },
   PROXI1: { proxiCoeff: 0.6, proxiLevel: 1 },
   PROXI2: { proxiCoeff: 0.35, proxiLevel: 2 },
-  PROXI3: { proxiCoeff: 0.2, proxiLevel: 3 },
-  PROXI4: { proxiCoeff: 0.1, proxiLevel: 4 },
+  PROXI3: { proxiCoeff: 0.1, proxiLevel: 3 },
 }
 
 const round = (value, decimals) =>
@@ -124,9 +123,7 @@ exports.updateScore = functions
                 ? proxiInfos.PROXI1
                 : nbButsEcart <= catMatch.proxi2
                 ? proxiInfos.PROXI2
-                : nbButsEcart <= catMatch.proxi3
-                ? proxiInfos.PROXI3
-                : proxiInfos.PROXI4
+                : proxiInfos.PROXI3
 
             promises.push(
               updateUserScore(
@@ -159,10 +156,7 @@ const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 0) => {
     .runTransaction((t) =>
       t.get(user).then((snapshot) => {
         const oldScore = snapshot.data().score || 0
-        const newScore = round(
-          oldScore - oldBetScore + round(coeffProxi * odd, 2),
-          2,
-        )
+        const newScore = oldScore - oldBetScore + round(coeffProxi * odd, 2)
         console.log(
           `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeffProxi} * ${odd} = ${newScore})`,
         )
