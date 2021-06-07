@@ -2,10 +2,11 @@ const functions = require('firebase-functions')
 const firestore = require('@google-cloud/firestore')
 const client = new firestore.v1.FirestoreAdminClient()
 
-const bucket = 'gs://prod_euro_2021'
+const bucket = `gs://${process.env.GCLOUD_PROJECT}-backups`
 
 exports.scheduledFirestoreExport = functions.pubsub
-  .schedule('every 24 hours')
+  .schedule('59 23 * * *')
+  .timeZone('Europe/Paris')
   .onRun((context) => {
     const projectId = process.env.GCP_PROJECT || process.env.GCLOUD_PROJECT
     const databaseName = client.databasePath(projectId, '(default)')
