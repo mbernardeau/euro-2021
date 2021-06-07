@@ -60,9 +60,9 @@ const Matches = () => {
     </>
   ) : (
     <Typography variant="h1">
-      ⚠ Les pronostics seront accessibles à partir du 9 juin à 8h ! D'ici là,
-      vous pouvez créer votre groupe et vous inscrire aux notifications pour
-      être prévenu de toutes les actualité du site !
+      ⚠ Les pronostics seront accessibles à partir du 5 Juin ! D'ici là, vous
+      pouvez créer votre groupe et vous inscrire aux notifications pour être
+      prévenu de toutes les actualité du site !
     </Typography>
   )
 }
