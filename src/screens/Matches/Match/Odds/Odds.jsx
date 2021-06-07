@@ -10,6 +10,17 @@ import './Odds.scss'
 const toHex = (number) =>
   padStart(Math.min(Math.round(Math.abs(number)), 255).toString(16), 2, '0')
 
+// https://docs.google.com/spreadsheets/d/1ZioOtyCblJtJf0WAaRxVWmnibqOeC7eDcJYDVEYRqng/edit?usp=sharing
+// Will be used for getColor
+// const getPhaseCoeff = (phase) =>
+//   ({
+//     0: 1,
+//     8: 1.67,
+//     4: 3.34,
+//     2: 6.69,
+//     1: 13.37,
+//   }[phase])
+
 const getColor = (value) => {
   const r = (128 / 13) * (value + 1)
   const g = (-128 / 11) * (value - 12)
@@ -23,15 +34,21 @@ const Odds = ({ name_teamA, name_teamB, bet_teamA, bet_teamB, odds }) => {
   const oddBasis = (
     <div className="odds-container">
       <div className="odd-selected">
-        <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
-          {!isNil(bet_teamA) && !isNil(bet_teamB) ? (
+        {!isNil(bet_teamA) && !isNil(bet_teamB) ? (
+          <Tooltip placement="top" title="Cote de ce score" enterTouchDelay={0}>
             <div className="odd" style={{ backgroundColor: getColor(oddUsed) }}>
               {oddUsed}
             </div>
-          ) : (
+          </Tooltip>
+        ) : (
+          <Tooltip
+            placement="top"
+            title="Choisissez un score"
+            enterTouchDelay={0}
+          >
             <HelpOutlineIcon></HelpOutlineIcon>
-          )}
-        </Tooltip>
+          </Tooltip>
+        )}
       </div>
       <div className="odd-dialog">
         <OddDialog

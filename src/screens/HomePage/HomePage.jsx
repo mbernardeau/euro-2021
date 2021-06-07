@@ -16,9 +16,26 @@ import PollIcon from '@material-ui/icons/Poll'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AuthCheck } from 'reactfire'
-import myImage from '../../assets/visuels/bandeauEvenement2_1920x1080.webp'
+import myImage from '../../assets/visuels/bandeauEvenement_PM.jpg'
 import './HomePage.scss'
 import FinalWinner from './FinalWinner'
+import { Typography } from '@material-ui/core'
+import { useCompetitionData } from '../../hooks'
+import { isPast } from 'date-fns'
+
+const WinnerChoice = () => {
+  const LaunchBetDate = new Date(useCompetitionData().launchBet.seconds * 1000)
+
+  return isPast(LaunchBetDate) ? (
+    <FinalWinner />
+  ) : (
+    <Typography variant="h1">
+      ⚠ Le pronostic du vainqueur final sera accessible le 8 Juin à 8h ! D'ici
+      là, vous pouvez créer votre groupe et vous inscrire aux notifications pour
+      être prévenu de toutes les actualité du site !
+    </Typography>
+  )
+}
 
 const HomePage = ({ history }) => {
   return (
@@ -80,9 +97,7 @@ const HomePage = ({ history }) => {
           </div>
         </AuthCheck>
       </div>
-      <AuthCheck>
-        <FinalWinner />
-      </AuthCheck>
+      <AuthCheck>{WinnerChoice()}</AuthCheck>
       <img alt="Home" className="home-logo" src={myImage} />
     </div>
   )

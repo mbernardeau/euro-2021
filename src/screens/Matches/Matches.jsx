@@ -2,13 +2,14 @@ import AppBar from '@material-ui/core/AppBar'
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import map from 'lodash/map'
-import PropTypes from 'prop-types'
 import React, { Suspense, useEffect, useMemo, useState } from 'react'
-import { useMatches } from '../../hooks'
+import { useCompetitionData, useMatches } from '../../hooks'
 import Match from './Match'
+import { Typography } from '@material-ui/core'
 import './matches.scss'
+import { isPast } from 'date-fns'
 
-const Matches = ({ finishedMatches, futureMatches }) => {
+const Matches = () => {
   const [selectedTab, setSelectedTab] = useState(0)
   const [comparingDate, setComparingDate] = useState(Date.now())
 
@@ -25,21 +26,25 @@ const Matches = ({ finishedMatches, futureMatches }) => {
 
   const filteredMatches = useMemo(
     () =>
-      matches.filter((match) => {
-        const timestamp = match.get('dateTime').toMillis()
+      selectedTab === 0
+        ? matches.filter((match) => {
+            const timestamp = match.get('dateTime').toMillis()
 
-        const past = timestamp <= comparingDate
+            return timestamp > comparingDate
+          })
+        : matches
+            .filter((match) => {
+              const timestamp = match.get('dateTime').toMillis()
 
-        if (selectedTab === 0) {
-          return !past
-        } else {
-          return past
-        }
-      }),
+              return timestamp <= comparingDate
+            })
+            .reverse(),
     [comparingDate, matches, selectedTab],
   )
 
-  return (
+  const LaunchBetDate = new Date(useCompetitionData().launchBet.seconds * 1000)
+
+  return isPast(LaunchBetDate) ? (
     <>
       <AppBar position="fixed" className="matches-tab-bar">
         <Tabs value={selectedTab} onChange={handleTabChange} centered>
@@ -53,20 +58,13 @@ const Matches = ({ finishedMatches, futureMatches }) => {
         ))}
       </div>
     </>
+  ) : (
+    <Typography variant="h1">
+      ⚠ Les pronostics seront accessibles à partir du 9 juin à 8h ! D'ici là,
+      vous pouvez créer votre groupe et vous inscrire aux notifications pour
+      être prévenu de toutes les actualité du site !
+    </Typography>
   )
-}
-
-Matches.propTypes = {
-  finishedMatches: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  ),
-  futureMatches: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-    }),
-  ),
 }
 
 const MatchesSuspense = (props) => {

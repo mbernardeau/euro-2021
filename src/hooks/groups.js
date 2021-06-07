@@ -31,6 +31,7 @@ export const useCreateGroup = () => {
   const firestore = useFirestore()
   const FieldValue = useFirestore.FieldValue
   const { enqueueSnackbar } = useSnackbar()
+  const [applyInGroup] = useApplyInGroup()
 
   return async (group) => {
     const joinKey = uuidv4().slice(0, 5).toUpperCase()
@@ -40,13 +41,13 @@ export const useCreateGroup = () => {
       createdAt: FieldValue.serverTimestamp(),
       joinKey,
       version: 1,
-      members: [user.uid],
     })
+
+    await applyInGroup(joinKey)
 
     enqueueSnackbar(
       <>
-        Groupe {group.name} créé avec le code <b>{joinKey}</b>.&nbsp;
-        {group.price > 0 && priceValidationMessage(group.price)}
+        Groupe {group.name} créé avec le code <b>{joinKey}</b>.
       </>,
       { variant: 'success' },
     )
@@ -125,7 +126,7 @@ export const useApplyInGroup = () => {
       } else {
         enqueueSnackbar(
           <>
-            Demande envoyée pour la tribu&nbsp;<b>{group.name}</b> !
+            Inscription dans la tribu&nbsp;<b>{group.name}</b> !
           </>,
           { variant: 'success' },
         )

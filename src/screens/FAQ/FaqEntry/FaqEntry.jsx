@@ -5,14 +5,18 @@ import AccordionSummary from '@material-ui/core/AccordionSummary'
 import AccordionDetails from '@material-ui/core/AccordionDetails'
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore'
 
-import './FaqEntry.scss'
+import { Typography } from '@material-ui/core'
 
 const FaqEntry = ({ question, answer }) => (
   <Accordion>
     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-      {question}
+      <Typography variant="h3">
+        <b>{question}</b>
+      </Typography>
     </AccordionSummary>
-    <AccordionDetails>{answer}</AccordionDetails>
+    <AccordionDetails>
+      <Typography>{answer}</Typography>
+    </AccordionDetails>
   </Accordion>
 )
 

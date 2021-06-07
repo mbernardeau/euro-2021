@@ -18,37 +18,51 @@ export default class FAQPage extends React.PureComponent {
         </p>
         <FaqEntry
           question="Qu'est-ce que c'est ?"
-          answer="Un site qui vous permet de jouer avec les pronostics du Mondial, entre amis ou en famille.
+          answer="Un site qui vous permet de jouer avec les pronostics de l'EURO 2021, entre amis ou en famille.
           À chaque bon pronostic, vous marquez un certain nombre de points, qui cumulés au fur et à mesure
           détermineront votre place dans le classement de votre tribu."
         />
         <FaqEntry
           question="Qu'est-ce qu'une tribu ?"
-          answer="Votre/vos équipe(s), le regroupement des amis, connaissances, familles, avec lesquels vous aurez
-          choisi de jouer."
+          answer="Une tribu est un groupe de personnes qui regroupe des amis, des connaissances, des familles, avec lesquels vous aurez
+          choisi de jouer.chacun d'entre vous peut créer sa propre tribu, s'il le souhaite"
         />
         <FaqEntry
           question="Comment participer ?"
-          answer="Après vous être connecté avec votre compte Google ou Facebook (Un compte par profil de connexion. Si vous vous enregistrez avec votre compte Google pour créer
-          ou rejoindre une/des tribu(s), il faudra poursuivre avec ce même compte pour poursuivre votre jeu), il vous faudra créer votre tribu ou rejoindre une tribu déjà existante.
-          Via l'onglet correspondant dans le menu déroulant, entrez votre nom d'équipe, et vous voilà lancé
-          dans l'aventure.
-          Votre demande sera validée auprès de nos administrateurs, et vous recevrez un code d'accès à votre
-          tribu.
-          Pour pouvoir jouer, il vous faut impérativement un compte Facebook ou Google, sans quoi vous ne
-          pourrez pas vous connecter."
+          answer="Après vous être connecté, vous devez tout d'abord rejoindre une tribu ou créer votre propre tribu.
+          Une fois cette étape réalisée, vous pourrez pronostiquer votre vainqueur final ainsi que vos premiers
+          matchs."
+        />
+        <FaqEntry
+          question="Comment rejoindre une tribu ?"
+          answer="Allez dans l'onglet 'Gestion des Tribus' dans le menu déroulant, entrez le code que vous a indiqué
+          votre chef d'équipe dans la section 'Rejoindre une tribu'. Ensuite payez le règlement selon l'un des moyens décrits 
+          si il y en a un. Votre demande sera validée auprès de nos administrateurs et vous pourrez ensuite commencez
+          vos pronostics."
+        />
+        <FaqEntry
+          question="Comment créer ma tribu ?"
+          answer="Allez dans l'onglet 'Gestion des Tribus' dans le menu déroulant. Dans la section 'Créer une tribu',
+          choisissez le nom de la tribu, le coût de participation par personne, ainsi que le pourcentage 
+          à reverser à PAM (choix entre 20% et 80%). un code d'accès sera alors crée, et qu'il vous suffira 
+          à envoyer aux personnes qui souhaitent faire parti de votre tribu"
         />
         <FaqEntry
           question="Administrer une tribu, qu'est-ce que ça implique ?"
-          answer="L'administrateur de groupe va à la fois et créer et gérer sa tribu. Comment ? C'est à lui que revient
-          la charge de transmettre les codes aux joueurs qu'il souhaite voir participer avec lui. Sans le code de
+          answer="L'administrateur de groupe va à la fois et créer et gérer sa tribu. Comment ? 
+          C'est à lui que revient
+          la charge de transmettre les codes aux joueurs qu'il souhaite voir participer avec lui.
+          Sans le code de
           tribu, un joueur ne peut accéder au groupe de jeu."
         />
         <FaqEntry
           question="Paiement Obligatoire ?"
-          answer="Dans l'absolu, non. Vous pouvez jouer sans miser, cependant vous ne gagnerez rien à part le titre
-          honorifique de champion de votre tribu. Chaque Tribu fixe son prix d'entrée, et les gains seront
-          redistribués aux membres de l'équipe en fonction du classement de la tribu."
+          answer="Dans l'absolu, non. Vous pouvez jouer sans miser, cependant vous ne gagnerez rien à part 
+          le titre
+          honorifique de champion de votre tribu. Chaque Tribu fixe son prix d'entrée, 
+          le pourcentage de reversement 
+          à l'association PAM (de 20% à 80%), et les gains seront redistribués aux membres 
+          de l'équipe en fonction du classement de la tribu."
         />
         <FaqEntry
           question="Comment payer ?"
@@ -57,24 +71,25 @@ export default class FAQPage extends React.PureComponent {
               Si vous souhaitez créer une tribu payante, il faudra vous
               acquitter vous et les autres participants de la somme que vous
               aurez choisie. Pour ce faire, un lien vers la cagnotte PayPal de
-              l&apos;organisation se génère. Le paiement s&apos;effectue
-              uniquement (un compte paypal est de fait obligatoire afin de jouer
-              en mode payant) via le site, et votre demande ne sera validée par
-              nos administrateurs qu&apos;après le règlement intégral de la
-              somme requise.
+              l&apos;organisation se génère. Le paiement s&apos;effectue via
+              cette cagnotte, par virement bancaire ou en main propre auprès des
+              administrateurs. Votre demande ne sera validée par nos
+              administrateurs qu&apos;après le règlement intégral de la somme
+              requise.
               <br />
               <i>
-                Pour toute mise sur le jeu, 50% des fonds misés seront reversés
-                à l&apos;association Pour un Ailleurs Meilleur.
+                Pour toute mise sur le jeu, un pourcentage entre 20% et 80% des
+                fonds misés seront reversés à l&apos;association Pour un
+                Ailleurs Meilleur.
               </i>
             </Fragment>
           }
         />
         <FaqEntry
-          question="Comment rejoindre une Tribu ?"
-          answer="Après cliqué sur Rejoindre une tribu dans le menu déroulant, il vous faudra rentrer le code que
-          l'administrateur de la tribu vous aura envoyé (cf. Où se trouve le code ?) . C'est le seul moyen de
-          rejoindre une tribu déjà existante."
+          question="Je ne peux plus accéder à mes paris après m'être connecté !"
+          answer="Vérifier votre compte de connexion. Le compte Facebook et Gmail n'est pas lié. 
+          Si vous vous connectez avec l'un puis que vous utilisez l'autre, vous n'aurez 
+          plus accès à vos pronostics"
         />
         <FaqEntry
           question="Comment savoir si je suis toujours en attente pour rejoindre une tribu ?"
@@ -90,8 +105,10 @@ export default class FAQPage extends React.PureComponent {
           question="Si j'ai parié une somme, combien puis-je espérer gagner à la fin du jeu ?"
           answer={
             <Fragment>
-              Les gains seront répartis comme tel: <br />1<sup>ère</sup> place:
-              55%, 2<sup>ème</sup> place: 30%, 3<sup>ème</sup> place: 15%
+              Cela reste le choix du créateur de la tribu de choisir le
+              pourcentage d'attribution des gains de ce concours de pronostics.
+              Prenons, l'exemple de répartition suivant : <br />1<sup>ère</sup>{' '}
+              place: 55%, 2<sup>ème</sup> place: 30%, 3<sup>ème</sup> place: 15%
               <br />
               Le pourcentage s&apos;effectue sur la totalité des sommes misées
               (déduction faite des dons à l&apos;association PAM). Par exemple:{' '}
@@ -112,7 +129,8 @@ export default class FAQPage extends React.PureComponent {
           tribus.
           Dans le cas où vous administrez plusieurs tribus, vous trouverez la liste complète des tribus que
           vous gérez depuis l'onglet correspondant. Vous y retrouverez également toutes les informations
-          nécessaires à la bonne gestion de vos groupes."
+          nécessaires à la bonne gestion de vos groupes.
+          Par contre, vous ne pourrez parier qu'un seul score de match, et qui sera votre choix dans toutes les tribus auquel vou participez"
         />
         <FaqEntry
           question="Ai-je besoin de plusieurs adresses mail ou profils Facebook pour m'inscrire dans
@@ -136,30 +154,23 @@ export default class FAQPage extends React.PureComponent {
           question="Je me suis inscris dans une tribu, j'ai payé et été débité, mais je ne retrouve pas ma tribu ?"
           answer="Vérifiez bien que vous vous êtes connectés avec le bon compte d'inscription. Si malgré tout le
           problème subsiste, contacter nos administrateurs à l'adresse suivante:
-          naustra246@gmail.com"
+          parionsmasques2021@gmail.com"
         />
         <FaqEntry
-          question="Lorsque je me suis connecté ce matin, les cotes étaient différentes, est-ce normal ?"
+          question="Est-ce que les cotes changent ?"
           answer={
             <Fragment>
-              Oui, en effet, à chaque match joué les cotes évoluent. Toutes les
-              cotes du site sont basées sur le site&nbsp;
-              <a
-                href="https://www.unibet.fr/sport/football/coupe-du-monde-2018/tous-les-matchs-coupe-dumonde-2018"
-                target="_blank"
-                rel="noreferrer"
-              >
-                UNIBET
-              </a>
-              , cotes que nous remettons régulièrement à jour afin que votre jeu
-              soit le plus distrayant et proche de la réalité possible.
+              Les côtes ont été réalisées par notre équipe de bêta testeurs.
+              Celle-ci peuvent être amenées à changer au début de la
+              compétition. Un fois la compétition démarrée, les côtes ne
+              changeront plus une fois un nouveau match publié.
             </Fragment>
           }
         />
         <FaqEntry
           question="Pourquoi ne puis-je pas pronostiquer sur le gagnant de la coupe-du-monde ?"
-          answer="Si vous avez émis ce pronostic après le 14 juin 17h, il est en effet trop tard (cf. règlement). Si ce n'est
-          pas le cas, merci de nous envoyer un mail à naustra246@gmail.com avant la date du
+          answer="Si vous avez émis ce pronostic après le 11 juin 2021 à 21h, il est en effet trop tard (cf. règlement). 
+          Si ce n'est pas le cas, merci de nous envoyer un mail à parionsmasques2021@gmail.com avant la date du
           premier match de la coupe."
         />
         <FaqEntry
@@ -174,14 +185,14 @@ export default class FAQPage extends React.PureComponent {
             <Fragment>
               Vous pouvez créer un rapport de bug (ou issue), sur le site&nbsp;
               <a
-                href="https://github.com/mbernardeau/Road-to-Russia-2018/issues/new"
+                href="https://github.com/mbernardeau/euro-2021/issues/new"
                 target="_blank"
                 rel="noreferrer"
               >
                 GitHub du projet
               </a>
               . Il est aussi possible d&apos;envoyer un mail à
-              naustra246@gmail.com décrivant le bug.
+              parionsmasques2021@gmail.com décrivant le bug.
             </Fragment>
           }
         />
@@ -209,7 +220,7 @@ export default class FAQPage extends React.PureComponent {
 
         <FaqEntry
           question="Mon problème n'est pas répertorié dans cette FAQ"
-          answer="Vous pouvez nous envoyer votre requête à l'adresse naustra246@gmail.com. Nous vous
+          answer="Vous pouvez nous envoyer votre requête à l'adresse parionsmasques2021@gmail.com. Nous vous
           répondrons le plus rapidement possible afin que votre expérience de jeu soit la plus réussie."
         />
       </div>

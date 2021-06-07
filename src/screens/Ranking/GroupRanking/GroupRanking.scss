@@ -8,15 +8,19 @@
   }
 
   .bet-winner-beaten {
-    height: 3em;
+    width: 3em;
     opacity: 0.6;
   }
 
   .bet-winner-unveiled {
-    height: 3em;
+    border-radius: 50%;
+    width: 3em;
+    background-color: #fff;
+    box-shadow: 0 0 6px 3px #fff, /* inner white */ 0 0 9px 6px #ed0,
+      0 0 12px 9px #fca;
   }
 
   .bet-winner-unknown {
-    height: 3em;
+    width: 3em;
   }
 }

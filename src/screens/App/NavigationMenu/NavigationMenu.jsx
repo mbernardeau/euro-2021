@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import PropTypes from 'prop-types'
 import React, { Suspense } from 'react'
 import { useHistory } from 'react-router'
-import WorldCupImg from '../../../assets/2021_PM.jpg'
+import SideImg from '../../../assets/visuels/rules-281x310.png'
 import { useIsUserAdmin, useIsUserConnected } from '../../../hooks'
 import { openPAMTab } from '../../../utils'
 import './NavigationMenu.scss'
@@ -28,11 +28,7 @@ const NavigationMenu = ({ closeMenu, menuOpen }) => {
       <List>
         {/* Route accessibles sans connexion */}
         <ListItem button onClick={goTo('/')}>
-          <img
-            src={WorldCupImg}
-            className="navigation-menu-image"
-            alt="Accueil"
-          />
+          <img src={SideImg} className="navigation-menu-image" alt="Accueil" />
         </ListItem>
         <Divider />
 

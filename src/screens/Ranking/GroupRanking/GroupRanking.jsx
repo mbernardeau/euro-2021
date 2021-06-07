@@ -13,8 +13,15 @@ import InlineAvatar from '../../../components/Avatar'
 import { useOpponents, useTeams } from '../../../hooks'
 import './GroupRanking.scss'
 import OwnRank from './OwnRank'
-import Flag from '../../../components/Flag'
 import imgUrl from '../../../assets/icons/mask6.png'
+import forgotBetImgUrl from '../../../assets/icons/ForgotBet.png'
+import { Tooltip } from '@material-ui/core'
+
+import memoize from 'lodash/memoize'
+
+export const imgUrlFlag = memoize((country) =>
+  require(`../../../assets/flags/${country}.svg`),
+)
 
 const GroupRanking = ({ name, members }) => {
   const { uid } = useAuth().currentUser
@@ -41,7 +48,9 @@ const GroupRanking = ({ name, members }) => {
             {sortedOpponents.map((userSnapshot, index) => {
               const user = userSnapshot.data()
 
-              const team = teams.find((a) => a.id === user.winnerTeam).data()
+              const team = user.winnerTeam
+                ? teams.find((a) => a.id === user.winnerTeam).data()
+                : null
 
               return (
                 <TableRow
@@ -58,14 +67,52 @@ const GroupRanking = ({ name, members }) => {
                     {(user.score || 0).toLocaleString()} points
                   </TableCell>
                   <TableCell padding="default">
-                    {team.elimination ? (
-                      <Flag country={team.code} className="bet-winner-beaten" />
+                    {team ? (
+                      team.elimination ? (
+                        <Tooltip
+                          title="Vainqueur final éliminé"
+                          placement="right"
+                        >
+                          <img
+                            src={imgUrlFlag(team.code).default}
+                            alt={team.code}
+                            className="bet-winner-beaten"
+                          />
+                        </Tooltip>
+                      ) : team.unveiled ? (
+                        <Tooltip
+                          title={'Gains en cas de victoire : ' + team.winOdd}
+                          placement="right"
+                        >
+                          <img
+                            src={imgUrlFlag(team.code).default}
+                            alt={team.code}
+                            className="bet-winner-unveiled"
+                          />
+                        </Tooltip>
+                      ) : (
+                        <Tooltip
+                          title="Vainqueur final mystère"
+                          placement="right"
+                        >
+                          <img
+                            src={imgUrl}
+                            className="bet-winner-unknown"
+                            alt="Équipe non éliminée"
+                          />
+                        </Tooltip>
+                      )
                     ) : (
-                      <img
-                        src={imgUrl}
-                        className="bet-winner-unknown"
-                        alt="Équipe non éliminée"
-                      />
+                      <Tooltip
+                        title="Cette personne a oublié de parier son vainqueur final"
+                        placement="right"
+                      >
+                        <img
+                          src={forgotBetImgUrl}
+                          className="bet-winner-unknown"
+                          alt="Aucun vainqueur sélectionné"
+                        />
+                      </Tooltip>
                     )}
                   </TableCell>
                 </TableRow>
