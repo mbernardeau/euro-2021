@@ -12,6 +12,7 @@ const proxiText = [
   'Vous êtes en première proximité',
   'Vous êtes en seconde proximité',
   'Vous êtes en troisième proximité',
+  'Vous êtes en quatrième proximité',
 ]
 
 const getMessage = (proxiLevel, hasBet) => {

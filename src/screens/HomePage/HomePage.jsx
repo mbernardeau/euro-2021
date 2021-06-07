@@ -30,8 +30,8 @@ const WinnerChoice = () => {
     <FinalWinner />
   ) : (
     <Typography variant="h1">
-      ⚠ Le pronostic du vainqueur final sera accessible le 5 Juin ! D'ici là,
-      vous pouvez créer votre groupe et vous inscrire aux notifications pour
+      ⚠ Le pronostic du vainqueur final sera accessible le 8 Juin à 8h ! D'ici
+      là, vous pouvez créer votre groupe et vous inscrire aux notifications pour
       être prévenu de toutes les actualité du site !
     </Typography>
   )

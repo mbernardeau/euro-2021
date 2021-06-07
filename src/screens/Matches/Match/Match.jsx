@@ -22,7 +22,7 @@ const empty = {}
 const scoreValidator = (score) => isNumber(score) && score >= 0
 const winnerValidator = (winner) => winner && (winner === 'A' || winner === 'B')
 
-const proxiColors = ['#BAEE90', '#E0EE90', '#EEEE90', '#EEDD90']
+const proxiColors = ['#BAEE90', '#E0EE90', '#EEEE90', '#EEDD90', '#EEC590']
 
 const getBackgroundColor = (proxiLevel, pointsWon) => {
   // No bet ?
