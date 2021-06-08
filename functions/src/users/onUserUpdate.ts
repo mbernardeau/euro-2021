@@ -12,18 +12,21 @@ export const onUserUpdate = functions
   .region(EU_WEST_3)
   .firestore.document('users/{userId}')
   .onUpdate((change) => {
+    const uid = change.after.id
     const userProfile = change.after.data() as UserProfile
 
     return db
       .collection('opponents')
-      .doc(userProfile.uid)
+      .doc(uid)
       .set(
         {
-          uid: userProfile.uid,
+          uid,
           avatarUrl:
-            userProfile.profile?.picture?.data?.url ?? userProfile.avatarUrl,
+            (userProfile.profile?.picture?.data?.url ??
+              userProfile.avatarUrl) ||
+            null,
           displayName: userProfile.displayName,
-          winnerTeam: userProfile.winnerTeam,
+          winnerTeam: userProfile.winnerTeam ?? null,
         },
         {
           merge: true,
