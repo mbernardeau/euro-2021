@@ -33,6 +33,13 @@ Depuis le dossier local de l'application:
 
 Si le déploiement est complet, l'instance est correctement créée.
 
+## [Optionel] Configurer la sauvegarde automatique de la base de données
+
+Une sauvegarde automatique de la base de données est possible dans un bucket cloud storage. La fonction `chore-saveData` est déjà codée pour faire cette sauvegarde. Pour la faire fonctionner sur un nouveau projet, suivre les étapes suivantes:
+
+- Se rendre sur la console Cloud storage (https://console.cloud.google.com/storage/browser) puis créer un bucket. Le nom de ce bucket doit **impérativement** être de la forme `idprojet-backups`. Attention à bien sélectionner la zone Europe (ou plus précisément eu-west3).
+- Il est ensuite nécessaire de configurer les permissions nécessaires pour autoriser le compte de service à écrire sur le bucket. Les instructions sont détaillées sur cette page: https://firebase.google.com/docs/firestore/solutions/schedule-export#configure_access_permissions
+
 ### Peuplement de la base de données
 
 L'application a besoin d'un ensemble minimum de données pour fonctionner.
