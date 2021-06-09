@@ -7,7 +7,7 @@
          "name": "Italie",
          "subCollection": {
          },
-         "winOdd": 200
+         "winOdd": 110
       },
       "-Kj2zfpEdmB6SgyPd85W": {
          "code": "gb-wls",
@@ -16,7 +16,7 @@
          "name": "Pays de Galles",
          "subCollection": {
          },
-         "winOdd": 181.84
+         "winOdd": 1400
       },
       "-Kj2zfpFzqykBwiz5dcL": {
          "code": "tr",
@@ -25,7 +25,7 @@
          "name": "Turquie",
          "subCollection": {
          },
-         "winOdd": 333.36
+         "winOdd": 560
       },
       "-Kj2zfpFzqykBwiz5dcM": {
          "code": "ch",
@@ -34,7 +34,7 @@
          "name": "Suisse",
          "subCollection": {
          },
-         "winOdd": 177.76
+         "winOdd": 690
       },
       "-Kj2zfpFzqykBwiz5dcN": {
          "code": "dk",
@@ -43,7 +43,7 @@
          "name": "Danemark",
          "subCollection": {
          },
-         "winOdd": 266.64
+         "winOdd": 285
       },
       "-Kj2zfpGJmSTghyT06un": {
          "code": "fi",
@@ -52,7 +52,7 @@
          "name": "Finlande",
          "subCollection": {
          },
-         "winOdd": 727.28
+         "winOdd": 4600
       },
       "-Kj2zfpGJmSTghyT06uo": {
          "code": "ru",
@@ -61,7 +61,7 @@
          "name": "Russie",
          "subCollection": {
          },
-         "winOdd": 166.64
+         "winOdd": 690
       },
       "-Kj2zfpHPqNpMy7ZgxmM": {
          "code": "be",
@@ -70,7 +70,7 @@
          "name": "Belgique",
          "subCollection": {
          },
-         "winOdd": 100
+         "winOdd": 64
       },
       "-Kj2zfpIxWevwDITiL0V": {
          "code": "ua",
@@ -79,7 +79,7 @@
          "name": "Ukraine",
          "subCollection": {
          },
-         "winOdd": 333.36
+         "winOdd": 690
       },
       "-Kj2zfpJov1GY9sA2IgE": {
          "code": "nl",
@@ -88,7 +88,7 @@
          "name": "Pays-Bas",
          "subCollection": {
          },
-         "winOdd": 186.08
+         "winOdd": 120
       },
       "-Kj2zfpJov1GY9sA2IgF": {
          "code": "at",
@@ -97,7 +97,7 @@
          "name": "Autriche",
          "subCollection": {
          },
-         "winOdd": 210.56
+         "winOdd": 930
       },
       "-Kj2zfpKYdjdHhPukkXr": {
          "code": "mk",
@@ -106,7 +106,7 @@
          "name": "Macédoine du N.",
          "subCollection": {
          },
-         "winOdd": 266.64
+         "winOdd": 4600
       },
       "-Kj2zfpKYdjdHhPukkXs": {
          "code": "gb-eng",
@@ -115,7 +115,7 @@
          "name": "Angleterre",
          "subCollection": {
          },
-         "winOdd": 163.28
+         "winOdd": 55
       },
       "-Kj2zfpKYdjdHhPukkXt": {
          "code": "hr",
@@ -124,7 +124,7 @@
          "name": "Croatie",
          "subCollection": {
          },
-         "winOdd": 235.28
+         "winOdd": 322
       },
       "-Kj2zfpKYdjdHhPukkXu": {
          "code": "gb-sct",
@@ -133,7 +133,7 @@
          "name": "Écosse",
          "subCollection": {
          },
-         "winOdd": 173.92
+         "winOdd": 1400
       },
       "-Kj2zfpLjC03AaK-W8Lo": {
          "code": "cz",
@@ -142,7 +142,7 @@
          "name": "R. tchèque",
          "subCollection": {
          },
-         "winOdd": 216.24
+         "winOdd": 1150
       },
       "-Kj2zfpM7z9dtuBQZC4c": {
          "code": "se",
@@ -151,7 +151,7 @@
          "name": "Suède",
          "subCollection": {
          },
-         "winOdd": 470.56
+         "winOdd": 690
       },
       "-Kj2zfpN8l22eNCLSzLj": {
          "code": "pl",
@@ -160,7 +160,7 @@
          "name": "Pologne",
          "subCollection": {
          },
-         "winOdd": 133.36
+         "winOdd": 690
       },
       "-Kj2zfpN8l22eNCLSzLk": {
          "code": "es",
@@ -169,7 +169,7 @@
          "name": "Espagne",
          "subCollection": {
          },
-         "winOdd": 166.64
+         "winOdd": 83
       },
       "-Kj2zfpN8l22eNCLSzLl": {
          "code": "sk",
@@ -178,7 +178,7 @@
          "name": "Slovaquie",
          "subCollection": {
          },
-         "winOdd": 222.24
+         "winOdd": 1400
       },
       "-Kj2zfpO3MwCoLIdNuNf": {
          "code": "de",
@@ -187,7 +187,7 @@
          "name": "Allemagne",
          "subCollection": {
          },
-         "winOdd": 108.8
+         "winOdd": 83
       },
       "-Kj2zfpO3MwCoLIdNuNg": {
          "code": "fr",
@@ -196,7 +196,7 @@
          "name": "France",
          "subCollection": {
          },
-         "winOdd": 82.24
+         "winOdd": 55
       },
       "-Kj2zfpPgzwXCT7Bnm1y": {
          "code": "pt",
@@ -205,7 +205,7 @@
          "name": "Portugal",
          "subCollection": {
          },
-         "winOdd": 333.36
+         "winOdd": 92
       },
       "-Kj2zfpRCBdqgDxcBLBQ": {
          "code": "hu",
@@ -214,7 +214,7 @@
          "name": "Hongrie",
          "subCollection": {
          },
-         "winOdd": 380.96
+         "winOdd": 2300
       }
    }
 }
