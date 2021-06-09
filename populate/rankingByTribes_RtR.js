@@ -10,8 +10,6 @@ admin.initializeApp({
 
 const db = admin.firestore()
 
-const group_id = process.argv[2]
-
 const userOfTribe = async () => {
   const querySnapshot = await db.collection('groups').get()
 
