@@ -11,7 +11,10 @@ admin.initializeApp({
 const db = admin.firestore()
 
 const displayForgottenBets = async () => {
-  const querySnapshotMatch = await db.collection('matches').get()
+  const querySnapshotMatch = await db
+    .collection('matches')
+    .where('display', '==', true)
+    .get()
   const querySnapshotUser = await db.collection('opponents').get()
 
   const table = await Promise.all(

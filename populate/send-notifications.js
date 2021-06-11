@@ -23,9 +23,9 @@ async function getNotificationSubscription() {
 }
 
 const data = {
-  title: 'Test notification',
-  body: 'Ceci est un test pour euro-2021',
-  url: '/matches',
+  title: "Début de l'EURO dans moins d'une heure !",
+  body: 'Heureux de vous compter parmi nous ! Encore quelque minute pour choisir votre vainqueur final ! ;)',
+  url: '/',
 }
 
 const invalidTokenErrorCodes = [
