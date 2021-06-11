@@ -23,7 +23,7 @@ const Groups = () => (
           </li>
           <li>
             Ensuite soit on a le score parfait (100% de la côte est attribué),
-            soit on a un score plus ou moins proche (entre 15% et 60% de la côte
+            soit on a un score plus ou moins proche (entre 10% et 60% de la côte
             est attribué).
           </li>
         </ol>
@@ -41,22 +41,25 @@ const Groups = () => (
             '1ère proxi',
             '2ème proxi',
             '3ème proxi',
+            '4ème proxi',
           ]}
           rows={[
             [
               'Pourcentage de points par rapport au score parfait',
               '60 %',
               '35 %',
-              '15 %',
+              '20 %',
+              '10 %',
             ],
             [
               'Nombre de buts d’écarts si nb_buts < 3',
               'N/A',
               '1 (2 pour nuls)',
-              '2+',
+              '2',
+              '3+',
             ],
-            ['Nombre de buts d’écarts si nb_buts < 6', '1', '2', '3+'],
-            ['Nombre de buts d’écarts si nb_buts >= 6', '2', '3', '4+'],
+            ['Nombre de buts d’écarts si nb_buts < 6', '1', '2', '3', '4+'],
+            ['Nombre de buts d’écarts si nb_buts >= 6', '2', '3', '4', '5+'],
           ]}
         />
       </div>
@@ -71,9 +74,9 @@ const Groups = () => (
           header={[
             'Type de résultat',
             'Score pronostiqués',
-            'Cote du score',
             'Vainqueur pronostiqué',
             'Score réel',
+            'Cote du score réel',
             'Vainqueur réel',
             'Points gagnés',
           ]}
@@ -84,13 +87,13 @@ const Groups = () => (
                 <div>3-1</div>
               </div>,
               <div>
-                <div>11.6</div>
-              </div>,
-              <div>
                 <div>France</div>
               </div>,
               <div>
                 <div>3-1</div>
+              </div>,
+              <div>
+                <div>11.6</div>
               </div>,
               <div>
                 <div>France</div>
@@ -105,13 +108,13 @@ const Groups = () => (
                 <div>2-1</div>
               </div>,
               <div>
-                <div>5.2</div>
-              </div>,
-              <div>
                 <div>France</div>
               </div>,
               <div>
                 <div>3-1</div>
+              </div>,
+              <div>
+                <div>11.6</div>
               </div>,
               <div>
                 <div>France</div>
@@ -126,13 +129,13 @@ const Groups = () => (
                 <div>2-0</div>
               </div>,
               <div>
-                <div>5.3</div>
-              </div>,
-              <div>
                 <div>France</div>
               </div>,
               <div>
                 <div>3-1</div>
+              </div>,
+              <div>
+                <div>11.6</div>
               </div>,
               <div>
                 <div>France</div>
@@ -144,16 +147,16 @@ const Groups = () => (
             [
               '3eme proximité',
               <div>
-                <div>6-1</div>
-              </div>,
-              <div>
-                <div>40.6</div>
+                <div>1-0</div>
               </div>,
               <div>
                 <div>France</div>
               </div>,
               <div>
                 <div>3-1</div>
+              </div>,
+              <div>
+                <div>11.6</div>
               </div>,
               <div>
                 <div>France</div>
@@ -163,18 +166,39 @@ const Groups = () => (
               </div>,
             ],
             [
+              '4eme proximité',
+              <div>
+                <div>6-1</div>
+              </div>,
+              <div>
+                <div>France</div>
+              </div>,
+              <div>
+                <div>3-1</div>
+              </div>,
+              <div>
+                <div>11.6</div>
+              </div>,
+              <div>
+                <div>France</div>
+              </div>,
+              <div>
+                <div>11.6 x 0.1 = 1.16</div>
+              </div>,
+            ],
+            [
               'Mauvais vainqueur',
               <div>
                 <div>1-2</div>
-              </div>,
-              <div>
-                <div>9.5</div>
               </div>,
               <div>
                 <div>Australie</div>
               </div>,
               <div>
                 <div>3-1</div>
+              </div>,
+              <div>
+                <div>11.6</div>
               </div>,
               <div>
                 <div>France</div>

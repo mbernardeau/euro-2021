@@ -119,6 +119,27 @@ const Playoff = () => (
               </div>,
             ],
             [
+              '4eme proximité',
+              <div>
+                <div>1-1</div>
+              </div>,
+              <div>
+                <div>12.8</div>
+              </div>,
+              <div>
+                <div>Espagne</div>
+              </div>,
+              <div>
+                <div>5-4</div>
+              </div>,
+              <div>
+                <div>Espagne</div>
+              </div>,
+              <div>
+                <div>55.04 x 0.1 = 5.01</div>
+              </div>,
+            ],
+            [
               'Mauvais vainqueur',
               <div>
                 <div>1-2</div>
