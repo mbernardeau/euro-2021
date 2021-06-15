@@ -23,8 +23,8 @@ async function getNotificationSubscription() {
 }
 
 const data = {
-  title: 'Ajout de matchs, à vos pronos !',
-  body: 'De nouveaux pronos sont disponibles, pensez à parier avant le début de match !',
+  title: 'Ajout de nouveaux matchs, à vos pronos !',
+  body: 'De nouveaux pronostics sont disponibles, pensez à parier avant le début du prochain match !',
   url: '/matches',
 }
 
