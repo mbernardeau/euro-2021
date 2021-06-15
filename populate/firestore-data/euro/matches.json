@@ -136,10 +136,6 @@
             "Pautre": 280
          },
          "phase": "0",
-         "scores": {
-            "A": 0,
-            "B": 1
-         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD1",
          "streaming": "BeIN",
          "subCollection": {
@@ -185,10 +181,6 @@
             "Pautre": 280
          },
          "phase": "0",
-         "scores": {
-            "A": 3,
-            "B": 0
-         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD3",
          "streaming": "M6",
          "subCollection": {
@@ -324,6 +316,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 0,
+            "B": 1
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD2",
          "streaming": "BeIN",
          "subCollection": {
@@ -369,6 +365,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 3,
+            "B": 0
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD0",
          "streaming": "M6",
          "subCollection": {
@@ -594,6 +594,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 3,
+            "B": 1
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD6",
          "streaming": "BeIN",
          "subCollection": {
@@ -607,8 +611,42 @@
             "_seconds": 1623610800
          },
          "display": true,
-         "odds":{"P00":14.3,"P10":6.02,"P20":5.39,"P30":17.3,"P40":43.4,"P50":200,"P60":280,"P01":16.1,"P11":12.1,"P21":8.22,"P31":35.3,"P41":122,"P51":280,"P02":24.9,"P12":15.3,"P22":70.1,"P32":39.8,"P42":280,"P03":116,"P13":126,"P23":74.1,"P33":280,"P04":280,"P14":280,"P24":280,"P05":280,"P15":280,"P06":280,"Pautre":280},
+         "odds": {
+            "P00": 14.3,
+            "P01": 16.1,
+            "P02": 24.9,
+            "P03": 116,
+            "P04": 280,
+            "P05": 280,
+            "P06": 280,
+            "P10": 6.02,
+            "P11": 12.1,
+            "P12": 15.3,
+            "P13": 126,
+            "P14": 280,
+            "P15": 280,
+            "P20": 5.39,
+            "P21": 8.22,
+            "P22": 70.1,
+            "P23": 74.1,
+            "P24": 280,
+            "P30": 17.3,
+            "P31": 35.3,
+            "P32": 39.8,
+            "P33": 280,
+            "P40": 43.4,
+            "P41": 122,
+            "P42": 280,
+            "P50": 200,
+            "P51": 280,
+            "P60": 280,
+            "Pautre": 280
+         },
          "phase": "0",
+         "scores": {
+            "A": 3,
+            "B": 2
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD5",
          "streaming": "M6",
          "subCollection": {
@@ -834,6 +872,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 1,
+            "B": 0
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD7",
          "streaming": "BeIN",
          "subCollection": {
@@ -879,6 +921,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 0,
+            "B": 2
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD8",
          "streaming": "BeIN",
          "subCollection": {
@@ -1104,6 +1150,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 1,
+            "B": 2
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD0",
          "streaming": "BeIN",
          "subCollection": {
@@ -1149,6 +1199,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 0,
+            "B": 0
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD9",
          "streaming": "TF1",
          "subCollection": {
@@ -1419,6 +1473,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 0,
+            "B": 3
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oDC",
          "streaming": "BeIN",
          "subCollection": {
@@ -1464,6 +1522,10 @@
             "Pautre": 280
          },
          "phase": "0",
+         "scores": {
+            "A": 1,
+            "B": 0
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oDB",
          "streaming": "M6",
          "subCollection": {
