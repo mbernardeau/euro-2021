@@ -110,6 +110,10 @@ exports.updateScore = functions
             promises.push(updateUserScore(oddScore, userId, oldBetScore))
             promises.push(updatePointsWon(oddScore, betId))
           } else {
+            // Get oddBet
+            const oddBet =
+              nbButs < 7 ? odds[`P${betTeamA}${betTeamB}`] : odds.Pautre
+
             let nbButsEcart =
               Math.abs(realScoreTeamA - betTeamA) +
               Math.abs(realScoreTeamB - betTeamB)
@@ -134,6 +138,7 @@ exports.updateScore = functions
                 userId,
                 oldBetScore,
                 proxiInfo.proxiCoeff,
+                oddBet,
               ),
             )
             promises.push(
@@ -142,6 +147,7 @@ exports.updateScore = functions
                 betId,
                 proxiInfo.proxiCoeff,
                 proxiInfo.proxiLevel,
+                oddBet,
               ),
             )
           }
@@ -151,7 +157,13 @@ exports.updateScore = functions
       })
   })
 
-const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 0) => {
+const updateUserScore = (
+  oddScore,
+  userId,
+  oldBetScore = 0,
+  coeffProxi = 0,
+  oddBet = 1000,
+) => {
   console.log(`Updating user score for ${userId}`)
   const user = db.collection('opponents').doc(userId)
 
@@ -159,12 +171,13 @@ const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 0) => {
     .runTransaction((t) =>
       t.get(user).then((snapshot) => {
         const oldScore = snapshot.data().score || 0
-        const newScore = round(
-          oldScore - oldBetScore + round(coeffProxi * odd, 2),
-          2,
-        )
+        const points =
+          coeffProxi !== 1 && oddScore / 2 > oddBet
+            ? oddBet * 0.8
+            : round(coeffProxi * odd, 2)
+        const newScore = round(oldScore - oldBetScore + points, 2)
         console.log(
-          `User score update ${userId} (${oldScore} - ${oldBetScore} + ${coeffProxi} * ${odd} = ${newScore})`,
+          `User score update ${userId} (${oldScore} - ${oldBetScore} + ${points} = ${newScore})`,
         )
         return t.update(user, { score: newScore })
       }),
@@ -173,25 +186,33 @@ const updateUserScore = (odd, userId, oldBetScore = 0, coeffProxi = 0) => {
     .catch((err) => console.error(`User ${userId} score update failure:`, err))
 }
 
-const updatePointsWon = (odd, id, coeffProxi = 0, proxiLevel = null) => {
+const updatePointsWon = (
+  odd,
+  id,
+  coeffProxi = 0,
+  proxiLevel = null,
+  oddBet = 1000,
+) => {
   console.log(`Updating points won for bet ${id}`)
   const bets = db.collection('bets').doc(id)
+
+  const points =
+    coeffProxi !== 1 && oddScore / 2 > oddBet
+      ? oddBet * 0.8
+      : round(coeffProxi * odd, 2)
 
   return db
     .runTransaction((t) =>
       t.get(bets).then((betSnap) =>
         t.update(betSnap.ref, {
-          pointsWon: round(coeffProxi * odd, 2),
+          pointsWon: points,
           proxi: proxiLevel,
         }),
       ),
     )
     .then(() =>
       console.log(
-        `Bet ${id} update with ${round(
-          coeffProxi * odd,
-          2,
-        )} points. Proxi ${proxiLevel}`,
+        `Bet ${id} update with ${points} points. Proxi ${proxiLevel}`,
       ),
     )
     .catch((err) => {
