@@ -56,7 +56,7 @@ exports.updateScore = functions
         ? category.CAT2
         : category.CAT3
 
-    // Get odd
+    // Get oddScore
     const oddScore =
       nbButs < 7 ? odds[`P${realScoreTeamA}${realScoreTeamB}`] : odds.Pautre
 
@@ -174,7 +174,7 @@ const updateUserScore = (
         const points =
           coeffProxi !== 1 && oddScore / 2 > oddBet
             ? oddBet * 0.8
-            : round(coeffProxi * odd, 2)
+            : round(coeffProxi * oddScore, 2)
         const newScore = round(oldScore - oldBetScore + points, 2)
         console.log(
           `User score update ${userId} (${oldScore} - ${oldBetScore} + ${points} = ${newScore})`,
@@ -187,7 +187,7 @@ const updateUserScore = (
 }
 
 const updatePointsWon = (
-  odd,
+  oddScore,
   id,
   coeffProxi = 0,
   proxiLevel = null,
@@ -199,7 +199,7 @@ const updatePointsWon = (
   const points =
     coeffProxi !== 1 && oddScore / 2 > oddBet
       ? oddBet * 0.8
-      : round(coeffProxi * odd, 2)
+      : round(coeffProxi * oddScore, 2)
 
   return db
     .runTransaction((t) =>
