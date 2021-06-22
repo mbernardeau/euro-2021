@@ -23,6 +23,8 @@ const proxiInfos = {
 const round = (value, decimals) =>
   Number(`${Math.round(`${value}e${decimals}`)}${`e-${decimals}`}`)
 
+const min = (a, b) => (a < b ? a : b)
+
 exports.updateScore = functions
   .region(EU_WEST_3)
   .firestore.document('matches/{matchId}')
