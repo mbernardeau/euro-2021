@@ -173,7 +173,7 @@ const updateUserScore = (
         const oldScore = snapshot.data().score || 0
         const points =
           coeffProxi !== 1 && oddScore / 2 > oddBet
-            ? oddBet * 0.8
+            ? round(oddBet * 0.8, 2)
             : round(coeffProxi * oddScore, 2)
         const newScore = round(oldScore - oldBetScore + points, 2)
         console.log(
@@ -198,7 +198,7 @@ const updatePointsWon = (
 
   const points =
     coeffProxi !== 1 && oddScore / 2 > oddBet
-      ? oddBet * 0.8
+      ? round(oddBet * 0.8, 2)
       : round(coeffProxi * oddScore, 2)
 
   return db
