@@ -172,8 +172,8 @@ const updateUserScore = (
       t.get(user).then((snapshot) => {
         const oldScore = snapshot.data().score || 0
         const points =
-          coeffProxi !== 1 && oddScore / 2 > oddBet
-            ? round(oddBet * 0.8, 2)
+          coeffProxi !== 1
+            ? min(round(oddBet * 0.8, 2), round(coeffProxi * oddScore, 2))
             : round(coeffProxi * oddScore, 2)
         const newScore = round(oldScore - oldBetScore + points, 2)
         console.log(
@@ -196,9 +196,11 @@ const updatePointsWon = (
   console.log(`Updating points won for bet ${id}`)
   const bets = db.collection('bets').doc(id)
 
+  const pointsMax = round(oddBet * 0.8, 2)
+
   const points =
-    coeffProxi !== 1 && oddScore / 2 > oddBet
-      ? round(oddBet * 0.8, 2)
+    coeffProxi !== 1
+      ? min(round(oddBet * 0.8, 2), round(coeffProxi * oddScore, 2))
       : round(coeffProxi * oddScore, 2)
 
   return db
