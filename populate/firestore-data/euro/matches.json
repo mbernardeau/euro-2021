@@ -1,5 +1,365 @@
 {
    "matches": {
+      "-8eme-Bel-TBD": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1624820400
+         },
+         "display": false,
+         "odds": {
+            "P00": 15.8,
+            "P01": 18.2,
+            "P02": 26.5,
+            "P03": 50.4,
+            "P04": 80,
+            "P05": 80,
+            "P06": 80,
+            "P10": 6.64,
+            "P11": 13.6,
+            "P12": 16.1,
+            "P13": 80,
+            "P14": 80,
+            "P15": 80,
+            "P20": 5.78,
+            "P21": 8.62,
+            "P22": 69,
+            "P23": 83.7,
+            "P24": 80,
+            "P30": 11,
+            "P31": 32.9,
+            "P32": 44.8,
+            "P33": 80,
+            "P40": 27.5,
+            "P41": 80,
+            "P42": 80,
+            "P50": 80,
+            "P51": 80,
+            "P60": 80,
+            "Pautre": 80
+         },
+         "phase": "8",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD9",
+         "streaming": "BeIN,TF1",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpHPqNpMy7ZgxmM",
+         "teamB": "-Kj2zfpFzqykBwiz5dcN"
+      },
+      "-8eme-Dan-Wal": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1624723200
+         },
+         "display": false,
+         "odds": {
+            "P00": 15.8,
+            "P01": 18.2,
+            "P02": 26.5,
+            "P03": 50.4,
+            "P04": 80,
+            "P05": 80,
+            "P06": 80,
+            "P10": 6.64,
+            "P11": 13.6,
+            "P12": 16.1,
+            "P13": 80,
+            "P14": 80,
+            "P15": 80,
+            "P20": 5.78,
+            "P21": 8.62,
+            "P22": 69,
+            "P23": 83.7,
+            "P24": 80,
+            "P30": 11,
+            "P31": 32.9,
+            "P32": 44.8,
+            "P33": 80,
+            "P40": 27.5,
+            "P41": 80,
+            "P42": 80,
+            "P50": 80,
+            "P51": 80,
+            "P60": 80,
+            "Pautre": 80
+         },
+         "phase": "8",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD5",
+         "streaming": "BeIN",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpEdmB6SgyPd85W",
+         "teamB": "-Kj2zfpFzqykBwiz5dcN"
+      },
+      "-8eme-Ita-Aus": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1624734000
+         },
+         "display": false,
+         "odds": {
+            "P00": 15.8,
+            "P01": 18.2,
+            "P02": 26.5,
+            "P03": 50.4,
+            "P04": 80,
+            "P05": 80,
+            "P06": 80,
+            "P10": 6.64,
+            "P11": 13.6,
+            "P12": 16.1,
+            "P13": 80,
+            "P14": 80,
+            "P15": 80,
+            "P20": 5.78,
+            "P21": 8.62,
+            "P22": 69,
+            "P23": 83.7,
+            "P24": 80,
+            "P30": 11,
+            "P31": 32.9,
+            "P32": 44.8,
+            "P33": 80,
+            "P40": 27.5,
+            "P41": 80,
+            "P42": 80,
+            "P50": 80,
+            "P51": 80,
+            "P60": 80,
+            "Pautre": 80
+         },
+         "phase": "8",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD7",
+         "streaming": "BeIN,M6",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfp9V5wdpN59exkD",
+         "teamB": "-Kj2zfpJov1GY9sA2IgF"
+      },
+      "-8eme-Net-TBD": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1624809600
+         },
+         "display": false,
+         "odds": {
+            "P00": 15.8,
+            "P01": 18.2,
+            "P02": 26.5,
+            "P03": 50.4,
+            "P04": 80,
+            "P05": 80,
+            "P06": 80,
+            "P10": 6.64,
+            "P11": 13.6,
+            "P12": 16.1,
+            "P13": 80,
+            "P14": 80,
+            "P15": 80,
+            "P20": 5.78,
+            "P21": 8.62,
+            "P22": 69,
+            "P23": 83.7,
+            "P24": 80,
+            "P30": 11,
+            "P31": 32.9,
+            "P32": 44.8,
+            "P33": 80,
+            "P40": 27.5,
+            "P41": 80,
+            "P42": 80,
+            "P50": 80,
+            "P51": 80,
+            "P60": 80,
+            "Pautre": 80
+         },
+         "phase": "8",
+         "stadium": "-Kioc-ZW9T-10wOZ3oDC",
+         "streaming": "BeIN",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpJov1GY9sA2IgE",
+         "teamB": "-Kj2zfpFzqykBwiz5dcN"
+      },
+      "-8eme-TBD-TBD": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1624896000
+         },
+         "display": false,
+         "odds": {
+            "P00": 15.8,
+            "P01": 18.2,
+            "P02": 26.5,
+            "P03": 50.4,
+            "P04": 80,
+            "P05": 80,
+            "P06": 80,
+            "P10": 6.64,
+            "P11": 13.6,
+            "P12": 16.1,
+            "P13": 80,
+            "P14": 80,
+            "P15": 80,
+            "P20": 5.78,
+            "P21": 8.62,
+            "P22": 69,
+            "P23": 83.7,
+            "P24": 80,
+            "P30": 11,
+            "P31": 32.9,
+            "P32": 44.8,
+            "P33": 80,
+            "P40": 27.5,
+            "P41": 80,
+            "P42": 80,
+            "P50": 80,
+            "P51": 80,
+            "P60": 80,
+            "Pautre": 80
+         },
+         "phase": "8",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD2",
+         "streaming": "BeIN",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpEdmB6SgyPd85W",
+         "teamB": "-Kj2zfpFzqykBwiz5dcN"
+      },
+      "-8eme-TBD-TBD2": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1624906800
+         },
+         "display": false,
+         "odds": {
+            "P00": 15.8,
+            "P01": 18.2,
+            "P02": 26.5,
+            "P03": 50.4,
+            "P04": 80,
+            "P05": 80,
+            "P06": 80,
+            "P10": 6.64,
+            "P11": 13.6,
+            "P12": 16.1,
+            "P13": 80,
+            "P14": 80,
+            "P15": 80,
+            "P20": 5.78,
+            "P21": 8.62,
+            "P22": 69,
+            "P23": 83.7,
+            "P24": 80,
+            "P30": 11,
+            "P31": 32.9,
+            "P32": 44.8,
+            "P33": 80,
+            "P40": 27.5,
+            "P41": 80,
+            "P42": 80,
+            "P50": 80,
+            "P51": 80,
+            "P60": 80,
+            "Pautre": 80
+         },
+         "phase": "8",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD6",
+         "streaming": "BeIN,TF1",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpEdmB6SgyPd85W",
+         "teamB": "-Kj2zfpFzqykBwiz5dcN"
+      },
+      "-8eme-TBD-TBD3": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1624982400
+         },
+         "display": false,
+         "odds": {
+            "P00": 15.8,
+            "P01": 18.2,
+            "P02": 26.5,
+            "P03": 50.4,
+            "P04": 80,
+            "P05": 80,
+            "P06": 80,
+            "P10": 6.64,
+            "P11": 13.6,
+            "P12": 16.1,
+            "P13": 80,
+            "P14": 80,
+            "P15": 80,
+            "P20": 5.78,
+            "P21": 8.62,
+            "P22": 69,
+            "P23": 83.7,
+            "P24": 80,
+            "P30": 11,
+            "P31": 32.9,
+            "P32": 44.8,
+            "P33": 80,
+            "P40": 27.5,
+            "P41": 80,
+            "P42": 80,
+            "P50": 80,
+            "P51": 80,
+            "P60": 80,
+            "Pautre": 80
+         },
+         "phase": "8",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD7",
+         "streaming": "BeIN,TF1",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpEdmB6SgyPd85W",
+         "teamB": "-Kj2zfpFzqykBwiz5dcN"
+      },
+      "-8eme-TBD-TBD4": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1624993200
+         },
+         "display": false,
+         "odds": {
+            "P00": 15.8,
+            "P01": 18.2,
+            "P02": 26.5,
+            "P03": 50.4,
+            "P04": 80,
+            "P05": 80,
+            "P06": 80,
+            "P10": 6.64,
+            "P11": 13.6,
+            "P12": 16.1,
+            "P13": 80,
+            "P14": 80,
+            "P15": 80,
+            "P20": 5.78,
+            "P21": 8.62,
+            "P22": 69,
+            "P23": 80,
+            "P24": 80,
+            "P30": 11,
+            "P31": 32.9,
+            "P32": 44.8,
+            "P33": 80,
+            "P40": 27.5,
+            "P41": 80,
+            "P42": 80,
+            "P50": 80,
+            "P51": 80,
+            "P60": 80,
+            "Pautre": 80
+         },
+         "phase": "8",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD8",
+         "streaming": "BeIN,M6",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpEdmB6SgyPd85W",
+         "teamB": "-Kj2zfpFzqykBwiz5dcN"
+      },
       "-Kj2zgJGrbesJWV8zQFP": {
          "dateTime": {
             "_nanoseconds": 0,
@@ -1410,6 +1770,10 @@
             "Pautre": 80
          },
          "phase": "0",
+         "scores": {
+            "A": 3,
+            "B": 2
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD0",
          "streaming": "BeIN",
          "subCollection": {
@@ -1500,6 +1864,10 @@
             "Pautre": 80
          },
          "phase": "0",
+         "scores": {
+            "A": 0,
+            "B": 5
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oD9",
          "streaming": "BeIN",
          "subCollection": {
@@ -1741,6 +2109,10 @@
             "Pautre": 80
          },
          "phase": "0",
+         "scores": {
+            "A": 2,
+            "B": 2
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oDC",
          "streaming": "TF1",
          "subCollection": {
@@ -1786,127 +2158,16 @@
             "Pautre": 80
          },
          "phase": "0",
+         "scores": {
+            "A": 2,
+            "B": 2
+         },
          "stadium": "-Kioc-ZW9T-10wOZ3oDB",
          "streaming": "BeIN",
          "subCollection": {
          },
          "teamA": "-Kj2zfpO3MwCoLIdNuNf",
          "teamB": "-Kj2zfpRCBdqgDxcBLBQ"
-      },
-      "-8eme-Dan-Wal": {
-         "dateTime": {
-            "_nanoseconds": 0,
-            "_seconds": 1624723200
-         },
-         "display": false,
-         "odds":{"P00":15.8,"P10":6.64,"P20":5.78,"P30":11,"P40":27.5,"P50":80,"P60":80,"P01":18.2,"P11":13.6,"P21":8.62,"P31":32.9,"P41":80,"P51":80,"P02":26.5,"P12":16.1,"P22":69,"P32":44.8,"P42":80,"P03":50.4,"P13":80,"P23":83.7,"P33":80,"P04":80,"P14":80,"P24":80,"P05":80,"P15":80,"P06":80,"Pautre":80},
-         "phase": "8",
-         "stadium": "-Kioc-ZW9T-10wOZ3oD5",
-         "streaming": "BeIN",
-         "subCollection": {
-         },
-         "teamA": "-Kj2zfpEdmB6SgyPd85W",
-         "teamB": "-Kj2zfpFzqykBwiz5dcN"
-      },
-      "-8eme-Ita-Aus": {
-         "dateTime": {
-            "_nanoseconds": 0,
-            "_seconds": 1624734000
-         },
-         "display": false,
-         "odds":{"P00":15.8,"P10":6.64,"P20":5.78,"P30":11,"P40":27.5,"P50":80,"P60":80,"P01":18.2,"P11":13.6,"P21":8.62,"P31":32.9,"P41":80,"P51":80,"P02":26.5,"P12":16.1,"P22":69,"P32":44.8,"P42":80,"P03":50.4,"P13":80,"P23":83.7,"P33":80,"P04":80,"P14":80,"P24":80,"P05":80,"P15":80,"P06":80,"Pautre":80},
-         "phase": "8",
-         "stadium": "-Kioc-ZW9T-10wOZ3oD7",
-         "streaming": "BeIN,M6",
-         "subCollection": {
-         },
-         "teamA": "-Kj2zfp9V5wdpN59exkD",
-         "teamB": "-Kj2zfpJov1GY9sA2IgF"
-      },
-      "-8eme-Net-TBD": {
-         "dateTime": {
-            "_nanoseconds": 0,
-            "_seconds": 1624809600
-         },
-         "display": false,
-         "odds":{"P00":15.8,"P10":6.64,"P20":5.78,"P30":11,"P40":27.5,"P50":80,"P60":80,"P01":18.2,"P11":13.6,"P21":8.62,"P31":32.9,"P41":80,"P51":80,"P02":26.5,"P12":16.1,"P22":69,"P32":44.8,"P42":80,"P03":50.4,"P13":80,"P23":83.7,"P33":80,"P04":80,"P14":80,"P24":80,"P05":80,"P15":80,"P06":80,"Pautre":80},
-         "phase": "8",
-         "stadium": "-Kioc-ZW9T-10wOZ3oDC",
-         "streaming": "BeIN",
-         "subCollection": {
-         },
-         "teamA": "-Kj2zfpJov1GY9sA2IgE",
-         "teamB": "-Kj2zfpFzqykBwiz5dcN"
-      },"-8eme-Bel-TBD": {
-         "dateTime": {
-            "_nanoseconds": 0,
-            "_seconds": 1624820400
-         },
-         "display": false,
-         "odds":{"P00":15.8,"P10":6.64,"P20":5.78,"P30":11,"P40":27.5,"P50":80,"P60":80,"P01":18.2,"P11":13.6,"P21":8.62,"P31":32.9,"P41":80,"P51":80,"P02":26.5,"P12":16.1,"P22":69,"P32":44.8,"P42":80,"P03":50.4,"P13":80,"P23":83.7,"P33":80,"P04":80,"P14":80,"P24":80,"P05":80,"P15":80,"P06":80,"Pautre":80},
-         "phase": "8",
-         "stadium": "-Kioc-ZW9T-10wOZ3oD9",
-         "streaming": "BeIN,TF1",
-         "subCollection": {
-         },
-         "teamA": "-Kj2zfpHPqNpMy7ZgxmM",
-         "teamB": "-Kj2zfpFzqykBwiz5dcN"
-      },"-8eme-TBD-TBD": {
-         "dateTime": {
-            "_nanoseconds": 0,
-            "_seconds": 1624896000
-         },
-         "display": false,
-         "odds":{"P00":15.8,"P10":6.64,"P20":5.78,"P30":11,"P40":27.5,"P50":80,"P60":80,"P01":18.2,"P11":13.6,"P21":8.62,"P31":32.9,"P41":80,"P51":80,"P02":26.5,"P12":16.1,"P22":69,"P32":44.8,"P42":80,"P03":50.4,"P13":80,"P23":83.7,"P33":80,"P04":80,"P14":80,"P24":80,"P05":80,"P15":80,"P06":80,"Pautre":80},
-         "phase": "8",
-         "stadium": "-Kioc-ZW9T-10wOZ3oD2",
-         "streaming": "BeIN",
-         "subCollection": {
-         },
-         "teamA": "-Kj2zfpEdmB6SgyPd85W",
-         "teamB": "-Kj2zfpFzqykBwiz5dcN"
-      },"-8eme-TBD-TBD2": {
-         "dateTime": {
-            "_nanoseconds": 0,
-            "_seconds": 1624906800
-         },
-         "display": false,
-         "odds":{"P00":15.8,"P10":6.64,"P20":5.78,"P30":11,"P40":27.5,"P50":80,"P60":80,"P01":18.2,"P11":13.6,"P21":8.62,"P31":32.9,"P41":80,"P51":80,"P02":26.5,"P12":16.1,"P22":69,"P32":44.8,"P42":80,"P03":50.4,"P13":80,"P23":83.7,"P33":80,"P04":80,"P14":80,"P24":80,"P05":80,"P15":80,"P06":80,"Pautre":80},
-         "phase": "8",
-         "stadium": "-Kioc-ZW9T-10wOZ3oD6",
-         "streaming": "BeIN,TF1",
-         "subCollection": {
-         },
-         "teamA": "-Kj2zfpEdmB6SgyPd85W",
-         "teamB": "-Kj2zfpFzqykBwiz5dcN"
-      },"-8eme-TBD-TBD3": {
-         "dateTime": {
-            "_nanoseconds": 0,
-            "_seconds": 1624982400
-         },
-         "display": false,
-         "odds":{"P00":15.8,"P10":6.64,"P20":5.78,"P30":11,"P40":27.5,"P50":80,"P60":80,"P01":18.2,"P11":13.6,"P21":8.62,"P31":32.9,"P41":80,"P51":80,"P02":26.5,"P12":16.1,"P22":69,"P32":44.8,"P42":80,"P03":50.4,"P13":80,"P23":83.7,"P33":80,"P04":80,"P14":80,"P24":80,"P05":80,"P15":80,"P06":80,"Pautre":80},
-         "phase": "8",
-         "stadium": "-Kioc-ZW9T-10wOZ3oD7",
-         "streaming": "BeIN,TF1",
-         "subCollection": {
-         },
-         "teamA": "-Kj2zfpEdmB6SgyPd85W",
-         "teamB": "-Kj2zfpFzqykBwiz5dcN"
-      },"-8eme-TBD-TBD4": {
-         "dateTime": {
-            "_nanoseconds": 0,
-            "_seconds": 1624993200
-         },
-         "display": false,
-         "odds":{"P00":15.8,"P10":6.64,"P20":5.78,"P30":11,"P40":27.5,"P50":80,"P60":80,"P01":18.2,"P11":13.6,"P21":8.62,"P31":32.9,"P41":80,"P51":80,"P02":26.5,"P12":16.1,"P22":69,"P32":44.8,"P42":80,"P03":50.4,"P13":80,"P23":80,"P33":80,"P04":80,"P14":80,"P24":80,"P05":80,"P15":80,"P06":80,"Pautre":80},
-         "phase": "8",
-         "stadium": "-Kioc-ZW9T-10wOZ3oD8",
-         "streaming": "BeIN,M6",
-         "subCollection": {
-         },
-         "teamA": "-Kj2zfpEdmB6SgyPd85W",
-         "teamB": "-Kj2zfpFzqykBwiz5dcN"
       }
    }
 }
