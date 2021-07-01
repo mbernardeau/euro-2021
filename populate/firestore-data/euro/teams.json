@@ -11,7 +11,7 @@
       },
       "-Kj2zfpEdmB6SgyPd85W": {
          "code": "gb-wls",
-         "elimination": false,
+         "elimination": true,
          "group": "A",
          "name": "Pays de Galles",
          "subCollection": {
@@ -20,7 +20,7 @@
       },
       "-Kj2zfpFzqykBwiz5dcL": {
          "code": "tr",
-         "elimination": false,
+         "elimination": true,
          "group": "A",
          "name": "Turquie",
          "subCollection": {
@@ -47,7 +47,7 @@
       },
       "-Kj2zfpGJmSTghyT06un": {
          "code": "fi",
-         "elimination": false,
+         "elimination": true,
          "group": "B",
          "name": "Finlande",
          "subCollection": {
@@ -56,7 +56,7 @@
       },
       "-Kj2zfpGJmSTghyT06uo": {
          "code": "ru",
-         "elimination": false,
+         "elimination": true,
          "group": "B",
          "name": "Russie",
          "subCollection": {
@@ -83,7 +83,7 @@
       },
       "-Kj2zfpJov1GY9sA2IgE": {
          "code": "nl",
-         "elimination": false,
+         "elimination": true,
          "group": "C",
          "name": "Pays-Bas",
          "subCollection": {
@@ -92,7 +92,7 @@
       },
       "-Kj2zfpJov1GY9sA2IgF": {
          "code": "at",
-         "elimination": false,
+         "elimination": true,
          "group": "C",
          "name": "Autriche",
          "subCollection": {
@@ -101,7 +101,7 @@
       },
       "-Kj2zfpKYdjdHhPukkXr": {
          "code": "mk",
-         "elimination": false,
+         "elimination": true,
          "group": "C",
          "name": "Macédoine du N.",
          "subCollection": {
@@ -119,7 +119,7 @@
       },
       "-Kj2zfpKYdjdHhPukkXt": {
          "code": "hr",
-         "elimination": false,
+         "elimination": true,
          "group": "D",
          "name": "Croatie",
          "subCollection": {
@@ -128,7 +128,7 @@
       },
       "-Kj2zfpKYdjdHhPukkXu": {
          "code": "gb-sct",
-         "elimination": false,
+         "elimination": true,
          "group": "D",
          "name": "Écosse",
          "subCollection": {
@@ -155,7 +155,7 @@
       },
       "-Kj2zfpN8l22eNCLSzLj": {
          "code": "pl",
-         "elimination": false,
+         "elimination": true,
          "group": "E",
          "name": "Pologne",
          "subCollection": {
@@ -173,7 +173,7 @@
       },
       "-Kj2zfpN8l22eNCLSzLl": {
          "code": "sk",
-         "elimination": false,
+         "elimination": true,
          "group": "E",
          "name": "Slovaquie",
          "subCollection": {
@@ -182,7 +182,7 @@
       },
       "-Kj2zfpO3MwCoLIdNuNf": {
          "code": "de",
-         "elimination": false,
+         "elimination": true,
          "group": "F",
          "name": "Allemagne",
          "subCollection": {
@@ -191,7 +191,7 @@
       },
       "-Kj2zfpO3MwCoLIdNuNg": {
          "code": "fr",
-         "elimination": false,
+         "elimination": true,
          "group": "F",
          "name": "France",
          "subCollection": {
@@ -200,7 +200,7 @@
       },
       "-Kj2zfpPgzwXCT7Bnm1y": {
          "code": "pt",
-         "elimination": false,
+         "elimination": true,
          "group": "F",
          "name": "Portugal",
          "subCollection": {
@@ -209,7 +209,7 @@
       },
       "-Kj2zfpRCBdqgDxcBLBQ": {
          "code": "hu",
-         "elimination": false,
+         "elimination": true,
          "group": "F",
          "name": "Hongrie",
          "subCollection": {
