@@ -1,6 +1,62 @@
 {
    "matches": {
-      "-8eme-Bel-TBD": {
+      "-4-Ukr-Eng": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1625338800
+         },
+         "display": true,
+         "odds":{"P00":47.2,"P10":33.6,"P20":39.9,"P30":80.8,"P40":150,"P50":150,"P60":150,"P01":16.1,"P11":35.8,"P21":37.7,"P31":150,"P41":150,"P51":150,"P02":16.3,"P12":24.1,"P22":150,"P32":150,"P42":150,"P03":33,"P13":94.4,"P23":121,"P33":150,"P04":77.4,"P14":150,"P24":150,"P05":150,"P15":150,"P06":150,"Pautre":150},
+         "phase": "4",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD3",
+         "streaming": " TF1",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpIxWevwDITiL0V",
+         "teamB": "-Kj2zfpKYdjdHhPukkXs"
+      },"-4-Cze-Den": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1625328000
+         },
+         "display": true,
+         "odds":{"P00":46,"P10":28.9,"P20":32.9,"P30":77.7,"P40":150,"P50":150,"P60":150,"P01":17,"P11":28.3,"P21":36.3,"P31":150,"P41":150,"P51":150,"P02":17,"P12":23.6,"P22":150,"P32":150,"P42":150,"P03":40.1,"P13":107,"P23":130,"P33":150,"P04":121,"P14":150,"P24":150,"P05":150,"P15":150,"P06":150,"Pautre":150},
+         "phase": "4",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD1",
+         "streaming": "BeIN",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpLjC03AaK-W8Lo",
+         "teamB": "-Kj2zfpFzqykBwiz5dcN"
+      },"-4-Bel-Ita": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1625252400
+         },
+         "display": true,
+         "odds":{"P00":45.4,"P10":24.2,"P20":29.7,"P30":70.5,"P40":150,"P50":150,"P60":150,"P01":17.3,"P11":26.5,"P21":32.8,"P31":150,"P41":150,"P51":150,"P02":19.1,"P12":26.4,"P22":150,"P32":150,"P42":150,"P03":45.3,"P13":129,"P23":150,"P33":150,"P04":133,"P14":150,"P24":150,"P05":150,"P15":150,"P06":150,"Pautre":150},
+         "phase": "4",
+         "stadium": "-Kioc-ZW9T-10wOZ3oDB",
+         "streaming": "M6",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpHPqNpMy7ZgxmM",
+         "teamB": "-Kj2zfp9V5wdpN59exkD"
+      },"-4-Swi-Spa": {
+         "dateTime": {
+            "_nanoseconds": 0,
+            "_seconds": 1625241600
+         },
+         "display": true,
+         "odds":{"P00":49.2,"P10":32.5,"P20":38.4,"P30":84.6,"P40":150,"P50":150,"P60":150,"P01":15.8,"P11":32.6,"P21":39.2,"P31":150,"P41":150,"P51":150,"P02":15.4,"P12":25.1,"P22":150,"P32":150,"P42":150,"P03":33.9,"P13":99.9,"P23":132,"P33":150,"P04":85,"P14":150,"P24":150,"P05":150,"P15":150,"P06":150,"Pautre":150},
+         "phase": "4",
+         "stadium": "-Kioc-ZW9T-10wOZ3oD0",
+         "streaming": " TF1",
+         "subCollection": {
+         },
+         "teamA": "-Kj2zfpFzqykBwiz5dcM",
+         "teamB": "-Kj2zfpN8l22eNCLSzLk"
+      },"-8eme-Bel-TBD": {
          "dateTime": {
             "_nanoseconds": 0,
             "_seconds": 1624820400
