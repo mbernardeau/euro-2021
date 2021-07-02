@@ -2,13 +2,13 @@ import Tooltip from '@material-ui/core/Tooltip'
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline'
 import OddDialog from './OddDialog'
 import isNil from 'lodash/isNil'
-import padStart from 'lodash/padStart'
+// import padStart from 'lodash/padStart'
 import PropTypes from 'prop-types'
 import React from 'react'
 import './Odds.scss'
 
-const toHex = (number) =>
-  padStart(Math.min(Math.round(Math.abs(number)), 255).toString(16), 2, '0')
+// const toHex = (number) =>
+//   padStart(Math.min(Math.round(Math.abs(number)), 255).toString(16), 2, '0')
 
 // https://docs.google.com/spreadsheets/d/1ZioOtyCblJtJf0WAaRxVWmnibqOeC7eDcJYDVEYRqng/edit?usp=sharing
 // Will be used for getColor
@@ -22,9 +22,10 @@ const toHex = (number) =>
 //   }[phase])
 
 const getColor = (value) => {
-  const r = (128 / 13) * (value + 1)
-  const g = (-128 / 11) * (value - 12)
-  return `#${toHex(r)}${toHex(g)}00`
+  return 'green'
+  // const r = (128 / 13) * (value + 1)
+  // const g = (-128 / 11) * (value - 12)
+  // return `#${toHex(r)}${toHex(g)}00`
 }
 
 const Odds = ({ name_teamA, name_teamB, bet_teamA, bet_teamB, odds }) => {
