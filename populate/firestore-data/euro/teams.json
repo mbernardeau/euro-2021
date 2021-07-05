@@ -29,7 +29,7 @@
       },
       "-Kj2zfpFzqykBwiz5dcM": {
          "code": "ch",
-         "elimination": false,
+         "elimination": true,
          "group": "A",
          "name": "Suisse",
          "subCollection": {
@@ -65,7 +65,7 @@
       },
       "-Kj2zfpHPqNpMy7ZgxmM": {
          "code": "be",
-         "elimination": false,
+         "elimination": true,
          "group": "B",
          "name": "Belgique",
          "subCollection": {
@@ -74,7 +74,7 @@
       },
       "-Kj2zfpIxWevwDITiL0V": {
          "code": "ua",
-         "elimination": false,
+         "elimination": true,
          "group": "C",
          "name": "Ukraine",
          "subCollection": {
@@ -137,7 +137,7 @@
       },
       "-Kj2zfpLjC03AaK-W8Lo": {
          "code": "cz",
-         "elimination": false,
+         "elimination": true,
          "group": "D",
          "name": "R. tchèque",
          "subCollection": {
@@ -146,7 +146,7 @@
       },
       "-Kj2zfpM7z9dtuBQZC4c": {
          "code": "se",
-         "elimination": false,
+         "elimination": true,
          "group": "E",
          "name": "Suède",
          "subCollection": {
