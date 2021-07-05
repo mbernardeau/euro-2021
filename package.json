@@ -65,7 +65,7 @@
     "@types/estree": "^0.0.48",
     "babel-plugin-transform-imports": "^2.0.0",
     "cross-env": "^7.0.3",
-    "firebase-admin": "^9.9.0",
+    "firebase-admin": "^9.10.0",
     "http-proxy-middleware": "^2.0.1",
     "prettier": "^2.3.2",
     "source-map-explorer": "^2.5.2",
