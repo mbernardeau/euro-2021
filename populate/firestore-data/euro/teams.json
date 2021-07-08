@@ -38,7 +38,7 @@
       },
       "-Kj2zfpFzqykBwiz5dcN": {
          "code": "dk",
-         "elimination": false,
+         "elimination": true,
          "group": "B",
          "name": "Danemark",
          "subCollection": {
@@ -164,7 +164,7 @@
       },
       "-Kj2zfpN8l22eNCLSzLk": {
          "code": "es",
-         "elimination": false,
+         "elimination": true,
          "group": "E",
          "name": "Espagne",
          "subCollection": {
