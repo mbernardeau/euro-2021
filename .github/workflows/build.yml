@@ -12,7 +12,7 @@ jobs:
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         with:
           node-version: "14"
       - uses: actions/cache@v2.1.6
@@ -58,7 +58,7 @@ jobs:
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         with:
           node-version: "14"
       - uses: actions/download-artifact@v2
@@ -98,7 +98,7 @@ jobs:
         with:
           access_token: ${{ github.token }}
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2.2.0
+      - uses: actions/setup-node@v2.3.0
         with:
           node-version: "14"
       - uses: actions/cache@v2.1.6
