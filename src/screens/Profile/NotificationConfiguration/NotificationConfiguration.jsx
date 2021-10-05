@@ -1,6 +1,6 @@
-import { FormControlLabel, Switch, Tooltip } from '@material-ui/core'
-import Typography from '@material-ui/core/Typography'
-import { InfoOutlined } from '@material-ui/icons'
+import { FormControlLabel, Switch, Tooltip } from '@mui/material'
+import Typography from '@mui/material/Typography'
+import { InfoOutlined } from '@mui/icons-material'
 import React from 'react'
 import { useNotificationConfiguration } from '../../../hooks'
 

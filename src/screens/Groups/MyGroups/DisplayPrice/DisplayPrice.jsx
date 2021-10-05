@@ -1,4 +1,4 @@
-import Typography from '@material-ui/core/Typography'
+import Typography from '@mui/material/Typography'
 import includes from 'lodash/includes'
 import sumBy from 'lodash/sumBy'
 import PropTypes from 'prop-types'

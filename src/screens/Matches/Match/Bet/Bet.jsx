@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import map from 'lodash/map'
 import range from 'lodash/range'
 import Flag from '../../../../components/Flag'
-import Select from '@material-ui/core/Select'
-import MenuItem from '@material-ui/core/MenuItem'
+import Select from '@mui/material/Select'
+import MenuItem from '@mui/material/MenuItem'
 
 import './Bet.scss'
 

@@ -1,5 +1,5 @@
-import TableCell from '@material-ui/core/TableCell'
-import TableRow from '@material-ui/core/TableRow'
+import TableCell from '@mui/material/TableCell'
+import TableRow from '@mui/material/TableRow'
 import includes from 'lodash/includes'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'

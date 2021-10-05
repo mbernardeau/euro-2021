@@ -9,17 +9,17 @@
  * the linting exception.
  */
 
-import Button from '@material-ui/core/Button'
-import EventAvailableIcon from '@material-ui/icons/EventAvailable'
-import ListIcon from '@material-ui/icons/List'
-import PollIcon from '@material-ui/icons/Poll'
+import Button from '@mui/material/Button'
+import EventAvailableIcon from '@mui/icons-material/EventAvailable'
+import ListIcon from '@mui/icons-material/List'
+import PollIcon from '@mui/icons-material/Poll'
 import PropTypes from 'prop-types'
 import React from 'react'
 import { AuthCheck } from 'reactfire'
 import myImage from '../../assets/visuels/bandeauEvenement_PM.jpg'
 import './HomePage.scss'
 import FinalWinner from './FinalWinner'
-import { Typography } from '@material-ui/core'
+import { Typography } from '@mui/material'
 import { useCompetitionData } from '../../hooks'
 import { isPast } from 'date-fns'
 

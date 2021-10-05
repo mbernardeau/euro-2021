@@ -1,4 +1,4 @@
-import Tooltip from '@material-ui/core/Tooltip'
+import Tooltip from '@mui/material/Tooltip'
 import format from 'date-fns/format'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import fr from 'date-fns/locale/fr'

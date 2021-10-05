@@ -1,7 +1,7 @@
 // Import all the third party stuff
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
+import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import { FirebaseAppProvider } from 'reactfire'
 import firebaseConfig from './firebaseConfig'
