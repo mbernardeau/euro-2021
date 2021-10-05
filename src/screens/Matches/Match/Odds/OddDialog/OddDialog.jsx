@@ -1,16 +1,11 @@
 import React from 'react'
-import Dialog from '@material-ui/core/Dialog'
-import DialogContent from '@material-ui/core/DialogContent'
-import DialogTitle from '@material-ui/core/DialogTitle'
-import AddCircleIcon from '@material-ui/icons/AddCircle'
-import Paper from '@material-ui/core/Paper'
+import Dialog from '@mui/material/Dialog'
+import DialogContent from '@mui/material/DialogContent'
+import DialogTitle from '@mui/material/DialogTitle'
+import AddCircleIcon from '@mui/icons-material/AddCircle'
+import Paper from '@mui/material/Paper'
 import PropTypes from 'prop-types'
-import {
-  Button,
-  DialogActions,
-  IconButton,
-  Typography,
-} from '@material-ui/core'
+import { Button, DialogActions, IconButton, Typography } from '@mui/material'
 import './OddDialog.scss'
 
 const OddDialog = ({ odds, name_teamA, name_teamB }) => {
@@ -68,6 +63,7 @@ const OddDialog = ({ odds, name_teamA, name_teamB }) => {
         onClick={handleClickOpen}
         component="span"
         style={{ padding: 3 }}
+        size="large"
       >
         <AddCircleIcon></AddCircleIcon>
       </IconButton>

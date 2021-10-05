@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import Typography from '@material-ui/core/Typography'
+import Typography from '@mui/material/Typography'
 
 import FaqEntry from './FaqEntry'
 

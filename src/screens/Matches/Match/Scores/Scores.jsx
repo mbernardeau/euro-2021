@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Typography from '@material-ui/core/Typography'
+import Typography from '@mui/material/Typography'
 
 import './Scores.scss'
-import { Tooltip } from '@material-ui/core'
+import { Tooltip } from '@mui/material'
 
 const Scores = ({ scores }) => {
   if (!scores) return null

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Select from '@material-ui/core/Select'
-import Typography from '@material-ui/core/Typography'
-import MenuItem from '@material-ui/core/MenuItem'
+import Select from '@mui/material/Select'
+import Typography from '@mui/material/Typography'
+import MenuItem from '@mui/material/MenuItem'
 
 import './ChoiceWinner.scss'
 

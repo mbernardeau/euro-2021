@@ -1,10 +1,10 @@
-import Card from '@material-ui/core/Card'
-import CardContent from '@material-ui/core/CardContent'
-import Table from '@material-ui/core/Table'
-import TableBody from '@material-ui/core/TableBody'
-import TableCell from '@material-ui/core/TableCell'
-import TableRow from '@material-ui/core/TableRow'
-import Typography from '@material-ui/core/Typography'
+import Card from '@mui/material/Card'
+import CardContent from '@mui/material/CardContent'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableRow from '@mui/material/TableRow'
+import Typography from '@mui/material/Typography'
 import orderBy from 'lodash/orderBy'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
@@ -15,7 +15,7 @@ import './GroupRanking.scss'
 import OwnRank from './OwnRank'
 import imgUrl from '../../../assets/icons/mask6.png'
 import forgotBetImgUrl from '../../../assets/icons/ForgotBet.png'
-import { Tooltip } from '@material-ui/core'
+import { Tooltip } from '@mui/material'
 
 import memoize from 'lodash/memoize'
 
@@ -60,13 +60,13 @@ const GroupRanking = ({ name, members }) => {
                   <TableCell padding="none">
                     <Typography variant="overline">#{index + 1}</Typography>
                   </TableCell>
-                  <TableCell padding="default">
+                  <TableCell padding="normal">
                     <InlineAvatar {...user} />
                   </TableCell>
                   <TableCell padding="none">
                     {(user.score || 0).toLocaleString()} points
                   </TableCell>
-                  <TableCell padding="default">
+                  <TableCell padding="normal">
                     {team ? (
                       team.elimination ? (
                         <Tooltip

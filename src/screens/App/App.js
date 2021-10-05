@@ -11,11 +11,11 @@
  * the linting exception.
  */
 
-import AppBar from '@material-ui/core/AppBar'
-import IconButton from '@material-ui/core/IconButton'
-import Toolbar from '@material-ui/core/Toolbar'
-// import Typography from '@material-ui/core/Typography'
-import MenuIcon from '@material-ui/icons/Menu'
+import AppBar from '@mui/material/AppBar'
+import IconButton from '@mui/material/IconButton'
+import Toolbar from '@mui/material/Toolbar'
+// import Typography from '@mui/material/Typography'
+import MenuIcon from '@mui/icons-material/Menu'
 import PropTypes from 'prop-types'
 import Baniere_mobile from '../../assets/visuels/baniere_pm.png'
 import Baniere from '../../assets/visuels/bandeausignature.png'
@@ -124,6 +124,7 @@ const App = () => {
             color="inherit"
             aria-label="Menu"
             onClick={() => setMenuOpen(!menuOpen)}
+            size="large"
           >
             <MenuIcon />
           </IconButton>
