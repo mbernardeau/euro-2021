@@ -29,6 +29,7 @@ const User = () => {
         onClick={() => setIsOpen(true)}
         ref={anchorEl}
         color="inherit"
+        size="large"
       >
         <MoreVertIcon />
       </IconButton>

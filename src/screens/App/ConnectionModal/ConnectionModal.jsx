@@ -13,7 +13,7 @@ const ConnectionModal = () => {
 
   return (
     <>
-      <DialogTitle disableTypography>Connexion</DialogTitle>
+      <DialogTitle>Connexion</DialogTitle>
       <DialogContent className="auth-btns-container">
         <Button
           color="primary"

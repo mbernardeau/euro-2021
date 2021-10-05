@@ -63,6 +63,7 @@ const OddDialog = ({ odds, name_teamA, name_teamB }) => {
         onClick={handleClickOpen}
         component="span"
         style={{ padding: 3 }}
+        size="large"
       >
         <AddCircleIcon></AddCircleIcon>
       </IconButton>

@@ -1,7 +1,10 @@
 // Import all the third party stuff
 import React, { Suspense } from 'react'
 import ReactDOM from 'react-dom'
-import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles'
+import {
+  ThemeProvider as MuiThemeProvider,
+  StyledEngineProvider,
+} from '@mui/material/styles'
 import * as serviceWorkerRegistration from './serviceWorkerRegistration'
 import { FirebaseAppProvider } from 'reactfire'
 import firebaseConfig from './firebaseConfig'
@@ -23,15 +26,17 @@ const render = () => {
     <React.StrictMode>
       <BrowserRouter>
         <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense>
-          <MuiThemeProvider theme={theme}>
-            <SnackbarProvider>
-              <Suspense fallback="App loading something">
-                <NotificationPermissionProvider>
-                  <App />
-                </NotificationPermissionProvider>
-              </Suspense>
-            </SnackbarProvider>
-          </MuiThemeProvider>
+          <StyledEngineProvider injectFirst>
+            <MuiThemeProvider theme={theme}>
+              <SnackbarProvider>
+                <Suspense fallback="App loading something">
+                  <NotificationPermissionProvider>
+                    <App />
+                  </NotificationPermissionProvider>
+                </Suspense>
+              </SnackbarProvider>
+            </MuiThemeProvider>
+          </StyledEngineProvider>
         </FirebaseAppProvider>
       </BrowserRouter>
     </React.StrictMode>,

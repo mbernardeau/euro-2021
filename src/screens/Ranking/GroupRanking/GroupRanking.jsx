@@ -60,13 +60,13 @@ const GroupRanking = ({ name, members }) => {
                   <TableCell padding="none">
                     <Typography variant="overline">#{index + 1}</Typography>
                   </TableCell>
-                  <TableCell padding="default">
+                  <TableCell padding="normal">
                     <InlineAvatar {...user} />
                   </TableCell>
                   <TableCell padding="none">
                     {(user.score || 0).toLocaleString()} points
                   </TableCell>
-                  <TableCell padding="default">
+                  <TableCell padding="normal">
                     {team ? (
                       team.elimination ? (
                         <Tooltip

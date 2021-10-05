@@ -124,6 +124,7 @@ const App = () => {
             color="inherit"
             aria-label="Menu"
             onClick={() => setMenuOpen(!menuOpen)}
+            size="large"
           >
             <MenuIcon />
           </IconButton>
