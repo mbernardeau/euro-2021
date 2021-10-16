@@ -1,15 +1,26 @@
+import {
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  signInWithRedirect,
+} from '@firebase/auth'
+import { collection, doc } from '@firebase/firestore'
 import { useHistory } from 'react-router'
-import { useAuth, useIdTokenResult } from 'reactfire'
-import { useUser, useFirestore, useFirestoreDocData } from 'reactfire'
+import {
+  useAuth,
+  useFirestore,
+  useFirestoreDocData,
+  useIdTokenResult,
+  useUser,
+} from 'reactfire'
 
 export const useGoogleLogin = () => {
   const auth = useAuth()
 
   auth.languageCode = 'fr'
 
-  const provider = new useAuth.GoogleAuthProvider()
+  const provider = new GoogleAuthProvider()
 
-  return () => auth.signInWithRedirect(provider)
+  return () => signInWithRedirect(auth, provider)
 }
 
 export const useFacebookLogin = () => {
@@ -17,9 +28,9 @@ export const useFacebookLogin = () => {
 
   auth.languageCode = 'fr'
 
-  const provider = new useAuth.FacebookAuthProvider()
+  const provider = new FacebookAuthProvider()
 
-  return () => auth.signInWithRedirect(provider)
+  return () => signInWithRedirect(auth, provider)
 }
 
 export const useLogout = () => {
@@ -35,9 +46,8 @@ export const useLogout = () => {
 export const useUserProfile = () => {
   const firestore = useFirestore()
   const { uid } = useUser().data ?? {}
-  const userRef = firestore
-    .collection('users')
-    .doc(useIsUserConnected() ? uid : ' ')
+  const userCollection = collection(firestore, 'users')
+  const userRef = doc(userCollection, useIsUserConnected() ? uid : ' ')
 
   return useFirestoreDocData(userRef).data
 }

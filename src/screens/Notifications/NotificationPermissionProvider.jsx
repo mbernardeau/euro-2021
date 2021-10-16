@@ -1,20 +1,28 @@
-import { createContext, useCallback, useMemo, useState } from 'react'
-import { useMessaging } from 'reactfire'
+import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
+import { isSupported } from 'firebase/messaging'
 
 export const NotificationPermissionContext = createContext()
 
 const compatibleNavigator = 'Notification' in window && navigator.serviceWorker
 
 const NotificationPermissionProvider = ({ children }) => {
-  const isSupported = useMessaging.isSupported()
   const [token, setToken] = useState()
 
   const [permission, setPermission] = useState(() => {
-    if (!compatibleNavigator || !isSupported) {
+    if (!compatibleNavigator) {
       return 'old-navigator'
     }
     return Notification.permission
   })
+
+  useEffect(() => {
+    const checkSupport = async () => {
+      if (!(await isSupported())) {
+        setPermission('old-navigator')
+      }
+    }
+    checkSupport()
+  }, [])
 
   const refreshPermission = useCallback(async () => {
     if (!compatibleNavigator) {

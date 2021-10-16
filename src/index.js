@@ -20,23 +20,26 @@ import theme from './theme'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
 import NotificationPermissionProvider from './screens/Notifications/NotificationPermissionProvider'
+import FirebaseProviders from './firebase/FirebaseProviders'
 
 const render = () => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
         <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense>
-          <StyledEngineProvider injectFirst>
-            <MuiThemeProvider theme={theme}>
-              <SnackbarProvider>
-                <Suspense fallback="App loading something">
-                  <NotificationPermissionProvider>
-                    <App />
-                  </NotificationPermissionProvider>
-                </Suspense>
-              </SnackbarProvider>
-            </MuiThemeProvider>
-          </StyledEngineProvider>
+          <FirebaseProviders>
+            <StyledEngineProvider injectFirst>
+              <MuiThemeProvider theme={theme}>
+                <SnackbarProvider>
+                  <Suspense fallback="App loading something">
+                    <NotificationPermissionProvider>
+                      <App />
+                    </NotificationPermissionProvider>
+                  </Suspense>
+                </SnackbarProvider>
+              </MuiThemeProvider>
+            </StyledEngineProvider>
+          </FirebaseProviders>
         </FirebaseAppProvider>
       </BrowserRouter>
     </React.StrictMode>,

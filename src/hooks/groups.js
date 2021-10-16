@@ -1,13 +1,23 @@
+import {
+  addDoc,
+  collection,
+  doc,
+  FieldValue,
+  getDocs,
+  query,
+  setDoc,
+  where,
+} from '@firebase/firestore'
 import { useSnackbar } from 'notistack'
 import { useCallback } from 'react'
 import {
   useAuth,
   useFirestore,
-  useFirestoreCollection,
+  useFirestoreCollectionData,
+  useFunctions,
   useUser,
 } from 'reactfire'
 import { v4 as uuidv4 } from 'uuid'
-import { useFunctionsInRegion } from './useCallableFunction'
 import { useIsUserAdmin } from './user'
 
 const priceValidationMessage = (price) => (
@@ -29,13 +39,13 @@ const priceValidationMessage = (price) => (
 export const useCreateGroup = () => {
   const user = useUser().data
   const firestore = useFirestore()
-  const FieldValue = useFirestore.FieldValue
   const { enqueueSnackbar } = useSnackbar()
   const [applyInGroup] = useApplyInGroup()
 
   return async (group) => {
     const joinKey = uuidv4().slice(0, 5).toUpperCase()
-    await firestore.collection('groups').add({
+    const groupsCollection = collection(firestore, 'groups')
+    await addDoc(groupsCollection, {
       ...group,
       createdBy: user.uid,
       createdAt: FieldValue.serverTimestamp(),
@@ -62,10 +72,13 @@ export const useApplyInGroup = () => {
 
   const applyFn = useCallback(
     async (joinKey) => {
-      const groupQuerySnapshot = await firestore
-        .collection('groups')
-        .where('joinKey', '==', joinKey)
-        .get()
+      const groupsCollection = collection(firestore, 'groups')
+      const groupsQuery = query(
+        groupsCollection,
+        where('joinKey', '==', joinKey),
+      )
+
+      const groupQuerySnapshot = await getDocs(groupsQuery)
 
       if (groupQuerySnapshot.empty) {
         enqueueSnackbar(
@@ -106,14 +119,17 @@ export const useApplyInGroup = () => {
       }
 
       // Send a request by writing in groupApply collection
-      await firestore
-        .collection('groupApply')
-        .doc(`${groupSnapshot.id}_${user.uid}`)
-        .set({
+      await setDoc(
+        doc(
+          collection(firestore, 'groupApply'),
+          `${groupSnapshot.id}_${user.uid}`,
+        ),
+        {
           uid: user.uid,
           groupId: groupSnapshot.id,
           status: 'sent',
-        })
+        },
+      )
 
       if (group.price > 0) {
         enqueueSnackbar(
@@ -141,21 +157,27 @@ export const useApplyInGroup = () => {
 export const useGroupsForUserMember = () => {
   const { uid } = useAuth().currentUser
 
-  const query = useFirestore()
-    .collection('groups')
-    .where('members', 'array-contains', uid)
+  const firestore = useFirestore()
+  const groupsCollection = collection(firestore, 'groups')
+  const groupsQuery = query(
+    groupsCollection,
+    where('members', 'array-contains', uid),
+  )
 
-  return useFirestoreCollection(query).data?.docs
+  return useFirestoreCollectionData(groupsQuery).data
 }
 
 export const useGroupsForUserAwaitingMember = () => {
   const { uid } = useAuth().currentUser
 
-  const query = useFirestore()
-    .collection('groups')
-    .where('awaitingMembers', 'array-contains', uid)
+  const firestore = useFirestore()
+  const groupsCollection = collection(firestore, 'groups')
+  const groupsQuery = query(
+    groupsCollection,
+    where('awaitingMembers', 'array-contains', uid),
+  )
 
-  return useFirestoreCollection(query).data?.docs
+  return useFirestoreCollectionData(groupsQuery).data
 }
 
 export const useGroupsForUser = () => {
@@ -168,11 +190,11 @@ export const useGroupsForUser = () => {
 export const useGroupCreatedByUser = () => {
   const { uid } = useAuth().currentUser
 
-  const query = useFirestore()
-    .collection('groups')
-    .where('createdBy', '==', uid)
+  const firestore = useFirestore()
+  const groupsCollection = collection(firestore, 'groups')
+  const groupsQuery = query(groupsCollection, where('createdBy', '==', uid))
 
-  return useFirestoreCollection(query).data?.docs
+  return useFirestoreCollectionData(groupsQuery).data
 }
 
 export const useGroupsContainingAwaitingMembers = () => {
@@ -182,11 +204,15 @@ export const useGroupsContainingAwaitingMembers = () => {
       'useGroupsContainingAwaitingMembers can only be used by admins',
     )
   }
-  const query = useFirestore()
-    .collection('groups')
-    .where('awaitingMembers', '!=', [])
 
-  return useFirestoreCollection(query).data?.docs
+  const firestore = useFirestore()
+  const groupsCollection = collection(firestore, 'groups')
+  const groupsQuery = query(
+    groupsCollection,
+    where('awaitingMembers', '!=', []),
+  )
+
+  return useFirestoreCollectionData(groupsQuery).data
 }
 
 export const useValidApply = (groupId, userId) => {
@@ -196,8 +222,7 @@ export const useValidApply = (groupId, userId) => {
   }
   const { enqueueSnackbar } = useSnackbar()
 
-  const validApplyCallable =
-    useFunctionsInRegion().httpsCallable('groups-validApply')
+  const validApplyCallable = useFunctions().httpsCallable('groups-validApply')
 
   return useCallback(
     () =>

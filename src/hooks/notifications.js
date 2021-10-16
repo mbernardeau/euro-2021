@@ -1,10 +1,8 @@
 import { useCallback, useContext } from 'react'
-import {
-  useAuth,
-  useFirestore,
-  useFirestoreDocData,
-  useMessaging,
-} from 'reactfire'
+import { useAuth, useFirestore, useFirestoreDocData } from 'reactfire'
+import { getToken, getMessaging } from 'firebase/messaging'
+import { FieldValue, collection, doc, setDoc } from '@firebase/firestore'
+
 import { useSnackbar } from 'notistack'
 
 import firebaseConfig from '../firebaseConfig'
@@ -24,11 +22,11 @@ export const useNotificationConfiguration = () => {
   const { enqueueSnackbar } = useSnackbar()
 
   const firestore = useFirestore()
-  const FieldValue = useFirestore.FieldValue
-  const ref = firestore.collection('notificationSubscriptions').doc(token)
+  const ref = doc(firestore, 'notificationSubscriptions', token)
 
   const updateConfiguration = async (newConfig) => {
-    await ref.set(
+    await setDoc(
+      ref,
       {
         ...newConfig,
         updatedAt: FieldValue.serverTimestamp(),
@@ -49,33 +47,31 @@ export const useNotificationConfiguration = () => {
 }
 
 export const useRegisterNavigator = () => {
-  const messaging = useMessaging()
   const firestore = useFirestore()
-  const FieldValue = useFirestore.FieldValue
   const { setToken } = useNotificationPermission()
 
   const { uid } = useAuth().currentUser
 
   const registerNavigator = useCallback(async () => {
-    const token = await messaging.getToken({
+    const token = await getToken(getMessaging(), {
       vapidKey: firebaseConfig.vapidKey,
     })
     setToken(token)
 
-    return firestore
-      .collection('notificationSubscriptions')
-      .doc(token)
-      .set(
-        {
-          uid,
-          token,
-          PREMATCH: true,
-          updatedAt: FieldValue.serverTimestamp(),
-          version: FieldValue.increment(1),
-        },
-        { merge: true },
-      )
-  }, [FieldValue, firestore, messaging, setToken, uid])
+    const collectionRef = collection(firestore, 'notificationSubscriptions')
+    const docRef = doc(collectionRef, token)
+    return setDoc(
+      docRef,
+      {
+        uid,
+        token,
+        PREMATCH: true,
+        updatedAt: FieldValue.serverTimestamp(),
+        version: FieldValue.increment(1),
+      },
+      { merge: true },
+    )
+  }, [firestore, setToken, uid])
 
   return [registerNavigator]
 }

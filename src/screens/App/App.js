@@ -11,26 +11,18 @@
  * the linting exception.
  */
 
+import { getRedirectResult, onAuthStateChanged } from '@firebase/auth'
+import { collection, doc, FieldValue, setDoc } from '@firebase/firestore'
+import MenuIcon from '@mui/icons-material/Menu'
 import AppBar from '@mui/material/AppBar'
 import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
-// import Typography from '@mui/material/Typography'
-import MenuIcon from '@mui/icons-material/Menu'
 import PropTypes from 'prop-types'
-import Baniere_mobile from '../../assets/visuels/baniere_pm.png'
-import Baniere from '../../assets/visuels/bandeausignature.png'
 import React, { Suspense, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import {
-  AuthCheck,
-  preloadAuth,
-  preloadFirestore,
-  preloadFunctions,
-  preloadMessaging,
-  useAuth,
-  useFirebaseApp,
-  useFirestore,
-} from 'reactfire'
+import { AuthCheck, useAuth, useFirestore } from 'reactfire'
+import Baniere from '../../assets/visuels/bandeausignature.png'
+import Baniere_mobile from '../../assets/visuels/baniere_pm.png'
 import { useNotificationPermission } from '../../hooks/notifications'
 import FAQPage from '../FAQ'
 import GroupsPage from '../Groups'
@@ -54,7 +46,7 @@ import NavigationMenu from './NavigationMenu'
 const updateUserProfile = (firestore, auth, FieldValue) => async (user) => {
   // getRedirectResult ne sera rempli que lors d'un connexion manuelle.
   // Les reconnexions auto et les rafraichissments de token ne donnent pas les `additionalUserInfo`
-  const userCredentials = await auth.getRedirectResult()
+  const userCredentials = await getRedirectResult(auth)
 
   let additionalUserInfo = {}
   if (userCredentials.user) {
@@ -71,44 +63,33 @@ const updateUserProfile = (firestore, auth, FieldValue) => async (user) => {
     }
   }
 
-  return firestore
-    .collection('users')
-    .doc(user.uid)
-    .set(
-      {
-        uid: user.uid,
-        avatarUrl:
-          additionalUserInfo.profile?.picture?.data?.url ?? user.photoURL,
-        displayName: user.displayName,
-        email: user.email,
-        phoneNumber: user.phoneNumber,
-        providerData: user.providerData,
-        lastConnection: FieldValue.serverTimestamp(),
-        nbConnections: FieldValue.increment(1),
-        ...additionalUserInfo,
-      },
-      { merge: true },
-    )
+  const userCollection = collection(firestore, 'users')
+  const userDoc = doc(userCollection, user.uid)
+  return setDoc(
+    userDoc,
+    {
+      uid: user.uid,
+      avatarUrl:
+        additionalUserInfo.profile?.picture?.data?.url ?? user.photoURL,
+      displayName: user.displayName,
+      email: user.email,
+      phoneNumber: user.phoneNumber,
+      providerData: user.providerData,
+      lastConnection: FieldValue.serverTimestamp(),
+      nbConnections: FieldValue.increment(1),
+      ...additionalUserInfo,
+    },
+    { merge: true },
+  )
 }
 
 const App = () => {
-  const firebaseApp = useFirebaseApp()
-
-  preloadAuth({ firebaseApp })
-  preloadFirestore({ firebaseApp })
-  preloadFunctions({
-    region: 'europe-west3',
-    firebaseApp,
-  })
-  preloadMessaging({ firebaseApp })
-
   const { permission } = useNotificationPermission()
 
   const auth = useAuth()
   const firestore = useFirestore()
-  const FieldValue = useFirestore.FieldValue
 
-  auth.onAuthStateChanged(async (user) => {
+  onAuthStateChanged(auth, async (user) => {
     if (user) {
       await updateUserProfile(firestore, auth, FieldValue)(user)
     }
