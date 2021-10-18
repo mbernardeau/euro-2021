@@ -7,8 +7,6 @@ import {
 } from '@firebase/firestore'
 import { useFirestore, useFirestoreDocData, useUser } from 'reactfire'
 
-const initialData = {}
-
 export const useBet = (matchId) => {
   const {
     data: { uid },
@@ -32,5 +30,5 @@ export const useBet = (matchId) => {
     )
   }
 
-  return [useFirestoreDocData(documentRef).data ?? initialData, setBet]
+  return [useFirestoreDocData(documentRef).data, setBet]
 }

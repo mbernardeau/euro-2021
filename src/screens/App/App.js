@@ -24,9 +24,9 @@ import AppBar from '@mui/material/AppBar'
 import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
 import PropTypes from 'prop-types'
-import React, { Suspense, useState } from 'react'
+import { Suspense, useState } from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { AuthCheck, useAuth, useFirestore } from 'reactfire'
+import { useAuth, useFirestore, useSigninCheck } from 'reactfire'
 import Baniere from '../../assets/visuels/bandeausignature.png'
 import Baniere_mobile from '../../assets/visuels/baniere_pm.png'
 import { useNotificationPermission } from '../../hooks/notifications'
@@ -103,6 +103,13 @@ const App = () => {
 
   const [menuOpen, setMenuOpen] = useState(false)
 
+  const {
+    data: { signedIn },
+  } = useSigninCheck()
+  const {
+    data: { signedIn: adminUser },
+  } = useSigninCheck({ requiredClaims: { admin: true } })
+
   return (
     <>
       <AppBar>
@@ -130,9 +137,7 @@ const App = () => {
         closeMenu={() => setMenuOpen(false)}
       />
 
-      <AuthCheck>
-        {permission === 'granted' && <NotificationHandler />}
-      </AuthCheck>
+      {signedIn && permission === 'granted' && <NotificationHandler />}
 
       <div className="app-content">
         {/* Routes accessibles sans connexion */}
@@ -142,22 +147,24 @@ const App = () => {
           <Route path="/faq" component={FAQPage} />
           <Route path="/stadiums" component={Stadiums} />
 
-          <AuthCheck>
-            {/* Routes accessibles avec connexion */}
-            <Route path="/matches" component={MatchesPage} />
-            <Route path="/ranking" component={RankingPage} />
-            <Route path="/groups" component={GroupsPage} />
-            <Route path="/profile" component={Profile} />
-            <Route path="/rib" component={Rib} />
+          {signedIn && (
+            <>
+              {/* Routes accessibles avec connexion */}
+              <Route path="/matches" component={MatchesPage} />
+              <Route path="/ranking" component={RankingPage} />
+              <Route path="/groups" component={GroupsPage} />
+              <Route path="/profile" component={Profile} />
+              <Route path="/rib" component={Rib} />
 
-            {/* Route accessible pour admin */}
-            <AuthCheck requiredClaims={{ role: 'admin' }}>
-              <Route
-                path="/validinscription"
-                component={ValidInscriptionPage}
-              />
-            </AuthCheck>
-          </AuthCheck>
+              {/* Route accessible pour admin */}
+              {adminUser && (
+                <Route
+                  path="/validinscription"
+                  component={ValidInscriptionPage}
+                />
+              )}
+            </>
+          )}
 
           {/* NotFoundPage en dernier choix sinon il est active */}
           <Route component={NotFoundPage} />
