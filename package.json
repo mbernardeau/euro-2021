@@ -47,7 +47,7 @@
     "files": [
       {
         "path": "build/**/*.js",
-        "maxSize": "200kb"
+        "maxSize": "500kb"
       }
     ]
   },
