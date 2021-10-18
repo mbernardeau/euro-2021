@@ -1,7 +1,7 @@
 import {
   useFirestoreDocData,
   useFirestore,
-  useFirestoreCollection,
+  useFirestoreCollectionData,
 } from 'reactfire'
 import { collection, doc } from '@firebase/firestore'
 
@@ -18,5 +18,5 @@ export const useTeams = () => {
   const firestore = useFirestore()
   const query = collection(firestore, 'teams').orderBy('winOdd')
 
-  return useFirestoreCollection(query, { initialData: [] }).data?.docs
+  return useFirestoreCollectionData(query, { initialData: [] }).data
 }

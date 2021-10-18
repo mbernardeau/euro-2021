@@ -7,7 +7,7 @@
     "npm": ">=7"
   },
   "dependencies": {
-    "@emotion/react": "^11.4.1",
+    "@emotion/react": "^11.5.0",
     "@emotion/styled": "^11.3.0",
     "@mui/icons-material": "^5.0.4",
     "@mui/material": "^5.0.4",
@@ -38,18 +38,18 @@
     "lint:functions": "cd functions && npm run lint",
     "prettier:check": "prettier --check \"{src,functions}/**/*.{js,jsx,ts,md}\"",
     "prettier:write": "prettier --write \"{src,functions}/**/*.{js,jsx,ts,md}\"",
-    "test:rules": "firebase emulators:exec --only firestore \"react-scripts test --testPathPattern 'firebase/rules/__tests__/.+\\.spec\\.js' --env=node --runInBand\"",
+    "test:rules": "firebase emulators:exec --only firestore \"react-scripts test --testPathPattern 'firebase/rules/__tests__/.+\\.spec\\.ts' --env=node --runInBand\"",
     "test": "react-scripts test --testPathIgnorePatterns='<rootDir>/src/firebase/rules/__tests__'",
     "bundlewatch": "bundlewatch",
     "eject": "react-scripts eject"
   },
-  "bundlewatch" : {
-      "files": [
-          {
-              "path": "build/**/*.js",
-              "maxSize": "200kb"
-          }
-      ]
+  "bundlewatch": {
+    "files": [
+      {
+        "path": "build/**/*.js",
+        "maxSize": "200kb"
+      }
+    ]
   },
   "eslintConfig": {
     "extends": [
@@ -78,7 +78,6 @@
     "babel-plugin-transform-imports": "^2.0.0",
     "bundlewatch": "^0.3.2",
     "cross-env": "^7.0.3",
-    "firebase-admin": "^10.0.0",
     "http-proxy-middleware": "^2.0.1",
     "prettier": "^2.4.1",
     "source-map-explorer": "^2.5.2",
