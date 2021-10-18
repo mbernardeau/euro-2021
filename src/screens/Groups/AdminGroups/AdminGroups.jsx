@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
 import isEmpty from 'lodash/isEmpty'
 import map from 'lodash/map'
-import { useGroupCreatedByUser } from '../../../hooks'
+import { useGroupCreatedByUser } from '../../../hooks/groups'
 import AdminGroupRow from './AdminGroupRow'
 import './AdminGroups.scss'
 

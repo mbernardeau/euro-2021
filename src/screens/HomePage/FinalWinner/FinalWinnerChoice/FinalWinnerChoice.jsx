@@ -6,7 +6,7 @@ import find from 'lodash/find'
 import map from 'lodash/map'
 import PropTypes from 'prop-types'
 import Flag from '../../../../components/Flag'
-import { useTeams } from '../../../../hooks'
+import { useTeams } from '../../../../hooks/teams'
 import './FinalWinnerChoice.scss'
 
 const FinalWinnerChoice = ({ userTeam, disabled, onValueChange }) => {

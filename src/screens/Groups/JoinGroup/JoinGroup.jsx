@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent'
 import FormControl from '@mui/material/FormControl'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useApplyInGroup } from '../../../hooks/groups'
 import './JoinGroup.scss'
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import Button from '@mui/material/Button'
-import { useValidApply } from '../../../hooks'
+import { useValidApply } from '../../../hooks/groups'
 
 const ValidInscriptionRow = ({
   user: { displayName, email, uid },

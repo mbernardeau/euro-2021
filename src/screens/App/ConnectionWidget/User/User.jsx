@@ -6,7 +6,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import { useAuth } from 'reactfire'
-import { useLogout } from '../../../../hooks'
+import { useLogout } from '../../../../hooks/user'
 import './user.scss'
 
 const User = () => {

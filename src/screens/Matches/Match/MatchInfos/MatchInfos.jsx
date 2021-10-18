@@ -3,7 +3,7 @@ import format from 'date-fns/format'
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import fr from 'date-fns/locale/fr'
 import PropTypes from 'prop-types'
-import { useStadium } from '../../../../hooks'
+import { useStadium } from '../../../../hooks/stadiums'
 import './matchInfos.scss'
 import StadiumTooltip from './StadiumTooltip'
 

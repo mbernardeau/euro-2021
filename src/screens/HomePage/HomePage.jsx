@@ -19,7 +19,7 @@ import PropTypes from 'prop-types'
 import { useMemo } from 'react'
 import { useSigninCheck } from 'reactfire'
 import myImage from '../../assets/visuels/bandeauEvenement_PM.jpg'
-import { useCompetitionData } from '../../hooks'
+import { useCompetitionData } from '../../hooks/competition'
 import FinalWinner from './FinalWinner'
 import './HomePage.scss'
 

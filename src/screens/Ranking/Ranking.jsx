@@ -4,7 +4,7 @@ import Tabs from '@mui/material/Tabs'
 import isEmpty from 'lodash/isEmpty'
 import { Suspense, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useGroupsForUserMember } from '../../hooks'
+import { useGroupsForUserMember } from '../../hooks/groups'
 import GroupRanking from './GroupRanking'
 import './ranking.scss'
 

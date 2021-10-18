@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 import { Suspense } from 'react'
 import { useHistory } from 'react-router'
 import SideImg from '../../../assets/visuels/rules-281x310.png'
-import { useIsUserAdmin, useIsUserConnected } from '../../../hooks'
+import { useIsUserAdmin, useIsUserConnected } from '../../../hooks/user'
 import { openPAMTab } from '../../../utils'
 import './NavigationMenu.scss'
 
