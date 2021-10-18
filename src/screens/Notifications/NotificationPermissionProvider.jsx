@@ -1,4 +1,4 @@
-import { isSupported } from 'firebase/messaging'
+import { isSupported } from '@firebase/messaging'
 import { createContext, useCallback, useEffect, useMemo, useState } from 'react'
 
 export const NotificationPermissionContext = createContext()

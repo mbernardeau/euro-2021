@@ -5,7 +5,7 @@ import {
   serverTimestamp,
   setDoc,
 } from '@firebase/firestore'
-import { getMessaging, getToken } from 'firebase/messaging'
+import { getMessaging, getToken } from '@firebase/messaging'
 import { useSnackbar } from 'notistack'
 import { useCallback, useContext } from 'react'
 import { useAuth, useFirestore, useFirestoreDocData } from 'reactfire'
