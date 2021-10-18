@@ -1,22 +1,28 @@
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
-import React, { Suspense } from 'react'
-import { useSelectedWinner, useCompetitionData } from '../../../hooks'
+import isPast from 'date-fns/isPast'
+import { Suspense, useCallback, useMemo } from 'react'
+import { useCompetitionData, useSelectedWinner } from '../../../hooks'
 import './FinalWinner.scss'
 import FinalWinnerChoice from './FinalWinnerChoice'
-import isPast from 'date-fns/isPast'
 
 const FinalWinner = () => {
   const [team, saveWinner] = useSelectedWinner()
 
-  const CompetitionStartDate = new Date(
-    useCompetitionData().startDate.seconds * 1000,
+  const competitionData = useCompetitionData()
+
+  const CompetitionStartDate = useMemo(
+    () => new Date(competitionData.startDate.seconds * 1000),
+    [competitionData.startDate.seconds],
   )
 
-  const handleChange = (e) => {
-    saveWinner(e.target.value)
-  }
+  const handleChange = useCallback(
+    (e) => {
+      saveWinner(e.target.value)
+    },
+    [saveWinner],
+  )
 
   return (
     <Card className="winner-card">

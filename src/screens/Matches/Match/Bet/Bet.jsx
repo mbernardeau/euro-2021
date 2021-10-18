@@ -1,11 +1,9 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import MenuItem from '@mui/material/MenuItem'
+import Select from '@mui/material/Select'
 import map from 'lodash/map'
 import range from 'lodash/range'
+import PropTypes from 'prop-types'
 import Flag from '../../../../components/Flag'
-import Select from '@mui/material/Select'
-import MenuItem from '@mui/material/MenuItem'
-
 import './Bet.scss'
 
 const Bet = ({ team, betValue, onBetValueUpdated, past }) => {

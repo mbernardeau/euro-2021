@@ -39,7 +39,7 @@
     "prettier:check": "prettier --check \"{src,functions}/**/*.{js,jsx,ts,md}\"",
     "prettier:write": "prettier --write \"{src,functions}/**/*.{js,jsx,ts,md}\"",
     "test:rules": "firebase emulators:exec --only firestore \"react-scripts test --testPathPattern 'firebase/rules/__tests__/.+\\.spec\\.ts' --env=node --runInBand\"",
-    "test": "react-scripts test --testPathIgnorePatterns='<rootDir>/src/firebase/rules/__tests__'",
+    "test": "react-scripts test --testPathIgnorePatterns='<rootDir>/src/firebase/rules/__tests__' --passWithNoTests",
     "bundlewatch": "bundlewatch",
     "eject": "react-scripts eject"
   },

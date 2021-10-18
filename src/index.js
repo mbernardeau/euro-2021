@@ -26,21 +26,21 @@ const render = () => {
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-        <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense>
-          <FirebaseProviders>
-            <StyledEngineProvider injectFirst>
-              <MuiThemeProvider theme={theme}>
-                <SnackbarProvider>
-                  <Suspense fallback="App loading something">
+        <Suspense fallback="App loading something">
+          <FirebaseAppProvider firebaseConfig={firebaseConfig} suspense>
+            <FirebaseProviders>
+              <StyledEngineProvider injectFirst>
+                <MuiThemeProvider theme={theme}>
+                  <SnackbarProvider>
                     <NotificationPermissionProvider>
                       <App />
                     </NotificationPermissionProvider>
-                  </Suspense>
-                </SnackbarProvider>
-              </MuiThemeProvider>
-            </StyledEngineProvider>
-          </FirebaseProviders>
-        </FirebaseAppProvider>
+                  </SnackbarProvider>
+                </MuiThemeProvider>
+              </StyledEngineProvider>
+            </FirebaseProviders>
+          </FirebaseAppProvider>
+        </Suspense>
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root'),

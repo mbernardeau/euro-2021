@@ -1,10 +1,8 @@
-import Tooltip from '@mui/material/Tooltip'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
-import OddDialog from './OddDialog'
+import Tooltip from '@mui/material/Tooltip'
 import isNil from 'lodash/isNil'
-// import padStart from 'lodash/padStart'
 import PropTypes from 'prop-types'
-import React from 'react'
+import OddDialog from './OddDialog'
 import './Odds.scss'
 
 // const toHex = (number) =>

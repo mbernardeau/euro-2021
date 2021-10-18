@@ -1,3 +1,4 @@
+import Tooltip from '@mui/material/Tooltip'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Table from '@mui/material/Table'
@@ -5,19 +6,17 @@ import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
+import memoize from 'lodash/memoize'
 import orderBy from 'lodash/orderBy'
 import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useAuth } from 'reactfire'
+import forgotBetImgUrl from '../../../assets/icons/ForgotBet.png'
+import imgUrl from '../../../assets/icons/mask6.png'
 import InlineAvatar from '../../../components/Avatar'
 import { useOpponents, useTeams } from '../../../hooks'
 import './GroupRanking.scss'
 import OwnRank from './OwnRank'
-import imgUrl from '../../../assets/icons/mask6.png'
-import forgotBetImgUrl from '../../../assets/icons/ForgotBet.png'
-import { Tooltip } from '@mui/material'
-
-import memoize from 'lodash/memoize'
 
 export const imgUrlFlag = memoize((country) =>
   require(`../../../assets/flags/${country}.svg`),

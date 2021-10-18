@@ -2,18 +2,19 @@ import {
   addDoc,
   collection,
   doc,
-  FieldValue,
   getDocs,
   query,
+  serverTimestamp,
   setDoc,
   where,
 } from '@firebase/firestore'
+import { httpsCallable } from '@firebase/functions'
 import { useSnackbar } from 'notistack'
 import { useCallback } from 'react'
 import {
   useAuth,
   useFirestore,
-  useFirestoreCollectionData,
+  useFirestoreCollection,
   useFunctions,
   useUser,
 } from 'reactfire'
@@ -48,7 +49,7 @@ export const useCreateGroup = () => {
     await addDoc(groupsCollection, {
       ...group,
       createdBy: user.uid,
-      createdAt: FieldValue.serverTimestamp(),
+      createdAt: serverTimestamp(),
       joinKey,
       version: 1,
     })
@@ -164,7 +165,7 @@ export const useGroupsForUserMember = () => {
     where('members', 'array-contains', uid),
   )
 
-  return useFirestoreCollectionData(groupsQuery).data
+  return useFirestoreCollection(groupsQuery).data?.docs
 }
 
 export const useGroupsForUserAwaitingMember = () => {
@@ -177,7 +178,7 @@ export const useGroupsForUserAwaitingMember = () => {
     where('awaitingMembers', 'array-contains', uid),
   )
 
-  return useFirestoreCollectionData(groupsQuery).data
+  return useFirestoreCollection(groupsQuery).data?.docs
 }
 
 export const useGroupsForUser = () => {
@@ -194,7 +195,7 @@ export const useGroupCreatedByUser = () => {
   const groupsCollection = collection(firestore, 'groups')
   const groupsQuery = query(groupsCollection, where('createdBy', '==', uid))
 
-  return useFirestoreCollectionData(groupsQuery).data
+  return useFirestoreCollection(groupsQuery).data?.docs
 }
 
 export const useGroupsContainingAwaitingMembers = () => {
@@ -212,7 +213,7 @@ export const useGroupsContainingAwaitingMembers = () => {
     where('awaitingMembers', '!=', []),
   )
 
-  return useFirestoreCollectionData(groupsQuery).data
+  return useFirestoreCollection(groupsQuery).data?.docs
 }
 
 export const useValidApply = (groupId, userId) => {
@@ -222,7 +223,8 @@ export const useValidApply = (groupId, userId) => {
   }
   const { enqueueSnackbar } = useSnackbar()
 
-  const validApplyCallable = useFunctions().httpsCallable('groups-validApply')
+  const functions = useFunctions()
+  const validApplyCallable = httpsCallable(functions, 'groups-validApply')
 
   return useCallback(
     () =>

@@ -1,13 +1,13 @@
 import AppBar from '@mui/material/AppBar'
 import Tab from '@mui/material/Tab'
 import Tabs from '@mui/material/Tabs'
+import Typography from '@mui/material/Typography'
+import { isPast } from 'date-fns'
 import map from 'lodash/map'
-import React, { Suspense, useEffect, useMemo, useState } from 'react'
+import { Suspense, useEffect, useMemo, useState } from 'react'
 import { useCompetitionData, useMatches } from '../../hooks'
 import Match from './Match'
-import { Typography } from '@mui/material'
 import './matches.scss'
-import { isPast } from 'date-fns'
 
 const Matches = () => {
   const [selectedTab, setSelectedTab] = useState(0)

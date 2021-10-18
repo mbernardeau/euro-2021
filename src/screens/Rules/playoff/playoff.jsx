@@ -1,4 +1,3 @@
-import React from 'react'
 import Typography from '@mui/material/Typography'
 import Section from '../component/section'
 import Table from '../component/table'

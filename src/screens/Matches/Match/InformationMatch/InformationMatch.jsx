@@ -1,7 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
 import Tooltip from '@mui/material/Tooltip'
+import PropTypes from 'prop-types'
 import './InformationMatch.scss'
 
 // https://docs.google.com/spreadsheets/d/1ZioOtyCblJtJf0WAaRxVWmnibqOeC7eDcJYDVEYRqng/edit?usp=sharing

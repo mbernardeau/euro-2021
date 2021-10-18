@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography'
 import findIndex from 'lodash/findIndex'
 import size from 'lodash/size'
 import PropTypes from 'prop-types'
-import React from 'react'
+
 import { useAuth } from 'reactfire'
 
 const OwnRank = ({ opponents, members }) => {

@@ -12,7 +12,13 @@
  */
 
 import { getRedirectResult, onAuthStateChanged } from '@firebase/auth'
-import { collection, doc, FieldValue, setDoc } from '@firebase/firestore'
+import {
+  collection,
+  doc,
+  increment,
+  serverTimestamp,
+  setDoc,
+} from '@firebase/firestore'
 import MenuIcon from '@mui/icons-material/Menu'
 import AppBar from '@mui/material/AppBar'
 import IconButton from '@mui/material/IconButton'
@@ -43,13 +49,13 @@ import NavigationMenu from './NavigationMenu'
 /**
  * Mise à jour du profil utilisateur (dans la collection `users` sur une connection)
  */
-const updateUserProfile = (firestore, auth, FieldValue) => async (user) => {
+const updateUserProfile = (firestore, auth) => async (user) => {
   // getRedirectResult ne sera rempli que lors d'un connexion manuelle.
   // Les reconnexions auto et les rafraichissments de token ne donnent pas les `additionalUserInfo`
   const userCredentials = await getRedirectResult(auth)
 
   let additionalUserInfo = {}
-  if (userCredentials.user) {
+  if (userCredentials?.user) {
     const { providerId, profile } = userCredentials.additionalUserInfo
     if (profile?.picture?.data?.url) {
       user.photoURL = await user.updateProfile({
@@ -75,8 +81,8 @@ const updateUserProfile = (firestore, auth, FieldValue) => async (user) => {
       email: user.email,
       phoneNumber: user.phoneNumber,
       providerData: user.providerData,
-      lastConnection: FieldValue.serverTimestamp(),
-      nbConnections: FieldValue.increment(1),
+      lastConnection: serverTimestamp(),
+      nbConnections: increment(1),
       ...additionalUserInfo,
     },
     { merge: true },
@@ -91,7 +97,7 @@ const App = () => {
 
   onAuthStateChanged(auth, async (user) => {
     if (user) {
-      await updateUserProfile(firestore, auth, FieldValue)(user)
+      await updateUserProfile(firestore, auth)(user)
     }
   })
 

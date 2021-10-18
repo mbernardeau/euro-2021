@@ -1,5 +1,3 @@
-import React from 'react'
-
 import JoinGroup from './JoinGroup'
 import CreateGroup from './CreateGroup'
 import AdminGroups from './AdminGroups'

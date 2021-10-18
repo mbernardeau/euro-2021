@@ -3,7 +3,7 @@ import isEmpty from 'lodash/isEmpty'
 import keyBy from 'lodash/keyBy'
 import { useEffect, useMemo, useState } from 'react'
 import {
-  FieldPath,
+  documentId,
   collection,
   query,
   where,
@@ -22,19 +22,14 @@ export const useBatchedMultiGet = (ids, collectionName) => {
     const collectionRef = collection(firestore, collectionName)
 
     const unsubscribes = idChunks.map((idChunk) => {
-      const queryRef = query(
-        collectionRef,
-        where(FieldPath.documentId(), 'in', idChunk),
-      )
-      return onSnapshot(
-        queryRef((snap) => {
-          const addedEntities = keyBy(snap.docs, 'id')
-          setEntities((currentEntities) => ({
-            ...currentEntities,
-            ...addedEntities,
-          }))
-        }),
-      )
+      const queryRef = query(collectionRef, where(documentId(), 'in', idChunk))
+      return onSnapshot(queryRef, (snap) => {
+        const addedEntities = keyBy(snap.docs, 'id')
+        setEntities((currentEntities) => ({
+          ...currentEntities,
+          ...addedEntities,
+        }))
+      })
     })
 
     return () => unsubscribes.forEach((unsubscribe) => unsubscribe())

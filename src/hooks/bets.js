@@ -1,5 +1,13 @@
-import { useFirestoreDocData, useUser, useFirestore } from 'reactfire'
-import { FieldValue, collection } from '@firebase/firestore'
+import {
+  collection,
+  increment,
+  serverTimestamp,
+  doc,
+  setDoc,
+} from '@firebase/firestore'
+import { useFirestore, useFirestoreDocData, useUser } from 'reactfire'
+
+const initialData = {}
 
 export const useBet = (matchId) => {
   const {
@@ -7,20 +15,22 @@ export const useBet = (matchId) => {
   } = useUser()
 
   const firestore = useFirestore()
-  const ref = collection(firestore, 'bets').doc(`${matchId}_${uid}`)
+  const betsCollection = collection(firestore, 'bets')
+  const documentRef = doc(betsCollection, `${matchId}_${uid}`)
 
   const setBet = (bet) => {
-    ref.set(
+    setDoc(
+      documentRef,
       {
         ...bet,
         matchId,
         uid,
-        updatedAt: FieldValue.serverTimestamp(),
-        version: FieldValue.increment(1),
+        updatedAt: serverTimestamp(),
+        version: increment(1),
       },
       { merge: true },
     )
   }
 
-  return [useFirestoreDocData(ref).data, setBet]
+  return [useFirestoreDocData(documentRef).data ?? initialData, setBet]
 }

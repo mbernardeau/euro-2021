@@ -9,22 +9,26 @@
  * the linting exception.
  */
 
-import Button from '@mui/material/Button'
 import EventAvailableIcon from '@mui/icons-material/EventAvailable'
 import ListIcon from '@mui/icons-material/List'
 import PollIcon from '@mui/icons-material/Poll'
+import Typography from '@mui/material/Typography'
+import Button from '@mui/material/Button'
+import { isPast } from 'date-fns'
 import PropTypes from 'prop-types'
-import React from 'react'
+import { useMemo } from 'react'
 import { AuthCheck } from 'reactfire'
 import myImage from '../../assets/visuels/bandeauEvenement_PM.jpg'
-import './HomePage.scss'
-import FinalWinner from './FinalWinner'
-import { Typography } from '@mui/material'
 import { useCompetitionData } from '../../hooks'
-import { isPast } from 'date-fns'
+import FinalWinner from './FinalWinner'
+import './HomePage.scss'
 
 const WinnerChoice = () => {
-  const LaunchBetDate = new Date(useCompetitionData().launchBet.seconds * 1000)
+  const competitionData = useCompetitionData()
+  const LaunchBetDate = useMemo(
+    () => new Date(competitionData.launchBet.seconds * 1000),
+    [competitionData.launchBet.seconds],
+  )
 
   return isPast(LaunchBetDate) ? (
     <FinalWinner />
@@ -97,7 +101,9 @@ const HomePage = ({ history }) => {
           </div>
         </AuthCheck>
       </div>
-      <AuthCheck>{WinnerChoice()}</AuthCheck>
+      <AuthCheck>
+        <WinnerChoice />
+      </AuthCheck>
       <img alt="Home" className="home-logo" src={myImage} />
     </div>
   )

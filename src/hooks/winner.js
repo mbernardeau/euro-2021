@@ -11,17 +11,16 @@ export const useSelectedWinner = () => {
   const collectionRef = collection(firestore, 'users')
 
   const updater = useCallback(
-    (team) => {
+    async (team) => {
       const documentRef = doc(collectionRef, uid)
-      return updateDoc(documentRef, {
-        winnerTeam: team,
-      })
-        .then(() =>
-          enqueueSnackbar('Équipe mise à jour', { variant: 'success' }),
-        )
-        .catch(() =>
-          enqueueSnackbar('Mise à jour échouée :(', { variant: 'error' }),
-        )
+      try {
+        await updateDoc(documentRef, {
+          winnerTeam: team,
+        })
+        return enqueueSnackbar('Équipe mise à jour', { variant: 'success' })
+      } catch (e) {
+        return enqueueSnackbar('Mise à jour échouée :(', { variant: 'error' })
+      }
     },
     [collectionRef, uid, enqueueSnackbar],
   )

@@ -1,6 +1,5 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-
+import { memo } from 'react'
 import './stadiumTooltip.scss'
 
 const StadiumTooltip = ({ name, photo, city, capacity }) => (
@@ -36,4 +35,4 @@ StadiumTooltip.propTypes = {
   capacity: PropTypes.number,
 }
 
-export default StadiumTooltip
+export default memo(StadiumTooltip)

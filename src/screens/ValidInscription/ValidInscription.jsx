@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
 import map from 'lodash/map'
 import PropTypes from 'prop-types'
-import React from 'react'
+
 import { useGroupsContainingAwaitingMembers } from '../../hooks'
 import { useUsers } from '../../hooks/users'
 import './ValidInscription.scss'

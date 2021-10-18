@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow'
 import Typography from '@mui/material/Typography'
 import isEmpty from 'lodash/isEmpty'
 import map from 'lodash/map'
-import React from 'react'
+
 import { useGroupsForUser } from '../../../hooks'
 import DisplayPrice from './DisplayPrice'
 import GroupRow from './GroupRow'

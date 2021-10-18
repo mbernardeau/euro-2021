@@ -1,10 +1,14 @@
+import {
+  collection,
+  doc,
+  increment,
+  serverTimestamp,
+  setDoc,
+} from '@firebase/firestore'
+import { getMessaging, getToken } from 'firebase/messaging'
+import { useSnackbar } from 'notistack'
 import { useCallback, useContext } from 'react'
 import { useAuth, useFirestore, useFirestoreDocData } from 'reactfire'
-import { getToken, getMessaging } from 'firebase/messaging'
-import { FieldValue, collection, doc, setDoc } from '@firebase/firestore'
-
-import { useSnackbar } from 'notistack'
-
 import firebaseConfig from '../firebaseConfig'
 import { NotificationPermissionContext } from '../screens/Notifications/NotificationPermissionProvider'
 
@@ -29,8 +33,8 @@ export const useNotificationConfiguration = () => {
       ref,
       {
         ...newConfig,
-        updatedAt: FieldValue.serverTimestamp(),
-        version: FieldValue.increment(1),
+        updatedAt: serverTimestamp(),
+        version: increment(1),
       },
       { merge: true },
     )
@@ -66,8 +70,8 @@ export const useRegisterNavigator = () => {
         uid,
         token,
         PREMATCH: true,
-        updatedAt: FieldValue.serverTimestamp(),
-        version: FieldValue.increment(1),
+        updatedAt: serverTimestamp(),
+        version: increment(1),
       },
       { merge: true },
     )
