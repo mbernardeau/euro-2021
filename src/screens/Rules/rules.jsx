@@ -1,14 +1,11 @@
-import React, { Fragment } from 'react'
-
-import './rules.css'
-
 import Bonus from './bonus'
-import Subscription from './subscription'
 import Groups from './groups'
 import Playoff from './playoff'
+import './rules.css'
+import Subscription from './subscription'
 
 const Rules = () => (
-  <Fragment>
+  <>
     <div id="img1" className="img-rules" />
     <Subscription />
     <div id="img2" className="img-rules" />
@@ -17,7 +14,7 @@ const Rules = () => (
     <Playoff />
     <div id="img4" className="img-rules" />
     <Bonus />
-  </Fragment>
+  </>
 )
 
 export default Rules

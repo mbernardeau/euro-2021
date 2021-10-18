@@ -1,8 +1,9 @@
-import { FormControlLabel, Switch, Tooltip } from '@mui/material'
+import InfoOutlined from '@mui/icons-material/InfoOutlined'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Switch from '@mui/material/Switch'
+import Tooltip from '@mui/material/Tooltip'
 import Typography from '@mui/material/Typography'
-import { InfoOutlined } from '@mui/icons-material'
-import React from 'react'
-import { useNotificationConfiguration } from '../../../hooks'
+import { useNotificationConfiguration } from '../../../hooks/notifications'
 
 const NotificationConfiguration = () => {
   const [config, updateConfig] = useNotificationConfiguration()

@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import PropTypes from 'prop-types'
 import map from 'lodash/map'
 import Stadium from './Stadium'
-import { useStadiums } from '../../hooks'
+import { useStadiums } from '../../hooks/stadiums'
 
 const Stadiums = () => {
   const stadiums = useStadiums()

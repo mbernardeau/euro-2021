@@ -1,3 +1,4 @@
+import { collection, doc } from '@firebase/firestore'
 import {
   useFirestore,
   useFirestoreCollection,
@@ -5,14 +6,15 @@ import {
 } from 'reactfire'
 
 export const useStadiums = () => {
-  const query = useFirestore().collection('stadiums')
+  const firestore = useFirestore()
+  const stadiumsCollection = collection(firestore, 'stadiums')
 
-  return useFirestoreCollection(query, { initialData: [] }).data?.docs
+  return useFirestoreCollection(stadiumsCollection).data?.docs
 }
 
-export const useStadium = (id, initialData) => {
-  const ref = useFirestore().collection('stadiums').doc(id)
-  return useFirestoreDocData(ref, {
-    initialData,
-  }).data
+export const useStadium = (id) => {
+  const firestore = useFirestore()
+  const stadiumsCollection = collection(firestore, 'stadiums')
+
+  return useFirestoreDocData(doc(stadiumsCollection, id)).data
 }

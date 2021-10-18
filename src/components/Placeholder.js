@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactPlaceholder from 'react-placeholder'
 import isFunction from 'lodash/isFunction'
 

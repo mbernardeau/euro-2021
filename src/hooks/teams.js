@@ -1,18 +1,21 @@
+import { collection, doc, orderBy, query } from '@firebase/firestore'
 import {
-  useFirestoreDocData,
   useFirestore,
   useFirestoreCollection,
+  useFirestoreDocData,
 } from 'reactfire'
 
-export const useTeam = (id, initialData) => {
-  const ref = useFirestore().collection('teams').doc(id)
-  return useFirestoreDocData(ref, {
-    initialData,
-  }).data
+export const useTeam = (id) => {
+  const firestore = useFirestore()
+  const collectionRef = collection(firestore, 'teams')
+  const documentRef = doc(collectionRef, id)
+
+  return useFirestoreDocData(documentRef).data
 }
 
 export const useTeams = () => {
-  const query = useFirestore().collection('teams').orderBy('winOdd')
+  const firestore = useFirestore()
+  const teamsQuery = query(collection(firestore, 'teams'), orderBy('winOdd'))
 
-  return useFirestoreCollection(query, { initialData: [] }).data?.docs
+  return useFirestoreCollection(teamsQuery).data?.docs
 }

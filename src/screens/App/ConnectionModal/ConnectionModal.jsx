@@ -2,9 +2,8 @@ import Button from '@mui/material/Button'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
 import Typography from '@mui/material/Typography'
-import React from 'react'
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
-import { useGoogleLogin, useFacebookLogin } from '../../../hooks'
+import { useGoogleLogin, useFacebookLogin } from '../../../hooks/user'
 import './ConnectionModal.scss'
 
 const ConnectionModal = () => {

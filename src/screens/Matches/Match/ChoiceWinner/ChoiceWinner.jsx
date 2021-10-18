@@ -1,9 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import MenuItem from '@mui/material/MenuItem'
 import Select from '@mui/material/Select'
 import Typography from '@mui/material/Typography'
-import MenuItem from '@mui/material/MenuItem'
-
+import PropTypes from 'prop-types'
 import './ChoiceWinner.scss'
 
 const ChoiceWinner = ({ teamA, teamB, betValue, onBetValueUpdated, past }) => (

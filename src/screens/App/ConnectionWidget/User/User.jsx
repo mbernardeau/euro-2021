@@ -3,10 +3,10 @@ import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
-import React, { useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useHistory } from 'react-router'
 import { useAuth } from 'reactfire'
-import { useLogout } from '../../../../hooks'
+import { useLogout } from '../../../../hooks/user'
 import './user.scss'
 
 const User = () => {

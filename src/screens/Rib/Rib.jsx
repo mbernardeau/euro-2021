@@ -1,4 +1,3 @@
-import React from 'react'
 import imgRib from '../../assets/payments/RIB.PNG'
 
 const Rib = () => {

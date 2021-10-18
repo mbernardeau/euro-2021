@@ -1,3 +1,3 @@
-import Groups from './Groups'
+import { lazy } from 'react'
 
-export default Groups
+export default lazy(() => import('./Groups'))

@@ -1,1 +1,3 @@
-export { default } from './FAQ'
+import { lazy } from 'react'
+
+export default lazy(() => import('./FAQ'))

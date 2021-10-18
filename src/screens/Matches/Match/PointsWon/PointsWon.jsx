@@ -1,9 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
 import Typography from '@mui/material/Typography'
-// import Tooltip from '@mui/material/Tooltip'
-
+import PropTypes from 'prop-types'
 import './PointsWon.scss'
 
 // Proxi points

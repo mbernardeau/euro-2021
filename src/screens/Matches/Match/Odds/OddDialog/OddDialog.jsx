@@ -1,15 +1,18 @@
-import React from 'react'
+import AddCircleIcon from '@mui/icons-material/AddCircle'
+import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
+import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogTitle from '@mui/material/DialogTitle'
-import AddCircleIcon from '@mui/icons-material/AddCircle'
+import IconButton from '@mui/material/IconButton'
 import Paper from '@mui/material/Paper'
+import Typography from '@mui/material/Typography'
 import PropTypes from 'prop-types'
-import { Button, DialogActions, IconButton, Typography } from '@mui/material'
+import { useState } from 'react'
 import './OddDialog.scss'
 
 const OddDialog = ({ odds, name_teamA, name_teamB }) => {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = useState(false)
 
   const handleClickOpen = () => {
     setOpen(true)

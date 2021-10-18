@@ -1,10 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-import Tooltip from '@mui/material/Tooltip'
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline'
+import Tooltip from '@mui/material/Tooltip'
 import isNil from 'lodash/isNil'
 import isNumber from 'lodash/isNumber'
+import PropTypes from 'prop-types'
 import './InformationResult.scss'
 
 const proxiText = [

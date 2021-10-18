@@ -1,4 +1,3 @@
-import React from 'react'
 import PropTypes from 'prop-types'
 import TableCell from '@mui/material/TableCell'
 import TableRow from '@mui/material/TableRow'

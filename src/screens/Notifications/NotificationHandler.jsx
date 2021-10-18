@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useRegisterNavigator } from '../../hooks'
+import { useRegisterNavigator } from '../../hooks/notifications'
 
 const NotificationHandler = () => {
   const [registerNavigator] = useRegisterNavigator()

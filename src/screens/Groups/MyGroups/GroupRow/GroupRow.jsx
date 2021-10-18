@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import React, { useMemo } from 'react'
 import { useAuth } from 'reactfire'
 import Avatar from '../../../../components/Avatar'
-import { useOpponents } from '../../../../hooks'
+import { useOpponents } from '../../../../hooks/opponents'
 import GroupStatus from './GroupStatus'
 
 const GroupRow = ({

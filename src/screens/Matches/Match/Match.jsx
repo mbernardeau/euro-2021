@@ -5,18 +5,19 @@ import conformsTo from 'lodash/conformsTo'
 import isNil from 'lodash/isNil'
 import isNumber from 'lodash/isNumber'
 import PropTypes from 'prop-types'
-import React, { useEffect, useState } from 'react'
-import { useBet, useTeam } from '../../../hooks'
+import { useEffect, useState } from 'react'
+import { useBet } from '../../../hooks/bets'
+import { useTeam } from '../../../hooks/teams'
 import Bet from './Bet'
 import ChoiceWinner from './ChoiceWinner'
+import InformationMatch from './InformationMatch'
+import InformationResult from './InformationResult'
 import './Match.scss'
 import MatchInfos from './MatchInfos'
 import Odds from './Odds'
 import PointsWon from './PointsWon'
 import Scores from './Scores'
 import ValidIcon from './ValidIcon'
-import InformationResult from './InformationResult'
-import InformationMatch from './InformationMatch'
 
 const empty = {}
 const scoreValidator = (score) => isNumber(score) && score >= 0
@@ -171,7 +172,7 @@ const Match = ({ matchSnapshot }) => {
 }
 
 Match.defaultProps = {
-  match: {},
+  match: empty,
   bet: empty,
 }
 

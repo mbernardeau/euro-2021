@@ -1,11 +1,7 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-import Tooltip from '@mui/material/Tooltip'
-
 import CheckIcon from '@mui/icons-material/Check'
 import ClearIcon from '@mui/icons-material/Clear'
-
+import Tooltip from '@mui/material/Tooltip'
+import PropTypes from 'prop-types'
 import './ValidIcon.scss'
 
 const ValidIcon = ({ valid }) => (

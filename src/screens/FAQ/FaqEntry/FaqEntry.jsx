@@ -1,11 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Accordion from '@mui/material/Accordion'
-import AccordionSummary from '@mui/material/AccordionSummary'
-import AccordionDetails from '@mui/material/AccordionDetails'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-
-import { Typography } from '@mui/material'
+import Accordion from '@mui/material/Accordion'
+import AccordionDetails from '@mui/material/AccordionDetails'
+import AccordionSummary from '@mui/material/AccordionSummary'
+import Typography from '@mui/material/Typography'
+import PropTypes from 'prop-types'
+import { memo } from 'react'
 
 const FaqEntry = ({ question, answer }) => (
   <Accordion>
@@ -25,4 +24,4 @@ FaqEntry.propTypes = {
   answer: PropTypes.node.isRequired,
 }
 
-export default FaqEntry
+export default memo(FaqEntry)

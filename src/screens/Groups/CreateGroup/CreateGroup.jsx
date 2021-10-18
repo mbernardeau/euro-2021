@@ -7,7 +7,7 @@ import FormHelperText from '@mui/material/FormHelperText'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import React, { useState } from 'react'
-import { useCreateGroup } from '../../../hooks'
+import { useCreateGroup } from '../../../hooks/groups'
 import './CreateGroup.scss'
 import CurrencyFormat from './CurrencyFormat'
 
