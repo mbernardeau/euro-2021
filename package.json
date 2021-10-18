@@ -73,7 +73,7 @@
     "@firebase/rules-unit-testing": "^2.0.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.4.1",
+    "@testing-library/user-event": "^13.5.0",
     "@types/estree": "^0.0.50",
     "babel-plugin-transform-imports": "^2.0.0",
     "bundlewatch": "^0.3.2",
