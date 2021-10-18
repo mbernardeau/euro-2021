@@ -1,1 +1,3 @@
-export { default } from './rules'
+import { lazy } from 'react'
+
+export default lazy(() => import('./rules'))

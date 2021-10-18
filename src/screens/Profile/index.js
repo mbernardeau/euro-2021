@@ -1,1 +1,3 @@
-export { default } from './Profile'
+import { lazy } from 'react'
+
+export default lazy(() => import('./Profile'))

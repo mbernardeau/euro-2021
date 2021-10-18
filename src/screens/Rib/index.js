@@ -1,1 +1,3 @@
-export { default } from './Rib'
+import { lazy } from 'react'
+
+export default lazy(() => import('./Rib'))

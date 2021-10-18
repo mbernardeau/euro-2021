@@ -1,1 +1,3 @@
-export { default } from './Ranking'
+import { lazy } from 'react'
+
+export default lazy(() => import('./Ranking'))

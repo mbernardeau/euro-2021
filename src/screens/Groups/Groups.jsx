@@ -1,9 +1,8 @@
-import JoinGroup from './JoinGroup'
-import CreateGroup from './CreateGroup'
 import AdminGroups from './AdminGroups'
-import MyGroups from './MyGroups'
-
+import CreateGroup from './CreateGroup'
 import './groups.scss'
+import JoinGroup from './JoinGroup'
+import MyGroups from './MyGroups'
 
 const Groups = () => (
   <div className="groups-container">

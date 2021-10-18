@@ -1,1 +1,3 @@
-export { default } from './ValidInscription'
+import { lazy } from 'react'
+
+export default lazy(() => import('./ValidInscription'))

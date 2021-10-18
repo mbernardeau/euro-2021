@@ -1,1 +1,3 @@
-export { default } from './Stadiums'
+import { lazy } from 'react'
+
+export default lazy(() => import('./Stadiums'))

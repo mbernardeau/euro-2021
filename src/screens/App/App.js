@@ -140,35 +140,37 @@ const App = () => {
       {signedIn && permission === 'granted' && <NotificationHandler />}
 
       <div className="app-content">
-        {/* Routes accessibles sans connexion */}
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/rules" component={RulesPage} />
-          <Route path="/faq" component={FAQPage} />
-          <Route path="/stadiums" component={Stadiums} />
+        <Suspense fallback={<>Loading page...</>}>
+          {/* Routes accessibles sans connexion */}
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/rules" component={RulesPage} />
+            <Route path="/faq" component={FAQPage} />
+            <Route path="/stadiums" component={Stadiums} />
 
-          {signedIn && (
-            <>
-              {/* Routes accessibles avec connexion */}
-              <Route path="/matches" component={MatchesPage} />
-              <Route path="/ranking" component={RankingPage} />
-              <Route path="/groups" component={GroupsPage} />
-              <Route path="/profile" component={Profile} />
-              <Route path="/rib" component={Rib} />
+            {signedIn && (
+              <>
+                {/* Routes accessibles avec connexion */}
+                <Route path="/matches" component={MatchesPage} />
+                <Route path="/ranking" component={RankingPage} />
+                <Route path="/groups" component={GroupsPage} />
+                <Route path="/profile" component={Profile} />
+                <Route path="/rib" component={Rib} />
 
-              {/* Route accessible pour admin */}
-              {adminUser && (
-                <Route
-                  path="/validinscription"
-                  component={ValidInscriptionPage}
-                />
-              )}
-            </>
-          )}
+                {/* Route accessible pour admin */}
+                {adminUser && (
+                  <Route
+                    path="/validinscription"
+                    component={ValidInscriptionPage}
+                  />
+                )}
+              </>
+            )}
 
-          {/* NotFoundPage en dernier choix sinon il est active */}
-          <Route component={NotFoundPage} />
-        </Switch>
+            {/* NotFoundPage en dernier choix sinon il est active */}
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Suspense>
       </div>
     </>
   )

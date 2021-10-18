@@ -1,3 +1,3 @@
-import Matches from './Matches'
+import { lazy } from 'react'
 
-export default Matches
+export default lazy(() => import('./Matches'))
