@@ -8,12 +8,17 @@ import {
   query,
   where,
   onSnapshot,
+  QueryDocumentSnapshot,
+  DocumentData,
 } from '@firebase/firestore'
 import { useFirestore } from 'reactfire'
+import { Dictionary } from 'lodash'
 
-export const useBatchedMultiGet = (ids, collectionName) => {
+export const useBatchedMultiGet = (ids: string[], collectionName: string) => {
   const idChunks = useMemo(() => chunk(ids, 10), [ids])
-  const [entities, setEntities] = useState({})
+  const [entities, setEntities] = useState<
+    Dictionary<QueryDocumentSnapshot<DocumentData>>
+  >({})
   const firestore = useFirestore()
 
   useEffect(() => {
