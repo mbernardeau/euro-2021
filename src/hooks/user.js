@@ -4,7 +4,7 @@ import {
   signInWithRedirect,
 } from '@firebase/auth'
 import { collection, doc } from '@firebase/firestore'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import {
   useAuth,
   useFirestore,
@@ -35,11 +35,11 @@ export const useFacebookLogin = () => {
 
 export const useLogout = () => {
   const auth = useAuth()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   return async () => {
     await auth.signOut()
-    history.push('/')
+    navigate('/')
   }
 }
 

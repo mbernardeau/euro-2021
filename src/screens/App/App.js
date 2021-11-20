@@ -25,7 +25,7 @@ import IconButton from '@mui/material/IconButton'
 import Toolbar from '@mui/material/Toolbar'
 import PropTypes from 'prop-types'
 import { Suspense, useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { useAuth, useFirestore, useSigninCheck } from 'reactfire'
 import Baniere from '../../assets/visuels/bandeausignature.png'
 import Baniere_mobile from '../../assets/visuels/baniere_pm.png'
@@ -142,34 +142,34 @@ const App = () => {
       <div className="app-content">
         <Suspense fallback={<>Loading page...</>}>
           {/* Routes accessibles sans connexion */}
-          <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route path="/rules" component={RulesPage} />
-            <Route path="/faq" component={FAQPage} />
-            <Route path="/stadiums" component={Stadiums} />
+          <Routes>
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/rules" element={<RulesPage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/stadiums" element={<Stadiums />} />
 
             {signedIn && (
               <>
                 {/* Routes accessibles avec connexion */}
-                <Route path="/matches" component={MatchesPage} />
-                <Route path="/ranking" component={RankingPage} />
-                <Route path="/groups" component={GroupsPage} />
-                <Route path="/profile" component={Profile} />
-                <Route path="/rib" component={Rib} />
+                <Route path="/matches" element={<MatchesPage />} />
+                <Route path="/ranking" element={<RankingPage />} />
+                <Route path="/groups" element={<GroupsPage />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/rib" element={<Rib />} />
 
                 {/* Route accessible pour admin */}
                 {adminUser && (
                   <Route
                     path="/validinscription"
-                    component={ValidInscriptionPage}
+                    element={<ValidInscriptionPage />}
                   />
                 )}
               </>
             )}
 
             {/* NotFoundPage en dernier choix sinon il est active */}
-            <Route component={NotFoundPage} />
-          </Switch>
+            <Route element={<NotFoundPage />} />
+          </Routes>
         </Suspense>
       </div>
     </>

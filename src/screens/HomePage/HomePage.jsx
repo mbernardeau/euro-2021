@@ -22,6 +22,7 @@ import myImage from '../../assets/visuels/bandeauEvenement_PM.jpg'
 import { useCompetitionData } from '../../hooks/competition'
 import FinalWinner from './FinalWinner'
 import './HomePage.scss'
+import { useNavigate } from 'react-router'
 
 const WinnerChoice = () => {
   const competitionData = useCompetitionData()
@@ -41,7 +42,8 @@ const WinnerChoice = () => {
   )
 }
 
-const HomePage = ({ history }) => {
+const HomePage = () => {
+  const navigate = useNavigate()
   const {
     data: { signedIn },
   } = useSigninCheck()
@@ -73,7 +75,7 @@ const HomePage = ({ history }) => {
           <p>Les règles du jeu :</p>
           <Button
             className="home-button"
-            onClick={() => history.push('/rules')}
+            onClick={() => navigate('/rules')}
             color="primary"
           >
             <ListIcon className="icon-left" />
@@ -86,7 +88,7 @@ const HomePage = ({ history }) => {
               <p>Tous vos paris : </p>
               <Button
                 className="home-button"
-                onClick={() => history.push('/matches')}
+                onClick={() => navigate('/matches')}
                 color="primary"
               >
                 <EventAvailableIcon className="icon-left" />
@@ -97,7 +99,7 @@ const HomePage = ({ history }) => {
               <p>Votre classement : </p>
               <Button
                 className="home-button"
-                onClick={() => history.push('/ranking')}
+                onClick={() => navigate('/ranking')}
                 color="primary"
               >
                 <PollIcon className="icon-left" />
@@ -116,8 +118,5 @@ const HomePage = ({ history }) => {
 export default HomePage
 
 HomePage.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }).isRequired,
   user: PropTypes.object,
 }
