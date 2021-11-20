@@ -5,7 +5,7 @@ import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 import PropTypes from 'prop-types'
 import { Suspense } from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import SideImg from '../../../assets/visuels/rules-281x310.png'
 import { useIsUserAdmin, useIsUserConnected } from '../../../hooks/user'
 import { openPAMTab } from '../../../utils'
@@ -14,12 +14,10 @@ import './NavigationMenu.scss'
 const NavigationMenu = ({ closeMenu, menuOpen }) => {
   const isConnected = useIsUserConnected()
   const isAdmin = useIsUserAdmin()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const goTo = (to) => () => {
-    if (history.location.pathname !== to) {
-      history.push(to)
-    }
+    navigate(to)
     closeMenu()
   }
 

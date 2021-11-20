@@ -4,7 +4,7 @@ import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 import { useRef, useState } from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import { useAuth } from 'reactfire'
 import { useLogout } from '../../../../hooks/user'
 import './user.scss'
@@ -14,7 +14,7 @@ const User = () => {
   const logout = useLogout()
   const [isOpen, setIsOpen] = useState(false)
   const anchorEl = useRef()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   return (
     <div className="user-widget">
@@ -41,7 +41,7 @@ const User = () => {
       >
         <MenuItem
           onClick={() => {
-            history.push('/profile')
+            navigate('/profile')
             setIsOpen(false)
           }}
         >
