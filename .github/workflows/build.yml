@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v2.5.0
         with:
           node-version: '14'
-      - uses: actions/cache@v2.1.6
+      - uses: actions/cache@v2.1.7
         id: npm-cache
         with:
           path: |
@@ -70,7 +70,7 @@ jobs:
         with:
           name: euro-built
           path: build
-      - uses: actions/cache@v2.1.6
+      - uses: actions/cache@v2.1.7
         id: npm-cache
         with:
           path: |
@@ -106,7 +106,7 @@ jobs:
       - uses: actions/setup-node@v2.5.0
         with:
           node-version: '14'
-      - uses: actions/cache@v2.1.6
+      - uses: actions/cache@v2.1.7
         id: npm-cache
         with:
           path: |
