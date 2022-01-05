@@ -1,7 +1,7 @@
 /*
  * Check if the sum of points won equals to the points people have in ranking
  */
-const { serviceAccount } = require('./chooseDatabase.js')
+const { serviceAccount } = require('../chooseDatabase.js')
 
 const admin = require('firebase-admin')
 admin.initializeApp({

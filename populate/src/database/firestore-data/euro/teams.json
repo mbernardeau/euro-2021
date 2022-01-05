@@ -7,6 +7,7 @@
          "name": "Italie",
          "subCollection": {
          },
+         "unveiled": true,
          "winOdd": 110
       },
       "-Kj2zfpEdmB6SgyPd85W": {
@@ -110,11 +111,12 @@
       },
       "-Kj2zfpKYdjdHhPukkXs": {
          "code": "gb-eng",
-         "elimination": false,
+         "elimination": true,
          "group": "D",
          "name": "Angleterre",
          "subCollection": {
          },
+         "unveiled": true,
          "winOdd": 55
       },
       "-Kj2zfpKYdjdHhPukkXt": {

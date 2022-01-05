@@ -1,4 +1,4 @@
-const { serviceAccount, directoryDatabase } = require('./chooseDatabase.js')
+const { serviceAccount, directoryDatabase } = require('../chooseDatabase.js')
 
 const fs = require('fs')
 const { backup, initializeApp } = require('firestore-export-import')
