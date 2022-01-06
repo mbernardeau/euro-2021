@@ -48,7 +48,11 @@ const displayForgottenBets = async () => {
     }),
   )
 
-  console.table(flatten(table).filter((a) => !a.exist))
+  console.table(
+    flatten(table)
+      .filter((a) => !a.exist)
+      .map(({ exist, ...o }) => o),
+  )
 }
 
 /**
