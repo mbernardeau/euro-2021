@@ -6,7 +6,7 @@
   "dependencies": {
     "@google-cloud/firestore": "^4.15.1",
     "@google-cloud/storage": "^5.17.0",
-    "firebase-admin": "^10.0.1",
+    "firebase-admin": "^10.0.2",
     "firebase-functions": "^3.16.0"
   },
   "engines": {
