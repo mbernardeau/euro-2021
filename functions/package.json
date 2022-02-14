@@ -20,7 +20,7 @@
   "private": true,
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.12.0",
-    "@typescript-eslint/parser": "^5.11.0",
+    "@typescript-eslint/parser": "^5.12.0",
     "typescript": "^4.5.5"
   }
 }
