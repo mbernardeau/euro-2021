@@ -1,8 +1,8 @@
 const { serviceAccount, directoryDatabase } = require('./chooseDatabase.js')
 
-const { restore, initializeApp } = require('firestore-export-import')
+const { restore, initializeFirebaseApp } = require('firestore-export-import')
 
-initializeApp(serviceAccount)
+initializeFirebaseApp(serviceAccount)
 
 const options = {
   autoParseDates: true,
