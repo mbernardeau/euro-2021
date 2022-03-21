@@ -80,7 +80,7 @@
     "bundlewatch": "^0.3.3",
     "cross-env": "^7.0.3",
     "http-proxy-middleware": "^2.0.4",
-    "prettier": "^2.5.1",
+    "prettier": "^2.6.0",
     "source-map-explorer": "^2.5.2",
     "typescript": "^4.6.2"
   }
