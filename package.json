@@ -73,7 +73,7 @@
     "@firebase/rules-unit-testing": "^2.0.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.5",
-    "@testing-library/user-event": "^14.1.0",
+    "@testing-library/user-event": "^14.1.1",
     "@types/estree": "^0.0.51",
     "@types/lodash": "^4.14.181",
     "babel-plugin-transform-imports": "^2.0.0",
