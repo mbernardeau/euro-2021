@@ -1,7 +1,7 @@
 /*
  * Display which user has no winnerTeam
  */
-const { serviceAccount } = require('./chooseDatabase.js')
+const { serviceAccount } = require('../chooseDatabase.js')
 
 const admin = require('firebase-admin')
 admin.initializeApp({

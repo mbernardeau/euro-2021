@@ -13,11 +13,12 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "console": "integratedTerminal",
+            "console": "internalConsole",
             "program": "${file}",
             "skipFiles": [
                 "<node_internals>/**"
-            ]
+            ],
+            "cwd": "${fileDirname}"
         }
     ]
 }

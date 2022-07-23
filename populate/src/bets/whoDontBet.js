@@ -1,7 +1,7 @@
 /*
  * Display which user didn't bet on which match
  */
-const { serviceAccount } = require('./chooseDatabase.js')
+const { serviceAccount } = require('../chooseDatabase.js')
 
 const admin = require('firebase-admin')
 admin.initializeApp({
@@ -48,7 +48,11 @@ const displayForgottenBets = async () => {
     }),
   )
 
-  console.table(flatten(table).filter((a) => !a.exist))
+  console.table(
+    flatten(table)
+      .filter((a) => !a.exist)
+      .map(({ exist, ...o }) => o),
+  )
 }
 
 /**
