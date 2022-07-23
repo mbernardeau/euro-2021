@@ -1,10 +1,10 @@
 const { serviceAccount, directoryDatabase } = require('../chooseDatabase.js')
 
 const fs = require('fs')
-const { backup, initializeApp } = require('firestore-export-import')
+const { backup, initializeFirebaseApp } = require('firestore-export-import')
 var stringify = require('json-stable-stringify')
 
-initializeApp(serviceAccount)
+initializeFirebaseApp(serviceAccount)
 
 const exportCollection = (collectionName) => {
   backup(collectionName).then((data) => {
