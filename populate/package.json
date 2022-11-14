@@ -15,6 +15,6 @@
   "dependencies": {
     "firebase-admin": "10.2.0",
     "firestore-export-import": "^1.2.0",
-    "json-stable-stringify": "^1.0.1"
+    "json-stable-stringify": "^1.0.2"
   }
 }
