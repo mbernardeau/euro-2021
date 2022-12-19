@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "firebase-admin": "10.2.0",
+    "firebase-admin": "11.4.0",
     "firestore-export-import": "^1.2.0",
     "json-stable-stringify": "^1.0.1"
   }
